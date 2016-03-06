@@ -21,4 +21,8 @@ object ImageContour extends App {
     }
     source.close()
   }
+
+  def apply(): Unit = {
+
+  }
 }
