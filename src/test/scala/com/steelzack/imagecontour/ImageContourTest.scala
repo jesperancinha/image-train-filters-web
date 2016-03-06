@@ -1,5 +1,10 @@
 package com.steelzack.imagecontour
 
+import java.awt.image.BufferedImage
+import java.io.ByteArrayInputStream
+import java.nio.file.{Paths, Files}
+import javax.imageio.ImageIO
+
 import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
 import org.junit._
@@ -8,12 +13,15 @@ import org.junit._
   */
 class ImageContourTest extends FunSuite with MockitoSugar{
   @Test
-  def  printCharsToConsole () {
+  def  testPrintCharsToConsole () {
 
-    val source = scala.io.Source.fromURL(getClass().getResource("/testPanther.jpg"))
+    val fileBytes = Files.readAllBytes(Paths.get(getClass().getResource("/testPanther.jpg").toURI))
+    val byteStream : java.io.InputStream = new ByteArrayInputStream(fileBytes)
+    val bImageFromConvert :  BufferedImage = ImageIO.read(byteStream);
+    byteStream.close
 
-    var imgContour = ImageContour;
+    val imageContour = ImageContour
 
-    imgContour.printCharsToConsole(source)
+    imageContour.printCharsToConsole(bImageFromConvert)
   }
 }
