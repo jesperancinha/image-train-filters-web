@@ -12,6 +12,7 @@ import org.junit._
   * Created by joaofilipesabinoesperancinha on 03-03-16.
   */
 class ImageContourTest extends FunSuite with MockitoSugar{
+
   @Test
   def  testPrintCharsToConsole () {
 
@@ -23,5 +24,7 @@ class ImageContourTest extends FunSuite with MockitoSugar{
     val imageContour = ImageContour
 
     imageContour.printCharsToConsole(bImageFromConvert)
+
+    var i: Integer = 1
   }
 }

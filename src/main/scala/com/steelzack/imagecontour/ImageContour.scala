@@ -22,10 +22,18 @@ object ImageContour extends App {
   }
 
   def printCharsToConsole(source: BufferedImage) {
+    val arr = Array.fill[Double](3)(0.0)
+
     var i = 0
-    for (i <- 1 to source.getWidth) {
-      print(i)
+    var j = 0
+    for (i <- 1 to source.getWidth - 1) {
+      for (j <- 1 to source.getHeight - 1) {
+        source.getData().getPixel(i, j, arr)
+        print("(" + i + "," + j + ")")
+      }
+      print("\n")
     }
+    var t: Integer = 2
   }
 
   def apply(): Unit = {
