@@ -23,7 +23,7 @@ class ImageContourTest extends FunSuite with MockitoSugar{
 
     val imageContour = ImageContour
 
-    imageContour.printCharsToConsole(bImageFromConvert)
+    imageContour.convertAndSaveImage(bImageFromConvert, 0x0000, 0xFFFFFF, 0.20)
 
     var i: Integer = 1
   }
