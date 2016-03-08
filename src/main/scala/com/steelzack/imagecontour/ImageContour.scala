@@ -1,7 +1,7 @@
 package com.steelzack.imagecontour
 
 import java.awt.image.BufferedImage
-import java.io.ByteArrayInputStream
+import java.io.{File, ByteArrayInputStream}
 import java.nio.file.{Paths, Files}
 import javax.imageio.ImageIO
 
@@ -21,19 +21,24 @@ object ImageContour extends App {
     printCharsToConsole(bImageFromConvert)
   }
 
+
   def printCharsToConsole(source: BufferedImage) {
+    val w: Int = source.getWidth
+    val h: Int = source.getHeight
     val arr = Array.fill[Double](3)(0.0)
+    var out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
 
     var i = 0
     var j = 0
-    for (i <- 1 to source.getWidth - 1) {
-      for (j <- 1 to source.getHeight - 1) {
-        source.getData().getPixel(i, j, arr)
-        print("(" + i + "," + j + ")")
+    for (i <- 1 to w - 1) {
+      for (j <- 1 to h - 1) {
+        //source.getData().getPixel(i, j, arr)
+        //print("(" + i + "," + j + ")")
+        out.setRGB(i,j,source.getRGB(i,j))
       }
       print("\n")
     }
-    var t: Integer = 2
+  ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
   }
 
   def apply(): Unit = {
