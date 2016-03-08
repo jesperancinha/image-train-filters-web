@@ -28,7 +28,7 @@ object ImageContour extends App {
     val w: Int = source.getWidth
     val h: Int = source.getHeight
     val arr = Array.fill[Double](3)(0.0)
-    var out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
+    val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
 
     var i = 0
     var j = 0
@@ -39,10 +39,27 @@ object ImageContour extends App {
         } else {
           //source.getData().getPixel(i, j, arr)
           //print("(" + i + "," + j + ")")
-          out.setRGB(i, j, source.getRGB(i, j))
+          val currentColor: Double = source.getRGB(i, j)
+          val diff: Double = diffThreshold * currentColor
+          val colorTop: Double = currentColor + diff
+          val colorBottom: Double = currentColor - diff
+          val nextHColor: Double = source.getRGB(i + 1, j)
+          val nextVColor: Double = source.getRGB(i, j + 1)
+          var drawColor = bgColor;
+
+          if (colorTop > nextHColor) {
+            drawColor = lnColor;
+          } else if (colorBottom < nextHColor) {
+            drawColor = lnColor
+          } else if (colorTop > nextVColor) {
+            drawColor = lnColor
+          } else if (colorBottom < nextVColor) {
+            drawColor = lnColor
+          }
+
+          out.setRGB(i, j, drawColor)
         }
       }
-      print("\n")
     }
 
     ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
