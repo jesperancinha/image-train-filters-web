@@ -14,7 +14,7 @@ import org.junit._
 class ImageContourTest extends FunSuite with MockitoSugar{
 
   @Test
-  def  testPrintCharsToConsole () {
+  def  testPrintCharsToConsole_2 () {
 
     val fileBytes = Files.readAllBytes(Paths.get(getClass().getResource("/testPanther.jpg").toURI))
     val byteStream : java.io.InputStream = new ByteArrayInputStream(fileBytes)
@@ -24,5 +24,18 @@ class ImageContourTest extends FunSuite with MockitoSugar{
     val imageContour = ImageContour
 
     imageContour.convertAndSaveImage(bImageFromConvert, 0xFFFFFF, 0x000000, 800000, 2)
+  }
+
+  @Test
+  def  testPrintCharsToConsole_1 () {
+
+    val fileBytes = Files.readAllBytes(Paths.get(getClass().getResource("/testPanther.jpg").toURI))
+    val byteStream : java.io.InputStream = new ByteArrayInputStream(fileBytes)
+    val bImageFromConvert :  BufferedImage = ImageIO.read(byteStream);
+    byteStream.close
+
+    val imageContour = ImageContour
+
+    imageContour.convertAndSaveImage(bImageFromConvert, 0xFFFFFF, 0x000000, 800000, 1)
   }
 }
