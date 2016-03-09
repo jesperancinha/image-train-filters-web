@@ -18,7 +18,6 @@ object ImageContour {
                          ) {
     val w: Int = source.getWidth
     val h: Int = source.getHeight
-    val arr = Array.fill[Double](3)(0.0)
     val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
 
     for (i <- 1 to w - 1) {
