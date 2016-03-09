@@ -21,8 +21,6 @@ object ImageContour {
     val arr = Array.fill[Double](3)(0.0)
     val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
 
-    var i = 0
-    var j = 0
     for (i <- 1 to w - 1) {
       for (j <- 1 to h - 1) {
         if (i + radius >= w || j + radius >= h || i <= radius || j <= radius) {
