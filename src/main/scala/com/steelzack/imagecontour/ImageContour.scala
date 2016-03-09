@@ -16,14 +16,15 @@ object ImageContour extends App {
     val byteStream: java.io.InputStream = new ByteArrayInputStream(fileBytes)
     val bImageFromConvert: BufferedImage = ImageIO.read(byteStream);
     byteStream.close
-    convertAndSaveImage(bImageFromConvert, 0x0000, 0xFFFF, 0.20)
+    convertAndSaveImage(bImageFromConvert, 0x0000, 0xFFFF, 500000, 5)
   }
 
 
   def convertAndSaveImage(source: BufferedImage, //
                           bgColor: Int, //
                           lnColor: Int, //
-                          diffThreshold: Double //
+                          diffThreshold: Double, //
+                          radius: Int
                          ) {
     val w: Int = source.getWidth
     val h: Int = source.getHeight
@@ -34,26 +35,27 @@ object ImageContour extends App {
     var j = 0
     for (i <- 1 to w - 1) {
       for (j <- 1 to h - 1) {
-        if (i + 1 == w || j + 1 == h) {
-          out.setRGB(i, j, source.getRGB(i, j))
+        if (i + radius >= w || j + radius >= h || i <= radius || j <= radius) {
+          out.setRGB(i, j, bgColor)
         } else {
           //source.getData().getPixel(i, j, arr)
           //print("(" + i + "," + j + ")")
           val currentColor: Double = source.getRGB(i, j)
-          val diff: Double = diffThreshold * currentColor
-          val colorTop: Double = currentColor + diff
-          val colorBottom: Double = currentColor - diff
-          val nextHColor: Double = source.getRGB(i + 1, j)
-          val nextVColor: Double = source.getRGB(i, j + 1)
+          val colorTop: Double = currentColor + diffThreshold
+          val colorBottom: Double = currentColor - diffThreshold
+          val nextHColor: Double = source.getRGB(i + radius, j)
+          val nextVColor: Double = source.getRGB(i, j + radius)
+          val prevHColor: Double = source.getRGB(i - radius, j)
+          val prevVColor: Double = source.getRGB(i, j - radius)
           var drawColor = bgColor;
 
-          if (colorTop > nextHColor) {
+          if (colorTop < nextHColor || colorTop < prevHColor) {
             drawColor = lnColor;
-          } else if (colorBottom < nextHColor) {
+            } else if (colorBottom > nextHColor || colorBottom > prevHColor) {
             drawColor = lnColor
-          } else if (colorTop > nextVColor) {
+          } else if (colorTop < nextVColor || colorTop < prevVColor) {
             drawColor = lnColor
-          } else if (colorBottom < nextVColor) {
+          } else if (colorBottom > nextVColor || colorBottom > prevVColor) {
             drawColor = lnColor
           }
 
