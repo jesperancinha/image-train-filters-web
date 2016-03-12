@@ -34,16 +34,42 @@ class ImageKuwahara$Test extends FunSuite with BeforeAndAfterEach {
     imageContour.convertAndSaveImage(sourceImage, 2)
   }
 
-  test("testConvertAndSaveImageEyePanther") {
+  test("testConvertAndSaveImageKuwahara2") {
 
-    val sourceImage: BufferedImage = getBufferedResource("/testEye.png")
+    val sourceImage: BufferedImage = getBufferedResource("/testKuwahara2.png")
 
     val imageContour = ImageKuwahara
 
     imageContour.convertAndSaveImage(sourceImage, 2)
   }
 
+  test("testConvertAndSaveImageEyePantherBW") {
 
+    val sourceImage: BufferedImage = getBufferedResource("/testEyeBW.png")
+
+    val imageContour = ImageKuwahara
+
+    imageContour.convertAndSaveImage(sourceImage, 2, 1)
+  }
+
+  test("testConvertAndSaveImageEyePanther") {
+
+    val sourceImage: BufferedImage = getBufferedResource("/testEye.png")
+
+    val imageContour = ImageKuwahara
+
+    imageContour.convertAndSaveImage(sourceImage, 4, 1)
+  }
+
+
+  test("testConvertAndSaveImagePanther") {
+
+    val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
+
+    val imageContour = ImageKuwahara
+
+    imageContour.convertAndSaveImage(sourceImage, 2)
+  }
 
   test("testGetAverage") {
 
