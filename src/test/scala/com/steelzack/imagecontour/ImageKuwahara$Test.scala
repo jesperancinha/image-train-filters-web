@@ -68,7 +68,7 @@ class ImageKuwahara$Test extends FunSuite with BeforeAndAfterEach {
 
     val imageContour = ImageKuwahara
 
-    imageContour.convertAndSaveImage(sourceImage, 2)
+    imageContour.convertAndSaveImage(sourceImage, 2, 3)
   }
 
   test("testGetAverage") {

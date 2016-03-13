@@ -1,64 +1,62 @@
 package com.steelzack.imagecontour
 
 import java.awt.Color
-import java.awt.image.BufferedImage
+import java.awt.image.{BufferedImage, Raster}
 import java.io.File
 import javax.imageio.ImageIO
-
-import sun.plugin2.util.ColorUtil.ColorRGB
-
-import scala.util.control.Exception
 
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.
   */
 object ImageKuwahara {
 
-  def getAverage(source: BufferedImage, x1: Int, y1: Int, x2: Int, y2: Int): Array[Double] = {
-    var numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
+  def getAverage(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Array[Double] = {
+    val numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
     val arr: Array[Double] = Array.fill[Double](4)(0)
     val total: Array[Double] = Array.fill[Double](4)(0)
 
-    for (i <- x1 to x2) {
-      for (j <- y1 to y2) {
-        if (validatePoint(source, x1, y1, x2, y2)) {
+    if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
+
+      for (i <- x1 to x2) {
+        for (j <- y1 to y2) {
           try {
-            source.getData().getPixel(i, j, arr)
+            sourceData.getPixel(i, j, arr)
             total(0) = total(0) + arr(0)
             total(1) = total(1) + arr(1)
             total(2) = total(2) + arr(2)
             total(3) = total(3) + arr(3)
           } catch {
             case e: Exception => println("Get Average Out of bounds! ", i, j)
+              throw e
           }
-        } else {
-          numberOfPoints -= 1
         }
       }
+
+      total(0) = total(0) / numberOfPoints
+      total(1) = total(1) / numberOfPoints
+      total(2) = total(2) / numberOfPoints
+      total(3) = total(3) / numberOfPoints
+
+      total
+    } else {
+      Array.fill[Double](0)(0.0)
     }
-
-    total(0) = total(0) / numberOfPoints
-    total(1) = total(1) / numberOfPoints
-    total(2) = total(2) / numberOfPoints
-    total(3) = total(3) / numberOfPoints
-
-    total
   }
 
-  def validatePoint(source: BufferedImage, x1: Int, y1: Int, x2: Int, y2: Int): Boolean = {
-    x1 >= 0 && x2 < source.getWidth() && y1 >= 0 && y2 < source.getHeight()
+  def validatePoint(source: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Boolean = {
+    x1 >= 0 && x2 < source.getWidth && y1 >= 0 && y2 < source.getHeight && x2 - x1 + 1 == square && y2 - y1 + 1 == square
   }
 
-  def getAverageGrey(source: BufferedImage, x1: Int, y1: Int, x2: Int, y2: Int): Double = {
-    var numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
+  def getAverageGrey(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Double = {
+    val numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
     val arr = Array.fill[Int](4)(0)
     var total: Double = 0
 
-    for (i <- x1 to x2) {
-      for (j <- y1 to y2) {
-        if (validatePoint(source, x1, y1, x2, y2)) {
+    if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
+      for (i <- x1 to x2) {
+        for (j <- y1 to y2) {
           try {
-            source.getData().getPixel(i, j, arr)
+            sourceData.getPixel(i, j, arr)
             val hsv = Array.fill[Float](4)(0)
             Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
             total += hsv(3)
@@ -66,41 +64,44 @@ object ImageKuwahara {
           }
           catch {
             case e: Exception => println("Get Average Grey Out of bounds! ", i, j)
+              throw e
           }
-        } else {
-          numberOfPoints -= 1
         }
       }
-    }
 
-    total / numberOfPoints
+      total / numberOfPoints
+    } else {
+      Double.NaN
+    }
   }
 
-  def getStandardDeviation(source: BufferedImage, x1: Int, y1: Int, x2: Int, y2: Int, avg: Double): Double = {
-    var numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
+  def getStandardDeviation(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, avg: Double, square: Int): Double = {
+    val numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
     val arr = Array.fill[Int](4)(0)
     var total: Double = 0.0
 
-    for (i <- x1 to x2) {
-      for (j <- y1 to y2) {
-        if (validatePoint(source, x1, y1, x2, y2)) {
+    if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
+      for (i <- x1 to x2) {
+        for (j <- y1 to y2) {
           try {
-            source.getData().getPixel(i, j, arr)
+            sourceData.getPixel(i, j, arr)
             val hsv = Array.fill[Float](4)(0)
             Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
             total += math.pow(hsv(3) - avg, 2)
           }
           catch {
             case e: Exception => println("Get Standard Deviation Out of bounds! ", i, j)
+              throw e
           }
-        } else {
-          numberOfPoints -= 1
         }
       }
-    }
 
-    total = total / numberOfPoints
-    total
+      total = total / numberOfPoints
+      total
+    }
+    else {
+      Double.NaN
+    }
   }
 
   def getRealMinValue(std1: Double, std2: Double): Double = {
@@ -143,35 +144,35 @@ object ImageKuwahara {
   }
 
   def convertAndSaveImage(source: BufferedImage, squareSize: Int, iterations: Int = 1) {
-    val w: Int = source.getWidth
-    val h: Int = source.getHeight
     var out: BufferedImage = null
-    var srcOut = source
+    var srcOut: Raster = source.getData()
+    val w: Int = srcOut.getWidth
+    val h: Int = srcOut.getHeight
     for (i <- 0 to iterations) {
-      out = new BufferedImage(w, h, BufferedImage.TYPE_INT_BGR)
+      out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
       performIteration(srcOut, squareSize, w, h, out)
-      srcOut = out;
+      srcOut = out.getRaster;
     }
     ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
   }
 
-  def performIteration(source: BufferedImage, squareSize: Int, w: Int, h: Int, out: BufferedImage): Unit = {
-    for (i <- 0 to w - 1) {
-      for (j <- 0 to h - 1) {
-        val avg1: Double = getAverageGrey(source, i - squareSize, j - squareSize, i - 1, j - 1)
-        val avg2: Double = getAverageGrey(source, i - squareSize, j + 1, i - 1, j + squareSize)
-        val avg3: Double = getAverageGrey(source, i + 1, j - squareSize, i + squareSize, j - 1)
-        val avg4: Double = getAverageGrey(source, i + 1, j + 1, i + squareSize, j + squareSize)
+  def performIteration(sourceData: Raster, squareSize: Int, w: Int, h: Int, out: BufferedImage): Unit = {
+    for (i <- w - 1 until -1 by -1) {
+      for (j <- h - 1 until -1 by -1) {
+        val avg1: Double = getAverageGrey(sourceData, i - squareSize, j - squareSize, i - 1, j - 1, squareSize)
+        val avg2: Double = getAverageGrey(sourceData, i - squareSize, j + 1, i - 1, j + squareSize, squareSize)
+        val avg3: Double = getAverageGrey(sourceData, i + 1, j - squareSize, i + squareSize, j - 1, squareSize)
+        val avg4: Double = getAverageGrey(sourceData, i + 1, j + 1, i + squareSize, j + squareSize, squareSize)
 
-        val avg1Color: Array[Double] = getAverage(source, i - squareSize, j - squareSize, i - 1, j - 1)
-        val avg2Color: Array[Double] = getAverage(source, i - squareSize, j + 1, i - 1, j + squareSize)
-        val avg3Color: Array[Double] = getAverage(source, i + 1, j - squareSize, i + squareSize, j - 1)
-        val avg4Color: Array[Double] = getAverage(source, i + 1, j + 1, i + squareSize, j + squareSize)
+        val avg1Color: Array[Double] = getAverage(sourceData, i - squareSize, j - squareSize, i - 1, j - 1, squareSize)
+        val avg2Color: Array[Double] = getAverage(sourceData, i - squareSize, j + 1, i - 1, j + squareSize, squareSize)
+        val avg3Color: Array[Double] = getAverage(sourceData, i + 1, j - squareSize, i + squareSize, j - 1, squareSize)
+        val avg4Color: Array[Double] = getAverage(sourceData, i + 1, j + 1, i + squareSize, j + squareSize, squareSize)
 
-        val std1: Double = getStandardDeviation(source, i - squareSize, j - squareSize, i - 1, j - 1, avg1)
-        val std2: Double = getStandardDeviation(source, i - squareSize, j + 1, i - 1, j + squareSize, avg2)
-        val std3: Double = getStandardDeviation(source, i + 1, j - squareSize, i + squareSize, j - 1, avg3)
-        val std4: Double = getStandardDeviation(source, i + 1, j + 1, i + squareSize, j + squareSize, avg4)
+        val std1: Double = getStandardDeviation(sourceData, i - squareSize, j - squareSize, i - 1, j - 1, avg1, squareSize)
+        val std2: Double = getStandardDeviation(sourceData, i - squareSize, j + 1, i - 1, j + squareSize, avg2, squareSize)
+        val std3: Double = getStandardDeviation(sourceData, i + 1, j - squareSize, i + squareSize, j - 1, avg3, squareSize)
+        val std4: Double = getStandardDeviation(sourceData, i + 1, j + 1, i + squareSize, j + squareSize, avg4, squareSize)
 
         val resultAvg: Array[Double] = getMinDeviationAverageColor(avg1Color, avg2Color, avg3Color, avg4Color, std1, std2, std3, std4)
 
