@@ -17,6 +17,6 @@ object ImageManager extends App{
     val byteStream: java.io.InputStream = new ByteArrayInputStream(fileBytes)
     val bImageFromConvert: BufferedImage = ImageIO.read(byteStream);
     byteStream.close
-    imageManager.convertAndSaveImage(bImageFromConvert, 0x0000, 0xFFFF, 500000, 5)
+    imageManager.applyFilter(bImageFromConvert, 0x0000, 0xFFFF, 500000, 5)
   }
 }

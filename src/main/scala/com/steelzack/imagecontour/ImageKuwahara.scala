@@ -2,15 +2,15 @@ package com.steelzack.imagecontour
 
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
-import java.io.File
+import java.io.{BufferedReader, File}
 import javax.imageio.ImageIO
 
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.
   */
-object ImageKuwahara {
+object ImageKuwahara extends ImageFilter{
 
-  def convertAndSaveImage(source: BufferedImage, squareSize: Int, iterations: Int = 1) {
+  def applyFilter(source: BufferedImage, squareSize: Int, iterations: Int = 1) {
     var out: BufferedImage = null
     var srcOut: Raster = source.getData()
     val w: Int = srcOut.getWidth
@@ -21,6 +21,7 @@ object ImageKuwahara {
       srcOut = out.getRaster;
     }
     ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
+    out
   }
 
   def performIteration(sourceData: Raster, squareSize: Int, w: Int, h: Int, out: BufferedImage): Unit = {
@@ -189,4 +190,7 @@ object ImageKuwahara {
 
   }
 
+  override def applyFilter: BufferedReader = {
+    null
+  }
 }

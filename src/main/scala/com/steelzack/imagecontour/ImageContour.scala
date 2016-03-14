@@ -1,21 +1,21 @@
 package com.steelzack.imagecontour
 
 import java.awt.image.BufferedImage
-import java.io.{ByteArrayInputStream, File}
+import java.io.{BufferedReader, ByteArrayInputStream, File}
 import java.nio.file.{Files, Paths}
 import javax.imageio.ImageIO
 
 /**
   * Created by joaofilipesabinoesperancinha on 03-03-16.
   */
-object ImageContour {
+object ImageContour extends ImageFilter{
 
-  def convertAndSaveImage(source: BufferedImage, //
-                          bgColor: Int, //
-                          lnColor: Int, //
-                          diffThreshold: Double, //
-                          radius: Int
-                         ) {
+  def  applyFilter(source: BufferedImage, //
+                  bgColor: Int, //
+                  lnColor: Int, //
+                  diffThreshold: Double, //
+                  radius: Int
+                         ): BufferedImage ={
     val w: Int = source.getWidth
     val h: Int = source.getHeight
     val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
@@ -52,9 +52,14 @@ object ImageContour {
     }
 
     ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
+    out
   }
 
   def apply(): Unit = {
 
+  }
+
+  override def applyFilter: BufferedReader = {
+    null
   }
 }
