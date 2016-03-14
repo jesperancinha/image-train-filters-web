@@ -33,12 +33,8 @@ class ImageContourTest extends FunSuite with MockitoSugar{
 
   @Test
   def  testPrintCharsToConsole_1 () {
-
-    val sourceImage: BufferedImage = getBufferedResource("/testKuwahara.png")
-
-
+    val sourceImage: BufferedImage = getBufferedResource("/testPanther1.jpg")
     val imageContour = ImageContour
-
-    imageContour.convertAndSaveImage(sourceImage, 0xFFFFFF, 0x000000, 800000, 1)
+    imageContour.convertAndSaveImage(sourceImage, 0xFFFFFF, 0x000000, 150000, 1)
   }
 }
