@@ -1,21 +1,21 @@
 package com.steelzack.imagecontour
 
 import java.awt.image.BufferedImage
-import java.io.{ByteArrayInputStream, File}
+import java.io.{BufferedReader, ByteArrayInputStream, File}
 import java.nio.file.{Files, Paths}
 import javax.imageio.ImageIO
 
 /**
   * Created by joaofilipesabinoesperancinha on 03-03-16.
   */
-object ImageContour {
+object ImageContour extends ImageFilter{
+   var source: BufferedImage = null
+   var bgColor: Int = null.asInstanceOf[Int]
+   var lnColor: Int = null.asInstanceOf[Int]
+   var diffThreshold: Double = null.asInstanceOf[Double]
+   var radius: Int = null.asInstanceOf[Int]
 
-  def convertAndSaveImage(source: BufferedImage, //
-                          bgColor: Int, //
-                          lnColor: Int, //
-                          diffThreshold: Double, //
-                          radius: Int
-                         ) {
+  override  def  applyFilter: BufferedImage ={
     val w: Int = source.getWidth
     val h: Int = source.getHeight
     val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
@@ -52,9 +52,21 @@ object ImageContour {
     }
 
     ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
+    out
   }
 
-  def apply(): Unit = {
+  def apply() : Unit = {
+  }
 
+  def apply(source: BufferedImage, //
+            bgColor: Int, //
+            lnColor: Int, //
+            diffThreshold: Double, //
+            radius: Int): Unit = {
+    this.source = source
+    this.bgColor = bgColor
+    this.lnColor = lnColor
+    this.diffThreshold = diffThreshold
+    this.radius = radius
   }
 }
