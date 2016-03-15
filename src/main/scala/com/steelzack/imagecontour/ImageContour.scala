@@ -9,13 +9,13 @@ import javax.imageio.ImageIO
   * Created by joaofilipesabinoesperancinha on 03-03-16.
   */
 object ImageContour extends ImageFilter{
+   var source: BufferedImage = null
+   var bgColor: Int = null.asInstanceOf[Int]
+   var lnColor: Int = null.asInstanceOf[Int]
+   var diffThreshold: Double = null.asInstanceOf[Double]
+   var radius: Int = null.asInstanceOf[Int]
 
-  def  applyFilter(source: BufferedImage, //
-                  bgColor: Int, //
-                  lnColor: Int, //
-                  diffThreshold: Double, //
-                  radius: Int
-                         ): BufferedImage ={
+  override  def  applyFilter: BufferedImage ={
     val w: Int = source.getWidth
     val h: Int = source.getHeight
     val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
@@ -55,11 +55,18 @@ object ImageContour extends ImageFilter{
     out
   }
 
-  def apply(): Unit = {
-
+  def apply() : Unit = {
   }
 
-  override def applyFilter: BufferedReader = {
-    null
+  def apply(source: BufferedImage, //
+            bgColor: Int, //
+            lnColor: Int, //
+            diffThreshold: Double, //
+            radius: Int): Unit = {
+    this.source = source
+    this.bgColor = bgColor
+    this.lnColor = lnColor
+    this.diffThreshold = diffThreshold
+    this.radius = radius
   }
 }

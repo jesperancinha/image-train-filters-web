@@ -27,38 +27,44 @@ class ImageKuwahara$Test extends FunSuite with BeforeAndAfterEach {
 
   test("testConvertAndSaveImage") {
     val sourceImage: BufferedImage = getBufferedResource("/testKuwahara1.png")
-    val imageContour = ImageKuwahara
-    imageContour.applyFilter(sourceImage, 2)
+    val imageKuwahara = ImageKuwahara
+    imageKuwahara.apply(sourceImage, 2)
+    imageKuwahara.applyFilter
   }
 
   test("testConvertAndSaveImageKuwahara2") {
     val sourceImage: BufferedImage = getBufferedResource("/testKuwahara2.png")
-    val imageContour = ImageKuwahara
-    imageContour.applyFilter(sourceImage, 2)
+    val imageKuwahara = ImageKuwahara
+    imageKuwahara.apply(sourceImage, 2)
+    imageKuwahara.applyFilter
   }
 
   test("testConvertAndSaveImageEyePantherBW") {
     val sourceImage: BufferedImage = getBufferedResource("/testEyeBW.png")
-    val imageContour = ImageKuwahara
-    imageContour.applyFilter(sourceImage, 2, 1)
+    val imageKuwahara = ImageKuwahara
+    imageKuwahara.apply(sourceImage, 2, 1)
+    imageKuwahara.applyFilter
   }
 
   test("testConvertAndSaveImageEyePanther") {
     val sourceImage: BufferedImage = getBufferedResource("/testEye.png")
-    val imageContour = ImageKuwahara
-    imageContour.applyFilter(sourceImage, 4, 1)
+    val imageKuwahara = ImageKuwahara
+    imageKuwahara.apply(sourceImage, 4, 1)
+    imageKuwahara.applyFilter
   }
 
   test("testConvertAndSaveImagePanther") {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
-    val imageContour = ImageKuwahara
-    imageContour.applyFilter(sourceImage, 4, 1)
+    val imageKuwahara = ImageKuwahara
+    imageKuwahara.apply(sourceImage, 4, 1)
+    imageKuwahara.applyFilter
   }
 
   test("testConvertAndSaveImagePanther5Its") {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther1.jpg")
-    val imageContour = ImageKuwahara
-    imageContour.applyFilter(sourceImage, 2, 5)
+    val imageKuwahara = ImageKuwahara
+    imageKuwahara.apply(sourceImage, 2, 5)
+    imageKuwahara.applyFilter
   }
 
   test("testGetAverage") {

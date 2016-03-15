@@ -14,13 +14,11 @@ import org.junit._
 class ImageContourTest extends FunSuite with MockitoSugar{
 
   @Test
-  def  testPrintCharsToConsole_2 () {
-
+  def  testApplyImageContour() {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
-
     val imageContour = ImageContour
-
-    imageContour.applyFilter(sourceImage, 0xFFFFFF, 0x000000, 800000, 2)
+    imageContour.apply(sourceImage, 0xFFFFFF, 0x000000, 800000, 2)
+    imageContour.applyFilter
   }
 
   def getBufferedResource(resourcePath: String): BufferedImage = {
@@ -32,16 +30,18 @@ class ImageContourTest extends FunSuite with MockitoSugar{
   }
 
   @Test
-  def  testPrintCharsToConsole_Panther() {
+  def  testApplyImageContour_Panther() {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
     val imageContour = ImageContour
-    imageContour.applyFilterx (sourceImage, 0xFFFFFF, 0x000000, 800000, 1)
+    imageContour.apply(sourceImage, 0xFFFFFF, 0x000000, 800000, 1)
+    imageContour.applyFilter
   }
 
   @Test
-  def  testConvertAndSaveImage_Panther1 () {
+  def  testApplyImageContour_Panther1 () {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther1.jpg")
     val imageContour = ImageContour
-    imageContour.applyFilter(sourceImage, 0xFFFFFF, 0x000000, 150000, 1)
+    imageContour.apply(sourceImage, 0xFFFFFF, 0x000000, 150000, 1)
+    imageContour.applyFilter
   }
 }
