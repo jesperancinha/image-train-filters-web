@@ -8,3 +8,5 @@ import java.awt.image.BufferedImage
 trait ImageFilter {
   def applyFilter: BufferedImage
 }
+
+trait Filter[A,B] extends (A => B)

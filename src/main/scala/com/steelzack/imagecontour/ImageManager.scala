@@ -11,15 +11,14 @@ import javax.imageio.ImageIO
 object ImageManager extends App {
 
   override def main(args: Array[String]) {
-    val imageManager = ImageContour
+    val imageManager = new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
     if (args.length == 1) {
       val fileName: String = args(0)
       val fileBytes = Files.readAllBytes(Paths.get(fileName))
       val byteStream: java.io.InputStream = new ByteArrayInputStream(fileBytes)
       val bImageFromConvert: BufferedImage = ImageIO.read(byteStream);
       byteStream.close
-      imageManager.apply(bImageFromConvert, 0x0000, 0xFFFF, 500000, 5)
-      imageManager.applyFilter
+      imageManager.apply(bImageFromConvert)
     }
   }
 }
