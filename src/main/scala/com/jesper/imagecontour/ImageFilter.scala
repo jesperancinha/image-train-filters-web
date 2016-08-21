@@ -1,4 +1,4 @@
-package com.steelzack.imagecontour
+package com.jesper.imagecontour
 
 import java.awt.image.BufferedImage
 
@@ -8,3 +8,5 @@ import java.awt.image.BufferedImage
 trait ImageFilter {
   def applyFilter: BufferedImage
 }
+
+trait Filter[A,B] extends (A => B)

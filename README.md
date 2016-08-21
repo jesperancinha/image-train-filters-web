@@ -5,6 +5,15 @@ Finds the contour of an image
 
 The aim of this library is to transform an image into a contoured version of it by specifying different properties such as pixel difference, radius, background color, line color. It is still under development and entirely built in scala.
 
+## Hints
+
+You need to run this from the command line in order to build.
+
+```
+echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/releases\"" > ~/.sbt/0.13/global.sbt
+```
+
+
 From
 
 ![testPanther.jpg](https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg)
@@ -32,3 +41,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
+## Status
+
+
+** Under development **

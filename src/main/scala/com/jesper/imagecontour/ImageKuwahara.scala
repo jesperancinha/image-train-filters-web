@@ -1,9 +1,11 @@
-package com.steelzack.imagecontour
+package com.jespers.imagecontour
 
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
-import java.io.{BufferedReader, File}
+import java.io.File
 import javax.imageio.ImageIO
+
+import com.jesper.imagecontour.ImageFilter
 
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.
