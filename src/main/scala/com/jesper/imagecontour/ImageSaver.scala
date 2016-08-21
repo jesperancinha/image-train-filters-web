@@ -1,6 +1,4 @@
-package com.steelzack.imagecontour
-
-import java.io.BufferedReader
+package com.jesper.imagecontour
 
 /**
   * Created by joaofilipesabinoesperancinha on 14-03-16.

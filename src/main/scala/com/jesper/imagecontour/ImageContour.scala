@@ -1,4 +1,4 @@
-package com.steelzack.imagecontour
+package com.jesper.imagecontour
 
 import java.awt.image.BufferedImage
 import java.io.File
