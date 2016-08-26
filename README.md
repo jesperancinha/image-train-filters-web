@@ -1,27 +1,11 @@
-## image-contour
-Finds the contour of an image
+## image-train-filters
+
 
 ## Description
 
-The aim of this library is to transform an image into a contoured version of it by specifying different properties such as pixel difference, radius, background color, line color. It is still under development and entirely built in scala.
+Webservice which returns a filtered image after apllying selectable filters
 
-## Hints
-
-You need to run this from the command line in order to build.
-
-```
-echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/releases\"" > ~/.sbt/0.13/global.sbt
-```
-
-
-From
-
-![testPanther.jpg](https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg)
-
-To
-
-![testPantherOut.jpg](https://github.com/jesperancinha/image-contour/blob/master/src/test/resources/testPantherOut.jpg)
-
+From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
 
 ## License
 
@@ -43,5 +27,15 @@ limitations under the License.
 
 ## Status
 
-
 ** Under development **
+
+
+## Notes
+
+* https://www.getpostman.com/
+
+```
+$ echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/releases\"" > ~/.sbt/0.13/global.sbt
+
+$ sbt run -jvm-debug 5005
+```

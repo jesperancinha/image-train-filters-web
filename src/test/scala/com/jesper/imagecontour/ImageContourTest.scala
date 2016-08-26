@@ -1,10 +1,11 @@
 package com.jesper.imagecontour
 
 import java.awt.image.BufferedImage
-import java.io.{InputStream, ByteArrayInputStream}
-import java.nio.file.{Paths, Files}
+import java.io.{ByteArrayInputStream, InputStream}
+import java.nio.file.{Files, Paths}
 import javax.imageio.ImageIO
 
+import com.jesper.imagecontour.filters.ImageContour
 import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
 import org.junit._
