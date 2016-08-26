@@ -11,6 +11,7 @@ import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
 import com.jesper.imagecontour.Boot
+import com.jesper.imagecontour.filters.{ImageContour, ImageManager}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -39,6 +40,12 @@ trait ImageContourMultiPartDataHandler {
               val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
               val data = bodyPart.entity.dataBytes.runWith(FileIO.toFile(tempFile)).map(_ => bodyPart.name -> bodyPart.getFilename())
               log.info("saved! - " + tempFile)
+              val srcBuff = ImageManager.getBufferedImage(tempFile)
+              val filter = new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
+              val out = filter(srcBuff)
+              val destinationFile: File = new File(Boot.fileRootDestination, bodyPart.filename.orNull)
+              ImageManager.copyBufferedImage(out, destinationFile)
+              log.info("generated! - " + destinationFile)
               data
           }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
           extractedData.map(data => HttpResponse(StatusCodes.OK, entity = s"Ok. Got $data"))
