@@ -8,13 +8,8 @@ import javax.imageio.ImageIO
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.
   */
-object ImageKuwahara extends ImageFilter {
-
-  var source: BufferedImage = null
-  var squareSize: Int = null.asInstanceOf[Int]
-  var iterations: Int = null.asInstanceOf[Int]
-
-  override def applyFilter: BufferedImage = {
+class ImageKuwahara(bgColor: Int, lnColor: Int, squareSize: Int, iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
+  def apply(source: BufferedImage): BufferedImage = {
      var out: BufferedImage = null
       var srcOut: Raster = source.getData()
       val w: Int = srcOut.getWidth
@@ -22,9 +17,8 @@ object ImageKuwahara extends ImageFilter {
       for (i <- 0 to iterations) {
         out = new BufferedImage(w - squareSize, h - squareSize, BufferedImage.TYPE_INT_RGB)
         performIteration(srcOut, squareSize, w, h, out)
-        srcOut = out.getRaster;
+        srcOut = out.getRaster
       }
-      ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
       out
   }
 
@@ -188,14 +182,5 @@ object ImageKuwahara extends ImageFilter {
           }
         }
       }
-    }
-
-    def apply(source: BufferedImage, squareSize: Int, iterations: Int = 1): Unit = {
-      this.source = source
-      this.squareSize = squareSize
-      this.iterations = iterations
-    }
-
-    def apply(): Unit = {
     }
 }

@@ -1,7 +1,7 @@
 package com.jesper.imagecontour.filters
 
 import java.awt.image.BufferedImage
-import java.io.ByteArrayInputStream
+import java.io.{ByteArrayInputStream, File}
 import java.nio.file.{Files, Paths}
 import javax.imageio.ImageIO
 
@@ -17,8 +17,9 @@ object ImageManager extends App {
       val fileBytes = Files.readAllBytes(Paths.get(fileName))
       val byteStream: java.io.InputStream = new ByteArrayInputStream(fileBytes)
       val bImageFromConvert: BufferedImage = ImageIO.read(byteStream);
-      byteStream.close
-      imageManager.apply(bImageFromConvert)
+      byteStream.close()
+      val out = imageManager.apply(bImageFromConvert)
+      ImageIO.write(out, "jpg", new File("/tmp/copy.jpg"))
     }
   }
 }
