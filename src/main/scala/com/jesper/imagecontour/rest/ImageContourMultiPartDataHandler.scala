@@ -11,7 +11,7 @@ import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
 import com.jesper.imagecontour.Boot
-import com.jesper.imagecontour.filters.{ImageContour, ImageManager}
+import com.jesper.imagecontour.filters.{ImageContour, ImageKuwahara, ImageManager, ImageSaver}
 
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -25,6 +25,7 @@ trait ImageContourMultiPartDataHandler {
 
   implicit val logSource: LogSource[AnyRef] = new LogSource[AnyRef] {
     def genString(o: AnyRef): String = o.getClass.getName
+
     override def getClazz(o: AnyRef): Class[_] = o.getClass
   }
 
@@ -41,10 +42,13 @@ trait ImageContourMultiPartDataHandler {
               val data = bodyPart.entity.dataBytes.runWith(FileIO.toFile(tempFile)).map(_ => bodyPart.name -> bodyPart.getFilename())
               log.info("saved! - " + tempFile)
               val srcBuff = ImageManager.getBufferedImage(tempFile)
-              val filter = new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
+              val filter = rest match {
+                case "imageContour" => new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
+                case "imageKuwahara" => new ImageKuwahara(2,1)
+              }
               val out = filter(srcBuff)
               val destinationFile: File = new File(Boot.fileRootDestination, bodyPart.filename.orNull)
-              ImageManager.copyBufferedImage(out, destinationFile)
+              ImageSaver.copyBufferedImage(out, destinationFile)
               log.info("generated! - " + destinationFile)
               data
           }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)

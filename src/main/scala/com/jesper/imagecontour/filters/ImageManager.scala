@@ -18,8 +18,4 @@ object ImageManager {
     byteStream.close()
     bImageFromConvert
   }
-
-  def copyBufferedImage(bufferedImage: BufferedImage, destinationFile:File): Unit = {
-    ImageIO.write(bufferedImage, "png", destinationFile)
-  }
 }

@@ -1,14 +1,12 @@
 package com.jesper.imagecontour
 
 import java.awt.image.BufferedImage
-import java.io.{ByteArrayInputStream, InputStream}
-import java.nio.file.{Files, Paths}
-import javax.imageio.ImageIO
 
+import com.jesper.imagecontour.ImageTestUtils.getBufferedResource
 import com.jesper.imagecontour.filters.ImageContour
+import org.junit._
 import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
-import org.junit._
 
 /**
   * Created by joaofilipesabinoesperancinha on 03-03-16.
@@ -22,13 +20,6 @@ class ImageContourTest extends FunSuite with MockitoSugar {
     val out = filter(sourceImage)
   }
 
-  def getBufferedResource(resourcePath: String): BufferedImage = {
-    val fileBytes = Files.readAllBytes(Paths.get(getClass().getResource(resourcePath).toURI))
-    val byteStream: InputStream = new ByteArrayInputStream(fileBytes)
-    val sourceImage: BufferedImage = ImageIO.read(byteStream);
-    byteStream.close
-    sourceImage
-  }
 
   @Test
   def testApplyImageContour_Panther() {
@@ -43,4 +34,5 @@ class ImageContourTest extends FunSuite with MockitoSugar {
     val imageContour = new ImageContour(0xFFFFFF, 0x000000, 150000, 1)
     imageContour.apply(sourceImage)
   }
+
 }

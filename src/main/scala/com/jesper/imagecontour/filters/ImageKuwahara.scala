@@ -2,13 +2,11 @@ package com.jesper.imagecontour.filters
 
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
-import java.io.File
-import javax.imageio.ImageIO
 
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.
   */
-class ImageKuwahara(bgColor: Int, lnColor: Int, squareSize: Int, iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
+class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
   def apply(source: BufferedImage): BufferedImage = {
      var out: BufferedImage = null
       var srcOut: Raster = source.getData()
