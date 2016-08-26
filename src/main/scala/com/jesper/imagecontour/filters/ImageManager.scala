@@ -1,8 +1,8 @@
-package com.jesper.imagecontour
+package com.jesper.imagecontour.filters
 
 import java.awt.image.BufferedImage
 import java.io.ByteArrayInputStream
-import java.nio.file.{Paths, Files}
+import java.nio.file.{Files, Paths}
 import javax.imageio.ImageIO
 
 /**

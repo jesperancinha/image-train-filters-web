@@ -1,11 +1,9 @@
-package com.jespers.imagecontour
+package com.jesper.imagecontour.filters
 
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
 import java.io.File
 import javax.imageio.ImageIO
-
-import com.jesper.imagecontour.ImageFilter
 
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.

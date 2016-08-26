@@ -32,6 +32,10 @@ limitations under the License.
 
 ## Notes
 
+* https://www.getpostman.com/
+
 ```
-echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/releases\"" > ~/.sbt/0.13/global.sbt
+$ echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/releases\"" > ~/.sbt/0.13/global.sbt
+
+$ sbt run -jvm-debug 5005
 ```

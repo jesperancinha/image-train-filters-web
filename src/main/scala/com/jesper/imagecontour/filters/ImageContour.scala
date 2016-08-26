@@ -1,4 +1,4 @@
-package com.jesper.imagecontour
+package com.jesper.imagecontour.filters
 
 import java.awt.image.BufferedImage
 import java.io.File
