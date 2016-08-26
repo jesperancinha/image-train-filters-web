@@ -34,12 +34,12 @@ trait ImageContourMultiPartDataHandler {
           val log = Logging(system, this)
           //noinspection UnnecessaryPartialFunction
           val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
-            case file: BodyPart =>
-
-              log.info(s"received ${file.name} file")
-              val tempFile: File = new File(Boot.serviceImageFolder, file.name)
-              file.entity.dataBytes.runWith(FileIO.toFile(tempFile)).map(_ => file.name -> file.getFilename())
-
+            case bodyPart: BodyPart =>
+              log.info(s"received ${bodyPart.name} file")
+              val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
+              val data = bodyPart.entity.dataBytes.runWith(FileIO.toFile(tempFile)).map(_ => bodyPart.name -> bodyPart.getFilename())
+              log.info("saved! - " + tempFile)
+              data
           }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
           extractedData.map(data => HttpResponse(StatusCodes.OK, entity = s"Ok. Got $data"))
             .recover {
