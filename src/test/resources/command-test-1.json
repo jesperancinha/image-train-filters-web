@@ -1,0 +1,20 @@
+{
+  "commands": [
+    {
+      "filter": "imageKuwahara",
+      "settings": {
+        "square-size": 2,
+        "iterations": 2
+      }
+    },
+    {
+      "filter": "imageContour",
+      "settings": {
+        "bgColor": "0xFFFFFF",
+        "lnColor": "0x000000",
+        "diffThreshold": "800000",
+        "radius": 2
+      }
+    }
+  ]
+}
