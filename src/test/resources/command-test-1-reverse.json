@@ -2,19 +2,37 @@
   "commands": [
     {
       "filter": "imageContour",
-      "settings": {
-        "bgColor": "0xFFFFFF",
-        "lnColor": "0x000000",
-        "diffThreshold": "800000",
-        "radius": 2
-      }
+      "settings": [
+        {
+          "name": "bgColor",
+          "value": "0xFFFFFF"
+        },
+        {
+          "name": "lnColor",
+          "value": "0x000000"
+        },
+        {
+          "name": "diffThreshold",
+          "value": "800000"
+        },
+        {
+          "name": "radius",
+          "value": "2"
+        }
+      ]
     },
     {
       "filter": "imageKuwahara",
-      "settings": {
-        "square-size": 2,
-        "iterations": 2
-      }
+      "settings": [
+        {
+          "name": "square-size",
+          "value": "2"
+        },
+        {
+          "name": "iterations",
+          "value": "2"
+        }
+      ]
     }
   ]
 }
