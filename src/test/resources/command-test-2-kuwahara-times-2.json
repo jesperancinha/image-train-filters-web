@@ -1,0 +1,30 @@
+{
+  "commands": [
+    {
+      "filter": "imageKuwahara",
+      "settings": [
+        {
+          "name": "square-size",
+          "value": "2"
+        },
+        {
+          "name": "iterations",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "filter": "imageKuwahara",
+      "settings": [
+        {
+          "name": "square-size",
+          "value": "2"
+        },
+        {
+          "name": "iterations",
+          "value": "2"
+        }
+      ]
+    }
+  ]
+}
