@@ -72,8 +72,16 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
             var out: BufferedImage = null
             for (elem <- commandsParsed.commands) {
               val filter = elem.filter match {
-                case "imageContour" => new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
-                case "imageKuwahara" => new ImageKuwahara(2, 1)
+                case "imageContour" => new ImageContour(
+                  elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
+                  elem.settings.find(p => p.name.equals("lnColor")).orNull.value.toIntFromHex,
+                  elem.settings.find(p => p.name.equals("diffThreshold")).orNull.value.toInt,
+                  elem.settings.find(p => p.name.equals("radius")).orNull.value.toInt
+                )
+                case "imageKuwahara" => new ImageKuwahara(
+                  elem.settings.find(p => p.name.equals("square-size")).orNull.value.toInt,
+                  elem.settings.find(p => p.name.equals("iterations")).orNull.value.toInt
+                )
               }
               log.info("applied - " + elem.filter)
               out = filter(srcBuff)

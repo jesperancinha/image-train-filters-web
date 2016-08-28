@@ -57,5 +57,8 @@ trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
   implicit val settingItemFormat = jsonFormat2(SettingItem)
   implicit val commandContainerFormat = jsonFormat2(CommandContainer)
   implicit val commandsFormat = jsonFormat1(Commands)
+  implicit class StringConversions(s: String) {
+    def toIntFromHex: Int = Integer.decode(s)
+  }
 }
 
