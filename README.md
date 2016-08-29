@@ -37,7 +37,7 @@ You need to provide two form-data parameters in a Multipart Formdata request:
 
 > These requests you can apply as many times as you like using a JSON request. Read following example for more.
 
-## Request example:
+## Command example
 
 ```
 {
@@ -78,6 +78,13 @@ You need to provide two form-data parameters in a Multipart Formdata request:
     }
   ]
 }
+```
+
+## Complete request
+
+You can use tools like postman, but you can also use curl. This is an example of such request:
+```
+$ curl -X POST --form filename=@testEye.png http://localhost:8080/images/dfdsfs --form commands="{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }"
 ```
 
 ## Results
