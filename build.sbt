@@ -2,13 +2,17 @@ name := "image-train-filters"
 
 version := "1.0"
 
-scalaVersion := "2.11.7"
+scalaVersion := "2.12.1"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "2.2.6"
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
 libraryDependencies += "net.liftweb" % "lift-json_2.11" % "2.6.2"
+libraryDependencies ++= Seq(
+  // notice the double %% here
+  "com.eed3si9n" %% "sbt-assembly" % "0.14.2",
 
+)
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2-core" % "3.7.2" % "test",
   "junit" % "junit" % "4.11" % "test",
@@ -27,7 +31,6 @@ resolvers ++= Seq(
   "Spray repository" at "http://repo.spray.io",
   "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 )
+
+
 scalacOptions in Test ++= Seq("-Yrangepos")
-assemblySettings
-
-
