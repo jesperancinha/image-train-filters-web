@@ -2,7 +2,7 @@ name := "image-train-filters"
 
 version := "1.0"
 
-scalaVersion := "2.12.1"
+scalaVersion := "2.12.7"
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
@@ -10,7 +10,7 @@ libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
 libraryDependencies += "net.liftweb" % "lift-json_2.11" % "2.6.2"
 libraryDependencies ++= Seq(
   // notice the double %% here
-  "com.eed3si9n" %% "sbt-assembly" % "0.14.2",
+  "com.eed3si9n" %% "sbt-assembly" % "0.14.6",
 
 )
 libraryDependencies ++= Seq(
