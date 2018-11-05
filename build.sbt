@@ -4,7 +4,11 @@ version := "1.0"
 
 scalaVersion := "2.12.7"
 
+resolvers += Resolver.sbtPluginRepo("releases")
+resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
+resolvers += Resolver.bintrayIvyRepo("com.eed3si9n", "sbt-plugins")
 resolvers ++= Seq(
+  "Artima Maven Repository" at "http://repo.artima.com/releases",
   "Spray repository" at "http://repo.spray.io",
   "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 )
@@ -25,7 +29,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http" % "10.1.5",
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5",
   "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5",
-  "org.scala-sbt.plugins" % "sbt-onejar" % "0.8"
+  "com.eed3si9n" %% "sbt-assembly" % "0.14.6",
 )
 
 scalacOptions in Test ++= Seq("-Yrangepos")
