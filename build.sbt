@@ -4,8 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.12.1"
 
-libraryDependencies += "org.scalactic" %% "scalactic" % "2.2.6"
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
 libraryDependencies += "net.liftweb" % "lift-json_2.11" % "2.6.2"
 libraryDependencies ++= Seq(
@@ -20,11 +20,11 @@ libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick" % "3.1.1",
   "mysql" % "mysql-connector-java" % "5.1.25",
   "ch.qos.logback" % "logback-classic" % "1.0.13",
-  "com.typesafe.akka" %% "akka-actor" % "2.4.3",
-  "com.typesafe.akka" %% "akka-stream" % "2.4.3",
-  "com.typesafe.akka" %% "akka-http-experimental" % "2.4.3",
-  "com.typesafe.akka" %% "akka-http-spray-json-experimental" % "2.4.3",
-  "com.typesafe.akka" %% "akka-http-testkit" % "2.4.3"
+  "com.typesafe.akka" %% "akka-actor" % "2.5.17",
+  "com.typesafe.akka" %% "akka-stream" % "2.5.17",
+  "com.typesafe.akka" %% "akka-http-experimental" % "2.4.11.2",
+  "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5",
+  "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5"
 )
 
 resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
