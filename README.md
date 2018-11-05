@@ -1,7 +1,7 @@
 ## image-train-filters
 
 
-## Description
+#### Description
 
 Webservice which returns a filtered image after apllying selectable filters
 
@@ -13,7 +13,7 @@ From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/mas
 
 From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther1.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
 
-## How to use
+### How to use
 
 Make post requests to (NOTE: anystringyouwant is just that in the meantime):
 
@@ -21,10 +21,10 @@ Make post requests to (NOTE: anystringyouwant is just that in the meantime):
 
 You need to provide two form-data parameters in a Multipart Formdata request:
 
-### filename
+#### filename
 * this is the where you load your image file in
 
-### commands
+#### commands
 * this is where you set your commands. there are only two examples at the moment:
 
 1. Kuwahara filter:
@@ -37,7 +37,7 @@ You need to provide two form-data parameters in a Multipart Formdata request:
 
 > These requests you can apply as many times as you like using a JSON request. Read following example for more.
 
-## Command example
+### Command example
 
 ```
 {
@@ -80,14 +80,14 @@ You need to provide two form-data parameters in a Multipart Formdata request:
 }
 ```
 
-## Complete request
+### Complete request
 
 You can use tools like postman, but you can also use curl. This is an example of such request:
 ```
 $ curl -X POST --form filename=@testEye.png http://localhost:8080/images/dfdsfs --form commands="{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }"
 ```
 
-## Results
+### Results
 
 Your results are stored wherever you define in your application.conf folder:
 
@@ -114,7 +114,7 @@ Only important to note here that:
 
 * image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
-## License
+### License
 
 ```
 Copyright 2016-2017 J.Espe.
@@ -132,12 +132,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-## Status
+### Status
 
 ** Under development **
 
 
-## Notes
+### Notes
 
 * https://www.getpostman.com/
 
@@ -146,3 +146,9 @@ $ echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/rel
 
 $ sbt run -jvm-debug 5005
 ```
+### Location:
+
+[GitHub location](https://github.com/jesperancinha/image-train-filters-scala)
+
+* Twitter [@jofisaes](https://twitter.com/jofisaes)
+* GitHub [jesperancinha](https://github.com/jesperancinha)
