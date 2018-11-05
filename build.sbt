@@ -29,7 +29,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http" % "10.1.5",
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5",
   "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5",
-  "com.eed3si9n" %% "sbt-assembly" % "0.14.6",
 )
 
 scalacOptions in Test ++= Seq("-Yrangepos")
