@@ -4,6 +4,13 @@ version := "1.0"
 
 scalaVersion := "2.12.7"
 
+resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
+
+resolvers ++= Seq(
+  "Spray repository" at "http://repo.spray.io",
+  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+)
+
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
@@ -22,13 +29,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5",
   "com.eed3si9n" %% "sbt-assembly" % "0.14.8",
 )
-
-resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
-
-resolvers ++= Seq(
-  "Spray repository" at "http://repo.spray.io",
-  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
-)
-
 
 scalacOptions in Test ++= Seq("-Yrangepos")
