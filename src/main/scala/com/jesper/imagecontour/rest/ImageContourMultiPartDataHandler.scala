@@ -5,8 +5,8 @@ import java.io.File
 
 import akka.actor.ActorSystem
 import akka.event.{LogSource, Logging}
-import akka.http.scaladsl.model.Multipart.BodyPart
-import akka.http.scaladsl.model.{HttpResponse, Multipart, StatusCodes}
+import akka.http.scaladsl.model.Multipart.{BodyPart, FormData}
+import akka.http.scaladsl.model.{HttpResponse, StatusCodes}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
@@ -35,9 +35,9 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     override def getClazz(o: AnyRef): Class[_] = o.getClass
   }
 
-  def processMultiPartData: Route = path("images" / Rest) {
-    restCommand =>
-      (post & entity(as[Multipart.FormData])) { formData =>
+  def processMultiPartData: Route = pathPrefix("images") {
+    pathEnd {
+      (post & entity(as[FormData])) { formData =>
         complete {
           val log = Logging(system, this)
           //noinspection UnnecessaryPartialFunction
@@ -45,7 +45,6 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
           val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
             case bodyPart: BodyPart if bodyPart.name.equals("filename") =>
               log.info(s"received ${bodyPart.name} file")
-              log.info(s"command $restCommand")
               val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
               val data: Future[(String, Any)] = bodyPart
                 .entity
@@ -99,6 +98,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
             }
         }
       }
+    }
   }
 
   val routes = processMultiPartData
