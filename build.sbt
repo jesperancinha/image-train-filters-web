@@ -27,6 +27,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-testkit" % "2.4.3"
 )
 
+resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
+
 resolvers ++= Seq(
   "Spray repository" at "http://repo.spray.io",
   "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
