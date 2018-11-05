@@ -16,7 +16,6 @@ resolvers ++= Seq(
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 libraryDependencies += "org.mockito" % "mockito-core" % "1.9.5" % "test"
-libraryDependencies += "net.liftweb" % "lift-json_2.11" % "2.6.2"
 libraryDependencies ++= Seq(
   "org.specs2" %% "specs2-core" % "4.3.5" % "test",
   "junit" % "junit" % "4.11" % "test",
