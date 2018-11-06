@@ -3,6 +3,8 @@ package com.jesper.imagecontour.filters
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
 
+import scala.util.{Failure, Success, Try}
+
 /**
   * Created by joaofilipesabinoesperancinha on 09-03-16.
   */
@@ -16,7 +18,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
       performIteration(srcOut, squareSize, w, h, out)
       out.getRaster
       out
-    }).last
+    }).lastOption.orNull
   }
 
   def performIteration(sourceData: Raster, squareSize: Int, w: Int, h: Int, out: BufferedImage): Unit = {
@@ -37,13 +39,19 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
         val std3: Double = getStandardDeviation(sourceData, i + 1, j - squareSize, i + squareSize, j - 1, avg3, squareSize)
         val std4: Double = getStandardDeviation(sourceData, i + 1, j + 1, i + squareSize, j + squareSize, avg4, squareSize)
 
-        try {
-          val resultAvg: Array[Double] = getMinDeviationAverageColor(avg1Color, avg2Color, avg3Color, avg4Color, std1, std2, std3, std4)
-          out.setRGB(i - squareSize, j - squareSize, new Color(resultAvg(0).toInt, resultAvg(1).toInt, resultAvg(2).toInt).getRGB)
-        } catch {
-          case e: Exception => println(i, j)
-        }
+        val resultAvg: Array[Double] = getMinDeviationAverageColor(avg1Color, avg2Color, avg3Color, avg4Color, std1, std2, std3, std4)
+        createResult(squareSize, out, i, j, resultAvg)
       }
+    }
+  }
+
+  private def createResult(squareSize: Int, out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]) = {
+    val result = Try(out.setRGB(i - squareSize, j - squareSize, new Color(resultAvg(0).toInt, resultAvg(1).toInt, resultAvg(2).toInt).getRGB))
+    result match {
+      case Failure(exception) =>
+        println("Failure in finding RGB deviation".concat(exception.getMessage))
+        println(i, j)
+      case Success(_) => Success(result)
     }
   }
 

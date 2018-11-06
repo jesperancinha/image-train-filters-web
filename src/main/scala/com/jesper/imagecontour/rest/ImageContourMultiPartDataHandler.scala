@@ -40,8 +40,6 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
       (post & entity(as[FormData])) { formData =>
         complete {
           val log = Logging(system, this)
-          //noinspection UnnecessaryPartialFunction
-
           val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
             case bodyPart: BodyPart if bodyPart.name.equals("filename") =>
               log.info(s"received ${bodyPart.name} file")
@@ -54,8 +52,20 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
               data
             case bodyPart: BodyPart if bodyPart.name.equals("commands") =>
               Future[(String, Any)] {
-                bodyPart.name ->
-                  bodyPart.entity.toStrict(10 seconds).value.get.get.getData().decodeString("UTF-8")
+                val eventualStrict = bodyPart.entity.toStrict(10 seconds)
+                val triedStrict = eventualStrict.value.orNull
+                if (triedStrict == null) {
+                  null
+                }
+                else {
+                  val value = triedStrict.getOrElse(null)
+                  if (value == null) {
+                    null
+                  } else {
+                    bodyPart.name ->
+                      value.getData().decodeString("UTF-8")
+                  }
+                }
               }
           }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
           extractedData.map(data => {
