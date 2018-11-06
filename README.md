@@ -1,5 +1,7 @@
 ## image-train-filters
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c4eea7145c774580ac40f482c079e8ec)](https://app.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-scala&utm_campaign=Badge_Grade_Settings)
+
 
 #### Description
 
