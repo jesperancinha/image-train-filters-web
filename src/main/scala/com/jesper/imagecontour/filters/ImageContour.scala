@@ -25,23 +25,26 @@ class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: In
           val nextVColor: Double = source.getRGB(i, j + radius)
           val prevHColor: Double = source.getRGB(i - radius, j)
           val prevVColor: Double = source.getRGB(i, j - radius)
-          var drawColor = bgColor
-
-          if (colorTop < nextHColor || colorTop < prevHColor) {
-            drawColor = lnColor
-          } else if (colorBottom > nextHColor || colorBottom > prevHColor) {
-            drawColor = lnColor
-          } else if (colorTop < nextVColor || colorTop < prevVColor) {
-            drawColor = lnColor
-          } else if (colorBottom > nextVColor || colorBottom > prevVColor) {
-            drawColor = lnColor
-          }
+          val drawColor: Int = calculateDrawColor(colorTop, colorBottom, nextHColor, nextVColor, prevHColor, prevVColor)
 
           out.setRGB(i, j, drawColor)
         }
       }
     }
     out
+  }
+
+  private def calculateDrawColor(colorTop: Double, colorBottom: Double, nextHColor: Double, nextVColor: Double, prevHColor: Double, prevVColor: Double) = {
+    if (colorTop < nextHColor || colorTop < prevHColor) {
+      lnColor
+    } else if (colorBottom > nextHColor || colorBottom > prevHColor) {
+      lnColor
+    } else if (colorTop < nextVColor || colorTop < prevVColor) {
+      lnColor
+    } else if (colorBottom > nextVColor || colorBottom > prevVColor) {
+      lnColor
+    } else
+      bgColor
   }
 }
 

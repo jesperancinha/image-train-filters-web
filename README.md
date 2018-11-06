@@ -3,7 +3,7 @@
 
 #### Description
 
-Webservice which returns a filtered image after apllying selectable filters
+Webservice which returns a filtered image after applying selectable filters
 
 * Using image contour:
 
@@ -15,11 +15,8 @@ From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/mas
 
 ### How to use
 
-Make post requests to (NOTE: anystringyouwant is just that in the meantime):
-
-* http://localhost:8080/images/{anystringyouwant}
-
-You need to provide two form-data parameters in a Multipart Formdata request:
+You need to provide two form-data parameters in a Multipart Formdata request.
+Use curl for that please. An example follows bellow.
 
 #### filename
 * this is the where you load your image file in
@@ -84,7 +81,7 @@ You need to provide two form-data parameters in a Multipart Formdata request:
 
 You can use tools like postman, but you can also use curl. This is an example of such request:
 ```
-$ curl -X POST --form filename=@testEye.png http://localhost:8080/images/dfdsfs --form commands="{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }"
+$ curl -X POST --form filename=@testEye.png http://localhost:8080/images --form commands="{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }"
 ```
 
 ### Results
@@ -117,7 +114,7 @@ Only important to note here that:
 ### License
 
 ```
-Copyright 2016-2017 J.Espe.
+Copyright 2016-2017 João Esperancinha (jesperancinha)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -141,11 +138,7 @@ limitations under the License.
 
 * https://www.getpostman.com/
 
-```
-$ echo "resolvers += \"Artima Maven Repository\" at \"http://repo.artima.com/releases\"" > ~/.sbt/0.13/global.sbt
 
-$ sbt run -jvm-debug 5005
-```
 ### Location:
 
 [GitHub location](https://github.com/jesperancinha/image-train-filters-scala)

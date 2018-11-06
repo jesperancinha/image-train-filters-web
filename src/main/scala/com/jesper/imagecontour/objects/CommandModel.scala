@@ -1,7 +1,7 @@
 package com.jesper.imagecontour.objects
 
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
-import spray.json.DefaultJsonProtocol
+import spray.json.{DefaultJsonProtocol, RootJsonFormat}
 
 /**
   * Created by joaofilipesabinoesperancinha on 28-08-16.
@@ -54,9 +54,9 @@ final case class Commands(commands: List[CommandContainer])
 
 // collect your json format instances into a support trait:
 trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol {
-  implicit val settingItemFormat = jsonFormat2(SettingItem)
-  implicit val commandContainerFormat = jsonFormat2(CommandContainer)
-  implicit val commandsFormat = jsonFormat1(Commands)
+  implicit val settingItemFormat: RootJsonFormat[SettingItem] = jsonFormat2(SettingItem)
+  implicit val commandContainerFormat: RootJsonFormat[CommandContainer] = jsonFormat2(CommandContainer)
+  implicit val commandsFormat: RootJsonFormat[Commands] = jsonFormat1(Commands)
   implicit class StringConversions(s: String) {
     def toIntFromHex: Int = Integer.decode(s)
   }
