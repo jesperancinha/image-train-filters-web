@@ -126,15 +126,11 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
       (x1 to x2).map(i => {
         (y1 to y2).map(j => {
-          try {
-            sourceData.getPixel(i, j, arr)
-            val hsv = Array.fill[Float](4)(0)
-            Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
-            math.pow(hsv(3) - avg, 2)
-          }
-          catch {
-            case e: Exception => println("Get Standard Deviation Out of bounds! ", i, j)
-              throw e
+          val result = Try(calculateStdParticle(sourceData, avg, arr, i, j))
+          result match {
+            case Success(value) => value
+            case Failure(exception) => println("Get Standard Deviation Out of bounds! ", i, j)
+              throw exception
           }
         }).sum
       }).sum / numberOfPoints
@@ -142,6 +138,13 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     else {
       Double.NaN
     }
+  }
+
+  private def calculateStdParticle(sourceData: Raster, avg: Double, arr: Array[Int], i: Int, j: Int) = {
+    sourceData.getPixel(i, j, arr)
+    val hsv = Array.fill[Float](4)(0)
+    Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
+    math.pow(hsv(3) - avg, 2)
   }
 
   def validatePoint(source: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Boolean = {
