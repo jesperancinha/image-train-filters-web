@@ -62,30 +62,34 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
 
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
 
-      for (i <- x1 to x2) {
-        for (j <- y1 to y2) {
-          try {
-            sourceData.getPixel(i, j, arr)
-            total(0) = total(0) + arr(0)
-            total(1) = total(1) + arr(1)
-            total(2) = total(2) + arr(2)
-            total(3) = total(3) + arr(3)
-          } catch {
-            case e: Exception => println("Get Average Out of bounds! ", i, j)
-              throw e
+      (x1 to x2).foreach(i => {
+        (y1 to y2).foreach(j => {
+          val result = Try(adds4ChannelValuesToTotalArray(sourceData, arr, total, i, j))
+          result match {
+            case Failure(exception) => println("Get Average Out of bounds! ", i, j)
+              throw exception
+            case Success(_) => Success(result)
           }
-        }
-      }
-
+        })
+      })
       total(0) = total(0) / numberOfPoints
       total(1) = total(1) / numberOfPoints
       total(2) = total(2) / numberOfPoints
       total(3) = total(3) / numberOfPoints
 
       total
+
     } else {
       Array.fill[Double](0)(0.0)
     }
+  }
+
+  private def adds4ChannelValuesToTotalArray(sourceData: Raster, arr: Array[Double], total: Array[Double], i: Integer, j: Integer) = {
+    sourceData.getPixel(i, j, arr)
+    total(0) = total(0) + arr(0)
+    total(1) = total(1) + arr(1)
+    total(2) = total(2) + arr(2)
+    total(3) = total(3) + arr(3)
   }
 
   def getAverageGrey(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Double = {

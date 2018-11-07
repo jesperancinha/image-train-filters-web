@@ -1,10 +1,10 @@
-## image-train-filters
+# image-train-filters
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b)](https://www.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-scala&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-scala-master)
 
 ---
-#### Description
+## Description
 
 Webservice which returns a filtered image after applying selectable filters
 
@@ -16,15 +16,15 @@ From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/mas
 
 From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther1.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
 
-### How to use
+## How to use
 
 You need to provide two form-data parameters in a Multipart Formdata request.
 Use curl for that please. An example follows bellow.
 
-#### filename
+### filename
 * this is the where you load your image file in
 
-#### commands
+### commands
 * this is where you set your commands. there are only two examples at the moment:
 
 1. Kuwahara filter:
@@ -114,7 +114,7 @@ Only important to note here that:
 
 * image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
-### License
+## License
 
 ```
 Copyright 2016-2017 João Esperancinha (jesperancinha)
@@ -132,17 +132,17 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-### Status
+## Status
 
 ** Under development **
 
 
-### Notes
+## Notes
 
 * https://www.getpostman.com/
 
 
-### Location:
+##Location:
 
 [GitHub location](https://github.com/jesperancinha/image-train-filters-scala)
 

@@ -55,12 +55,12 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
                 val eventualStrict = bodyPart.entity.toStrict(10 seconds)
                 val triedStrict = eventualStrict.value.orNull
                 if (triedStrict == null) {
-                  null
+                  ("", None)
                 }
                 else {
                   val value = triedStrict.getOrElse(null)
                   if (value == null) {
-                    null
+                    ("", None)
                   } else {
                     bodyPart.name ->
                       value.getData().decodeString("UTF-8")
