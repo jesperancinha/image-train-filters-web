@@ -51,7 +51,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
       case Failure(exception) =>
         println("Failure in finding RGB deviation".concat(exception.getMessage))
         println(i, j)
-      case Success(_) => Success(result)
+      case Success(value) => value
     }
   }
 
@@ -68,7 +68,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
           result match {
             case Failure(exception) => println("Get Average Out of bounds! ", i, j)
               throw exception
-            case Success(_) => Success(result)
+            case Success(value) => value
           }
         })
       })
@@ -99,21 +99,24 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
       (x1 to x2).map(i => {
         (y1 to y2).map(j => {
-          try {
-            sourceData.getPixel(i, j, arr)
-            val hsv = Array.fill[Float](4)(0)
-            Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
-            hsv(3)
-          }
-          catch {
-            case e: Exception => println("Get Average Grey Out of bounds! ", i, j)
-              throw e
+          val hsvResult: Try[Double] = Try(calculateHsvValueFromSourceDataPositions(sourceData, arr, i, j))
+          hsvResult match {
+            case Failure(exception) => println("Get Average Grey Out of bounds! ", i, j)
+              throw exception
+            case Success(hsv) => hsv
           }
         }).sum
       }).sum / numberOfPoints
     } else {
       Double.NaN
     }
+  }
+
+  private def calculateHsvValueFromSourceDataPositions(sourceData: Raster, arr: Array[Int], i: Int, j: Int) = {
+    sourceData.getPixel(i, j, arr)
+    val hsv = Array.fill[Float](4)(0)
+    Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
+    hsv(3)
   }
 
   def getStandardDeviation(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, avg: Double, square: Int): Double = {

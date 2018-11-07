@@ -6,7 +6,7 @@ import java.io.File
 import akka.actor.ActorSystem
 import akka.event.{LogSource, Logging, LoggingAdapter}
 import akka.http.scaladsl.model.Multipart.{BodyPart, FormData}
-import akka.http.scaladsl.model.{HttpResponse, StatusCodes}
+import akka.http.scaladsl.model.{HttpEntity, HttpResponse, StatusCodes}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
@@ -58,7 +58,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
                   ("", None)
                 }
                 else {
-                  val value = triedStrict.getOrElse(null)
+                  val value = triedStrict.getOrElse(HttpEntity.Empty)
                   if (value == null) {
                     ("", None)
                   } else {
