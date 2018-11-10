@@ -42,31 +42,9 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
           val log = Logging(system, this)
           val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
             case bodyPart: BodyPart if bodyPart.name.equals("filename") =>
-              log.info(s"received ${bodyPart.name} file")
-              val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
-              val data: Future[(String, Any)] = bodyPart
-                .entity
-                .dataBytes
-                .runWith(FileIO.toFile(tempFile)).map(_ => bodyPart.name -> bodyPart.getFilename.orElse(""))
-              log.info("saved! - " + tempFile)
-              data
+              processFileName(log, bodyPart)
             case bodyPart: BodyPart if bodyPart.name.equals("commands") =>
-              Future[(String, Any)] {
-                val eventualStrict = bodyPart.entity.toStrict(10 seconds)
-                val triedStrict = eventualStrict.value.orNull
-                if (triedStrict == null) {
-                  ("", None)
-                }
-                else {
-                  val value = triedStrict.getOrElse(HttpEntity.Empty)
-                  if (value == null) {
-                    ("", None)
-                  } else {
-                    bodyPart.name ->
-                      value.getData().decodeString("UTF-8")
-                  }
-                }
-              }
+              processCommands(bodyPart)
           }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
           extractedData.map(data => {
             val commands: String = data.get("commands").orNull.asInstanceOf[String]
@@ -86,6 +64,36 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         }
       }
     }
+  }
+
+  private def processCommands(bodyPart: FormData.BodyPart) = {
+    Future[(String, Any)] {
+      val eventualStrict = bodyPart.entity.toStrict(10 seconds)
+      val triedStrict = eventualStrict.value.orNull
+      if (triedStrict == null) {
+        ("", None)
+      }
+      else {
+        val value = triedStrict.getOrElse(HttpEntity.Empty)
+        if (value == null) {
+          ("", None)
+        } else {
+          bodyPart.name ->
+            value.getData().decodeString("UTF-8")
+        }
+      }
+    }
+  }
+
+  private def processFileName(log: LoggingAdapter, bodyPart: FormData.BodyPart) = {
+    log.info(s"received ${bodyPart.name} file")
+    val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
+    val data: Future[(String, Any)] = bodyPart
+      .entity
+      .dataBytes
+      .runWith(FileIO.toFile(tempFile)).map(_ => bodyPart.name -> bodyPart.getFilename.orElse(""))
+    log.info("saved! - " + tempFile)
+    data
   }
 
   private def filterBufferedImage(log: LoggingAdapter, srcBuff: BufferedImage, elem: CommandContainer, commands: List[CommandContainer]): BufferedImage = {

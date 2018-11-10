@@ -35,16 +35,13 @@ class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: In
   }
 
   private def calculateDrawColor(colorTop: Double, colorBottom: Double, nextHColor: Double, nextVColor: Double, prevHColor: Double, prevVColor: Double) = {
-    if (colorTop < nextHColor || colorTop < prevHColor) {
-      lnColor
-    } else if (colorBottom > nextHColor || colorBottom > prevHColor) {
-      lnColor
-    } else if (colorTop < nextVColor || colorTop < prevVColor) {
-      lnColor
-    } else if (colorBottom > nextVColor || colorBottom > prevVColor) {
-      lnColor
-    } else
-      bgColor
+    (colorTop, colorBottom) match {
+      case (t, _) if t < nextHColor || t < prevHColor => lnColor
+      case (_, b) if b > nextHColor || b > prevHColor => lnColor
+      case (t, _) if t < nextVColor || t < prevVColor => lnColor
+      case (_, b) if b > nextVColor || b > prevVColor => lnColor
+      case (_, _) => bgColor
+    }
   }
 }
 
