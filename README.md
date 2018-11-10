@@ -143,7 +143,7 @@ limitations under the License.
 *   [Postman](https://www.getpostman.com/)
 
 
-##Location:
+## Location:
 
 [GitHub location](https://github.com/jesperancinha/image-train-filters-scala)
 
