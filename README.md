@@ -9,11 +9,11 @@
 
 Webservice which returns a filtered image after applying selectable filters
 
-* Using image contour:
+*   Using image contour:
 
 From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
 
-* Using Kuwahara:
+*   Using Kuwahara:
 
 From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther1.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
 
@@ -23,19 +23,19 @@ You need to provide two form-data parameters in a Multipart Formdata request.
 Use curl for that please. An example follows bellow.
 
 ### filename
-* this is the where you load your image file in
+*   this is the where you load your image file in
 
 ### commands
-* this is where you set your commands. there are only two examples at the moment:
+*   this is where you set your commands. there are only two examples at the moment:
 
-1. Kuwahara filter:
+1.  Kuwahara filter:
 
 > It smooths the image
 
-2. Image contour filter:
+2.  Image contour filter:
 
 > Processes differences in color ranges
-
+>
 > These requests you can apply as many times as you like using a JSON request. Read following example for more.
 
 ### Command example
@@ -111,9 +111,9 @@ image-train-filters {
 
 Only important to note here that:
 
-* image-source-path -> This is where your original file is saved
+*   image-source-path -> This is where your original file is saved
 
-* image-destination-path -> This is where the resulting file is saved after applying the train of filters.
+*   image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
 ## License
 
@@ -135,17 +135,17 @@ limitations under the License.
 
 ## Status
 
-** Under development **
+**Under development**
 
 
 ## Notes
 
-* https://www.getpostman.com/
+*   [Postman](https://www.getpostman.com/)
 
 
 ##Location:
 
 [GitHub location](https://github.com/jesperancinha/image-train-filters-scala)
 
-* Twitter [@jofisaes](https://twitter.com/jofisaes)
-* GitHub [jesperancinha](https://github.com/jesperancinha)
+*   Twitter [@jofisaes](https://twitter.com/jofisaes)
+*   GitHub [jesperancinha](https://github.com/jesperancinha)
