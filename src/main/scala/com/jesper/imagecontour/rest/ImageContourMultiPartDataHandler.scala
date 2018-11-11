@@ -39,23 +39,9 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     pathEnd {
       (post & entity(as[FormData])) { formData =>
         complete {
-          val log = Logging(system, this)
-          val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
-            case bodyPart: BodyPart if bodyPart.name.equals("filename") =>
-              processFileName(log, bodyPart)
-            case bodyPart: BodyPart if bodyPart.name.equals("commands") =>
-              processCommands(bodyPart)
-          }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
+          val extractedData: Future[Map[String, Any]] = extractRequestData(formData)
           extractedData.map(data => {
-            val commands: String = data.get("commands").orNull.asInstanceOf[String]
-            val jsonParser = parse(commands)
-            val commandsParsed = jsonParser.extract[Commands]
-            val filename: String = data.get("filename").orNull.asInstanceOf[String]
-            val tempFile: File = new File(Boot.fileRootSource, filename)
-            val output: BufferedImage = filterBufferedImage(log, ImageManager.getBufferedImage(tempFile), commandsParsed.commands.head, commandsParsed.commands.tail)
-            val destinationFile: File = new File(Boot.fileRootDestination, filename)
-            ImageSaver.copyBufferedImage(output, destinationFile)
-            log.info("generated! - " + destinationFile)
+            handleRequest(data)
             HttpResponse(StatusCodes.OK, entity = s"Ok. Got $data")
           })
             .recover {
@@ -66,7 +52,31 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     }
   }
 
-  private def processCommands(bodyPart: FormData.BodyPart) = {
+  private def extractRequestData(formData: FormData): Future[Map[String, Any]] = {
+    val log = Logging(system, this)
+    val extractedData: Future[Map[String, Any]] = formData.parts.mapAsync[(String, Any)](1) {
+      case bodyPart: BodyPart if bodyPart.name.equals("filename") =>
+        processFileName(log, bodyPart)
+      case bodyPart: BodyPart if bodyPart.name.equals("commands") =>
+        processCommands(bodyPart)
+    }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
+    extractedData
+  }
+
+  private def handleRequest(data: Map[String, Any]): Unit = {
+    val log: LoggingAdapter = Logging(system, this)
+    val commands: String = data.get("commands").orNull.asInstanceOf[String]
+    val jsonParser = parse(commands)
+    val commandsParsed = jsonParser.extract[Commands]
+    val filename: String = data.get("filename").orNull.asInstanceOf[String]
+    val tempFile: File = new File(Boot.fileRootSource, filename)
+    val output: BufferedImage = filterBufferedImage(log, ImageManager.getBufferedImage(tempFile), commandsParsed.commands.head, commandsParsed.commands.tail)
+    val destinationFile: File = new File(Boot.fileRootDestination, filename)
+    ImageSaver.copyBufferedImage(output, destinationFile)
+    log.info("generated! - " + destinationFile)
+  }
+
+  private def processCommands(bodyPart: FormData.BodyPart): Future[(String, Any)] = {
     Future[(String, Any)] {
       val eventualStrict = bodyPart.entity.toStrict(10 seconds)
       val triedStrict = eventualStrict.value.orNull
