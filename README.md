@@ -116,6 +116,24 @@ Only important to note here that:
 
 *   image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
+## Status
+
+**Under development**
+
+
+## Notes
+
+*   [Postman](https://www.getpostman.com/)
+
+## About me
+
+-   Twitter [@jofisaes](https://twitter.com/jofisaes)
+-   GitHub [jesperancinha](https://github.com/jesperancinha)
+-   Free Code Camp [jofisaes](https://www.freecodecamp.org/jofisaes)
+-   Hackerrank [jofisaes](https://www.hackerrank.com/jofisaes)
+-   Acclaim Badges [joao-esperancinha](https://www.youracclaim.com/users/joao-esperancinha/badges)
+-   Home Page [joaofilipesabinoesperancinha](http://joaofilipesabinoesperancinha.nl)
+
 ## License
 
 ```
@@ -133,32 +151,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
-## Status
-
-**Under development**
-
-
-## Notes
-
-*   [Postman](https://www.getpostman.com/)
-
-
-## Location:
-
-[GitHub location](https://github.com/jesperancinha/image-train-filters-scala)
-
-*   Twitter [@jofisaes](https://twitter.com/jofisaes)
-*   GitHub [jesperancinha](https://github.com/jesperancinha)
-
-
-## About me
-
--   Twitter [@jofisaes](https://twitter.com/jofisaes)
--   GitHub [jesperancinha](https://github.com/jesperancinha)
--   Free Code Camp [jofisaes](https://www.freecodecamp.org/jofisaes)
--   Hackerrank [jofisaes](https://www.hackerrank.com/jofisaes)
--   Acclaim Badges [joao-esperancinha](https://www.youracclaim.com/users/joao-esperancinha/badges)
--   Home Page [joaofilipesabinoesperancinha](http://joaofilipesabinoesperancinha.nl)
-
 
