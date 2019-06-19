@@ -1,3 +1,11 @@
+## IntelliJ
+.iml
+.idea
+
+## Eclipse
+.project
+.classpath
+
 *.class
 *.log
 

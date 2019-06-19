@@ -125,6 +125,12 @@ Only important to note here that:
 
 *   [Postman](https://www.getpostman.com/)
 
+
+## Change log:
+
+2019/06/19:
+-   Simple front end creation
+
 ## About me
 
 -   Twitter [@jofisaes](https://twitter.com/jofisaes)
