@@ -1,4 +1,8 @@
 <div class="container">
+    <nb-card nbSpinnerStatus="info">
+        <nb-card-body><div class="card"><div>Please insert an image and you will get a downloaded result</div>
+        </div></nb-card-body>
+    </nb-card>
     <label for="file-upload" class="custom-file-upload">Pick File</label>
     <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
            (cancel)="imageChanged()" id="file-upload"/>
@@ -9,6 +13,6 @@
     </button>
     <div *ngIf="filename">{{filename}}</div>
     <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger">
-        <nb-card-body><div *ngIf="imageToShow" class="card"><img [src]="imageToShow"/></div></nb-card-body>
+        <nb-card-body><div *ngIf="imageToShow" class="card"><img [src]="imageToShow" alt="Generated image"/></div></nb-card-body>
     </nb-card>
 </div>

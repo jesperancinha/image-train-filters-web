@@ -143,7 +143,7 @@ Only important to note here that:
 ## License
 
 ```
-Copyright 2016-2017 João Esperancinha (jesperancinha)
+Copyright 2016-2019 João Esperancinha (jesperancinha)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
