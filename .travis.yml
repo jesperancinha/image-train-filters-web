@@ -4,3 +4,16 @@ before_install:
   - brew install ant
 
 language: scala
+scala:
+  - 2.9.3
+  - 2.10.6
+  - 2.11.11
+  - 2.12.2
+
+script:
+  - cd image-train-filters-service
+  - sbt "project image-train-filters-service" clean update test
+  - cd ..
+  - cd image-train-filters-fe
+  - npm install
+  - cd ..
