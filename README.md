@@ -128,8 +128,18 @@ Only important to note here that:
 
 ## Change log:
 
+2019/06/20:
+-   DevOps innovatiomns started
+-   Foundations of site [itf.joaofilipesabinoesperancinha.nl](http://itf.joaofilipesabinoesperancinha.nl)
+-   Immediate return of generated image
+
 2019/06/19:
 -   Simple front end creation
+
+## DevOps
+
+-   [nginx: multiple websites on one server](https://serverfault.com/questions/845739/nginx-multiple-websites-on-one-server)
+-   [Set up multiple websites on a Digital Ocean droplet running nginx and node.js](https://coderwall.com/p/rldrxa/set-up-multiple-websites-on-a-digital-ocean-droplet-running-nginx-and-node-js)
 
 ## About me
 
