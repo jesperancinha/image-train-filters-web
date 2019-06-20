@@ -6,7 +6,14 @@ import {AppComponent} from './app.component';
 import {ImageComponent} from './image-loader/image.loader';
 
 import {FileSelectDirective} from 'ng2-file-upload';
-import {NbButtonModule, NbInputModule, NbLayoutModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
+import {
+    NbButtonModule,
+    NbCardModule,
+    NbInputModule,
+    NbLayoutModule,
+    NbSidebarModule, NbSpinnerModule,
+    NbThemeModule
+} from '@nebular/theme';
 import {RouterModule} from "@angular/router";
 
 @NgModule({
@@ -14,7 +21,7 @@ import {RouterModule} from "@angular/router";
         path: '',
         component: AppComponent
     },
-    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule],
+    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule],
     declarations: [AppComponent, ImageComponent, FileSelectDirective],
     bootstrap: [AppComponent]
 })

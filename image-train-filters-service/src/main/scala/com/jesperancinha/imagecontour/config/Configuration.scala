@@ -20,6 +20,9 @@ trait Configuration {
   lazy val serviceImageSourceFolder: String = Try(config.getString("image-train-filters.image-source-path")).getOrElse(System.getProperty("java.io.tmpdir") + "/source")
   /** Image destination folder **/
   lazy val serviceImageDestinationFolder: String = Try(config.getString("image-train-filters.image-destination-path")).getOrElse(System.getProperty("java.io.tmpdir") + "/destination")
+  /** Save images ? **/
+  lazy val saveImages: Boolean = Try(config.getBoolean("image-train-filters.saveFiles")).getOrElse(false)
+
   /**
     * Application configuration
     */

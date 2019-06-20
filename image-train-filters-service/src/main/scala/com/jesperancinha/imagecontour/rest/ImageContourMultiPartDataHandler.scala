@@ -6,15 +6,15 @@ import java.io.File
 import akka.actor.ActorSystem
 import akka.event.{LogSource, Logging, LoggingAdapter}
 import akka.http.scaladsl.model.Multipart.{BodyPart, FormData}
-import akka.http.scaladsl.model.{HttpEntity, HttpResponse, MediaTypes, StatusCodes}
-import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.model.{HttpEntity, HttpResponse, StatusCodes}
+import akka.http.scaladsl.server.Directives.{entity, _}
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
-import akka.util.ByteString
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, JsonSupport}
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64
 import javax.imageio.ImageIO
 import net.liftweb.json.{DefaultFormats, parse}
 
@@ -36,7 +36,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
 
     override def getClazz(o: AnyRef): Class[_] = o.getClass
   }
-  val routes: Route = processMultiPartData
+  val uploadingData: Route = processMultiPartData
 
   def processMultiPartData: Route = pathPrefix("images") {
     pathEnd {
@@ -47,8 +47,9 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
             val result: BufferedImage = handleRequest(data)
             import java.io.ByteArrayOutputStream
             val outputStream = new ByteArrayOutputStream
-            ImageIO.write(result, "jpg", outputStream)
-            HttpResponse(StatusCodes.OK, entity = HttpEntity.apply(MediaTypes.`image/jpeg`, outputStream.toByteArray))
+            ImageIO.write(result, "png", outputStream)
+            // HttpResponse(StatusCodes.OK, entity = HttpEntity.apply(MediaTypes.`image/png`, outputStream.toByteArray))
+            HttpResponse(StatusCodes.OK, entity = Base64.encode(outputStream.toByteArray))
           })
             .recover {
               case e: Exception =>
@@ -80,9 +81,14 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     val filename: String = data.get("filename").orNull.asInstanceOf[String]
     val tempFile: File = new File(Boot.fileRootSource, filename)
     val output: BufferedImage = filterBufferedImage(log, ImageManager.getBufferedImage(tempFile), commandsParsed.commands.head, commandsParsed.commands.tail)
-    val destinationFile: File = new File(Boot.fileRootDestination, filename)
-    ImageSaver.copyBufferedImage(output, destinationFile)
-    log.info("generated! - " + destinationFile)
+    if (Boot.saveImages) {
+      val destinationFile: File = new File(Boot.fileRootDestination, filename)
+      ImageSaver.copyBufferedImage(output, destinationFile)
+      log.info("generated! - " + destinationFile)
+    } else {
+      tempFile.delete()
+      log.info("removed temporary file - " + tempFile)
+    }
     output
   }
 

@@ -5,5 +5,12 @@
     "pathRewrite": {
       "^/api/images": "images"
     }
+  },
+  "/api/results": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/results": "results"
+    }
   }
 }
