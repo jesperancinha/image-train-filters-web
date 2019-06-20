@@ -1,8 +1,9 @@
 <div class="container">
-  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
-  <button type="button" class="btn btn-success btn-s" 
-    (click)="uploader.uploadAll()" 
-    [disabled]="!uploader.getNotUploadedItems().length" >
+    <label for="file-upload" class="custom-file-upload">Custom Upload</label>
+    <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" id="file-upload"/>
+    <button nbButton outline status="primary" class="btn btn-success btn-s"
+            (click)="uploader.uploadAll()"
+            [disabled]="!(uploader.getNotUploadedItems().length>0)">
         Upload an Image
-  </button>
+    </button>
 </div>

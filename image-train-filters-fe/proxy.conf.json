@@ -1,0 +1,9 @@
+{
+  "/api/images": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/images": "images"
+    }
+  }
+}

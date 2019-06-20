@@ -6,14 +6,16 @@ import java.io.File
 import akka.actor.ActorSystem
 import akka.event.{LogSource, Logging, LoggingAdapter}
 import akka.http.scaladsl.model.Multipart.{BodyPart, FormData}
-import akka.http.scaladsl.model.{HttpEntity, HttpResponse, StatusCodes}
+import akka.http.scaladsl.model.{HttpEntity, HttpResponse, MediaTypes, StatusCodes}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
+import akka.util.ByteString
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, JsonSupport}
+import javax.imageio.ImageIO
 import net.liftweb.json.{DefaultFormats, parse}
 
 import scala.concurrent.duration._
@@ -38,15 +40,21 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
 
   def processMultiPartData: Route = pathPrefix("images") {
     pathEnd {
-      (post & entity(as[FormData])) { formData =>
+      ((post | options) & entity(as[FormData])) { formData =>
         complete {
           val extractedData: Future[Map[String, Any]] = extractRequestData(formData)
           extractedData.map(data => {
-            handleRequest(data)
-            HttpResponse(StatusCodes.OK, entity = s"Ok. Got $data")
+            val result: BufferedImage = handleRequest(data)
+            import java.io.ByteArrayOutputStream
+            val outputStream = new ByteArrayOutputStream
+            ImageIO.write(result, "jpg", outputStream)
+            HttpResponse(StatusCodes.OK, entity = HttpEntity.apply(MediaTypes.`image/jpeg`, outputStream.toByteArray))
           })
             .recover {
-              case _: Exception => HttpResponse(StatusCodes.InternalServerError, entity = "Failed!")
+              case e: Exception =>
+                val log: LoggingAdapter = Logging(system, this)
+                log.error(e.getMessage, e)
+                HttpResponse(StatusCodes.InternalServerError, entity = "Failed!")
             }
         }
       }
@@ -59,12 +67,12 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
       case bodyPart: BodyPart if bodyPart.name.equals("filename") =>
         processFileName(log, bodyPart)
       case bodyPart: BodyPart if bodyPart.name.equals("commands") =>
-        processCommands(bodyPart)
+        processCommands(log, bodyPart)
     }.runFold(Map.empty[String, Any])((map, tuple) => map + tuple)
     extractedData
   }
 
-  private def handleRequest(data: Map[String, Any]): Unit = {
+  private def handleRequest(data: Map[String, Any]): BufferedImage = {
     val log: LoggingAdapter = Logging(system, this)
     val commands: String = data.get("commands").orNull.asInstanceOf[String]
     val jsonParser = parse(commands)
@@ -75,9 +83,11 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     val destinationFile: File = new File(Boot.fileRootDestination, filename)
     ImageSaver.copyBufferedImage(output, destinationFile)
     log.info("generated! - " + destinationFile)
+    output
   }
 
-  private def processCommands(bodyPart: FormData.BodyPart): Future[(String, Any)] = {
+  private def processCommands(log: LoggingAdapter, bodyPart: FormData.BodyPart): Future[(String, Any)] = {
+    log.info(s"received ${bodyPart.toString} commands")
     Future[(String, Any)] {
       val eventualStrict = bodyPart.entity.toStrict(10 seconds)
       val triedStrict = eventualStrict.value.orNull
@@ -97,7 +107,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
   }
 
   private def processFileName(log: LoggingAdapter, bodyPart: FormData.BodyPart) = {
-    log.info(s"received ${bodyPart.name} file")
+    log.info(s"received ${bodyPart.toString} file")
     val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
     val data: Future[(String, Any)] = bodyPart
       .entity
