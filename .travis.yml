@@ -1,1 +1,6 @@
+os: osx
+
+before_install:
+  - brew install ant
+
 language: scala
