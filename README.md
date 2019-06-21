@@ -138,6 +138,27 @@ Only important to note here that:
 
 ## DevOps
 
+$ npm i -g npm  
+$ npm install -g @angular/cli  
+$ alias ng="/usr/local/lib/node_modules/@angular/cli/bin/ng"  
+$ npm cache clean -f  
+$ npm install -g n  
+$ n stable  
+
+### Git
+
+$ apt install gitk  
+$ apt install git-gui
+
+### image-train-filters-fe Module
+
+#### Make a build
+
+$ npm install
+$ ng build --aot=true
+
+### References
+
 -   [nginx: multiple websites on one server](https://serverfault.com/questions/845739/nginx-multiple-websites-on-one-server)
 -   [Set up multiple websites on a Digital Ocean droplet running nginx and node.js](https://coderwall.com/p/rldrxa/set-up-multiple-websites-on-a-digital-ocean-droplet-running-nginx-and-node-js)
 

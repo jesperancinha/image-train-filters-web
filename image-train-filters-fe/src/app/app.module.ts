@@ -5,13 +5,14 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {ImageComponent} from './image-loader/image.loader';
 
-import {FileSelectDirective} from 'ng2-file-upload';
+import {FileUploadModule} from 'ng2-file-upload';
 import {
     NbButtonModule,
     NbCardModule,
     NbInputModule,
     NbLayoutModule,
-    NbSidebarModule, NbSpinnerModule,
+    NbSidebarModule,
+    NbSpinnerModule,
     NbThemeModule
 } from '@nebular/theme';
 import {RouterModule} from "@angular/router";
@@ -21,8 +22,8 @@ import {RouterModule} from "@angular/router";
         path: '',
         component: AppComponent
     },
-    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule],
-    declarations: [AppComponent, ImageComponent, FileSelectDirective],
+    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule],
+    declarations: [AppComponent, ImageComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {

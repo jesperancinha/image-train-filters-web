@@ -18,9 +18,9 @@ class ImageChangeEvent {
 export class ImageComponent implements OnInit {
     public uploader: FileUploader;
 
-    private imageToShow: any;
-    private filename: String;
-    private loading: boolean;
+    imageToShow: any;
+    filename: String;
+    loading: boolean;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;

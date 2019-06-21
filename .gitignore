@@ -6,10 +6,12 @@
 .project
 .classpath
 
+## Builds
 *.class
 *.log
+dist
 
-# sbt specific
+## SBT specific
 .cache
 .history
 .lib/
