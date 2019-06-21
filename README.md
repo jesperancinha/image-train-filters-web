@@ -144,6 +144,18 @@ $ alias ng="/usr/local/lib/node_modules/@angular/cli/bin/ng"
 $ npm cache clean -f  
 $ npm install -g n  
 $ n stable  
+$ echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list  
+$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823  
+$ apt-get update  
+$ apt-get install sbt 
+$ apt-get install default-jre 
+---
+##### Deprecated
+$ add-apt-repository ppa:webupd8team/java  
+$ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+$ echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+$ apt install oracle-java8-installer  
 
 ### Git
 
@@ -157,6 +169,12 @@ $ apt install git-gui
 $ npm install
 $ ng build --aot=true
 $ service nginx reload
+
+### image-train-filters-service
+
+#### Start services
+
+$ sbt
 
 ### References
 
