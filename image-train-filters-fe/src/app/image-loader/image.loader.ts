@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload/ng2-file-upload';
 import {DomSanitizer} from "@angular/platform-browser";
 
-const URL: string = 'http://127.0.0.1:4200/api/images';
+const URL: string = '/api/images';
 
 class ImageChangeEvent {
     target: any;

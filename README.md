@@ -156,6 +156,7 @@ $ apt install git-gui
 
 $ npm install
 $ ng build --aot=true
+$ service nginx reload
 
 ### References
 
