@@ -4,7 +4,7 @@ import {DomSanitizer} from "@angular/platform-browser";
 
 const URL: string = '/api/images';
 
-class ImageChangeEvent {
+class ImageChangeEvent extends Event {
     target: any;
     files: any;
 }
@@ -33,7 +33,9 @@ export class ImageComponent implements OnInit {
             url: URL,
             method: 'post',
             itemAlias: 'filename',
-            disableMultipart: false//,
+            disableMultipart: false,
+            queueLimit: 1,
+            maxFileSize: 100000000,
         });
         this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
             form.append('commands', "{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }");
@@ -42,22 +44,33 @@ export class ImageComponent implements OnInit {
             if (status != 200) {
                 this.errorStatus = status;
                 this.errorText = response;
-                if(status == 503){
+                if (status == 503) {
                     this.adviceText = "Your picture is either too big (>100Mb) or it's complexion is too heavy for the current algorithm implementation";
                 }
             } else {
                 this.imageToShow = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
             }
             this.loading = false;
-            this.uploader.cancelAll();
+            this.removeAllElementsFromQueue();
         };
     }
 
-    imageChanged($event?: ImageChangeEvent) {
+    imageChanged($event?: Event) {
         if ($event) {
-            this.filename = $event.target.files[0].name;
+            let file = (<ImageChangeEvent>$event).target.files[0];
+            if (file) {
+                this.filename = file.name;
+            } else {
+                this.filename = null;
+                this.removeAllElementsFromQueue();
+            }
         }
         this.imageToShow = null;
+    }
+
+    private removeAllElementsFromQueue() {
+        this.uploader.cancelAll();
+        this.uploader.clearQueue();
     }
 
     loadImage() {

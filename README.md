@@ -177,7 +177,7 @@ $ sbt
 -   [Fixing 413 Request Entity Too Large Errors](https://www.keycdn.com/support/413-request-entity-too-large)
 -   [Postman](https://www.getpostman.com/)
 -   [Update all the Node dependencies to their latest version](https://flaviocopes.com/update-npm-dependencies/)
-
+-   [How to fix 'Unsupported platform for fsevents@1.2.9: wanted {“os”:“darwin”,“arch”:“any”} (current: {“os”:“win32”,“arch”:“x64”})](https://stackoverflow.com/questions/56103865/how-to-fix-unsupported-platform-for-fsevents1-2-9-wanted-osdarwin-arch)
 
 ## About me
 
