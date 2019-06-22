@@ -7,6 +7,7 @@ import {ImageComponent} from './image-loader/image.loader';
 
 import {FileUploadModule} from 'ng2-file-upload';
 import {
+    NbAlertModule,
     NbButtonModule,
     NbCardModule,
     NbInputModule,
@@ -22,7 +23,7 @@ import {RouterModule} from "@angular/router";
         path: '',
         component: AppComponent
     },
-    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule],
+    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule, NbAlertModule],
     declarations: [AppComponent, ImageComponent],
     bootstrap: [AppComponent]
 })
