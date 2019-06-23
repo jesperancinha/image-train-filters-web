@@ -1,7 +1,10 @@
 <div class="container">
     <nb-card>
-        <nb-card-body><div class="card"><div>Please insert an image and you will get a downloaded result</div>
-        </div></nb-card-body>
+        <nb-card-body>
+            <div class="card">
+                <div>Please insert an image and you will get a downloaded result</div>
+            </div>
+        </nb-card-body>
     </nb-card>
     <label for="file-upload" class="custom-file-upload">Pick File (max 100Mb)</label>
     <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
@@ -13,9 +16,38 @@
     </button>
     <div *ngIf="filename">{{filename}}</div>
     <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger">
-        <nb-card-body><div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow" alt="Generated image"/></div></nb-card-body>
-        <nb-alert  *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error text: {{errorText}}</nb-alert>
-        <nb-alert  *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
+        <nb-card-body>
+            <div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
+                                                       alt="Generated image"/></div>
+        </nb-card-body>
+        <nb-alert *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error
+            text: {{errorText}}</nb-alert>
+        <nb-alert *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
     </nb-card>
     <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
+
+    <nb-card>
+        <nb-card-body>
+            <nb-tabset>
+                <nb-tab tabTitle="Contour" responsive>
+                    <label>
+                        <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Background color" class="filters">
+                    </label>
+                    <label>
+                        <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Line color" class="filters">
+                    </label>
+                    <label>
+                        <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Difference Threshold" class="filters">
+                    </label>
+                    <label>
+                        <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Radius" class="filters">
+                    </label>
+                </nb-tab>
+                <nb-tab tabTitle="Kuwahara" responsive>
+                </nb-tab>
+                <nb-tab tabTitle="Chartizate" responsive>
+                </nb-tab>
+            </nb-tabset>
+        </nb-card-body>
+    </nb-card>
 </div>

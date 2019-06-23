@@ -13,3 +13,11 @@ input[type="file"] {
 .card {
     align-content: center;
 }
+
+input {
+    margin: 8px;
+}
+
+.filters {
+    max-width: 800px;
+}

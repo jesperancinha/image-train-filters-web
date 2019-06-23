@@ -13,7 +13,7 @@ import {
     NbInputModule,
     NbLayoutModule,
     NbSidebarModule,
-    NbSpinnerModule,
+    NbSpinnerModule, NbTabsetModule,
     NbThemeModule
 } from '@nebular/theme';
 import {RouterModule} from "@angular/router";
@@ -23,7 +23,7 @@ import {RouterModule} from "@angular/router";
         path: '',
         component: AppComponent
     },
-    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule, NbAlertModule],
+    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule, NbAlertModule, NbTabsetModule],
     declarations: [AppComponent, ImageComponent],
     bootstrap: [AppComponent]
 })
