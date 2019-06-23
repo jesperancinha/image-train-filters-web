@@ -38,7 +38,7 @@ export class ImageComponent implements OnInit {
             maxFileSize: 100000000,
         });
         this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
-            form.append('commands', "{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }");
+            form.append('commands', "{ \"commands\": [ { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }");
         };
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
             if (status != 200) {

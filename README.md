@@ -10,13 +10,13 @@
 
 Webservice which returns a filtered image after applying selectable filters
 
-*   Using image contour:
+*   Using Image Contour filter:
 
-From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
+From <img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPantherOut.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPantherOut.jpg" width="200" />
 
-*   Using Kuwahara:
+*   Using Kuwahara filter:
 
-From <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPanther1.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-contour/master/src/test/resources/testPantherOut.jpg" width="200" />
+From <img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPanther.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPanther.jpg" width="200" /> To <img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPanther1.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testPantherOut.jpg" width="200" />
 
 ## How to use
 
@@ -121,6 +121,9 @@ Only important to note here that:
 **Under development**
 
 ## Change log:
+
+2019/06/23:
+-   Image Countour filter is selectable
 
 2019/06/20:
 -   DevOps innovatiomns started

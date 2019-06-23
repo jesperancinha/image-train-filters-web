@@ -10,6 +10,7 @@
 *.class
 *.log
 dist
+dist.tar.gz
 
 ## SBT specific
 .cache
