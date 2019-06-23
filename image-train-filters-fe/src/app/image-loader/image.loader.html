@@ -13,8 +13,9 @@
     </button>
     <div *ngIf="filename">{{filename}}</div>
     <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger">
-        <nb-card-body><div *ngIf="imageToShow" class="card"><img [src]="imageToShow" alt="Generated image"/></div></nb-card-body>
+        <nb-card-body><div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow" alt="Generated image"/></div></nb-card-body>
         <nb-alert  *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error text: {{errorText}}</nb-alert>
         <nb-alert  *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
     </nb-card>
+    <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
 </div>

@@ -23,6 +23,7 @@ export class ImageComponent implements OnInit {
     errorText: String;
     errorStatus: String;
     adviceText: String;
+    fileUrl: any;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;
@@ -48,7 +49,9 @@ export class ImageComponent implements OnInit {
                     this.adviceText = "Your picture is either too big (>100Mb) or it's complexion is too heavy for the current algorithm implementation";
                 }
             } else {
-                this.imageToShow = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
+                let generatedImage = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
+                this.fileUrl = generatedImage;
+                this.imageToShow = generatedImage;
             }
             this.loading = false;
             this.removeAllElementsFromQueue();
@@ -80,4 +83,5 @@ export class ImageComponent implements OnInit {
         this.loading = true;
         this.uploader.uploadAll();
     }
+
 }
