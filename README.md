@@ -135,37 +135,37 @@ Only important to note here that:
 
 ## DevOps
 
-$ npm i -g npm  
-$ npm install -g @angular/cli  
-$ alias ng="/usr/local/lib/node_modules/@angular/cli/bin/ng"  
-$ npm cache clean -f  
-$ npm install -g n  
-$ n stable  
-$ echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list  
-$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823  
-$ apt-get update  
-$ apt-get install sbt 
-$ apt-get install default-jre 
+>$ npm i -g npm  
+>$ npm install -g @angular/cli  
+>$ alias ng="/usr/local/lib/node_modules/@angular/cli/bin/ng"  
+>$ npm cache clean -f  
+>$ npm install -g n  
+>$ n stable  
+>$ echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list  
+>$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823  
+>$ apt-get update  
+>$ apt-get install sbt 
+>$ apt-get install default-jre 
 ---
 ##### Deprecated
-$ add-apt-repository ppa:webupd8team/java  
-$ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
-$ echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
-$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-$ apt install oracle-java8-installer  
+>$ add-apt-repository ppa:webupd8team/java  
+>$ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+>$ echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+>$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+>$ apt install oracle-java8-installer  
 
 ### Git
 
-$ apt install gitk  
-$ apt install git-gui
+>$ apt install gitk  
+>$ apt install git-gui
 
 ### image-train-filters-fe Module
 
 #### Make a build
 
-$ npm install
-$ ng build --aot=true
-$ service nginx reload
+>$ npm install
+>$ ng build --aot=true
+>$ service nginx reload
 
 ### image-train-filters-service
 
@@ -173,7 +173,7 @@ $ service nginx reload
 
 $ sbt
 
-### References
+## References
 
 -   [nginx: multiple websites on one server](https://serverfault.com/questions/845739/nginx-multiple-websites-on-one-server)
 -   [Set up multiple websites on a Digital Ocean droplet running nginx and node.js](https://coderwall.com/p/rldrxa/set-up-multiple-websites-on-a-digital-ocean-droplet-running-nginx-and-node-js)
