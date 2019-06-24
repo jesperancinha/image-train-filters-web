@@ -19,5 +19,5 @@ input {
 }
 
 .filters {
-    max-width: 800px;
+    float:right;
 }
