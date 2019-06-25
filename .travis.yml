@@ -3,6 +3,7 @@ language: scala
 scala:
   - 2.12.2
 script:
+  - cp settings.xml ~/.m2/settings.xml
   - cd image-train-filters-service
   - sbt "project image-train-filters-service" clean update test
   - cd ..
