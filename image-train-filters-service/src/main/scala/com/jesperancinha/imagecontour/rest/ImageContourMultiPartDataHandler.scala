@@ -146,6 +146,14 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         elem.settings.find(p => p.name.equals("square-size")).orNull.value.toInt,
         elem.settings.find(p => p.name.equals("iterations")).orNull.value.toInt
       )
+      case "chartizate" => new ImageChartizate(
+        elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
+        elem.settings.find(p => p.name.equals("densityPro")).orNull.value.toInt,
+        elem.settings.find(p => p.name.equals("rangePro")).orNull.value.toInt,
+        elem.settings.find(p => p.name.equals("font")).orNull.value.toString,
+        elem.settings.find(p => p.name.equals("fontSize")).orNull.value.toInt,
+        elem.settings.find(p => p.name.equals("unicode")).orNull.value.toString,
+      )
     }
     filter
   }

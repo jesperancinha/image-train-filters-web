@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<settings xsi:schemaLocation='http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd'
+          xmlns='http://maven.apache.org/SETTINGS/1.0.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+
+    <profiles>
+        <profile>
+            <repositories>
+                <repository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>bintray-jesperancinha-itf</id>
+                    <name>bintray</name>
+                    <url>https://dl.bintray.com/jesperancinha/itf</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>bintray-jesperancinha-itf</id>
+                    <name>bintray-plugins</name>
+                    <url>https://dl.bintray.com/jesperancinha/itf</url>
+                </pluginRepository>
+            </pluginRepositories>
+            <id>bintray</id>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>bintray</activeProfile>
+    </activeProfiles>
+    <servers>
+<!--        This file has the contents of what should be in your ~/.m2/settings.xml file locally, if you want to you this repo currently. It will be available in JCenter soon-->
+<!--        <server>-->
+<!--            <id>bintray-jesperancinha-itf</id>-->
+<!--            <username>jesperancinha</username>-->
+<!--            <password></password>-->
+<!--        </server>-->
+<!--        <server>-->
+<!--            <id>bintray-jesperancinha-maven</id>-->
+<!--            <username>jesperancinha</username>-->
+<!--            <password></password>-->
+<!--        </server>-->
+    </servers>
+</settings>

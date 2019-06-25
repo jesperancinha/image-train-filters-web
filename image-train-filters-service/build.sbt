@@ -4,11 +4,14 @@ version := "1.0"
 
 scalaVersion := "2.12.7"
 
+javacOptions ++= Seq("-source", "11", "-target", "11")
+
 resolvers += Resolver.sbtPluginRepo("releases")
 resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
 resolvers += Resolver.bintrayIvyRepo("com.eed3si9n", "sbt-plugins")
 resolvers += "Spray repository" at "http://repo.spray.io"
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+resolvers += "jesperancinha ITF" at "https://dl.bintray.com/jesperancinha/itf"
 
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
@@ -25,6 +28,7 @@ libraryDependencies += "com.typesafe.akka" %% "akka-stream" % "2.5.17"
 libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5"
+libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "3.0.0" exclude("org.fusesource.jansi","jansi")
 
 
 scalacOptions in Test ++= Seq("-Yrangepos")

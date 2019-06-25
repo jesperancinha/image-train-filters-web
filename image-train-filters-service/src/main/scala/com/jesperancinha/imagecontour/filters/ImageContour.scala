@@ -2,11 +2,6 @@ package com.jesperancinha.imagecontour.filters
 
 import java.awt.image.BufferedImage
 
-/**
-  * Created by joaofilipesabinoesperancinha on 03-03-16.
-  */
-
-
 class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: Int) extends ImageFilter[BufferedImage, BufferedImage] {
   def apply(source: BufferedImage): BufferedImage = {
     val w: Int = source.getWidth

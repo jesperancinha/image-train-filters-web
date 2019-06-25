@@ -5,9 +5,6 @@ import java.awt.image.{BufferedImage, Raster}
 
 import scala.util.{Failure, Success, Try}
 
-/**
-  * Created by joaofilipesabinoesperancinha on 09-03-16.
-  */
 class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
   def apply(source: BufferedImage): BufferedImage = {
     val srcOut: Raster = source.getData()

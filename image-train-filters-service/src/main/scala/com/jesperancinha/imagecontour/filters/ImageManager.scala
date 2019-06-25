@@ -6,10 +6,6 @@ import java.nio.file.{Files, Paths}
 
 import javax.imageio.ImageIO
 
-/**
-  * Created by joaofilipesabinoesperancinha on 09-03-16.
-  * Utility Class
-  */
 object ImageManager {
 
   def getBufferedImage(file: File): BufferedImage = {

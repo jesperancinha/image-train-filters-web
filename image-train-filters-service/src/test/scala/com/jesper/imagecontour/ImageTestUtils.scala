@@ -12,10 +12,10 @@ import javax.imageio.ImageIO
 object ImageTestUtils {
 
   def getBufferedResource(resourcePath: String): BufferedImage = {
-    val fileBytes = Files.readAllBytes(Paths.get(getClass().getResource(resourcePath).toURI))
+    val fileBytes = Files.readAllBytes(Paths.get(getClass.getResource(resourcePath).toURI))
     val byteStream: InputStream = new ByteArrayInputStream(fileBytes)
-    val sourceImage: BufferedImage = ImageIO.read(byteStream);
-    byteStream.close
+    val sourceImage: BufferedImage = ImageIO.read(byteStream)
+    byteStream.close()
     sourceImage
   }
 }

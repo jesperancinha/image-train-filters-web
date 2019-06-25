@@ -21,6 +21,7 @@ From <img src="https://raw.githubusercontent.com/jesperancinha/image-train-filte
 Current running online implementation: [Image train filters](http://itf.joaofilipesabinoesperancinha.nl)
 
 ## How to use
+If you are installing this locally, remember that currently the [chartizate](https://github.com/jesperancinha/itf-chartizate) libraries are not located in public repos, so please copy this file [settings.xml](./settings.xml) to your local maven repo in ~/.m2/settings.xml.
 
 You need to provide two form-data parameters in a Multipart Formdata request.
 Use curl for that please. An example follows bellow.
