@@ -1,20 +1,28 @@
 <div class="container">
-    <nb-card>
+    <nb-card accent="info">
         <nb-card-body>
             <div class="card">
                 <div>Please insert an image and you will get a downloaded result</div>
             </div>
         </nb-card-body>
     </nb-card>
-    <label for="file-upload" class="custom-file-upload">Pick File (max 100Mb)</label>
-    <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
-           (cancel)="imageChanged()" id="file-upload"/>
-    <button nbButton outline status="primary" class="btn btn-success btn-s"
-            (click)="loadImage()"
-            [disabled]="!(uploader.getNotUploadedItems().length>0)">
-        Generate Image
-    </button>
-    <div *ngIf="filename">{{filename}}</div>
+    <nb-card accent="info">
+        <div class="container">
+            <label for="file-upload" [hidden]="true" #imagePicker>Pick File (max 100Mb)</label>
+            <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
+                   (cancel)="imageChanged()" id="file-upload" status="primary" [hidden]="true"/>
+            <button nbButton outline status="primary" class="btn btn-success btn-s"
+                    (click)="imagePicker.click()">
+                Pick File (max 100Mb)
+            </button>
+            <button nbButton outline status="primary" class="btn btn-success btn-s"
+                    (click)="loadImage()"
+                    [disabled]="!(uploader.getNotUploadedItems().length>0)">
+                Generate Image
+            </button>
+            <div *ngIf="filename">{{filename}}</div>
+        </div>
+    </nb-card>
     <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger">
         <nb-card-body>
             <div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
@@ -26,86 +34,17 @@
     </nb-card>
     <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
 
-    <nb-card>
+    <nb-card accent="info">
         <nb-card-body>
             <nb-tabset>
                 <nb-tab tabTitle="Contour" responsive>
-                    <div>
-                        <label>Background color
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Background color"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Line color
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Line color"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Difference threshold
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Difference Threshold"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Radius
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Radius"
-                                   class="filters">
-                        </label>
-                    </div>
+                    <image-loader-contour></image-loader-contour>
                 </nb-tab>
                 <nb-tab tabTitle="Kuwahara" responsive>
-                    <div>
-                        <label>Square size
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Square size"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Iterations
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Iterations"
-                                   class="filters">
-                        </label>
-                    </div>
+                    <image-loade-kuwaharara></image-loade-kuwaharara>
                 </nb-tab>
                 <nb-tab tabTitle="Chartizate" responsive>
-                    <div>
-                        <label>Background color
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Background color"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Density (%)
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Density (%)"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>Range (%)
-                        <label>Square size
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Range (%)"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Font
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Font size
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font size"
-                                   class="filters">
-                        </label>
-                    </div>
-                    <div>
-                        <label>Unicode
-                            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Unicode"
-                                   class="filters">
-                        </label>
-                    </div>
+                    <image-loader-chartizate></image-loader-chartizate>
                 </nb-tab>
             </nb-tabset>
         </nb-card-body>

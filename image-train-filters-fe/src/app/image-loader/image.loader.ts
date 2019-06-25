@@ -24,6 +24,8 @@ export class ImageComponent implements OnInit {
     errorStatus: String;
     adviceText: String;
     fileUrl: any;
+    bgColor: any;
+    lineColor: any;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;

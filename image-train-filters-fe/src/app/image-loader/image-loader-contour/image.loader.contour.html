@@ -1,0 +1,24 @@
+<div class="container">
+
+    <div>
+        <label>Background Color
+            <input nbInput [(colorPicker)]="bgColor" [style.background]="bgColor" fieldSize="tiny"/>
+        </label>
+        <label>Line color
+            <input nbInput [(colorPicker)]="lineColor" [style.background]="lineColor" fieldSize="tiny"/>
+
+        </label>
+    </div>
+    <div>
+        <label>Difference threshold
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Difference Threshold"
+                   class="filters">
+        </label>
+    </div>
+    <div>
+        <label>Radius
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Radius"
+                   class="filters">
+        </label>
+    </div>
+</div>
