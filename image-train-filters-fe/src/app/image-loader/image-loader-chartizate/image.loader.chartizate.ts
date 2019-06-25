@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-
-const URL: string = '/api/images';
+import {ItfChartizateCommand, ItfCommand} from "../command.types";
 
 @Component({
     selector: 'image-loader-chartizate',
@@ -10,10 +9,12 @@ const URL: string = '/api/images';
 export class ImageLoaderChartizateComponent implements OnInit {
 
     loading: boolean;
-    bgColor: any;
+    commands: ItfCommand[] = [];
+    itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
 
     constructor() {
         this.loading = false;
+        this.commands.push(this.itfChartizateCommand);
     }
 
     ngOnInit() {

@@ -2,22 +2,22 @@
 
     <div>
         <label>Background Color
-            <input nbInput [(colorPicker)]="bgColor" [style.background]="bgColor" fieldSize="tiny"/>
+            <input nbInput [(colorPicker)]="itfContourCommand.bgColor" [style.background]="itfContourCommand.bgColor" fieldSize="tiny"/>
         </label>
         <label>Line color
-            <input nbInput [(colorPicker)]="lineColor" [style.background]="lineColor" fieldSize="tiny"/>
+            <input nbInput [(colorPicker)]="itfContourCommand.lnColor" [style.background]="itfContourCommand.lnColor" fieldSize="tiny"/>
 
         </label>
     </div>
     <div>
         <label>Difference threshold
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Difference Threshold"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Difference Threshold" [value]="itfContourCommand.diffThreshold"
                    class="filters">
         </label>
     </div>
     <div>
         <label>Radius
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Radius"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Radius" [value]="itfContourCommand.radius"
                    class="filters">
         </label>
     </div>

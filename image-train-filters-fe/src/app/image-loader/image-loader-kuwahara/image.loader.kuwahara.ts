@@ -1,13 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FileUploader} from 'ng2-file-upload/ng2-file-upload';
-import {DomSanitizer} from "@angular/platform-browser";
-
-const URL: string = '/api/images';
-
-class ImageChangeEvent extends Event {
-    target: any;
-    files: any;
-}
+import {ItfCommand, ItfKuwaharaCommand} from "../command.types";
 
 @Component({
     selector: 'image-loade-kuwaharara',
@@ -16,10 +8,15 @@ class ImageChangeEvent extends Event {
 })
 export class ImageLoaderKuwaharaComponent implements OnInit {
 
+    commands: ItfCommand[] = [];
+    itfKuwaharaCommand: ItfKuwaharaCommand = new ItfKuwaharaCommand();
     loading: boolean;
 
     constructor() {
         this.loading = false;
+        this.itfKuwaharaCommand.squareSize = 2;
+        this.itfKuwaharaCommand.iterations = 2;
+        this.commands.push(this.itfKuwaharaCommand);
     }
 
     ngOnInit() {

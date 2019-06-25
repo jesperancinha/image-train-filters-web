@@ -1,36 +1,36 @@
 <div class="container">
     <div>
         <label>Background color
-            <input nbInput [(colorPicker)]="bgColor" [style.background]="bgColor" fieldSize="tiny"/>
+            <input nbInput [(colorPicker)]="itfChartizateCommand.bgColor" [style.background]="itfChartizateCommand.bgColor" fieldSize="tiny"/>
         </label>
     </div>
     <div>
         <label>Density (%)
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Density (%)"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Density (%)" [value]="itfChartizateCommand.density"
                    class="filters">
         </label>
     </div>
-    <div>Range (%)
-        <label>Square size
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Range (%)"
+    <div>
+        <label>Range (%)
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Range (%)" [value]="itfChartizateCommand.range"
                    class="filters">
         </label>
     </div>
     <div>
         <label>Font
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font" [value]="itfChartizateCommand.font"
                    class="filters">
         </label>
     </div>
     <div>
         <label>Font size
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font size"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font size" [value]="itfChartizateCommand.fontSize"
                    class="filters">
         </label>
     </div>
     <div>
         <label>Unicode
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Unicode"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Unicode" [value]="itfChartizateCommand.unicode"
                    class="filters">
         </label>
     </div>

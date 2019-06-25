@@ -2,10 +2,27 @@
     <nb-card accent="info">
         <nb-card-body>
             <div class="card">
-                <div>Please insert an image and you will get a downloaded result</div>
+                <div>Please select a filter and insert an image to get a filtered result image in return</div>
             </div>
         </nb-card-body>
     </nb-card>
+
+    <nb-card accent="info">
+        <nb-card-body>
+            <nb-tabset>
+                <nb-tab tabTitle="Contour" responsive>
+                    <image-loader-contour></image-loader-contour>
+                </nb-tab>
+                <nb-tab tabTitle="Kuwahara" responsive>
+                    <image-loade-kuwaharara></image-loade-kuwaharara>
+                </nb-tab>
+                <nb-tab tabTitle="Chartizate" responsive>
+                    <image-loader-chartizate></image-loader-chartizate>
+                </nb-tab>
+            </nb-tabset>
+        </nb-card-body>
+    </nb-card>
+
     <nb-card accent="info">
         <div class="container">
             <label for="file-upload" [hidden]="true" #imagePicker>Pick File (max 100Mb)</label>
@@ -31,22 +48,6 @@
         <nb-alert *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error
             text: {{errorText}}</nb-alert>
         <nb-alert *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
-    </nb-card>
-    <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
-
-    <nb-card accent="info">
-        <nb-card-body>
-            <nb-tabset>
-                <nb-tab tabTitle="Contour" responsive>
-                    <image-loader-contour></image-loader-contour>
-                </nb-tab>
-                <nb-tab tabTitle="Kuwahara" responsive>
-                    <image-loade-kuwaharara></image-loade-kuwaharara>
-                </nb-tab>
-                <nb-tab tabTitle="Chartizate" responsive>
-                    <image-loader-chartizate></image-loader-chartizate>
-                </nb-tab>
-            </nb-tabset>
-        </nb-card-body>
+        <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
     </nb-card>
 </div>
