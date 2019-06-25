@@ -9,15 +9,15 @@
 
     <nb-card accent="info">
         <nb-card-body>
-            <nb-tabset>
+            <nb-tabset (changeTab)="tabChanged($event, ilcontour, ilkuwahara, ilchartizate)">
                 <nb-tab tabTitle="Contour" responsive>
-                    <image-loader-contour></image-loader-contour>
+                    <image-loader-contour #ilcontour></image-loader-contour>
                 </nb-tab>
                 <nb-tab tabTitle="Kuwahara" responsive>
-                    <image-loade-kuwaharara></image-loade-kuwaharara>
+                    <image-loader-kuwaharara #ilkuwahara></image-loader-kuwaharara>
                 </nb-tab>
                 <nb-tab tabTitle="Chartizate" responsive>
-                    <image-loader-chartizate></image-loader-chartizate>
+                    <image-loader-chartizate #ilchartizate></image-loader-chartizate>
                 </nb-tab>
             </nb-tabset>
         </nb-card-body>
@@ -29,7 +29,7 @@
             <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
                    (cancel)="imageChanged()" id="file-upload" status="primary" [hidden]="true"/>
             <button nbButton outline status="primary" class="btn btn-success btn-s"
-                    (click)="imagePicker.click()">
+                    (click)="imagePicker.click();">
                 Pick File (max 100Mb)
             </button>
             <button nbButton outline status="primary" class="btn btn-success btn-s"

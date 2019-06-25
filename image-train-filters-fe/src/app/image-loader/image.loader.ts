@@ -1,6 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload/ng2-file-upload';
 import {DomSanitizer} from "@angular/platform-browser";
+import {Command} from "./command.types";
+import {NbTabComponent} from "@nebular/theme";
+import {ImageLoaderContourComponent} from "./image-loader-contour/image.loader.contour";
+import {ImageLoaderKuwaharaComponent} from "./image-loader-kuwahara/image.loader.kuwahara";
+import {ImageLoaderChartizateComponent} from "./image-loader-chartizate/image.loader.chartizate";
 
 const URL: string = '/api/images';
 
@@ -24,8 +29,11 @@ export class ImageComponent implements OnInit {
     errorStatus: String;
     adviceText: String;
     fileUrl: any;
-    bgColor: any;
-    lineColor: any;
+    commands: Command[];
+    private currentTab: NbTabComponent;
+    private ilcontour: ImageLoaderContourComponent;
+    private ilkuwahara: ImageLoaderKuwaharaComponent;
+    private ilchartizate: ImageLoaderChartizateComponent;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;
@@ -41,9 +49,22 @@ export class ImageComponent implements OnInit {
             maxFileSize: 100000000,
         });
         this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
-            form.append('commands', "{ \"commands\": [ { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }");
+            switch (this.currentTab.tabTitle) {
+                case "Contour":
+                    this.commands = this.ilcontour.getConfiguration();
+                    break;
+                case "Kuwahara":
+                    this.commands = this.ilkuwahara.getConfiguration();
+                    break;
+                case "Chartizate":
+                    this.commands = this.ilchartizate.getConfiguration();
+                    break;
+
+            }
+            form.append('commands', JSON.stringify({commands: this.commands}));
         };
         this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+            this.removeAllElementsFromQueue();
             if (status != 200) {
                 this.errorStatus = status;
                 this.errorText = response;
@@ -56,11 +77,11 @@ export class ImageComponent implements OnInit {
                 this.imageToShow = generatedImage;
             }
             this.loading = false;
-            this.removeAllElementsFromQueue();
         };
     }
 
     imageChanged($event?: Event) {
+        this.resetAll();
         if ($event) {
             let file = (<ImageChangeEvent>$event).target.files[0];
             if (file) {
@@ -79,11 +100,22 @@ export class ImageComponent implements OnInit {
     }
 
     loadImage() {
-        this.adviceText = null;
-        this.errorStatus = null;
-        this.errorText = null;
+        this.resetAll();
         this.loading = true;
         this.uploader.uploadAll();
     }
 
+    private resetAll() {
+        this.adviceText = null;
+        this.errorStatus = null;
+        this.errorText = null;
+    }
+
+    tabChanged(tab: NbTabComponent, ilcontour: ImageLoaderContourComponent, ilkuwahara: ImageLoaderKuwaharaComponent, ilchartizate: ImageLoaderChartizateComponent) {
+        this.commands = [];
+        this.currentTab = tab;
+        this.ilcontour = ilcontour;
+        this.ilkuwahara = ilkuwahara;
+        this.ilchartizate = ilchartizate;
+    }
 }

@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {ItfCommand, ItfKuwaharaCommand} from "../command.types";
+import {Command, ItfKuwaharaCommand} from "../command.types";
 
 @Component({
-    selector: 'image-loade-kuwaharara',
+    selector: 'image-loader-kuwaharara',
     templateUrl: './image.loader.kuwahara.html',
     styleUrls: ['./image.loader.kuwahara.css']
 })
 export class ImageLoaderKuwaharaComponent implements OnInit {
 
-    commands: ItfCommand[] = [];
+    commands: ItfKuwaharaCommand[] = [];
     itfKuwaharaCommand: ItfKuwaharaCommand = new ItfKuwaharaCommand();
     loading: boolean;
 
@@ -22,4 +22,14 @@ export class ImageLoaderKuwaharaComponent implements OnInit {
     ngOnInit() {
     }
 
+    getConfiguration() {
+        return this.commands.map(command => {
+            let newCommand = new Command();
+            newCommand.filter = "imageKuwahara";
+            newCommand.settings = [];
+            newCommand.settings.push({name: "square-size", value: String(command.squareSize)});
+            newCommand.settings.push({name: "iterations", value: String(command.iterations)});
+            return newCommand;
+        });
+    }
 }
