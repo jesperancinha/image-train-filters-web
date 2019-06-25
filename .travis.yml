@@ -4,6 +4,7 @@ java:
   - openjdk11
 script:
   - brew install sbt@1
+  - brew install scala
   - cp settings.xml ~/.m2/settings.xml
   - cd image-train-filters-service
   - sbt "project image-train-filters-service" clean update test
