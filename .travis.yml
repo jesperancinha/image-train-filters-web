@@ -1,7 +1,7 @@
 os: osx
-language: scala
-scala:
-  - 2.12.2
+language: java
+java:
+  - openjdk11
 script:
   - cp settings.xml ~/.m2/settings.xml
   - cd image-train-filters-service
