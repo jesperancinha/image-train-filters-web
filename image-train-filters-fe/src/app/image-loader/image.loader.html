@@ -1,26 +1,30 @@
 <div class="container">
     <nb-card accent="info">
-        <nb-card-body>
-            <div class="card">
-                <div>Please select a filter and insert an image to get a filtered result image in return</div>
-            </div>
-        </nb-card-body>
+        <div class="container">
+            <nb-card-body>
+                <div class="card">
+                    <div>Please select a filter and insert an image to get a filtered result image in return</div>
+                </div>
+            </nb-card-body>
+        </div>
     </nb-card>
 
     <nb-card accent="info">
-        <nb-card-body>
-            <nb-tabset (changeTab)="tabChanged($event, ilcontour, ilkuwahara, ilchartizate)">
-                <nb-tab tabTitle="Contour" responsive>
-                    <image-loader-contour #ilcontour></image-loader-contour>
-                </nb-tab>
-                <nb-tab tabTitle="Kuwahara" responsive>
-                    <image-loader-kuwaharara #ilkuwahara></image-loader-kuwaharara>
-                </nb-tab>
-                <nb-tab tabTitle="Chartizate" responsive>
-                    <image-loader-chartizate #ilchartizate></image-loader-chartizate>
-                </nb-tab>
-            </nb-tabset>
-        </nb-card-body>
+        <div class="container">
+            <nb-card-body>
+                <nb-tabset (changeTab)="tabChanged($event, ilcontour, ilkuwahara, ilchartizate)">
+                    <nb-tab tabTitle="Contour" responsive>
+                        <image-loader-contour #ilcontour></image-loader-contour>
+                    </nb-tab>
+                    <nb-tab tabTitle="Kuwahara" responsive>
+                        <image-loader-kuwaharara #ilkuwahara></image-loader-kuwaharara>
+                    </nb-tab>
+                    <nb-tab tabTitle="Chartizate" responsive>
+                        <image-loader-chartizate #ilchartizate></image-loader-chartizate>
+                    </nb-tab>
+                </nb-tabset>
+            </nb-card-body>
+        </div>
     </nb-card>
 
     <nb-card accent="info">
@@ -29,11 +33,13 @@
             <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
                    (cancel)="imageChanged()" id="file-upload" status="primary" [hidden]="true"/>
             <button nbButton hero outline status="primary" class="btn btn-success btn-s"
-                    (click)="imagePicker.click()" [disabled]="uploader.getNotUploadedItems().length>0" *ngIf="!(uploader.getNotUploadedItems().length>0)">
+                    (click)="imagePicker.click()" [disabled]="uploader.getNotUploadedItems().length>0"
+                    *ngIf="!(uploader.getNotUploadedItems().length>0)">
                 Pick File (max 100Mb)
             </button>
             <button nbButton hero outline status="danger" class="btn btn-success btn-s"
-                    (click)="resetAll()" [disabled]="!(uploader.getNotUploadedItems().length>0)" *ngIf="uploader.getNotUploadedItems().length>0">
+                    (click)="resetAll()" [disabled]="!(uploader.getNotUploadedItems().length>0)"
+                    *ngIf="uploader.getNotUploadedItems().length>0">
                 Cancel
             </button>
             <button nbButton hero outline status="primary" class="btn btn-success btn-s"
@@ -45,13 +51,15 @@
         </div>
     </nb-card>
     <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger">
-        <nb-card-body>
-            <div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
-                                                       alt="Generated image"/></div>
-        </nb-card-body>
-        <nb-alert *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error
-            text: {{errorText}}</nb-alert>
-        <nb-alert *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
-        <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
+        <div class="container">
+            <nb-card-body>
+                <div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow" class="image"
+                                                           alt="Generated image"/></div>
+            </nb-card-body>
+            <nb-alert *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error
+                text: {{errorText}}</nb-alert>
+            <nb-alert *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
+            <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
+        </div>
     </nb-card>
 </div>

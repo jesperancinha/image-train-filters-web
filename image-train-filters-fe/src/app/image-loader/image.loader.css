@@ -31,3 +31,7 @@ input {
 .filters {
     float:right;
 }
+
+.image {
+    max-width: 100%;
+}
