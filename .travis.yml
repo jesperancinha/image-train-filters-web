@@ -12,5 +12,7 @@ script:
   - sbt "project image-train-filters-service" clean update test
   - cd ..
   - cd image-train-filters-fe
+  - brew update
+  - brew upgrade npm
   - npm install
   - cd ..
