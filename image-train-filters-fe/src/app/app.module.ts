@@ -11,7 +11,7 @@ import {
     NbButtonModule,
     NbCardModule,
     NbInputModule,
-    NbLayoutModule,
+    NbLayoutModule, NbSelectModule,
     NbSidebarModule,
     NbSpinnerModule,
     NbTabsetModule,
@@ -28,7 +28,7 @@ import {ImageLoaderKuwaharaComponent} from "./image-loader/image-loader-kuwahara
         path: '',
         component: AppComponent
     },
-    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule],
+    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule],
     declarations: [AppComponent, ImageComponent, ImageLoaderChartizateComponent, ImageLoaderContourComponent, ImageLoaderKuwaharaComponent],
     bootstrap: [AppComponent]
 })

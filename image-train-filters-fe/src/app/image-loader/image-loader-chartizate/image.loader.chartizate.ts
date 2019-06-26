@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Command, ItfChartizateCommand} from "../command.types";
+import {NbComponentSize} from "@nebular/theme";
 
 @Component({
     selector: 'image-loader-chartizate',
@@ -11,6 +12,7 @@ export class ImageLoaderChartizateComponent implements OnInit {
     loading: boolean;
     commands: ItfChartizateCommand[] = [];
     itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
+    unicodes: NbComponentSize[] = [ 'tiny', 'small', 'medium', 'large', 'giant' ];
 
     constructor() {
         this.loading = false;

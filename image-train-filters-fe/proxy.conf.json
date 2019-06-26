@@ -12,5 +12,12 @@
     "pathRewrite": {
       "^/api/results": "/results"
     }
+  },
+  "/api/listings": {
+    "target": "http://localhost:5000",
+    "secure": false,
+    "pathRewrite": {
+      "^/api/listings": "/listings"
+    }
   }
 }

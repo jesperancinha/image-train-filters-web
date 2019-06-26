@@ -28,7 +28,7 @@ libraryDependencies += "com.typesafe.akka" %% "akka-stream" % "2.5.17"
 libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5"
-libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "3.0.1" exclude("org.fusesource.jansi","jansi")
+libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "3.0.2" exclude("org.fusesource.jansi","jansi")
 
 
 scalacOptions in Test ++= Seq("-Yrangepos")

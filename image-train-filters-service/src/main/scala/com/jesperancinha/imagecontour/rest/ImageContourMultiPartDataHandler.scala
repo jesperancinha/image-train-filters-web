@@ -6,18 +6,20 @@ import java.io.File
 import akka.actor.ActorSystem
 import akka.event.{LogSource, Logging, LoggingAdapter}
 import akka.http.scaladsl.model.Multipart.{BodyPart, FormData}
+import akka.http.scaladsl.model.StatusCodes.OK
 import akka.http.scaladsl.model.{HttpEntity, HttpResponse, StatusCodes}
-import akka.http.scaladsl.server.Directives.{entity, _}
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
+import com.jesperancinha.chartizate.ChartizatUnicodes
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
-import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, JsonSupport}
+import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64
 import javax.imageio.ImageIO
 import net.liftweb.json.{DefaultFormats, parse}
 
+import scala.collection.JavaConverters._
 import scala.concurrent.duration._
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
@@ -38,29 +40,38 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
   }
   val uploadingData: Route = processMultiPartData
 
-  def processMultiPartData: Route = pathPrefix("images") {
-    pathEnd {
-      ((post | options) & entity(as[FormData])) { formData =>
-        complete {
-          val extractedData: Future[Map[String, Any]] = extractRequestData(formData)
-          extractedData.map(data => {
-            val result: BufferedImage = handleRequest(data)
-            import java.io.ByteArrayOutputStream
-            val outputStream = new ByteArrayOutputStream
-            ImageIO.write(result, "png", outputStream)
-            // HttpResponse(StatusCodes.OK, entity = HttpEntity.apply(MediaTypes.`image/png`, outputStream.toByteArray))
-            HttpResponse(StatusCodes.OK, entity = Base64.encode(outputStream.toByteArray))
-          })
-            .recover {
-              case e: Exception =>
-                val log: LoggingAdapter = Logging(system, this)
-                log.error(e.getMessage, e)
-                HttpResponse(StatusCodes.InternalServerError, entity = "Failed!")
-            }
+  def processMultiPartData: Route =
+    pathPrefix("images") {
+      pathEnd {
+        ((post | options) & entity(as[FormData])) { formData =>
+          complete {
+            val extractedData: Future[Map[String, Any]] = extractRequestData(formData)
+            extractedData.map(data => {
+              val result: BufferedImage = handleRequest(data)
+              import java.io.ByteArrayOutputStream
+              val outputStream = new ByteArrayOutputStream
+              ImageIO.write(result, "png", outputStream)
+              HttpResponse(OK, entity = Base64.encode(outputStream.toByteArray))
+            })
+              .recover {
+                case e: Exception =>
+                  val log: LoggingAdapter = Logging(system, this)
+                  log.error(e.getMessage, e)
+                  HttpResponse(StatusCodes.InternalServerError, entity = "Failed!")
+              }
+          }
         }
       }
-    }
-  }
+    } ~
+      pathPrefix("listings") {
+        pathPrefix("unicodes") {
+          pathEnd {
+            get {
+              complete(Item("unicodes", ChartizatUnicodes.getAllUniCodeBlocksJava.asScala.map(x => x.toString).toArray))
+            }
+          }
+        }
+      }
 
   private def extractRequestData(formData: FormData): Future[Map[String, Any]] = {
     val log = Logging(system, this)
@@ -80,7 +91,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     val commandsParsed = jsonParser.extract[Commands]
     val filename: String = data.get("filename").orNull.asInstanceOf[String]
     val tempFile: File = new File(Boot.fileRootSource, filename)
-    val output: BufferedImage = filterBufferedImage(log, ImageManager.getBufferedImage(tempFile), commandsParsed.commands.head, commandsParsed.commands.tail)
+    val output: BufferedImage = filterBufferedImage(log, ImageManager.getBufferedImage(tempFile), commandsParsed.commands.head, commandsParsed.commands.tail.toArray)
     if (Boot.saveImages) {
       val destinationFile: File = new File(Boot.fileRootDestination, filename)
       ImageSaver.copyBufferedImage(output, destinationFile)
@@ -123,7 +134,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     data
   }
 
-  private def filterBufferedImage(log: LoggingAdapter, srcBuff: BufferedImage, elem: CommandContainer, commands: List[CommandContainer]): BufferedImage = {
+  private def filterBufferedImage(log: LoggingAdapter, srcBuff: BufferedImage, elem: CommandContainer, commands: Array[CommandContainer]): BufferedImage = {
     val filter: ImageFilter[BufferedImage, BufferedImage] = createFilterFromCommandContainter(elem)
     log.info("applied - " + elem.filter)
     val out: BufferedImage = filter(srcBuff)

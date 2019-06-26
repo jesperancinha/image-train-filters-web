@@ -11,7 +11,7 @@ object ImageManager {
   def getBufferedImage(file: File): BufferedImage = {
     val fileBytes = Files.readAllBytes(Paths.get(file.toURI))
     val byteStream: java.io.InputStream = new ByteArrayInputStream(fileBytes)
-    val bImageFromConvert: BufferedImage = ImageIO.read(byteStream);
+    val bImageFromConvert: BufferedImage = ImageIO.read(byteStream)
     byteStream.close()
     bImageFromConvert
   }
