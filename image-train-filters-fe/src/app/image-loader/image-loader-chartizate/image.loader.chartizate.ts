@@ -31,7 +31,7 @@ export class ImageLoaderChartizateComponent implements OnInit {
     ngOnInit() {
         this.httpClient.get<any>('/api/listings/unicodes',{headers: this.headers}).toPromise()
             .then(value=>{
-                this.unicodes = value.content;
+                this.unicodes = value.content.sort();
             })
             .catch(fail =>{
                 this.errorText = fail;

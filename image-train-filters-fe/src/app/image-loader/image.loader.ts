@@ -81,7 +81,7 @@ export class ImageComponent implements OnInit {
     }
 
     imageChanged($event?: Event) {
-        this.resetAll();
+        this.resetAllControls();
         if ($event) {
             let file = (<ImageChangeEvent>$event).target.files[0];
             if (file) {
@@ -94,21 +94,15 @@ export class ImageComponent implements OnInit {
         this.imageToShow = null;
     }
 
-    private removeAllElementsFromQueue() {
-        this.uploader.cancelAll();
-        this.uploader.clearQueue();
+    resetAll(){
+        this.removeAllElementsFromQueue();
+        this.resetAllControls();
     }
 
     loadImage() {
-        this.resetAll();
+        this.resetAllControls();
         this.loading = true;
         this.uploader.uploadAll();
-    }
-
-    private resetAll() {
-        this.adviceText = null;
-        this.errorStatus = null;
-        this.errorText = null;
     }
 
     tabChanged(tab: NbTabComponent, ilcontour: ImageLoaderContourComponent, ilkuwahara: ImageLoaderKuwaharaComponent, ilchartizate: ImageLoaderChartizateComponent) {
@@ -117,5 +111,17 @@ export class ImageComponent implements OnInit {
         this.ilcontour = ilcontour;
         this.ilkuwahara = ilkuwahara;
         this.ilchartizate = ilchartizate;
+    }
+
+    private resetAllControls() {
+        this.adviceText = null;
+        this.errorStatus = null;
+        this.errorText = null;
+        this.filename = null;
+    }
+
+    private removeAllElementsFromQueue() {
+        this.uploader.cancelAll();
+        this.uploader.clearQueue();
     }
 }

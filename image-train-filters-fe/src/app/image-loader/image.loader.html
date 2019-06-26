@@ -28,11 +28,15 @@
             <label for="file-upload" [hidden]="true" #imagePicker>Pick File (max 100Mb)</label>
             <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
                    (cancel)="imageChanged()" id="file-upload" status="primary" [hidden]="true"/>
-            <button nbButton outline status="primary" class="btn btn-success btn-s"
-                    (click)="imagePicker.click();">
+            <button nbButton hero outline status="primary" class="btn btn-success btn-s"
+                    (click)="imagePicker.click()" [disabled]="uploader.getNotUploadedItems().length>0" *ngIf="!(uploader.getNotUploadedItems().length>0)">
                 Pick File (max 100Mb)
             </button>
-            <button nbButton outline status="primary" class="btn btn-success btn-s"
+            <button nbButton hero outline status="danger" class="btn btn-success btn-s"
+                    (click)="resetAll()" [disabled]="!(uploader.getNotUploadedItems().length>0)" *ngIf="uploader.getNotUploadedItems().length>0">
+                Cancel
+            </button>
+            <button nbButton hero outline status="primary" class="btn btn-success btn-s"
                     (click)="loadImage()"
                     [disabled]="!(uploader.getNotUploadedItems().length>0)">
                 Generate Image
