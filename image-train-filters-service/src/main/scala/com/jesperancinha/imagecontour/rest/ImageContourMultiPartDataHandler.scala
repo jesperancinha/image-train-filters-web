@@ -38,9 +38,10 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
 
     override def getClazz(o: AnyRef): Class[_] = o.getClass
   }
-  val uploadingData: Route = processMultiPartData
 
-  def processMultiPartData: Route =
+  val itfRoutes: Route = itfDataRoutes
+
+  def itfDataRoutes: Route =
     pathPrefix("images") {
       pathEnd {
         ((post | options) & entity(as[FormData])) { formData =>

@@ -14,5 +14,5 @@ object Boot extends App with ImageContourMultiPartDataHandler with Configuration
   override implicit val executor: ExecutionContextExecutor = system.dispatcher
   override implicit val materializer: ActorMaterializer = ActorMaterializer()
 
-  Http().bindAndHandle(uploadingData, serviceHost, servicePort)
+  Http().bindAndHandle(itfRoutes, serviceHost, servicePort)
 }

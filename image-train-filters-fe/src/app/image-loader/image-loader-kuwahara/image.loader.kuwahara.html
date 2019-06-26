@@ -1,13 +1,15 @@
 <div class="container">
     <div>
         <label>Square size
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Square size" [value]="itfKuwaharaCommand.squareSize"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Square size"
+                   [value]="itfKuwaharaCommand.squareSize" [(ngModel)]="itfKuwaharaCommand.squareSize"
                    class="filters">
         </label>
     </div>
     <div>
         <label>Iterations
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Iterations" [value]="itfKuwaharaCommand.iterations"
+            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Iterations"
+                   [value]="itfKuwaharaCommand.iterations" [(ngModel)]="itfKuwaharaCommand.iterations"
                    class="filters">
         </label>
     </div>

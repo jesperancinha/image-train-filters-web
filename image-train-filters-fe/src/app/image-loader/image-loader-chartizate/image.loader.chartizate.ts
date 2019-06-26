@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Command, ItfChartizateCommand} from "../command.types";
 import {NbComponentSize} from "@nebular/theme";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 @Component({
     selector: 'image-loader-chartizate',
@@ -12,9 +13,11 @@ export class ImageLoaderChartizateComponent implements OnInit {
     loading: boolean;
     commands: ItfChartizateCommand[] = [];
     itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
-    unicodes: NbComponentSize[] = [ 'tiny', 'small', 'medium', 'large', 'giant' ];
+    unicodes: NbComponentSize[] = [];
+    private headers = new HttpHeaders({'Content-Type': 'application/json'});
+    private errorText : any;
 
-    constructor() {
+    constructor(private httpClient: HttpClient) {
         this.loading = false;
         this.itfChartizateCommand.bgColor = "#000000";
         this.itfChartizateCommand.density = 50;
@@ -26,7 +29,13 @@ export class ImageLoaderChartizateComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.httpClient.get<any>('/api/listings/unicodes',{headers: this.headers}).toPromise()
+            .then(value=>{
+                this.unicodes = value.content;
+            })
+            .catch(fail =>{
+                this.errorText = fail;
+            })
     }
 
     getConfiguration() {
@@ -43,4 +52,5 @@ export class ImageLoaderChartizateComponent implements OnInit {
             return newCommand;
         });
     }
+
 }

@@ -11,7 +11,8 @@ import {
     NbButtonModule,
     NbCardModule,
     NbInputModule,
-    NbLayoutModule, NbSelectModule,
+    NbLayoutModule,
+    NbSelectModule,
     NbSidebarModule,
     NbSpinnerModule,
     NbTabsetModule,
@@ -22,13 +23,13 @@ import {ColorPickerModule} from "ngx-color-picker";
 import {ImageLoaderChartizateComponent} from "./image-loader/image-loader-chartizate/image.loader.chartizate";
 import {ImageLoaderContourComponent} from "./image-loader/image-loader-contour/image.loader.contour";
 import {ImageLoaderKuwaharaComponent} from "./image-loader/image-loader-kuwahara/image.loader.kuwahara";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, NbButtonModule, NbThemeModule.forRoot(), NbLayoutModule, RouterModule.forRoot([{
-        path: '',
-        component: AppComponent
-    },
-    ], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule, FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule],
+        path: '', component: AppComponent
+    },], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule,
+        FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule, HttpClientModule],
     declarations: [AppComponent, ImageComponent, ImageLoaderChartizateComponent, ImageLoaderContourComponent, ImageLoaderKuwaharaComponent],
     bootstrap: [AppComponent]
 })
