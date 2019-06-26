@@ -14,7 +14,7 @@ export class ImageLoaderChartizateComponent implements OnInit {
 
     constructor() {
         this.loading = false;
-        this.itfChartizateCommand.bgColor = "0x000000";
+        this.itfChartizateCommand.bgColor = "#000000";
         this.itfChartizateCommand.density = 50;
         this.itfChartizateCommand.range = 10;
         this.itfChartizateCommand.font = "Arial";
