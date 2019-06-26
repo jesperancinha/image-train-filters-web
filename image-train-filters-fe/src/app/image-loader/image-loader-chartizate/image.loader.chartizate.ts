@@ -14,8 +14,10 @@ export class ImageLoaderChartizateComponent implements OnInit {
     commands: ItfChartizateCommand[] = [];
     itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
     unicodes: NbComponentSize[] = [];
+    fonts: NbComponentSize[] = [];
+
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private errorText : any;
+    private errorText: any;
 
     constructor(private httpClient: HttpClient) {
         this.loading = false;
@@ -29,13 +31,20 @@ export class ImageLoaderChartizateComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.httpClient.get<any>('/api/listings/unicodes',{headers: this.headers}).toPromise()
-            .then(value=>{
+        this.httpClient.get<any>('/api/listings/unicodes', {headers: this.headers}).toPromise()
+            .then(value => {
                 this.unicodes = value.content.sort();
             })
-            .catch(fail =>{
+            .catch(fail => {
                 this.errorText = fail;
+            });
+        this.httpClient.get<any>('/api/listings/fonts', {headers: this.headers}).toPromise()
+            .then(value => {
+                this.fonts = value.content.sort();
             })
+            .catch(fail => {
+                this.errorText = fail;
+            });
     }
 
     getConfiguration() {

@@ -11,7 +11,7 @@ import akka.http.scaladsl.model.{HttpEntity, HttpResponse, StatusCodes}
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
-import com.jesperancinha.chartizate.ChartizateUnicodes
+import com.jesperancinha.chartizate.{ChartizateFonts, ChartizateUnicodes}
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
@@ -72,7 +72,14 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
               complete(Item("unicodes", ChartizateUnicodes.getAllUniCodeBlocksJava.asScala.map(x => x.toString).toArray))
             }
           }
-        }
+        } ~
+          pathPrefix("fonts") {
+            pathEnd {
+              get {
+                complete(Item("fonts", ChartizateFonts.getAllAvailableFonts.asScala.toArray))
+              }
+            }
+          }
       }
 
   private def extractRequestData(formData: FormData): Future[Map[String, Any]] = {

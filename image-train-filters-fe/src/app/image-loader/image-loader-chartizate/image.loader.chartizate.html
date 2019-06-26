@@ -1,24 +1,44 @@
 <div class="container">
     <div>
-        <label>Background color
-            <input nbInput [(colorPicker)]="itfChartizateCommand.bgColor"
-                   [style.background]="itfChartizateCommand.bgColor" fieldSize="tiny"/>
-        </label>
-        <label>Unicode
-            <nb-card-body>
-                <nb-select placeholder="{{itfChartizateCommand.unicode}}" [size]="'tiny'"
-                           [(ngModel)]="itfChartizateCommand.unicode" [(selected)]="itfChartizateCommand.unicode">
-                    <nb-option [value]="unicode" *ngFor="let unicode of unicodes">{{ unicode }}</nb-option>
-                </nb-select>
-            </nb-card-body>
-        </label>
-    </div>
-    <div>
-        <label>Font
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Font" [value]="itfChartizateCommand.font"
-                   [(ngModel)]="itfChartizateCommand.font"
-                   class="filters">
-        </label>
+        <table>
+            <tr>
+                <td>Background color</td>
+                <td class="center">
+                    <label>
+                        <input nbInput [(colorPicker)]="itfChartizateCommand.bgColor"
+                               [style.background]="itfChartizateCommand.bgColor" fieldSize="tiny"/>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Unicode</td>
+                <td>
+                    <label>
+                        <nb-card-body>
+                            <nb-select placeholder="{{itfChartizateCommand.unicode}}" [size]="'tiny'"
+                                       [(ngModel)]="itfChartizateCommand.unicode"
+                                       [(selected)]="itfChartizateCommand.unicode">
+                                <nb-option [value]="unicode" *ngFor="let unicode of unicodes">{{ unicode }}</nb-option>
+                            </nb-select>
+                        </nb-card-body>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>Font</td>
+                <td>
+                    <label>
+                        <nb-card-body>
+                            <nb-select placeholder="{{itfChartizateCommand.font}}" [size]="'tiny'"
+                                       [(ngModel)]="itfChartizateCommand.font" [(selected)]="itfChartizateCommand.font">
+                                <nb-option [value]="font" *ngFor="let font of fonts">{{ font }}</nb-option>
+                            </nb-select>
+                        </nb-card-body>
+                    </label>
+                </td>
+
+            </tr>
+        </table>
     </div>
     <div>
         <label>Font size

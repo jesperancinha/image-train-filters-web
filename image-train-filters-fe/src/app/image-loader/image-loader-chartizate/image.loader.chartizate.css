@@ -21,3 +21,11 @@ input {
 .filters {
     float:right;
 }
+
+.center {
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+}
