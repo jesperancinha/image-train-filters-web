@@ -83,6 +83,7 @@ export class ImageComponent implements OnInit {
             disableMultipart: false,
             queueLimit: 1,
             maxFileSize: 100000000,
+            allowedFileType: ['image']
         });
     }
 
@@ -90,7 +91,13 @@ export class ImageComponent implements OnInit {
         this.resetAllMainControls();
         if ($event) {
             let file = (<ImageChangeEvent>$event).target.files[0];
-            if (file) {
+            if (this.selectedFile && this.uploader.getNotUploadedItems().length === 0) {
+                this.errorText = "Invalid file selection!";
+                this.errorStatus = "Error!";
+                this.adviceText = "Please select images file types only. Verified accepted types are jpg, jpeg and png. You are very welcomed to try other image types if you like";
+                this.filename = file.name;
+                this.imagePreview = null;
+            } else if (file) {
                 this.imagePreview = this.domSanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(file)));
                 this.filename = file.name;
             } else {
@@ -121,11 +128,12 @@ export class ImageComponent implements OnInit {
         this.ilchartizate = ilchartizate;
     }
 
-    private resetAllControls(){
+    private resetAllControls() {
         this.filename = null;
         this.imagePreview = null;
         this.resetAllMainControls();
     }
+
     private resetAllMainControls() {
         this.adviceText = null;
         this.errorStatus = null;
