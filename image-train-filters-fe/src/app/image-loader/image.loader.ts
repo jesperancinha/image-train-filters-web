@@ -63,8 +63,10 @@ export class ImageComponent implements OnInit {
             if (status != 200) {
                 this.errorStatus = status;
                 this.errorText = response;
-                if (status == 503) {
-                    this.adviceText = "Your picture is either too big (>100Mb) or it's complexion is too heavy for the current algorithm implementation";
+                if (status === 503 || status === 502) {
+                    this.adviceText = "The complexity of your picture is too heavy for the current algorithm implementation. Unfortunately it requires more resources than the ones available.";
+                } else if (status === 504 || status === 404) {
+                    this.adviceText = "We apologize, but our services are momentarily down and we cannot process your request. Please try again later..."
                 }
             } else {
                 let generatedImage = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
