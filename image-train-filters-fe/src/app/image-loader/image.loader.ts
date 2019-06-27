@@ -34,20 +34,14 @@ export class ImageComponent implements OnInit {
     private ilcontour: ImageLoaderContourComponent;
     private ilkuwahara: ImageLoaderKuwaharaComponent;
     private ilchartizate: ImageLoaderChartizateComponent;
+    selectedFile: any;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;
     }
 
     ngOnInit() {
-        this.uploader = new FileUploader({
-            url: URL,
-            method: 'post',
-            itemAlias: 'filename',
-            disableMultipart: false,
-            queueLimit: 1,
-            maxFileSize: 100000000,
-        });
+        this.uploader = ImageComponent.createFileUploader();
         this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
             switch (this.currentTab.tabTitle) {
                 case "Contour":
@@ -80,7 +74,19 @@ export class ImageComponent implements OnInit {
         };
     }
 
+    private static createFileUploader() {
+        return new FileUploader({
+            url: URL,
+            method: 'post',
+            itemAlias: 'filename',
+            disableMultipart: false,
+            queueLimit: 1,
+            maxFileSize: 100000000,
+        });
+    }
+
     imageChanged($event?: Event) {
+        console.log(this.selectedFile);
         this.resetAllControls();
         if ($event) {
             let file = (<ImageChangeEvent>$event).target.files[0];
@@ -123,5 +129,6 @@ export class ImageComponent implements OnInit {
     private removeAllElementsFromQueue() {
         this.uploader.cancelAll();
         this.uploader.clearQueue();
+        this.selectedFile = null;
     }
 }

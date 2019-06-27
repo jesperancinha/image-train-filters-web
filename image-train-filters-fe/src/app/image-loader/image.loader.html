@@ -31,7 +31,7 @@
         <div class="container">
             <label for="file-upload" [hidden]="true" #imagePicker>Pick File (max 100Mb)</label>
             <input nbInput type="file" name="photo" ng2FileSelect [uploader]="uploader" (change)="imageChanged($event)"
-                   (cancel)="imageChanged()" id="file-upload" status="primary" [hidden]="true"/>
+                   (cancel)="imageChanged()" id="file-upload" status="primary" [hidden]="true" [(ngModel)]="selectedFile" />
             <button nbButton hero outline status="primary" class="btn btn-success btn-s"
                     (click)="imagePicker.click()" [disabled]="uploader.getNotUploadedItems().length>0"
                     *ngIf="!(uploader.getNotUploadedItems().length>0)">

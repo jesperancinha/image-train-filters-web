@@ -30,7 +30,8 @@
                     <label>
                         <nb-card-body>
                             <nb-select placeholder="{{itfChartizateCommand.font}}" [size]="'tiny'"
-                                       [(ngModel)]="itfChartizateCommand.font" [(selected)]="itfChartizateCommand.font">
+                                       [(ngModel)]="itfChartizateCommand.font"
+                                       [(selected)]="itfChartizateCommand.font">
                                 <nb-option [value]="font" *ngFor="let font of fonts">{{ font }}</nb-option>
                             </nb-select>
                         </nb-card-body>
