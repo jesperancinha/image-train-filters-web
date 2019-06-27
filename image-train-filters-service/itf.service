@@ -1,0 +1,16 @@
+[Unit]
+Description=Image Train Filters
+[Service]
+User=root
+# The configuration file application.properties should be here:
+#change this to your workspace
+WorkingDirectory=~/.itf
+#path to executable. 
+#executable is a bash script which calls jar file
+ExecStart=/www/image-train-filters-scala/image-train-filters-service/itf-service
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target
