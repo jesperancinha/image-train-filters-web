@@ -23,6 +23,9 @@ src_managed/
 project/boot/
 project/plugins/project/
 
+## Logs
+nohup.out
+
 # Scala-IDE specific
 .scala_dependencies
 .worksheet

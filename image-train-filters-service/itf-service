@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo /usr/bin/java -jar www/image-train-filters-scala/image-train-filters-service/target/scala-2.12/image-train-filters-service-assembly-1.0.jar server config.yml
