@@ -35,6 +35,7 @@ export class ImageComponent implements OnInit {
     private ilkuwahara: ImageLoaderKuwaharaComponent;
     private ilchartizate: ImageLoaderChartizateComponent;
     selectedFile: any;
+    imagePreview: any;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;
@@ -87,26 +88,28 @@ export class ImageComponent implements OnInit {
 
     imageChanged($event?: Event) {
         console.log(this.selectedFile);
-        this.resetAllControls();
+        this.resetAllMainControls();
         if ($event) {
             let file = (<ImageChangeEvent>$event).target.files[0];
             if (file) {
+                this.imagePreview = this.domSanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(file)));
                 this.filename = file.name;
             } else {
                 this.filename = null;
+                this.imagePreview = null;
                 this.removeAllElementsFromQueue();
             }
         }
         this.imageToShow = null;
     }
 
-    resetAll(){
+    resetAll() {
         this.removeAllElementsFromQueue();
         this.resetAllControls();
     }
 
     loadImage() {
-        this.resetAllControls();
+        this.resetAllMainControls();
         this.loading = true;
         this.uploader.uploadAll();
     }
@@ -119,11 +122,16 @@ export class ImageComponent implements OnInit {
         this.ilchartizate = ilchartizate;
     }
 
-    private resetAllControls() {
+    private resetAllControls(){
+        this.filename = null;
+        this.imagePreview = null;
+        this.resetAllMainControls();
+    }
+    private resetAllMainControls() {
         this.adviceText = null;
         this.errorStatus = null;
         this.errorText = null;
-        this.filename = null;
+
     }
 
     private removeAllElementsFromQueue() {
