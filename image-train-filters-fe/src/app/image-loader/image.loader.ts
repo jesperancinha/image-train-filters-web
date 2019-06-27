@@ -87,7 +87,6 @@ export class ImageComponent implements OnInit {
     }
 
     imageChanged($event?: Event) {
-        console.log(this.selectedFile);
         this.resetAllMainControls();
         if ($event) {
             let file = (<ImageChangeEvent>$event).target.files[0];

@@ -42,7 +42,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
 
   val itfRoutes: Route = itfDataRoutes
 
-  def itfDataRoutes: Route =
+  def itfDataRoutes: Route = withSizeLimit(104857600) {
     pathPrefix("images") {
       pathEnd {
         ((post | options) & entity(as[FormData])) { formData =>
@@ -81,6 +81,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
             }
           }
       }
+  }
 
   private def extractRequestData(formData: FormData): Future[Map[String, Any]] = {
     val log = Logging(system, this)
