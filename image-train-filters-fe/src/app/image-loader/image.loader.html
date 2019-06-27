@@ -53,7 +53,7 @@
             <div *ngIf="filename">{{filename}}</div>
         </div>
     </nb-card>
-    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" *ngIf="imageToShow || loading">
+    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" *ngIf="imageToShow || loading || errorText || adviceText">
         <div class="container">
             <nb-card-body>
                 <div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
