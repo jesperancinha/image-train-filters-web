@@ -14,5 +14,8 @@ script:
   - cd image-train-filters-fe
   - brew update
   - brew upgrade npm
-  - npm install
+  - brew upgrade node
+  - npm cache clean -f
+  - npm install -g n
+  - n stable
   - cd ..
