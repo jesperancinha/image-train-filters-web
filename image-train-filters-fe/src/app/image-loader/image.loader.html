@@ -40,41 +40,63 @@
             </button>
             <button nbButton hero outline status="danger" class="btn btn-success btn-s"
                     (click)="resetAll()" [disabled]="!(uploader.getNotUploadedItems().length>0)"
+                    [nbSpinner]="loading" nbSpinnerStatus="danger"
                     *ngIf="uploader.getNotUploadedItems().length>0">
                 Cancel
             </button>
             <button nbButton hero outline status="primary" class="btn btn-success btn-s"
                     (click)="loadImage()"
-                    [nbSpinner]="loading" nbSpinnerStatus="danger"
+                    [nbSpinner]="loading" nbSpinnerStatus="info"
                     [disabled]="!(uploader.getNotUploadedItems().length>0) || loading">
                 Generate Image
             </button>
-            <div *ngIf="imagePreview" class="card center"><img height="100px" [src]="imagePreview" class="image"
-                                                               alt="Source image"/></div>
+            <div *ngIf="imagePreview" class="card center">
+                <img height="100px" [src]="imagePreview" class="image"
+                     alt="Source image"/>
+                <br/>
+                <button nbButton hero outline status="danger" class="btn btn-success btn-s"
+                        (click)="resetAll()"
+                        *ngIf="imageToShow"
+                        [nbSpinner]="loading" nbSpinnerStatus="danger">
+                    Reset selection
+                </button>
+                <button nbButton hero outline status="primary" class="btn btn-success btn-s"
+                        (click)="reloadImage()"
+                        *ngIf="imageToShow && false"
+                        [nbSpinner]="loading" nbSpinnerStatus="info"
+                        [disabled]="loading">
+                    Regenerate Image
+                </button>
+            </div>
             <div *ngIf="filename">{{filename}}</div>
         </div>
     </nb-card>
-    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" *ngIf="imageToShow || loading || errorText || adviceText" class="spinner">
+    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" *ngIf="imageToShow || loading || errorText || adviceText"
+             class="spinner">
         <div class="container">
             <nb-flip-card *ngIf="imageToShow">
                 <nb-card-front>
                     <nb-card>
-                        <nb-card-body>
-                            Click on the bottom left corner to see the source:
-                            <div class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
-                                                   class="image"
-                                                   alt="Generated image"/></div>
-                        </nb-card-body>
+                        <div class="container">
+                            <nb-card-body>
+                                Click on the bottom left corner to see the source:
+                                <div class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
+                                                       class="image"
+                                                       alt="Generated image"/></div>
+                            </nb-card-body>
+                        </div>
                     </nb-card>
                 </nb-card-front>
                 <nb-card-back>
                     <nb-card>
-                        <nb-card-body>
-                            Click on the bottom left corner to see the result:
-                            <div class="card"><img [src]="imagePreview"
-                                                   class="image"
-                                                   alt="Source image"/></div>
-                        </nb-card-body>
+                        <div class="container">
+                            <nb-card-body>
+                                Click on the bottom left corner to see the result:
+                                <div class="card"><img [src]="imagePreview"
+                                                       class="image"
+                                                       alt="Source image"/></div>
+                            </nb-card-body>
+                        </div>
                     </nb-card>
                 </nb-card-back>
             </nb-flip-card>
@@ -82,6 +104,11 @@
                 text: {{errorText}}</nb-alert>
             <nb-alert *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
             <a [hidden]="true" [href]="fileUrl" [download]="filename + '_itf.png'" #downloadPhoto></a>
+        </div>
+    </nb-card>
+    <nb-card>
+        <div class="container center">Copyright 2016-2019 @ João Esperancinha (<a
+                href="http://www.joaofilipesabinoesperancinha.nl">jesperancinha</a>) (making images since 2016)
         </div>
     </nb-card>
 </div>

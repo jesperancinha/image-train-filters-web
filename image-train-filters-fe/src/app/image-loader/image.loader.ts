@@ -30,12 +30,13 @@ export class ImageComponent implements OnInit {
     adviceText: String;
     fileUrl: any;
     commands: Command[];
+    selectedFile: any;
+    imagePreview: any;
     private currentTab: NbTabComponent;
     private ilcontour: ImageLoaderContourComponent;
     private ilkuwahara: ImageLoaderKuwaharaComponent;
     private ilchartizate: ImageLoaderChartizateComponent;
-    selectedFile: any;
-    imagePreview: any;
+    private file: any;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;
@@ -92,16 +93,16 @@ export class ImageComponent implements OnInit {
     imageChanged($event?: Event) {
         this.resetAllMainControls();
         if ($event) {
-            let file = (<ImageChangeEvent>$event).target.files[0];
+            this.file = (<ImageChangeEvent>$event).target.files[0];
             if (this.selectedFile && this.uploader.getNotUploadedItems().length === 0) {
                 this.errorText = "Invalid file selection!";
                 this.errorStatus = "Error!";
                 this.adviceText = "Please select images file types only. Verified accepted types are jpg, jpeg and png. You are very welcomed to try other image types if you like";
-                this.filename = file.name;
+                this.filename = this.file.name;
                 this.imagePreview = null;
-            } else if (file) {
-                this.imagePreview = this.domSanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(file)));
-                this.filename = file.name;
+            } else if (this.file) {
+                this.imagePreview = this.domSanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(this.file)));
+                this.filename = this.file.name;
             } else {
                 this.filename = null;
                 this.imagePreview = null;
@@ -133,7 +134,9 @@ export class ImageComponent implements OnInit {
     private resetAllControls() {
         this.filename = null;
         this.imagePreview = null;
+        this.imageToShow = null;
         this.resetAllMainControls();
+        this.loading = false;
     }
 
     private resetAllMainControls() {
@@ -147,5 +150,10 @@ export class ImageComponent implements OnInit {
         this.uploader.cancelAll();
         this.uploader.clearQueue();
         this.selectedFile = null;
+    }
+
+    reloadImage() {
+        this.uploader.addToQueue(this.imagePreview);
+        this.loadImage();
     }
 }

@@ -21,3 +21,11 @@ input {
 .filters {
     float:right;
 }
+
+.container {
+    margin: 10px;
+}
+
+.center {
+    text-align: center;
+}
