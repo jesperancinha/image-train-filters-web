@@ -39,3 +39,7 @@ input {
 .center {
     text-align: center;
 }
+
+.spinner {
+    min-height: 50px;
+}

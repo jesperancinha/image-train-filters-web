@@ -45,21 +45,39 @@
             </button>
             <button nbButton hero outline status="primary" class="btn btn-success btn-s"
                     (click)="loadImage()"
-                    [disabled]="!(uploader.getNotUploadedItems().length>0)">
+                    [nbSpinner]="loading" nbSpinnerStatus="danger"
+                    [disabled]="!(uploader.getNotUploadedItems().length>0) || loading">
                 Generate Image
             </button>
             <div *ngIf="imagePreview" class="card center"><img height="100px" [src]="imagePreview" class="image"
-                                                                                   alt="Preview image"/></div>
+                                                               alt="Source image"/></div>
             <div *ngIf="filename">{{filename}}</div>
         </div>
     </nb-card>
-    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" *ngIf="imageToShow || loading || errorText || adviceText">
+    <nb-card [nbSpinner]="loading" nbSpinnerStatus="danger" *ngIf="imageToShow || loading || errorText || adviceText" class="spinner">
         <div class="container">
-            <nb-card-body>
-                <div *ngIf="imageToShow" class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
-                                                           class="image"
-                                                           alt="Generated image"/></div>
-            </nb-card-body>
+            <nb-flip-card *ngIf="imageToShow">
+                <nb-card-front>
+                    <nb-card>
+                        <nb-card-body>
+                            Click on the bottom left corner to see the source:
+                            <div class="card"><img (load)="downloadPhoto.click()" [src]="imageToShow"
+                                                   class="image"
+                                                   alt="Generated image"/></div>
+                        </nb-card-body>
+                    </nb-card>
+                </nb-card-front>
+                <nb-card-back>
+                    <nb-card>
+                        <nb-card-body>
+                            Click on the bottom left corner to see the result:
+                            <div class="card"><img [src]="imagePreview"
+                                                   class="image"
+                                                   alt="Source image"/></div>
+                        </nb-card-body>
+                    </nb-card>
+                </nb-card-back>
+            </nb-flip-card>
             <nb-alert *ngIf="errorText" status="danger">Error creating picture! Error status:  {{errorStatus}} Error
                 text: {{errorText}}</nb-alert>
             <nb-alert *ngIf="adviceText" status="info">{{adviceText}}</nb-alert>
