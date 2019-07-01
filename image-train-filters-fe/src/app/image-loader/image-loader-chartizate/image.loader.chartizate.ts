@@ -2,11 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {Command, ItfChartizateCommand} from "../command.types";
 import {NbComponentSize} from "@nebular/theme";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Options} from "ng5-slider";
 
 @Component({
     selector: 'image-loader-chartizate',
     templateUrl: './image.loader.chartizate.html',
-    styleUrls: ['./image.loader.chartizate.css']
+    styleUrls: ['./image.loader.chartizate.scss']
 })
 export class ImageLoaderChartizateComponent implements OnInit {
 
@@ -15,6 +16,10 @@ export class ImageLoaderChartizateComponent implements OnInit {
     itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
     unicodes: NbComponentSize[] = [];
     fonts: NbComponentSize[] = [];
+    options: Options = {
+        floor: 0,
+        ceil: 100
+    };
 
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
     private errorText: any;

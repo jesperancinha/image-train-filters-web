@@ -24,12 +24,13 @@ import {ImageLoaderChartizateComponent} from "./image-loader/image-loader-charti
 import {ImageLoaderContourComponent} from "./image-loader/image-loader-contour/image.loader.contour";
 import {ImageLoaderKuwaharaComponent} from "./image-loader/image-loader-kuwahara/image.loader.kuwahara";
 import {HttpClientModule} from "@angular/common/http";
+import {Ng5SliderModule} from "ng5-slider";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, NbButtonModule, NbThemeModule.forRoot(), NbLayoutModule, RouterModule.forRoot([{
         path: '', component: AppComponent
     },], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule,
-        FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule, HttpClientModule],
+        FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule, HttpClientModule, Ng5SliderModule],
     declarations: [AppComponent, ImageComponent, ImageLoaderChartizateComponent, ImageLoaderContourComponent, ImageLoaderKuwaharaComponent],
     bootstrap: [AppComponent]
 })

@@ -48,18 +48,14 @@
                    class="filters">
         </label>
     </div>
-    <div>
+    <div class="custom-slider">
         <label>Density (%)
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Density (%)"
-                   [value]="itfChartizateCommand.density" [(ngModel)]="itfChartizateCommand.density"
-                   class="filters">
+            <ng5-slider [(value)]="itfChartizateCommand.density" [options]="options"></ng5-slider>
         </label>
     </div>
-    <div>
+    <div class="custom-slider">
         <label>Range (%)
-            <input type="text" nbInput fullWidth fieldSize="tiny" placeholder="Range (%)"
-                   [value]="itfChartizateCommand.range" [(ngModel)]="itfChartizateCommand.range"
-                   class="filters">
+            <ng5-slider [(value)]="itfChartizateCommand.range" [options]="options"></ng5-slider>
         </label>
     </div>
 </div>

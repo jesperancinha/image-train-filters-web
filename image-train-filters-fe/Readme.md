@@ -8,3 +8,4 @@ This is the front end application for the image train filters application. It's 
 -   [Nebular ngx-admin Dashboard](http://akveo.com/ngx-admin/pages/dashboard)
 -   [Create Nebular Page](https://akveo.github.io/nebular/docs/guides/create-nebular-page#create-nebular-page)
 -   [Zefoy NGX Color picker Demo](https://zefoy.github.io/ngx-color-picker/)
+-   [ng5-slider](https://angular-slider.github.io/ng5-slider/)
