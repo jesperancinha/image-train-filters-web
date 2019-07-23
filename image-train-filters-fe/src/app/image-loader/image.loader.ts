@@ -7,17 +7,17 @@ import {ImageLoaderContourComponent} from "./image-loader-contour/image.loader.c
 import {ImageLoaderKuwaharaComponent} from "./image-loader-kuwahara/image.loader.kuwahara";
 import {ImageLoaderChartizateComponent} from "./image-loader-chartizate/image.loader.chartizate";
 
-const URL: string = '/api/images';
+const URL = '/api/images';
 
 class ImageChangeEvent extends Event {
-    target: any;
-    files: any;
+    public target: any;
+    public files: FileList;
 }
 
 @Component({
     selector: 'image-loader',
     templateUrl: './image.loader.html',
-    styleUrls: ['./image.loader.css']
+    styleUrls: ['./image.loader.css'],
 })
 export class ImageComponent implements OnInit {
     public uploader: FileUploader;
@@ -36,7 +36,7 @@ export class ImageComponent implements OnInit {
     private ilcontour: ImageLoaderContourComponent;
     private ilkuwahara: ImageLoaderKuwaharaComponent;
     private ilchartizate: ImageLoaderChartizateComponent;
-    private file: any;
+    private file: File;
 
     constructor(public domSanitizer: DomSanitizer) {
         this.loading = false;

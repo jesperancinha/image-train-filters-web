@@ -6,17 +6,17 @@ import {Options} from "ng5-slider";
 
 @Component({
     selector: 'image-loader-chartizate',
+    styleUrls: ['./image.loader.chartizate.scss'],
     templateUrl: './image.loader.chartizate.html',
-    styleUrls: ['./image.loader.chartizate.scss']
 })
 export class ImageLoaderChartizateComponent implements OnInit {
 
-    loading: boolean;
-    commands: ItfChartizateCommand[] = [];
-    itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
-    unicodes: NbComponentSize[] = [];
-    fonts: NbComponentSize[] = [];
-    options: Options = {
+    public loading: boolean;
+    public commands: ItfChartizateCommand[] = [];
+    public itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
+    public unicodes: NbComponentSize[] = [];
+    public fonts: NbComponentSize[] = [];
+    public options: Options = {
         floor: 0,
         ceil: 100
     };

@@ -27,12 +27,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {Ng5SliderModule} from "ng5-slider";
 
 @NgModule({
+    declarations: [AppComponent, ImageComponent, ImageLoaderChartizateComponent, ImageLoaderContourComponent, ImageLoaderKuwaharaComponent],
     imports: [BrowserModule, FormsModule, NbButtonModule, NbThemeModule.forRoot(), NbLayoutModule, RouterModule.forRoot([{
-        path: '', component: AppComponent
+        component: AppComponent,
+        path: '',
     },], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule,
         FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule, HttpClientModule, Ng5SliderModule],
-    declarations: [AppComponent, ImageComponent, ImageLoaderChartizateComponent, ImageLoaderContourComponent, ImageLoaderKuwaharaComponent],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
 export class AppModule {
 }
