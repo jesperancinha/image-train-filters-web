@@ -1,37 +1,33 @@
 import {Component, OnInit} from '@angular/core';
 import {FileUploader} from 'ng2-file-upload/ng2-file-upload';
-import {DomSanitizer} from "@angular/platform-browser";
+import {DomSanitizer, SafeValue} from "@angular/platform-browser";
 import {Command} from "./command.types";
 import {NbTabComponent} from "@nebular/theme";
 import {ImageLoaderContourComponent} from "./image-loader-contour/image.loader.contour";
 import {ImageLoaderKuwaharaComponent} from "./image-loader-kuwahara/image.loader.kuwahara";
 import {ImageLoaderChartizateComponent} from "./image-loader-chartizate/image.loader.chartizate";
+import {ImageChangeEvent} from "../entities/image-change-event";
 
 const URL = '/api/images';
 
-class ImageChangeEvent extends Event {
-    public target: any;
-    public files: FileList;
-}
-
 @Component({
     selector: 'image-loader',
-    templateUrl: './image.loader.html',
     styleUrls: ['./image.loader.css'],
+    templateUrl: './image.loader.html',
 })
 export class ImageComponent implements OnInit {
     public uploader: FileUploader;
 
-    imageToShow: any;
-    filename: String;
-    loading: boolean;
-    errorText: String;
-    errorStatus: String;
-    adviceText: String;
-    fileUrl: any;
-    commands: Command[];
-    selectedFile: any;
-    imagePreview: any;
+    public imageToShow: SafeValue;
+    public filename: String;
+    public loading: boolean;
+    public errorText: String;
+    public errorStatus: String;
+    public adviceText: String;
+    public fileUrl: SafeValue;
+    public commands: Command[];
+    public selectedFile: File;
+    public imagePreview: SafeValue;
     private currentTab: NbTabComponent;
     private ilcontour: ImageLoaderContourComponent;
     private ilkuwahara: ImageLoaderKuwaharaComponent;
@@ -153,7 +149,7 @@ export class ImageComponent implements OnInit {
     }
 
     reloadImage() {
-        this.uploader.addToQueue(this.imagePreview);
+        this.uploader.addToQueue(<File[]>this.imagePreview);
         this.loadImage();
     }
 }
