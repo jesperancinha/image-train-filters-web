@@ -1,5 +1,5 @@
 # Image Train Filters
-[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-scala.svg)]()
+[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-scala.svg)](#)
 ---
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-scala&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-scala-master)
@@ -7,8 +7,8 @@
 [![Build Status](https://travis-ci.org/jesperancinha/image-train-filters-scala.svg?branch=master)](https://travis-ci.org/jesperancinha/image-train-filters-scala)
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-scala?branch=master)](https://bettercodehub.com/)
 ---
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/image-train-filters-scala.svg)]()
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/image-train-filters-scala.svg)]()
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/image-train-filters-scala.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/image-train-filters-scala.svg)](#)
 ---
 [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
 
