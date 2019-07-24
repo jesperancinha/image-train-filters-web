@@ -5,6 +5,13 @@ import {Options} from "ng5-slider";
 import {ItfChartizateCommand} from "../../command-types/itf-chartizate-command";
 import {Command} from "../../command-types/command";
 
+const DEFAULT_BACKGROUND_COLOR = "#000000";
+const DEFAULT_DENSITY = 50;
+const DEFAULT_RANGE_PERCENTAGE = 10;
+const DEFAULT_FONT = "Arial";
+const DEFAULT_FONT_SIZE = 5;
+const DEFAULT_UNICODE = "LATIN_EXTENDED_A";
+
 @Component({
     selector: 'image-loader-chartizate',
     styleUrls: ['./image.loader.chartizate.scss'],
@@ -12,27 +19,29 @@ import {Command} from "../../command-types/command";
 })
 export class ImageLoaderChartizateComponent implements OnInit {
 
+
     public loading: boolean;
     public commands: ItfChartizateCommand[] = [];
     public itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
     public unicodes: NbComponentSize[] = [];
     public fonts: NbComponentSize[] = [];
-    public options: Options = {
-        floor: 0,
-        ceil: 100
-    };
 
+    public options: Options = {
+        ceil: 100,
+        floor: 0,
+    };
     private headers = new HttpHeaders({'Content-Type': 'application/json'});
-    private errorText: any;
+
+    private errorText: string;
 
     constructor(private httpClient: HttpClient) {
         this.loading = false;
-        this.itfChartizateCommand.bgColor = "#000000";
-        this.itfChartizateCommand.density = 50;
-        this.itfChartizateCommand.range = 10;
-        this.itfChartizateCommand.font = "Arial";
-        this.itfChartizateCommand.fontSize = 5;
-        this.itfChartizateCommand.unicode = "ARABIC";
+        this.itfChartizateCommand.bgColor = DEFAULT_BACKGROUND_COLOR;
+        this.itfChartizateCommand.density = DEFAULT_DENSITY;
+        this.itfChartizateCommand.range = DEFAULT_RANGE_PERCENTAGE;
+        this.itfChartizateCommand.font = DEFAULT_FONT;
+        this.itfChartizateCommand.fontSize = DEFAULT_FONT_SIZE;
+        this.itfChartizateCommand.unicode = DEFAULT_UNICODE;
         this.commands.push(this.itfChartizateCommand);
     }
 
@@ -53,9 +62,9 @@ export class ImageLoaderChartizateComponent implements OnInit {
             });
     }
 
-    getConfiguration() {
+    getConfiguration(): Command[] {
         return this.commands.map(command => {
-            let newCommand = new Command();
+            const newCommand = new Command();
             newCommand.filter = "imageChartizate";
             newCommand.settings = [];
             newCommand.settings.push({name: "bgColor", value: command.bgColor});

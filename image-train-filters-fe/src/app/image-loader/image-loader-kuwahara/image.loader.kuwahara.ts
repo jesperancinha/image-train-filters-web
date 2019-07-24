@@ -23,9 +23,9 @@ export class ImageLoaderKuwaharaComponent implements OnInit {
     public ngOnInit(): void {
     }
 
-    getConfiguration() {
+    getConfiguration(): Command[] {
         return this.commands.map(command => {
-            let newCommand = new Command();
+            const newCommand = new Command();
             newCommand.filter = "imageKuwahara";
             newCommand.settings = [];
             newCommand.settings.push({name: "square-size", value: String(command.squareSize)});

@@ -27,9 +27,9 @@ export class ImageLoaderContourComponent implements OnInit {
 
     }
 
-    getConfiguration() {
+    getConfiguration(): Command[] {
         return this.commands.map(command => {
-            let newCommand = new Command();
+            const newCommand = new Command();
             newCommand.filter = "imageContour";
             newCommand.settings = [];
             newCommand.settings.push({name: "bgColor", value: command.bgColor});
