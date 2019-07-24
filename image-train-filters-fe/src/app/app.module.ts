@@ -28,14 +28,14 @@ import {Ng5SliderModule} from "ng5-slider";
 
 @NgModule({
     bootstrap: [
-        AppComponent
+        AppComponent,
     ],
     declarations: [
         AppComponent,
         ImageComponent,
         ImageLoaderChartizateComponent,
         ImageLoaderContourComponent,
-        ImageLoaderKuwaharaComponent
+        ImageLoaderKuwaharaComponent,
     ],
     imports: [
         BrowserModule,
@@ -57,7 +57,7 @@ import {Ng5SliderModule} from "ng5-slider";
         ColorPickerModule,
         NbSelectModule,
         HttpClientModule,
-        Ng5SliderModule
+        Ng5SliderModule,
     ],
 })
 export class AppModule {
