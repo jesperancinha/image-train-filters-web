@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FileItem, FileUploader} from 'ng2-file-upload/ng2-file-upload';
+import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload/ng2-file-upload';
 import {DomSanitizer, SafeValue} from "@angular/platform-browser";
 import {Command} from "./command.types";
 import {NbTabComponent} from "@nebular/theme";
@@ -39,9 +39,21 @@ export class ImageComponent implements OnInit {
         this.loading = false;
     }
 
+    private static createFileUploader() {
+        return new FileUploader({
+            allowedFileType: ['image'],
+            disableMultipart: false,
+            itemAlias: 'filename',
+            maxFileSize: 100000000,
+            method: 'post',
+            queueLimit: 1,
+            url: URL,
+        });
+    }
+
     public ngOnInit(): void {
         this.uploader = ImageComponent.createFileUploader();
-        this.uploader.onBuildItemForm = (fileItem: FileItem, form: any) => {
+        this.uploader.onBuildItemForm = (fileItem: FileItem, form: FormData) => {
             switch (this.currentTab.tabTitle) {
                 case "Contour":
                     this.commands = this.ilcontour.getConfiguration();
@@ -56,15 +68,19 @@ export class ImageComponent implements OnInit {
             }
             form.append('commands', JSON.stringify({commands: this.commands}));
         };
-        this.uploader.onCompleteItem = (item: FileItem, response: any, status: any, headers: any) => {
+        this.uploader.onCompleteItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
             this.removeAllElementsFromQueue();
             if (status != HttpStatus.OK) {
-                this.errorStatus = status;
+                this.errorStatus = String(status);
                 this.errorText = response;
                 if (status === HttpStatus.SERVICE_UNAVAILABLE || status === HttpStatus.BAD_GATEWAY) {
-                    this.adviceText = "The complexity of your picture is too heavy for the current algorithm implementation. Unfortunately it requires more resources than the ones available.";
+                    this.adviceText = "The complexity of your picture" +
+                        " is too heavy for the current algorithm implementation. " +
+                        "Unfortunately it requires more resources than the ones available.";
                 } else if (status === HttpStatus.GATEWAY_TIMEOUT || status === HttpStatus.NOT_FOUND) {
-                    this.adviceText = "We apologize, but our services are momentarily down and we cannot process your request. Please try again later..."
+                    this.adviceText = "We apologize," +
+                        " but our services are momentarily down" +
+                        " and we cannot process your request. Please try again later..."
                 }
             } else {
                 let generatedImage = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
@@ -75,19 +91,7 @@ export class ImageComponent implements OnInit {
         };
     }
 
-    private static createFileUploader() {
-        return new FileUploader({
-            allowedFileType: ['image'],
-            disableMultipart: false,
-            itemAlias: 'filename',
-            maxFileSize: 100000000,
-            method: 'post',
-            queueLimit: 1,
-            url: URL,
-        });
-    }
-
-    imageChanged($event?: Event) {
+    public imageChanged($event?: Event) {
         this.resetAllMainControls();
         if ($event) {
             this.file = (<ImageChangeEvent>$event).target.files[0];
@@ -109,18 +113,20 @@ export class ImageComponent implements OnInit {
         this.imageToShow = null;
     }
 
-    resetAll() {
+    public resetAll(): void {
         this.removeAllElementsFromQueue();
         this.resetAllControls();
     }
 
-    loadImage() {
+    public loadImage(): void {
         this.resetAllMainControls();
         this.loading = true;
         this.uploader.uploadAll();
     }
 
-    tabChanged(tab: NbTabComponent, ilcontour: ImageLoaderContourComponent, ilkuwahara: ImageLoaderKuwaharaComponent, ilchartizate: ImageLoaderChartizateComponent) {
+    public tabChanged(tab: NbTabComponent, ilcontour: ImageLoaderContourComponent,
+               ilkuwahara: ImageLoaderKuwaharaComponent,
+               ilchartizate: ImageLoaderChartizateComponent): void {
         this.commands = [];
         this.currentTab = tab;
         this.ilcontour = ilcontour;
@@ -128,7 +134,7 @@ export class ImageComponent implements OnInit {
         this.ilchartizate = ilchartizate;
     }
 
-    private resetAllControls() {
+    private resetAllControls(): void {
         this.filename = null;
         this.imagePreview = null;
         this.imageToShow = null;
@@ -136,20 +142,20 @@ export class ImageComponent implements OnInit {
         this.loading = false;
     }
 
-    private resetAllMainControls() {
+    private resetAllMainControls(): void {
         this.adviceText = null;
         this.errorStatus = null;
         this.errorText = null;
 
     }
 
-    private removeAllElementsFromQueue() {
+    private removeAllElementsFromQueue(): void {
         this.uploader.cancelAll();
         this.uploader.clearQueue();
         this.selectedFile = null;
     }
 
-    reloadImage() {
+    public reloadImage(): void {
         this.uploader.addToQueue(<File[]>this.imagePreview);
         this.loadImage();
     }
