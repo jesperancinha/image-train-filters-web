@@ -39,7 +39,7 @@ export class ImageComponent implements OnInit {
         this.loading = false;
     }
 
-    private static createFileUploader() {
+    private static createFileUploader(): FileUploader {
         return new FileUploader({
             allowedFileType: ['image'],
             disableMultipart: false,
@@ -68,7 +68,10 @@ export class ImageComponent implements OnInit {
             }
             form.append('commands', JSON.stringify({commands: this.commands}));
         };
-        this.uploader.onCompleteItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+        this.uploader.onCompleteItem = (item: FileItem,
+                                        response: string,
+                                        status: number,
+                                        headers: ParsedResponseHeaders) => {
             this.removeAllElementsFromQueue();
             if (status != HttpStatus.OK) {
                 this.errorStatus = String(status);
@@ -83,7 +86,7 @@ export class ImageComponent implements OnInit {
                         " and we cannot process your request. Please try again later..."
                 }
             } else {
-                let generatedImage = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
+                const generatedImage = this.domSanitizer.bypassSecurityTrustUrl("data:image/png;base64, " + response);
                 this.fileUrl = generatedImage;
                 this.imageToShow = generatedImage;
             }
@@ -98,7 +101,9 @@ export class ImageComponent implements OnInit {
             if (this.selectedFile && this.uploader.getNotUploadedItems().length === 0) {
                 this.errorText = "Invalid file selection!";
                 this.errorStatus = "Error!";
-                this.adviceText = "Please select images file types only. Verified accepted types are jpg, jpeg and png. You are very welcomed to try other image types if you like";
+                this.adviceText = "Please select images file types only." +
+                    " Verified accepted types are jpg, jpeg and png." +
+                    " You are very welcomed to try other image types if you like";
                 this.filename = this.file.name;
                 this.imagePreview = null;
             } else if (this.file) {
@@ -125,13 +130,18 @@ export class ImageComponent implements OnInit {
     }
 
     public tabChanged(tab: NbTabComponent, ilcontour: ImageLoaderContourComponent,
-               ilkuwahara: ImageLoaderKuwaharaComponent,
-               ilchartizate: ImageLoaderChartizateComponent): void {
+                      ilkuwahara: ImageLoaderKuwaharaComponent,
+                      ilchartizate: ImageLoaderChartizateComponent): void {
         this.commands = [];
         this.currentTab = tab;
         this.ilcontour = ilcontour;
         this.ilkuwahara = ilkuwahara;
         this.ilchartizate = ilchartizate;
+    }
+
+    public reloadImage(): void {
+        this.uploader.addToQueue(<File[]>this.imagePreview);
+        this.loadImage();
     }
 
     private resetAllControls(): void {
@@ -153,10 +163,5 @@ export class ImageComponent implements OnInit {
         this.uploader.cancelAll();
         this.uploader.clearQueue();
         this.selectedFile = null;
-    }
-
-    public reloadImage(): void {
-        this.uploader.addToQueue(<File[]>this.imagePreview);
-        this.loadImage();
     }
 }
