@@ -16,7 +16,7 @@ import {
     NbSidebarModule,
     NbSpinnerModule,
     NbTabsetModule,
-    NbThemeModule
+    NbThemeModule,
 } from '@nebular/theme';
 import {RouterModule} from "@angular/router";
 import {ColorPickerModule} from "ngx-color-picker";
@@ -27,13 +27,38 @@ import {HttpClientModule} from "@angular/common/http";
 import {Ng5SliderModule} from "ng5-slider";
 
 @NgModule({
-    declarations: [AppComponent, ImageComponent, ImageLoaderChartizateComponent, ImageLoaderContourComponent, ImageLoaderKuwaharaComponent],
-    imports: [BrowserModule, FormsModule, NbButtonModule, NbThemeModule.forRoot(), NbLayoutModule, RouterModule.forRoot([{
-        component: AppComponent,
-        path: '',
-    },], {useHash: true}), NbSidebarModule.forRoot(), NbInputModule, NbCardModule, NbSpinnerModule,
-        FileUploadModule, NbAlertModule, NbTabsetModule, ColorPickerModule, NbSelectModule, HttpClientModule, Ng5SliderModule],
-    bootstrap: [AppComponent],
+    bootstrap: [
+        AppComponent
+    ],
+    declarations: [
+        AppComponent,
+        ImageComponent,
+        ImageLoaderChartizateComponent,
+        ImageLoaderContourComponent,
+        ImageLoaderKuwaharaComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        NbButtonModule,
+        NbThemeModule.forRoot(),
+        NbLayoutModule,
+        RouterModule.forRoot([{
+            component: AppComponent,
+            path: '',
+        },], {useHash: true}),
+        NbSidebarModule.forRoot(),
+        NbInputModule,
+        NbCardModule,
+        NbSpinnerModule,
+        FileUploadModule,
+        NbAlertModule,
+        NbTabsetModule,
+        ColorPickerModule,
+        NbSelectModule,
+        HttpClientModule,
+        Ng5SliderModule
+    ],
 })
 export class AppModule {
 }
