@@ -19,7 +19,7 @@ export class ImageLoaderKuwaharaComponent implements OnInit {
         this.commands.push(this.itfKuwaharaCommand);
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
 
     getConfiguration() {

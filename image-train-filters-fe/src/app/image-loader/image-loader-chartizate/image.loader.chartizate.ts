@@ -35,7 +35,7 @@ export class ImageLoaderChartizateComponent implements OnInit {
         this.commands.push(this.itfChartizateCommand);
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.httpClient.get<any>('/api/listings/unicodes', {headers: this.headers}).toPromise()
             .then(value => {
                 this.unicodes = value.content.sort();

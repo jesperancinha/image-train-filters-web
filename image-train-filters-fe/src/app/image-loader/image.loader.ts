@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FileUploader} from 'ng2-file-upload/ng2-file-upload';
+import {FileItem, FileUploader} from 'ng2-file-upload/ng2-file-upload';
 import {DomSanitizer, SafeValue} from "@angular/platform-browser";
 import {Command} from "./command.types";
 import {NbTabComponent} from "@nebular/theme";
@@ -38,9 +38,9 @@ export class ImageComponent implements OnInit {
         this.loading = false;
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.uploader = ImageComponent.createFileUploader();
-        this.uploader.onBuildItemForm = (fileItem: any, form: any) => {
+        this.uploader.onBuildItemForm = (fileItem: FileItem, form: any) => {
             switch (this.currentTab.tabTitle) {
                 case "Contour":
                     this.commands = this.ilcontour.getConfiguration();
@@ -55,7 +55,7 @@ export class ImageComponent implements OnInit {
             }
             form.append('commands', JSON.stringify({commands: this.commands}));
         };
-        this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+        this.uploader.onCompleteItem = (item: FileItem, response: any, status: any, headers: any) => {
             this.removeAllElementsFromQueue();
             if (status != 200) {
                 this.errorStatus = status;
