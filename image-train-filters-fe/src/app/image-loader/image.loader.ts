@@ -7,6 +7,7 @@ import {ImageLoaderContourComponent} from "./image-loader-contour/image.loader.c
 import {ImageLoaderKuwaharaComponent} from "./image-loader-kuwahara/image.loader.kuwahara";
 import {ImageLoaderChartizateComponent} from "./image-loader-chartizate/image.loader.chartizate";
 import {ImageChangeEvent} from "../entities/image-change-event";
+import * as HttpStatus from 'http-status-codes'
 
 const URL = '/api/images';
 
@@ -38,7 +39,7 @@ export class ImageComponent implements OnInit {
         this.loading = false;
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.uploader = ImageComponent.createFileUploader();
         this.uploader.onBuildItemForm = (fileItem: FileItem, form: any) => {
             switch (this.currentTab.tabTitle) {
@@ -57,12 +58,12 @@ export class ImageComponent implements OnInit {
         };
         this.uploader.onCompleteItem = (item: FileItem, response: any, status: any, headers: any) => {
             this.removeAllElementsFromQueue();
-            if (status != 200) {
+            if (status != HttpStatus.OK) {
                 this.errorStatus = status;
                 this.errorText = response;
-                if (status === 503 || status === 502) {
+                if (status === HttpStatus.SERVICE_UNAVAILABLE || status === HttpStatus.BAD_GATEWAY) {
                     this.adviceText = "The complexity of your picture is too heavy for the current algorithm implementation. Unfortunately it requires more resources than the ones available.";
-                } else if (status === 504 || status === 404) {
+                } else if (status === HttpStatus.GATEWAY_TIMEOUT || status === HttpStatus.NOT_FOUND) {
                     this.adviceText = "We apologize, but our services are momentarily down and we cannot process your request. Please try again later..."
                 }
             } else {
@@ -76,13 +77,13 @@ export class ImageComponent implements OnInit {
 
     private static createFileUploader() {
         return new FileUploader({
-            url: URL,
-            method: 'post',
-            itemAlias: 'filename',
+            allowedFileType: ['image'],
             disableMultipart: false,
-            queueLimit: 1,
+            itemAlias: 'filename',
             maxFileSize: 100000000,
-            allowedFileType: ['image']
+            method: 'post',
+            queueLimit: 1,
+            url: URL,
         });
     }
 

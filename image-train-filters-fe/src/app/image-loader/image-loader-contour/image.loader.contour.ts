@@ -22,7 +22,7 @@ export class ImageLoaderContourComponent implements OnInit {
         this.commands.push(this.itfContourCommand);
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
 
     }
 
