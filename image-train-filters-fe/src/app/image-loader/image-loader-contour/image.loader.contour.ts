@@ -1,5 +1,6 @@
 import {Component, OnInit, Output} from '@angular/core';
-import {Command, ItfContourCommand} from "../command.types";
+import {ItfContourCommand} from "../../command-types/itf-contour-command";
+import {Command} from "../../command-types/command";
 
 @Component({
     selector: 'image-loader-contour',

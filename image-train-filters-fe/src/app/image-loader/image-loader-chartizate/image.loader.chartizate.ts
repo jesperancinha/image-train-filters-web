@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Command, ItfChartizateCommand} from "../command.types";
 import {NbComponentSize} from "@nebular/theme";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Options} from "ng5-slider";
+import {ItfChartizateCommand} from "../../command-types/itf-chartizate-command";
+import {Command} from "../../command-types/command";
 
 @Component({
     selector: 'image-loader-chartizate',

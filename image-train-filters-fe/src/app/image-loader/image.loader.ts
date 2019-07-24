@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload/ng2-file-upload';
 import {DomSanitizer, SafeValue} from "@angular/platform-browser";
-import {Command} from "./command.types";
 import {NbTabComponent} from "@nebular/theme";
 import {ImageLoaderContourComponent} from "./image-loader-contour/image.loader.contour";
 import {ImageLoaderKuwaharaComponent} from "./image-loader-kuwahara/image.loader.kuwahara";
 import {ImageLoaderChartizateComponent} from "./image-loader-chartizate/image.loader.chartizate";
 import {ImageChangeEvent} from "../entities/image-change-event";
 import * as HttpStatus from 'http-status-codes'
+import {Command} from "../command-types/command";
 
 const URL = '/api/images';
 

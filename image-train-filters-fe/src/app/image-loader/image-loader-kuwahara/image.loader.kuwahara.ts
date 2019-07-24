@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Command, ItfKuwaharaCommand} from "../command.types";
+import {ItfKuwaharaCommand} from "../../command-types/itf-kuwahara-command";
+import {Command} from "../../command-types/command";
 
 @Component({
     selector: 'image-loader-kuwaharara',
