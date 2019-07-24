@@ -9,9 +9,9 @@ import {Command} from "../../command-types/command";
 })
 export class ImageLoaderKuwaharaComponent implements OnInit {
 
-    commands: ItfKuwaharaCommand[] = [];
-    itfKuwaharaCommand: ItfKuwaharaCommand = new ItfKuwaharaCommand();
-    loading: boolean;
+    public commands: ItfKuwaharaCommand[] = [];
+    public itfKuwaharaCommand: ItfKuwaharaCommand = new ItfKuwaharaCommand();
+    public loading: boolean;
 
     constructor() {
         this.loading = false;

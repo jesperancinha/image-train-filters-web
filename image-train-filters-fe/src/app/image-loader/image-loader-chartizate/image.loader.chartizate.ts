@@ -29,7 +29,7 @@ export class ImageLoaderChartizateComponent implements OnInit {
         ceil: 100,
         floor: 0,
     };
-    private headers = new HttpHeaders({'Content-Type': 'application/json'});
+    private headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
     private errorText: string;
 
@@ -45,14 +45,14 @@ export class ImageLoaderChartizateComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.httpClient.get<any>('/api/listings/unicodes', {headers: this.headers}).toPromise()
+        this.httpClient.get<{content:NbComponentSize[]}>('/api/listings/unicodes', {headers: this.headers}).toPromise()
             .then(value => {
                 this.unicodes = value.content.sort();
             })
             .catch(fail => {
                 this.errorText = fail;
             });
-        this.httpClient.get<any>('/api/listings/fonts', {headers: this.headers}).toPromise()
+        this.httpClient.get<{content:NbComponentSize[]}>('/api/listings/fonts', {headers: this.headers}).toPromise()
             .then(value => {
                 this.fonts = value.content.sort();
             })
