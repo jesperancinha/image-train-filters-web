@@ -19,11 +19,11 @@ export class ImageComponent implements OnInit {
     public uploader: FileUploader;
 
     public imageToShow: SafeValue;
-    public filename: String;
+    public filename: string;
     public loading: boolean;
-    public errorText: String;
-    public errorStatus: String;
-    public adviceText: String;
+    public errorText: string;
+    public errorStatus: string;
+    public adviceText: string;
     public fileUrl: SafeValue;
     public commands: Command[];
     public selectedFile: File;
