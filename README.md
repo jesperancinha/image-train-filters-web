@@ -54,7 +54,7 @@ Use curl for that please. An example follows bellow.
 
 ### Command example
 
-```
+```text
 {
   "commands": [
     {
@@ -98,7 +98,7 @@ Use curl for that please. An example follows bellow.
 ### Complete request
 
 You can use tools like postman, but you can also use curl. This is an example of such request:
-```
+```text
 $ curl -X POST --form filename=@testEye.png http://localhost:8080/images --form commands="{ \"commands\": [ { \"filter\": \"imageKuwahara\", \"settings\": [ { \"name\": \"square-size\", \"value\": \"2\"}, { \"name\": \"iterations\", \"value\": \"2\"} ]}, { \"filter\": \"imageContour\", \"settings\": [ { \"name\": \"bgColor\", \"value\": \"0xFFFFFF\"}, { \"name\": \"lnColor\", \"value\": \"0x000000\"}, { \"name\": \"diffThreshold\", \"value\": \"800000\"}, { \"name\": \"radius\", \"value\": \"2\"} ]} ] }"
 ```
 
@@ -106,7 +106,7 @@ $ curl -X POST --form filename=@testEye.png http://localhost:8080/images --form 
 
 Your results are stored wherever you define in your application.conf folder:
 
-```
+```text
 akka {
   loglevel = DEBUG
   event-handlers = ["akka.event.slf4j.Slf4jEventHandler"]
@@ -136,49 +136,56 @@ Only important to note here that:
 ## Change log
 
 2019/06/23:
--   Image Countour filter is selectable
+*   Image Countour filter is selectable
 
 2019/06/20:
--   DevOps innovatiomns started
--   Foundations of site [itf.joaofilipesabinoesperancinha.nl](http://itf.joaofilipesabinoesperancinha.nl)
--   Immediate return of generated image
+*   DevOps innovatiomns started
+*   Foundations of site [itf.joaofilipesabinoesperancinha.nl](http://itf.joaofilipesabinoesperancinha.nl)
+*   Immediate return of generated image
 
 2019/06/19:
--   Simple front end creation
+*   Simple front end creation
 
 ## DevOps
-
->$ npm i -g npm  
->$ npm install -g @angular/cli  
->$ alias ng="/usr/local/lib/node_modules/@angular/cli/bin/ng"  
->$ npm cache clean -f  
->$ npm install -g n  
->$ n stable  
->$ echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list  
->$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823  
->$ apt-get update  
->$ apt-get install sbt 
->$ apt-get install default-jre 
+```text
+$ npm i -g npm  
+$ npm install -g @angular/cli  
+$ alias ng="/usr/local/lib/node_modules/@angular/cli/bin/ng"  
+$ npm cache clean -f  
+$ npm install -g n  
+$ n stable  
+$ echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list  
+$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823  
+$ apt-get update  
+$ apt-get install sbt 
+$ apt-get install default-jre 
+```
 ---
 ##### Deprecated
->$ add-apt-repository ppa:webupd8team/java  
->$ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
->$ echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
->$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
->$ apt install oracle-java8-installer  
+```text
+$ add-apt-repository ppa:webupd8team/java  
+$ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+$ echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+$ apt install oracle-java8-installer  
+```
 
 ### Git
 
->$ apt install gitk  
->$ apt install git-gui
+```text
+$ apt install gitk  
+$ apt install git-gui
+```
 
 ### image-train-filters-fe Module
 
 #### Make a build
 
->$ npm install
->$ ng build --aot=true
->$ service nginx reload
+```text
+$ npm install
+$ ng build --aot=true
+$ service nginx reload
+```
 
 ### image-train-filters-service
 
@@ -188,12 +195,12 @@ $ sbt
 
 ## References
 
--   [nginx: multiple websites on one server](https://serverfault.com/questions/845739/nginx-multiple-websites-on-one-server)
--   [Set up multiple websites on a Digital Ocean droplet running nginx and node.js](https://coderwall.com/p/rldrxa/set-up-multiple-websites-on-a-digital-ocean-droplet-running-nginx-and-node-js)
--   [Fixing 413 Request Entity Too Large Errors](https://www.keycdn.com/support/413-request-entity-too-large)
--   [Postman](https://www.getpostman.com/)
--   [Update all the Node dependencies to their latest version](https://flaviocopes.com/update-npm-dependencies/)
--   [How to fix 'Unsupported platform for fsevents@1.2.9: wanted {“os”:“darwin”,“arch”:“any”} (current: {“os”:“win32”,“arch”:“x64”})](https://stackoverflow.com/questions/56103865/how-to-fix-unsupported-platform-for-fsevents1-2-9-wanted-osdarwin-arch)
+*   [nginx: multiple websites on one server](https://serverfault.com/questions/845739/nginx-multiple-websites-on-one-server)
+*   [Set up multiple websites on a Digital Ocean droplet running nginx and node.js](https://coderwall.com/p/rldrxa/set-up-multiple-websites-on-a-digital-ocean-droplet-running-nginx-and-node-js)
+*   [Fixing 413 Request Entity Too Large Errors](https://www.keycdn.com/support/413-request-entity-too-large)
+*   [Postman](https://www.getpostman.com/)
+*   [Update all the Node dependencies to their latest version](https://flaviocopes.com/update-npm-dependencies/)
+*   [How to fix 'Unsupported platform for fsevents@1.2.9: wanted {“os”:“darwin”,“arch”:“any”} (current: {“os”:“win32”,“arch”:“x64”})](https://stackoverflow.com/questions/56103865/how-to-fix-unsupported-platform-for-fsevents1-2-9-wanted-osdarwin-arch)
 
 ## License
 
@@ -215,22 +222,22 @@ limitations under the License.
 
 ## About me
 
--   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=joaofilipesabinoesperancinha&color=informational)](http://joaofilipesabinoesperancinha.nl)
+*   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=joaofilipesabinoesperancinha&color=informational)](http://joaofilipesabinoesperancinha.nl)
 
--   [![Twitter Follow](https://img.shields.io/twitter/follow/jofisaes.svg?label=%40jofisaes&style=social)](https://twitter.com/intent/follow?screen_name=jofisaes)
+*   [![Twitter Follow](https://img.shields.io/twitter/follow/jofisaes.svg?label=%40jofisaes&style=social)](https://twitter.com/intent/follow?screen_name=jofisaes)
 
--   [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=jesperancinha&style=social)](https://github.com/jesperancinha/mancalaje)
+*   [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=jesperancinha&style=social)](https://github.com/jesperancinha/mancalaje)
 
--   Free Code Camp [jofisaes](https://www.freecodecamp.org/jofisaes)
+*   Free Code Camp [jofisaes](https://www.freecodecamp.org/jofisaes)
 
--   Hackerrank [jofisaes](https://www.hackerrank.com/jofisaes)
+*   Hackerrank [jofisaes](https://www.hackerrank.com/jofisaes)
 
--   Acclaim Badges [joao-esperancinha](https://www.youracclaim.com/users/joao-esperancinha/badges)
+*   Acclaim Badges [joao-esperancinha](https://www.youracclaim.com/users/joao-esperancinha/badges)
 
--   Personal Projects:
+*   Personal Projects:
 
-    -   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Time%20Disruption%20Studios&color=informational)](http://tds.joaofilipesabinoesperancinha.nl/)
-    -   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
-    -   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=MancalaJE&color=informational)](http://mancalaje.joaofilipesabinoesperancinha.nl/)
-    -   Google play apps: [Joao+Filipe+Sabino+Esperancinha](https://play.google.com/store/apps/developer?id=Joao+Filipe+Sabino+Esperancinha)
+    *   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Time%20Disruption%20Studios&color=informational)](http://tds.joaofilipesabinoesperancinha.nl/)
+    *   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
+    *   [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=MancalaJE&color=informational)](http://mancalaje.joaofilipesabinoesperancinha.nl/)
+    *   Google play apps: [Joao+Filipe+Sabino+Esperancinha](https://play.google.com/store/apps/developer?id=Joao+Filipe+Sabino+Esperancinha)
 
