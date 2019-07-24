@@ -19,7 +19,6 @@ const DEFAULT_UNICODE = "LATIN_EXTENDED_A";
 })
 export class ImageLoaderChartizateComponent implements OnInit {
 
-
     public loading: boolean;
     public commands: ItfChartizateCommand[] = [];
     public itfChartizateCommand: ItfChartizateCommand = new ItfChartizateCommand();
@@ -62,7 +61,7 @@ export class ImageLoaderChartizateComponent implements OnInit {
             });
     }
 
-    getConfiguration(): Command[] {
+    public getConfiguration(): Command[] {
         return this.commands.map(command => {
             const newCommand = new Command();
             newCommand.filter = "imageChartizate";

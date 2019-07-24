@@ -2,24 +2,29 @@ import {Component, OnInit, Output} from '@angular/core';
 import {ItfContourCommand} from "../../command-types/itf-contour-command";
 import {Command} from "../../command-types/command";
 
+const DEFAULT_BACKGROUND_COLOR = "#ffffff";
+const DEFAULT_LINE_COLOR = "#000000";
+const DEFAULT_DIFF_THRESHOLD = 800000;
+const DEFAULT_RADIUS = 2;
+
 @Component({
     selector: 'image-loader-contour',
+    styleUrls: ['./image.loader.contour.css'],
     templateUrl: './image.loader.contour.html',
-    styleUrls: ['./image.loader.contour.css']
 })
 export class ImageLoaderContourComponent implements OnInit {
-    loading: boolean;
-    commands: ItfContourCommand[] = [];
-    itfContourCommand: ItfContourCommand = new ItfContourCommand();
+    public loading: boolean;
+    public commands: ItfContourCommand[] = [];
+    public itfContourCommand: ItfContourCommand = new ItfContourCommand();
 
     @Output() configuration: Command[] = this.getConfiguration();
 
     constructor() {
         this.loading = false;
-        this.itfContourCommand.bgColor = "#ffffff";
-        this.itfContourCommand.lnColor = "#000000";
-        this.itfContourCommand.diffThreshold = 800000;
-        this.itfContourCommand.radius = 2;
+        this.itfContourCommand.bgColor = DEFAULT_BACKGROUND_COLOR;
+        this.itfContourCommand.lnColor = DEFAULT_LINE_COLOR;
+        this.itfContourCommand.diffThreshold = DEFAULT_DIFF_THRESHOLD;
+        this.itfContourCommand.radius = DEFAULT_RADIUS;
         this.commands.push(this.itfContourCommand);
     }
 
@@ -27,7 +32,7 @@ export class ImageLoaderContourComponent implements OnInit {
 
     }
 
-    getConfiguration(): Command[] {
+    public getConfiguration(): Command[] {
         return this.commands.map(command => {
             const newCommand = new Command();
             newCommand.filter = "imageContour";

@@ -4,8 +4,8 @@ import {Command} from "../../command-types/command";
 
 @Component({
     selector: 'image-loader-kuwaharara',
+    styleUrls: ['./image.loader.kuwahara.css'],
     templateUrl: './image.loader.kuwahara.html',
-    styleUrls: ['./image.loader.kuwahara.css']
 })
 export class ImageLoaderKuwaharaComponent implements OnInit {
 
@@ -23,7 +23,7 @@ export class ImageLoaderKuwaharaComponent implements OnInit {
     public ngOnInit(): void {
     }
 
-    getConfiguration(): Command[] {
+    public getConfiguration(): Command[] {
         return this.commands.map(command => {
             const newCommand = new Command();
             newCommand.filter = "imageKuwahara";
