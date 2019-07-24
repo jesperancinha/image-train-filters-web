@@ -4,15 +4,17 @@
 
 ### Make an assembly or package
 
-1. >$ sbt assembly
-   
-2. >$ sbt package
+```text
+$ sbt assembly 
+$ sbt package
+```
 
 ### Run your package (notice the relationship)
 
-1. >$ java -jar <package.jar>
-   
-2. >$ scala <package.jar>
+```text
+$ java -jar <package.jar>
+$ scala <package.jar>
+```
 
 ### Run with extra memory locally
 
@@ -20,23 +22,27 @@ $ nohup java -Xmx2048m -jar image-train-filters-service-assembly-1.0.jar &
 
 ## Run as a service
 
->$ sudo vim /etc/systemd/system/itf.service  
->$ sudo vim itf-service  
->$ sudo chmod +x itf-service  
->$ sudo systemctl daemon-reload  
->$ sudo systemctl enable itf  
->$ sudo systemctl start itf  
->$ sudo systemctl status itf  
+```text
+$ sudo vim /etc/systemd/system/itf.service  
+$ sudo vim itf-service  
+$ sudo chmod +x itf-service  
+$ sudo systemctl daemon-reload  
+$ sudo systemctl enable itf  
+$ sudo systemctl start itf  
+$ sudo systemctl status itf  
+```
 
 ## Increase virtual memory
 
 Login as root:
 
->$ fallocate -l 5G /swapfile  
->$ dd if=/dev/zero of=/swapfile bs=4500 count=1048576  
->$ chmod 600 /swapfile  
->$ mkswap /swapfile  
->$ swapon /swapfile  
+```text
+$ fallocate -l 5G /swapfile  
+$ dd if=/dev/zero of=/swapfile bs=4500 count=1048576  
+$ chmod 600 /swapfile  
+$ mkswap /swapfile  
+$ swapon /swapfile  
+```
 
 -   [How to Increase Virtual Memory in Linux](https://www.techwalla.com/articles/how-to-increase-virtual-memory-in-linux)
 -   [Create a Linux Swap File](https://linuxize.com/post/create-a-linux-swap-file/)
