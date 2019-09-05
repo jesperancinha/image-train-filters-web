@@ -18,4 +18,3 @@ class ImageChartizate(bgColor: Int, densityPro: Int, rangePro: Int, font: String
     manager.generateConvertedImageStream()
   }
 }
-
