@@ -1,5 +1,5 @@
 class ImageChangeEvent extends Event {
-    public target: any;
+    public target: HTMLInputElement & EventTarget;
     public files: FileList;
 }
 

@@ -45,14 +45,14 @@ export class ImageLoaderChartizateComponent implements OnInit {
     }
 
     public ngOnInit(): void {
-        this.httpClient.get<{content:NbComponentSize[]}>('/api/listings/unicodes', {headers: this.headers}).toPromise()
+        this.httpClient.get<{ content: NbComponentSize[] }>('/api/listings/unicodes', {headers: this.headers}).toPromise()
             .then(value => {
                 this.unicodes = value.content.sort();
             })
             .catch(fail => {
                 this.errorText = fail;
             });
-        this.httpClient.get<{content:NbComponentSize[]}>('/api/listings/fonts', {headers: this.headers}).toPromise()
+        this.httpClient.get<{ content: NbComponentSize[] }>('/api/listings/fonts', {headers: this.headers}).toPromise()
             .then(value => {
                 this.fonts = value.content.sort();
             })

@@ -1,6 +1,6 @@
 name := "image-train-filters-service"
 
-version := "1.0"
+version := "1.0.0-SNAPSHOT"
 
 scalaVersion := "2.12.7"
 

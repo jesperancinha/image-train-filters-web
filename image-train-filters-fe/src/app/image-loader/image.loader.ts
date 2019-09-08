@@ -10,6 +10,8 @@ import * as HttpStatus from 'http-status-codes'
 import {Command} from "../command-types/command";
 
 const URL = '/api/images';
+const FIRST_INDEX = 0;
+const EMPTY_LENGTH = 0;
 
 @Component({
     selector: 'image-loader',
@@ -94,11 +96,11 @@ export class ImageComponent implements OnInit {
         };
     }
 
-    public imageChanged($event?: Event) {
+    public imageChanged($event?: Event): void {
         this.resetAllMainControls();
         if ($event) {
-            this.file = (<ImageChangeEvent>$event).target.files[0];
-            if (this.selectedFile && this.uploader.getNotUploadedItems().length === 0) {
+            this.file = (<ImageChangeEvent>$event).target.files[FIRST_INDEX];
+            if (this.selectedFile && this.uploader.getNotUploadedItems().length === EMPTY_LENGTH) {
                 this.errorText = "Invalid file selection!";
                 this.errorStatus = "Error!";
                 this.adviceText = "Please select images file types only." +
