@@ -42,7 +42,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     }
   }
 
-  private def createResult(squareSize: Int, out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]) = {
+  private def createResult(squareSize: Int, out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]): Unit = {
     val result = Try(out.setRGB(i - squareSize, j - squareSize, new Color(resultAvg(0).toInt, resultAvg(1).toInt, resultAvg(2).toInt).getRGB))
     result match {
       case Failure(exception) =>
@@ -81,7 +81,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     }
   }
 
-  private def adds4ChannelValuesToTotalArray(sourceData: Raster, arr: Array[Double], total: Array[Double], i: Integer, j: Integer) = {
+  private def adds4ChannelValuesToTotalArray(sourceData: Raster, arr: Array[Double], total: Array[Double], i: Integer, j: Integer): Unit = {
     sourceData.getPixel(i, j, arr)
     total(0) = total(0) + arr(0)
     total(1) = total(1) + arr(1)
@@ -109,7 +109,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     }
   }
 
-  private def calculateHsvValueFromSourceDataPositions(sourceData: Raster, arr: Array[Int], i: Int, j: Int) = {
+  private def calculateHsvValueFromSourceDataPositions(sourceData: Raster, arr: Array[Int], i: Int, j: Int): Float = {
     sourceData.getPixel(i, j, arr)
     val hsv = Array.fill[Float](4)(0)
     Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
@@ -141,7 +141,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     }
   }
 
-  private def calculateStdParticle(sourceData: Raster, avg: Double, arr: Array[Int], i: Int, j: Int) = {
+  private def calculateStdParticle(sourceData: Raster, avg: Double, arr: Array[Int], i: Int, j: Int): Double = {
     sourceData.getPixel(i, j, arr)
     val hsv = Array.fill[Float](4)(0)
     Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)

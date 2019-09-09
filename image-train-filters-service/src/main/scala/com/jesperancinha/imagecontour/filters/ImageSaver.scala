@@ -5,9 +5,6 @@ import java.io.File
 
 import javax.imageio.ImageIO
 
-/**
-  * Created by joaofilipesabinoesperancinha on 14-03-16.
-  */
 object ImageSaver {
 
   def copyBufferedImage(bufferedImage: BufferedImage, destinationFile: File): Unit = {

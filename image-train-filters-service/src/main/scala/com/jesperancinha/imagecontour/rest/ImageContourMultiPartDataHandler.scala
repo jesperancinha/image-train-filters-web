@@ -11,13 +11,14 @@ import akka.http.scaladsl.model.{HttpEntity, HttpResponse, StatusCodes}
 import akka.http.scaladsl.server.Route
 import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
-import com.jesperancinha.chartizate.{ChartizateFonts, ChartizateUnicodes}
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64
 import javax.imageio.ImageIO
 import net.liftweb.json.{DefaultFormats, parse}
+import org.jesperancinha.chartizate.ChartizateFonts.getAllAvailableFonts
+import org.jesperancinha.chartizate.ChartizateUnicodes.getAllUniCodeBlocksJava
 
 import scala.collection.JavaConverters._
 import scala.concurrent.duration._
@@ -69,14 +70,14 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         pathPrefix("unicodes") {
           pathEnd {
             get {
-              complete(Item("unicodes", ChartizateUnicodes.getAllUniCodeBlocksJava.asScala.map(x => x.toString).toArray))
+              complete(Item("unicodes", getAllUniCodeBlocksJava.asScala.map(x => x.toString).toArray))
             }
           }
         } ~
           pathPrefix("fonts") {
             pathEnd {
               get {
-                complete(Item("fonts", ChartizateFonts.getAllAvailableFonts.asScala.toArray))
+                complete(Item("fonts", getAllAvailableFonts.asScala.toArray))
               }
             }
           }

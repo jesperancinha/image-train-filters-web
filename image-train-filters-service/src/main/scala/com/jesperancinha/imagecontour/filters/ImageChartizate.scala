@@ -5,9 +5,9 @@ import java.awt.image.BufferedImage
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
 import java.lang.Character.UnicodeBlock
 
-import com.jesperancinha.chartizate.ChartizateManagerImpl
-import com.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear
 import javax.imageio.ImageIO
+import org.jesperancinha.chartizate.ChartizateManagerImpl
+import org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear
 
 class ImageChartizate(bgColor: Int, densityPro: Int, rangePro: Int, font: String, fontSize: Int, unicode: String) extends ImageFilter[BufferedImage, BufferedImage] {
   override def apply(bufferedImage: BufferedImage): BufferedImage = {
