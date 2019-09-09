@@ -43,6 +43,41 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
 
   val itfRoutes: Route = itfDataRoutes
 
+  def processImageRequestData(data: Map[String, Any]): HttpResponse = {
+    val result: BufferedImage = handleRequest(data)
+    import java.io.ByteArrayOutputStream
+    val outputStream = new ByteArrayOutputStream
+    ImageIO.write(result, "png", outputStream)
+    HttpResponse(OK, entity = Base64.encode(outputStream.toByteArray))
+  }
+
+  def pathUnicodes: Route = {
+    pathPrefix("unicodes") {
+      pathEnd {
+        get {
+          complete(Item("unicodes", getAllUniCodeBlocksJava.asScala.map(x => x.toString).toArray))
+        }
+      }
+    }
+  }
+
+  def pathFonts: Route = {
+    pathPrefix("fonts") {
+      pathEnd {
+        get {
+          complete(Item("fonts", getAllAvailableFonts.asScala.toArray))
+        }
+      }
+    }
+  }
+
+  def pathListings: Route = {
+    pathPrefix("listings") {
+      pathUnicodes ~
+        pathFonts
+    }
+  }
+
   def itfDataRoutes: Route = withSizeLimit(104857600) {
     pathPrefix("images") {
       pathEnd {
@@ -50,11 +85,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
           complete {
             val extractedData: Future[Map[String, Any]] = extractRequestData(formData)
             extractedData.map(data => {
-              val result: BufferedImage = handleRequest(data)
-              import java.io.ByteArrayOutputStream
-              val outputStream = new ByteArrayOutputStream
-              ImageIO.write(result, "png", outputStream)
-              HttpResponse(OK, entity = Base64.encode(outputStream.toByteArray))
+              processImageRequestData(data)
             })
               .recover {
                 case e: Exception =>
@@ -66,22 +97,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         }
       }
     } ~
-      pathPrefix("listings") {
-        pathPrefix("unicodes") {
-          pathEnd {
-            get {
-              complete(Item("unicodes", getAllUniCodeBlocksJava.asScala.map(x => x.toString).toArray))
-            }
-          }
-        } ~
-          pathPrefix("fonts") {
-            pathEnd {
-              get {
-                complete(Item("fonts", getAllAvailableFonts.asScala.toArray))
-              }
-            }
-          }
-      }
+      pathListings
   }
 
   private def extractRequestData(formData: FormData): Future[Map[String, Any]] = {
@@ -134,17 +150,18 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     }
   }
 
-  private def processFileName(log: LoggingAdapter, bodyPart: FormData.BodyPart) = {
+  private def processFileName(log: LoggingAdapter, bodyPart: FormData.BodyPart): Future[(String, Any)] = {
     log.info(s"received ${bodyPart.toString} file")
     val tempFile: File = new File(Boot.fileRootSource, bodyPart.filename.orNull)
     val data: Future[(String, Any)] = bodyPart
       .entity
       .dataBytes
-      .runWith(FileIO.toFile(tempFile)).map(_ => bodyPart.name -> bodyPart.getFilename.orElse(""))
+      .runWith(FileIO.toPath(tempFile.toPath)).map(_ => bodyPart.name -> bodyPart.getFilename.orElse(""))
     log.info("saved! - " + tempFile)
     data
   }
 
+  @scala.annotation.tailrec
   private def filterBufferedImage(log: LoggingAdapter, srcBuff: BufferedImage, elem: CommandContainer, commands: Array[CommandContainer]): BufferedImage = {
     val filter: ImageFilter[BufferedImage, BufferedImage] = createFilterFromCommandContainter(elem)
     log.info("applied - " + elem.filter)
@@ -156,7 +173,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     }
   }
 
-  private def createFilterFromCommandContainter(elem: CommandContainer) = {
+  private def createFilterFromCommandContainter(elem: CommandContainer): ImageFilter[BufferedImage, BufferedImage] = {
     val filter = elem.filter match {
       case "imageContour" => new ImageContour(
         elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
