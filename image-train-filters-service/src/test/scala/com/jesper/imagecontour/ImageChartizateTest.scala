@@ -5,32 +5,29 @@ import java.awt.image.BufferedImage
 import com.jesperancinha.imagecontour.filters.{ImageChartizate, ImageKuwahara}
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 
-/**
-  * Created by joaofilipesabinoesperancinha on 10-03-16.
-  */
 class ImageChartizateTest extends FunSuite with BeforeAndAfterEach {
 
   test("testConvertAndSaveImage") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara1.png")
-    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "ARABIC")
+    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "LATIN_EXTENDED_A")
     imageChartizate.apply(sourceImage)
   }
 
   test("testConvertAndSaveImageKuwahara2") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara2.png")
-    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "ARABIC")
+    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "LATIN_EXTENDED_A")
     imageChartizate.apply(sourceImage)
   }
 
   test("testConvertAndSaveImageEyePantherBW") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testEyeBW.png")
-    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "ARABIC")
+    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "LATIN_EXTENDED_A")
     imageChartizate.apply(sourceImage)
   }
 
   test("testConvertAndSaveImageEyePanther") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testEye.png")
-    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "ARABIC")
+    val imageChartizate = new ImageChartizate(0, 50, 10, "Arial", 5, "LATIN_EXTENDED_A")
     imageChartizate.apply(sourceImage)
   }
 

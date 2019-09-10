@@ -104,6 +104,8 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
         (y1 to y2).map(j => {
           val hsvResult: Try[Double] = Try(calculateHsvValueFromSourceDataPositions(sourceData, arr, i, j))
           hsvResult match {
+
+
             case Failure(exception) => println("Get Average Grey Out of bounds! ", i, j)
               throw exception
             case Success(hsv) => hsv
@@ -129,25 +131,28 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
   def getStandardDeviation(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, avg: Double, square: Int): Double = {
     val numberOfPoints: Int = calculateNumberOfPoints(x1, y1, x2, y2)
     val arr = fill[Int](4)(0)
-
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
-      (x1 to x2).map(i => {
-        (y1 to y2).map(j => {
-          val result = Try(calculateStdParticle(sourceData, avg, arr, i, j))
-          result match {
-            case Success(value) => value
-            case Failure(exception) => println("Get Standard Deviation Out of bounds! ", i, j)
-              throw exception
-          }
-        }).sum
-      }).sum / numberOfPoints
+      iterateRangeAndCalculateSum(x1, y1, x2, y2, sourceData, avg, arr) / numberOfPoints
     }
     else {
       Double.NaN
     }
   }
 
-  private def calculateNumberOfPoints(x1: Int, y1: Int, x2: Int, y2: Int) = {
+  private def iterateRangeAndCalculateSum(x1: Int, y1: Int, x2: Int, y2: Int, sourceData: Raster, avg: Double, arr: Array[Int]): Double = {
+    (x1 to x2).map(i => {
+      (y1 to y2).map(j => {
+        val result = Try(calculateStdParticle(sourceData, avg, arr, i, j))
+        result match {
+          case Success(value) => value
+          case Failure(exception) => println("Get Standard Deviation Out of bounds! ", i, j)
+            throw exception
+        }
+      }).sum
+    }).sum
+  }
+
+  private def calculateNumberOfPoints(x1: Int, y1: Int, x2: Int, y2: Int): Int = {
     (y2 - y1 + 1) * (x2 - x1 + 1)
   }
 
