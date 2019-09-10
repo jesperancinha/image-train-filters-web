@@ -3,6 +3,7 @@ package com.jesperancinha.imagecontour.filters
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
 
+import scala.Array.fill
 import scala.util.{Failure, Success, Try}
 
 class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
@@ -52,32 +53,37 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     }
   }
 
+  def refreshTotals(total: Array[Double], numberOfPoints: Int): Array[Double] = {
+    total(0) = total(0) / numberOfPoints
+    total(1) = total(1) / numberOfPoints
+    total(2) = total(2) / numberOfPoints
+    total(3) = total(3) / numberOfPoints
+    total
+  }
+
+  def processSquare(x1: Int, y1: Int, x2: Int, y2: Int, sourceData: Raster, arr: Array[Double], total: Array[Double]): Unit = {
+    (x1 to x2).foreach(i => {
+      (y1 to y2).foreach(j => {
+        val result = Try(adds4ChannelValuesToTotalArray(sourceData, arr, total, i, j))
+        result match {
+          case Failure(exception) => println("Get Average Out of bounds! ", i, j)
+            throw exception
+          case Success(value) => value
+        }
+      })
+    })
+  }
+
   def getAverage(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Array[Double] = {
-    val numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
-    val arr: Array[Double] = Array.fill[Double](4)(0)
-    val total: Array[Double] = Array.fill[Double](4)(0)
+    val numberOfPoints: Int = calculateNumberOfPoints(x1, y1, x2, y2)
+    val arr: Array[Double] = fill[Double](4)(0)
+    val total: Array[Double] = fill[Double](4)(0)
 
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
-
-      (x1 to x2).foreach(i => {
-        (y1 to y2).foreach(j => {
-          val result = Try(adds4ChannelValuesToTotalArray(sourceData, arr, total, i, j))
-          result match {
-            case Failure(exception) => println("Get Average Out of bounds! ", i, j)
-              throw exception
-            case Success(value) => value
-          }
-        })
-      })
-      total(0) = total(0) / numberOfPoints
-      total(1) = total(1) / numberOfPoints
-      total(2) = total(2) / numberOfPoints
-      total(3) = total(3) / numberOfPoints
-
-      total
-
+      processSquare(x1, y1, x2, y2, sourceData, arr, total)
+      refreshTotals(total, numberOfPoints)
     } else {
-      Array.fill[Double](0)(0.0)
+      fill[Double](0)(0.0)
     }
   }
 
@@ -90,8 +96,8 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
   }
 
   def getAverageGrey(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, square: Int): Double = {
-    val numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
-    val arr = Array.fill[Int](4)(0)
+    val numberOfPoints: Int = calculateNumberOfPoints(x1, y1, x2, y2)
+    val arr = fill[Int](4)(0)
 
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
       (x1 to x2).map(i => {
@@ -111,7 +117,7 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
 
   private def calculateHsvValueFromSourceDataPositions(sourceData: Raster, arr: Array[Int], i: Int, j: Int): Float = {
     sourceData.getPixel(i, j, arr)
-    val hsv = Array.fill[Float](4)(0)
+    val hsv = fill[Float](4)(0)
     Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
     hsv(3)
   }
@@ -121,8 +127,8 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
   }
 
   def getStandardDeviation(sourceData: Raster, x1: Int, y1: Int, x2: Int, y2: Int, avg: Double, square: Int): Double = {
-    val numberOfPoints: Int = (y2 - y1 + 1) * (x2 - x1 + 1)
-    val arr = Array.fill[Int](4)(0)
+    val numberOfPoints: Int = calculateNumberOfPoints(x1, y1, x2, y2)
+    val arr = fill[Int](4)(0)
 
     if (validatePoint(sourceData, x1, y1, x2, y2, square)) {
       (x1 to x2).map(i => {
@@ -141,9 +147,13 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     }
   }
 
+  private def calculateNumberOfPoints(x1: Int, y1: Int, x2: Int, y2: Int) = {
+    (y2 - y1 + 1) * (x2 - x1 + 1)
+  }
+
   private def calculateStdParticle(sourceData: Raster, avg: Double, arr: Array[Int], i: Int, j: Int): Double = {
     sourceData.getPixel(i, j, arr)
-    val hsv = Array.fill[Float](4)(0)
+    val hsv = fill[Float](4)(0)
     Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
     math.pow(hsv(3) - avg, 2)
   }
