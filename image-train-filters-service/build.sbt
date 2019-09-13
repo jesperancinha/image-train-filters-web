@@ -13,6 +13,7 @@ resolvers += Resolver.bintrayIvyRepo("com.eed3si9n", "sbt-plugins")
 resolvers += "Spray repository" at "http://repo.spray.io"
 resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 resolvers += Resolver.mavenCentral
+resolvers += Resolver.mavenLocal
 
 
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.5"
@@ -29,7 +30,6 @@ libraryDependencies += "com.typesafe.akka" %% "akka-stream" % "2.5.17"
 libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5"
-libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "4.1.2" exclude("org.fusesource.jansi", "jansi")
-
+libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "5.0.0" exclude("org.fusesource.jansi", "jansi")
 
 scalacOptions in Test ++= Seq("-Yrangepos")
