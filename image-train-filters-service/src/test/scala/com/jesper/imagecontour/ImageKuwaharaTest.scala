@@ -13,7 +13,8 @@ class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {
   test("testConvertAndSaveImage") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara1.png")
     val imageKuwahara = new ImageKuwahara(2, 1)
-    imageKuwahara.apply(sourceImage)
+    val image = imageKuwahara.apply(sourceImage)
+    image
   }
 
   test("testConvertAndSaveImageKuwahara2") {

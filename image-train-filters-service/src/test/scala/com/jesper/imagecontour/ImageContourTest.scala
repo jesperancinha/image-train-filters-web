@@ -8,16 +8,13 @@ import org.junit._
 import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
 
-/**
-  * Created by joaofilipesabinoesperancinha on 03-03-16.
-  */
 class ImageContourTest extends FunSuite with MockitoSugar {
 
   @Test
   def testApplyImageContour() {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
-    val filter = new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
-    val out = filter(sourceImage)
+    val imageContour = new ImageContour(0xFFFFFF, 0x000000, 800000, 2)
+    imageContour.apply(sourceImage)
   }
 
 
