@@ -26,20 +26,20 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
         val downYRange = j - squareSize until j
         val upYRange = j + 1 to j + squareSize
         val rightXRange = i + 1 to i + squareSize
-        val avg1: Double = getAverageGrey(sourceData, leftXRange, downYRange, squareSize)
-        val avg2: Double = getAverageGrey(sourceData, leftXRange, upYRange, squareSize)
-        val avg3: Double = getAverageGrey(sourceData, rightXRange, downYRange, squareSize)
-        val avg4: Double = getAverageGrey(sourceData, rightXRange, upYRange, squareSize)
+        val avg1: Double = getAverageGrey(sourceData, leftXRange, downYRange)
+        val avg2: Double = getAverageGrey(sourceData, leftXRange, upYRange)
+        val avg3: Double = getAverageGrey(sourceData, rightXRange, downYRange)
+        val avg4: Double = getAverageGrey(sourceData, rightXRange, upYRange)
 
-        val avg1Color: Array[Double] = getAverage(sourceData, leftXRange, downYRange, squareSize)
-        val avg2Color: Array[Double] = getAverage(sourceData, leftXRange, upYRange, squareSize)
-        val avg3Color: Array[Double] = getAverage(sourceData, rightXRange, downYRange, squareSize)
-        val avg4Color: Array[Double] = getAverage(sourceData, rightXRange, upYRange, squareSize)
+        val avg1Color: Array[Double] = getAverage(sourceData, leftXRange, downYRange)
+        val avg2Color: Array[Double] = getAverage(sourceData, leftXRange, upYRange)
+        val avg3Color: Array[Double] = getAverage(sourceData, rightXRange, downYRange)
+        val avg4Color: Array[Double] = getAverage(sourceData, rightXRange, upYRange)
 
-        val std1: Double = getStandardDeviation(sourceData, leftXRange, downYRange, avg1, squareSize)
-        val std2: Double = getStandardDeviation(sourceData, leftXRange, upYRange, avg2, squareSize)
-        val std3: Double = getStandardDeviation(sourceData, rightXRange, downYRange, avg3, squareSize)
-        val std4: Double = getStandardDeviation(sourceData, rightXRange, upYRange, avg4, squareSize)
+        val std1: Double = getStandardDeviation(sourceData, leftXRange, downYRange, avg1)
+        val std2: Double = getStandardDeviation(sourceData, leftXRange, upYRange, avg2)
+        val std3: Double = getStandardDeviation(sourceData, rightXRange, downYRange, avg3)
+        val std4: Double = getStandardDeviation(sourceData, rightXRange, upYRange, avg4)
 
         val resultAvg: Array[Double] = getMinDeviationAverageColor(
           Map(std1 -> avg1Color, std2 -> avg2Color, std3 -> avg3Color, std4 -> avg4Color))
@@ -79,12 +79,12 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     })
   }
 
-  def getAverage(sourceData: Raster, xRange: Range, yRange: Range, square: Int): Array[Double] = {
+  def getAverage(sourceData: Raster, xRange: Range, yRange: Range): Array[Double] = {
     val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
     val arr: Array[Double] = fill[Double](4)(0)
     val total: Array[Double] = fill[Double](4)(0)
 
-    if (validatePoint(sourceData, xRange, yRange, square)) {
+    if (validatePoint(sourceData, xRange, yRange)) {
       processSquare(xRange, yRange, sourceData, arr, total)
       refreshTotals(total, numberOfPoints)
     } else {
@@ -100,11 +100,11 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     total(3) = total(3) + arr(3)
   }
 
-  def getAverageGrey(sourceData: Raster, xRange: Range, yRange: Range, square: Int): Double = {
+  def getAverageGrey(sourceData: Raster, xRange: Range, yRange: Range): Double = {
     val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
     val arr = fill[Int](4)(0)
 
-    if (validatePoint(sourceData, xRange, yRange, square)) {
+    if (validatePoint(sourceData, xRange, yRange)) {
       xRange.map(i => {
         yRange.map(j => {
           val hsvResult: Try[Double] = Try(calculateHsvValueFromSourceDataPositions(sourceData, arr, i, j))
@@ -129,18 +129,18 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     hsv(3)
   }
 
-  def validatePoint(source: Raster, xRange: Range, yRange: Range, square: Int): Boolean = {
+  def validatePoint(source: Raster, xRange: Range, yRange: Range): Boolean = {
     val minX = xRange.min
     val maxX = xRange.max
     val minY = yRange.min
     val maxY = yRange.max
-    minX >= 0 && maxX < source.getWidth && minY >= 0 && maxY < source.getHeight && maxX - minX + 1 == square && maxY - minY + 1 == square
+    minX >= 0 && maxX < source.getWidth && minY >= 0 && maxY < source.getHeight && maxX - minX + 1 == squareSize && maxY - minY + 1 == squareSize
   }
 
-  def getStandardDeviation(sourceData: Raster, xRange: Range, yRange: Range, avg: Double, square: Int): Double = {
+  def getStandardDeviation(sourceData: Raster, xRange: Range, yRange: Range, avg: Double): Double = {
     val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
     val arr = fill[Int](4)(0)
-    if (validatePoint(sourceData, xRange, yRange, square)) {
+    if (validatePoint(sourceData, xRange, yRange)) {
       iterateRangeAndCalculateSum(xRange, yRange, sourceData, avg, arr) / numberOfPoints
     }
     else {
