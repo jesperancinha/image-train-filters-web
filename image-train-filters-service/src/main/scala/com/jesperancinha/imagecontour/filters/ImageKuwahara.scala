@@ -13,13 +13,13 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     val h: Int = srcOut.getHeight
     (0 to iterations).map(_ => {
       val out = new BufferedImage(w - squareSize, h - squareSize, BufferedImage.TYPE_INT_RGB)
-      performIteration(srcOut, squareSize, w, h, out)
+      performIteration(srcOut, w, h, out)
       out.getRaster
       out
     }).lastOption.orNull
   }
 
-  def performIteration(sourceData: Raster, squareSize: Int, w: Int, h: Int, out: BufferedImage): Unit = {
+  def performIteration(sourceData: Raster, w: Int, h: Int, out: BufferedImage): Unit = {
     for (i <- squareSize until w - squareSize by 1) {
       for (j <- squareSize until h - squareSize by 1) {
         val leftXRange = i - squareSize until i
@@ -41,15 +41,14 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
         val std3: Double = getStandardDeviation(sourceData, rightXRange, downYRange, avg3, squareSize)
         val std4: Double = getStandardDeviation(sourceData, rightXRange, upYRange, avg4, squareSize)
 
-
         val resultAvg: Array[Double] = getMinDeviationAverageColor(
           Map(std1 -> avg1Color, std2 -> avg2Color, std3 -> avg3Color, std4 -> avg4Color))
-        createResult(squareSize, out, i, j, resultAvg)
+        createResult(out, i, j, resultAvg)
       }
     }
   }
 
-  private def createResult(squareSize: Int, out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]): Unit = {
+  private def createResult(out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]): Unit = {
     val result = Try(out.setRGB(i - squareSize, j - squareSize, new Color(resultAvg(0).toInt, resultAvg(1).toInt, resultAvg(2).toInt).getRGB))
     result match {
       case Failure(exception) =>
