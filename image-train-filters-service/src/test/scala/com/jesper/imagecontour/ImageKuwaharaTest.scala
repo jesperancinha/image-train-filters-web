@@ -5,9 +5,6 @@ import java.awt.image.BufferedImage
 import com.jesperancinha.imagecontour.filters.ImageKuwahara
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 
-/**
-  * Created by joaofilipesabinoesperancinha on 10-03-16.
-  */
 class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {
 
   test("testConvertAndSaveImage") {

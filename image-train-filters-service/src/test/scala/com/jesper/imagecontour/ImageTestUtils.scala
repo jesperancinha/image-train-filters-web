@@ -6,9 +6,6 @@ import java.nio.file.{Files, Paths}
 
 import javax.imageio.ImageIO
 
-/**
-  * Created by joaofilipesabinoesperancinha on 26-08-16.
-  */
 object ImageTestUtils {
 
   def getBufferedResource(resourcePath: String): BufferedImage = {

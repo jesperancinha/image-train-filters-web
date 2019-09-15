@@ -41,7 +41,9 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
         val std3: Double = getStandardDeviation(sourceData, rightXRange, downYRange, avg3, squareSize)
         val std4: Double = getStandardDeviation(sourceData, rightXRange, upYRange, avg4, squareSize)
 
-        val resultAvg: Array[Double] = getMinDeviationAverageColor(avg1Color, avg2Color, avg3Color, avg4Color, std1, std2, std3, std4)
+
+        val resultAvg: Array[Double] = getMinDeviationAverageColor(
+          Map(std1 -> avg1Color, std2 -> avg2Color, std3 -> avg3Color, std4 -> avg4Color))
         createResult(squareSize, out, i, j, resultAvg)
       }
     }
@@ -171,28 +173,9 @@ class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[Buffer
     math.pow(hsv(3) - avg, 2)
   }
 
-  def getMinDeviationAverageColor(avg1: Array[Double], //
-                                  avg2: Array[Double], //
-                                  avg3: Array[Double], //
-                                  avg4: Array[Double], //
-                                  std1: Double, //
-                                  std2: Double, //
-                                  std3: Double, //
-                                  std4: Double //
-                                 ): Array[Double] = {
-
-    val minValue: Double = getMinValue(std1, std2, std3, std4)
-    minValue match {
-      case `std1` => avg1
-      case `std2` => avg2
-      case `std3` => avg3
-      case `std4` => avg4
-      case x if x.isNaN => avg4
-    }
-  }
-
-  def getMinValue(std1: Double, std2: Double, std3: Double, std4: Double): Double = {
-    List(std1, std2, std3, std4).min
+  def getMinDeviationAverageColor(stdAverages: Map[Double, Array[Double]]): Array[Double] = {
+    val minValue: Double = stdAverages.keys.min
+    stdAverages.get(minValue).orNull
   }
 
   def getRealMinValue(std1: Double, std2: Double): Double = {
