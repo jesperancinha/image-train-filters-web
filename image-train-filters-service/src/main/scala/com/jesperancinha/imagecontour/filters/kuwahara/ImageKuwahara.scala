@@ -62,6 +62,19 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     }
   }
 
+  def getAverage(xRange: Range, yRange: Range): Array[Double] = {
+    val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
+    val arr: Array[Double] = fill[Double](4)(0)
+    val total: Array[Double] = fill[Double](4)(0)
+
+    if (validatePoint(xRange, yRange)) {
+      processSquare(xRange, yRange, arr, total)
+      refreshTotals(total, numberOfPoints)
+    } else {
+      fill[Double](0)(0.0)
+    }
+  }
+
   def refreshTotals(total: Array[Double], numberOfPoints: Int): Array[Double] = {
     total(0) = total(0) / numberOfPoints
     total(1) = total(1) / numberOfPoints
@@ -70,9 +83,9 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     total
   }
 
-  def processSquare(xRange: Range, yRange: Range, sourceData: Raster, arr: Array[Double], total: Array[Double]): Unit = {
-    (xRange).foreach(i => {
-      (yRange).foreach(j => {
+  def processSquare(xRange: Range, yRange: Range, arr: Array[Double], total: Array[Double]): Unit = {
+    xRange.foreach(i => {
+      yRange.foreach(j => {
         val result = Try(adds4ChannelValuesToTotalArray(arr, total, i, j))
         result match {
           case Failure(exception) => println("Get Average Out of bounds! ", i, j)
@@ -83,25 +96,24 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     })
   }
 
-  def getAverage(xRange: Range, yRange: Range): Array[Double] = {
-    val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
-    val arr: Array[Double] = fill[Double](4)(0)
-    val total: Array[Double] = fill[Double](4)(0)
-
-    if (validatePoint(xRange, yRange)) {
-      processSquare(xRange, yRange, sourceData, arr, total)
-      refreshTotals(total, numberOfPoints)
-    } else {
-      fill[Double](0)(0.0)
-    }
-  }
-
   private def adds4ChannelValuesToTotalArray(arr: Array[Double], total: Array[Double], i: Integer, j: Integer): Unit = {
     sourceData.getPixel(i, j, arr)
     total(0) = total(0) + arr(0)
     total(1) = total(1) + arr(1)
     total(2) = total(2) + arr(2)
     total(3) = total(3) + arr(3)
+  }
+
+  def validatePoint(xRange: Range, yRange: Range): Boolean = {
+    val minX = xRange.min
+    val maxX = xRange.max
+    val minY = yRange.min
+    val maxY = yRange.max
+    minX >= 0 && maxX < sourceData.getWidth && minY >= 0 && maxY < sourceData.getHeight && maxX - minX + 1 == squareSize && maxY - minY + 1 == squareSize
+  }
+
+  private def calculateNumberOfPoints(xRange: Range, yRange: Range): Int = {
+    (yRange.max - yRange.min + 1) * (xRange.max - xRange.min + 1)
   }
 
   def getAverageGrey(xRange: Range, yRange: Range): Double = {
@@ -133,14 +145,6 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     hsv(3)
   }
 
-  def validatePoint(xRange: Range, yRange: Range): Boolean = {
-    val minX = xRange.min
-    val maxX = xRange.max
-    val minY = yRange.min
-    val maxY = yRange.max
-    minX >= 0 && maxX < sourceData.getWidth && minY >= 0 && maxY < sourceData.getHeight && maxX - minX + 1 == squareSize && maxY - minY + 1 == squareSize
-  }
-
   def getStandardDeviation(xRange: Range, yRange: Range, avg: Double): Double = {
     val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
     val arr = fill[Int](4)(0)
@@ -163,10 +167,6 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
         }
       }).sum
     }).sum
-  }
-
-  private def calculateNumberOfPoints(xRange: Range, yRange: Range): Int = {
-    (yRange.max - yRange.min + 1) * (xRange.max - xRange.min + 1)
   }
 
   private def calculateStdParticle(avg: Double, arr: Array[Int], i: Int, j: Int) = {

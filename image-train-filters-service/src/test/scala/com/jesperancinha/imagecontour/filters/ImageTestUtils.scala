@@ -1,4 +1,4 @@
-package com.jesper.imagecontour
+package com.jesperancinha.imagecontour.filters
 
 import java.awt.image.BufferedImage
 import java.io.{ByteArrayInputStream, InputStream}

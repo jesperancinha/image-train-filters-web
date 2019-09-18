@@ -10,17 +10,27 @@ import javax.imageio.ImageIO
 import org.jesperancinha.chartizate.ChartizateManagerBuilderImpl
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear
 
-class ImageChartizate(bgColor: Int, densityPro: Int, rangePro: Int, font: String, fontSize: Int, unicode: String, bufferedImage: BufferedImage) extends ImageFilter[BufferedImage] {
+class ImageChartizate(imageChatizateConfig: ImageChartizateConfig, bufferedImage: BufferedImage) extends ImageFilter[BufferedImage] {
+  private val graphics: ImageChartizateGraphics = imageChatizateConfig.imageChartizateGraphics
+  private val bgColor: Int = graphics.bgColor
+  private val densityPercentage: Int = graphics.densityPercentage
+  private val imageChatizateChars: ImageChartizateChars = imageChatizateConfig.imageChartizateChars
+  private val rangePercentage: Int = imageChatizateChars.imageChartizateRange.rangePercentage
+  private val unicode: String = imageChatizateChars.imageChartizateRange.unicode
+  private val imageChartizateFont: ImageChartizateFont = imageChatizateChars.imageChartizateFont
+  private val fontName: String = imageChartizateFont.fontName
+  private val fontSize: Int = imageChartizateFont.fontSize
+
   override def apply(): BufferedImage = {
     val os = new ByteArrayOutputStream
     ImageIO.write(bufferedImage, "png", os)
     val imageInputStream = new ByteArrayInputStream(os.toByteArray)
     val manager = new ChartizateManagerBuilderImpl()
       .backgroundColor(new Color(bgColor))
-      .densityPercentage(densityPro)
-      .rangePercentage(rangePro)
+      .densityPercentage(densityPercentage)
+      .rangePercentage(rangePercentage)
       .distributionType(Linear)
-      .fontName(font)
+      .fontName(fontName)
       .fontSize(fontSize)
       .block(UnicodeBlock.forName(unicode))
       .imageFullStream(imageInputStream)

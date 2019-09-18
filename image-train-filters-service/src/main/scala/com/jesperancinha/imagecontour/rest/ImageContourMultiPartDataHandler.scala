@@ -13,7 +13,7 @@ import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
-import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
+import com.jesperancinha.imagecontour.filters.chartizate._
 import com.jesperancinha.imagecontour.filters.contour.ImageContour
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
@@ -190,16 +190,22 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         elem.settings.find(p => p.name.equals("iterations")).orNull.value.toInt,
         srcBuff
       )
-      case "imageChartizate" => new ImageChartizate(
-        elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
-        elem.settings.find(p => p.name.equals("densityPer")).orNull.value.toInt,
-        elem.settings.find(p => p.name.equals("rangePer")).orNull.value.toInt,
-        elem.settings.find(p => p.name.equals("font")).orNull.value.toString,
-        elem.settings.find(p => p.name.equals("fontSize")).orNull.value.toInt,
-        elem.settings.find(p => p.name.equals("unicode")).orNull.value.toString,
-        srcBuff
-      )
+      case "imageChartizate" =>
+        new ImageChartizate(
+          createImageConfigFromCommands(elem),
+          srcBuff
+        )
     }
     filter
+  }
+
+  private def createImageConfigFromCommands(elem: CommandContainer): ImageChartizateConfig = {
+    ImageChartizateConfig()
+      .addFontName(elem.settings.find(p => p.name.equals("font")).orNull.value.toString)
+      .addFontSize(elem.settings.find(p => p.name.equals("fontSize")).orNull.value.toInt)
+      .addRangePercentage(elem.settings.find(p => p.name.equals("rangePer")).orNull.value.toInt)
+      .addUnicode(elem.settings.find(p => p.name.equals("unicode")).orNull.value.toString)
+      .addBgColor(elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex)
+      .addDensityPercentage(elem.settings.find(p => p.name.equals("densityPer")).orNull.value.toInt)
   }
 }

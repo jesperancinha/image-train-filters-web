@@ -1,8 +1,8 @@
-package com.jesper.imagecontour
+package com.jesperancinha.imagecontour.filters.kuwahara
 
 import java.awt.image.BufferedImage
 
-import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
+import com.jesperancinha.imagecontour.filters.ImageTestUtils
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 
 class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {

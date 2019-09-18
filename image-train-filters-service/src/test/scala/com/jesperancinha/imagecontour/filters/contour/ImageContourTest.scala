@@ -1,9 +1,8 @@
-package com.jesper.imagecontour
+package com.jesperancinha.imagecontour.filters.contour
 
 import java.awt.image.BufferedImage
 
-import com.jesper.imagecontour.ImageTestUtils.getBufferedResource
-import com.jesperancinha.imagecontour.filters.contour.ImageContour
+import com.jesperancinha.imagecontour.filters.ImageTestUtils.getBufferedResource
 import org.junit._
 import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar
