@@ -61,13 +61,12 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
   }
 
   def getAverage(ranges: (Range, Range)): Array[Double] = {
-    val (xRange, yRange) = ranges
     val numberOfPoints: Int = calculateNumberOfPoints(ranges)
     val arr: Array[Double] = fill[Double](4)(0)
     val total: Array[Double] = fill[Double](4)(0)
 
     if (validatePoint(ranges)) {
-      processSquare(xRange, yRange, arr, total)
+      processSquare(ranges, arr, total)
       refreshTotals(total, numberOfPoints)
     } else {
       fill[Double](0)(0.0)
@@ -82,7 +81,8 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     total
   }
 
-  def processSquare(xRange: Range, yRange: Range, arr: Array[Double], total: Array[Double]): Unit = {
+  def processSquare(ranges: (Range, Range), arr: Array[Double], total: Array[Double]): Unit = {
+    val (xRange, yRange) = ranges
     xRange.foreach(i => {
       yRange.foreach(j => {
         val result = Try(adds4ChannelValuesToTotalArray(arr, total, i, j))

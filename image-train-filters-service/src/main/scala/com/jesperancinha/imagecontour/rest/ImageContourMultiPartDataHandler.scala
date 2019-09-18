@@ -196,7 +196,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     filter
   }
 
-  private def createImageContourConfigFromCommands(elem: CommandContainer) = {
+  private def createImageContourConfigFromCommands(elem: CommandContainer): ImageContourConfig = {
     ImageContourConfig().addBgColor(elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex)
       .addLineColor(elem.settings.find(p => p.name.equals("lnColor")).orNull.value.toIntFromHex)
       .addDiffThreshold(elem.settings.find(p => p.name.equals("diffThreshold")).orNull.value.toInt)

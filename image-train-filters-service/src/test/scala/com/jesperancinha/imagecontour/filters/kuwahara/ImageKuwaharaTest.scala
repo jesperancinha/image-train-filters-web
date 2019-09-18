@@ -44,4 +44,43 @@ class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {
     imageKuwahara.apply()
   }
 
+  test("testRefreshTotals") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(2, 5, sourceImage)
+    val results = imageKuwahara.refreshTotals(Array(4D, 6D, 8D, 10D), 2)
+    assertResult(results(0)) {
+      2D
+    }
+    assertResult(results(1)) {
+      3D
+    }
+    assertResult(results(2)) {
+      4D
+    }
+    assertResult(results(3)) {
+      5D
+    }
+  }
+
+  test("testProcessSquare") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(2, 5, sourceImage)
+    val totals: Array[Double] = Array(0D, 0D, 0D, 0D)
+
+    imageKuwahara.processSquare((0 to 10, 0 to 10), totals, totals)
+
+    assertResult(totals(0)) {
+      360D
+    }
+    assertResult(totals(1)) {
+      386D
+    }
+    assertResult(totals(2)) {
+      420D
+    }
+    assertResult(totals(3)) {
+      0D
+    }
+  }
+
 }
