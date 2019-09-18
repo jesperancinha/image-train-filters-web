@@ -176,7 +176,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     }
   }
 
-  private def createFilterFromCommandContainter(elem: CommandContainer, srcBuff: BufferedImage): ImageFilter[BufferedImage] = {
+   def createFilterFromCommandContainter(elem: CommandContainer, srcBuff: BufferedImage): ImageFilter[BufferedImage] = {
     val filter = elem.filter match {
       case "imageContour" => new ImageContour(
         createImageContourConfigFromCommands(elem),
