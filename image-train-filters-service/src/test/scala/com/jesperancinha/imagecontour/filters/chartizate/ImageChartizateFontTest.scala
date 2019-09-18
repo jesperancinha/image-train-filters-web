@@ -6,11 +6,11 @@ class ImageChartizateFontTest extends FunSuite {
 
   test("testFontName") {
     val imageChartizateFont: ImageChartizateFont = new ImageChartizateFont("FONTI", 2)
-    assertResult(imageChartizateFont.fontSize) {
-      2
+    assertResult(2) {
+      imageChartizateFont.fontSize
     }
-    assertResult(imageChartizateFont.fontName) {
-      "FONTI"
+    assertResult("FONTI") {
+      imageChartizateFont.fontName
     }
   }
 

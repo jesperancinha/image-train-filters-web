@@ -13,23 +13,23 @@ class ImageChartizateConfigTest extends FunSuite {
       .addBgColor(255)
       .addDensityPercentage(55)
 
-    assertResult(config.imageChartizateChars.imageChartizateFont.fontName) {
-      "WOW"
+    assertResult("WOW") {
+      config.imageChartizateChars.imageChartizateFont.fontName
     }
-    assertResult(config.imageChartizateChars.imageChartizateFont.fontSize) {
-      10
+    assertResult(10) {
+      config.imageChartizateChars.imageChartizateFont.fontSize
     }
-    assertResult(config.imageChartizateChars.imageChartizateRange.rangePercentage) {
-      15
+    assertResult(15) {
+      config.imageChartizateChars.imageChartizateRange.rangePercentage
     }
-    assertResult(config.imageChartizateChars.imageChartizateRange.unicode) {
-      "UTF"
+    assertResult("UTF") {
+      config.imageChartizateChars.imageChartizateRange.unicode
     }
-    assertResult(config.imageChartizateGraphics.bgColor) {
-      255
+    assertResult(255) {
+      config.imageChartizateGraphics.bgColor
     }
-    assertResult(config.imageChartizateGraphics.densityPercentage) {
-      55
+    assertResult(55) {
+      config.imageChartizateGraphics.densityPercentage
     }
   }
 

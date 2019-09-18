@@ -136,4 +136,14 @@ class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {
       realMinValue
     }
   }
+
+  test("testGetMinDeviationAverageColor") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val realMinValue = imageKuwahara.getMinDeviationAverageColor(Map(45D ->
+      Array[Double](34D), 1D -> Array[Double](3D), 5D -> Array[Double](10D)))
+    assertResult(Array(3D)) {
+      realMinValue
+    }
+  }
 }

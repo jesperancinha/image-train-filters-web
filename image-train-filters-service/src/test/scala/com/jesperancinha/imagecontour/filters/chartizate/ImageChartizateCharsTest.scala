@@ -6,17 +6,17 @@ class ImageChartizateCharsTest extends FunSuite {
 
   test("testImageChartizateRange") {
     val imageChartizateChars: ImageChartizateChars = new ImageChartizateChars()
-    assertResult(imageChartizateChars.imageChartizateRange.unicode) {
-      new String
+    assertResult(new String) {
+      imageChartizateChars.imageChartizateRange.unicode
     }
-    assertResult(imageChartizateChars.imageChartizateRange.rangePercentage) {
-      0
+    assertResult(0) {
+      imageChartizateChars.imageChartizateRange.rangePercentage
     }
-    assertResult(imageChartizateChars.imageChartizateFont.fontName) {
-      new String
+    assertResult(new String) {
+      imageChartizateChars.imageChartizateFont.fontName
     }
-    assertResult(imageChartizateChars.imageChartizateFont.fontSize) {
-      0
+    assertResult(0) {
+      imageChartizateChars.imageChartizateFont.fontSize
     }
   }
 

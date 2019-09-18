@@ -7,17 +7,17 @@ import org.scalatest.mockito.MockitoSugar
 
 class ImageKuwaharaPropertiesTest extends FunSuite with MockitoSugar {
 
-  test("testSrcOut") {
+  test("testSourceData") {
     val sourceData: Raster = mock[Raster]
     val imageKuwaharaProperties: ImageKuwaharaProperties = new ImageKuwaharaProperties(sourceData, 10, 20)
     assertResult(imageKuwaharaProperties.sourceData) {
       sourceData
     }
-    assertResult(imageKuwaharaProperties.width) {
-      10
+    assertResult(10) {
+      imageKuwaharaProperties.width
     }
-    assertResult(imageKuwaharaProperties.height) {
-      20
+    assertResult(20) {
+      imageKuwaharaProperties.height
     }
   }
 
