@@ -13,6 +13,9 @@ import akka.stream.Materializer
 import akka.stream.scaladsl.FileIO
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
+import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
+import com.jesperancinha.imagecontour.filters.contour.ImageContour
+import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64
 import javax.imageio.ImageIO

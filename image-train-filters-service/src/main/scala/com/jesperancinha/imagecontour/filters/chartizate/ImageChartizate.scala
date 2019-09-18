@@ -1,10 +1,11 @@
-package com.jesperancinha.imagecontour.filters
+package com.jesperancinha.imagecontour.filters.chartizate
 
 import java.awt.Color
 import java.awt.image.BufferedImage
 import java.io.{ByteArrayInputStream, ByteArrayOutputStream}
 import java.lang.Character.UnicodeBlock
 
+import com.jesperancinha.imagecontour.filters.ImageFilter
 import javax.imageio.ImageIO
 import org.jesperancinha.chartizate.ChartizateManagerBuilderImpl
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear

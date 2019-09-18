@@ -1,6 +1,8 @@
-package com.jesperancinha.imagecontour.filters
+package com.jesperancinha.imagecontour.filters.contour
 
 import java.awt.image.BufferedImage
+
+import com.jesperancinha.imagecontour.filters.ImageFilter
 
 class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: Int) extends ImageFilter[BufferedImage, BufferedImage] {
   def apply(source: BufferedImage): BufferedImage = {

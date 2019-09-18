@@ -3,7 +3,7 @@ package com.jesper.imagecontour
 import java.awt.image.BufferedImage
 
 import com.jesper.imagecontour.ImageTestUtils.getBufferedResource
-import com.jesperancinha.imagecontour.filters.ImageContour
+import com.jesperancinha.imagecontour.filters.contour.ImageContour
 import org.junit._
 import org.scalatest.FunSuite
 import org.scalatest.mock.MockitoSugar

@@ -2,7 +2,8 @@ package com.jesper.imagecontour
 
 import java.awt.image.BufferedImage
 
-import com.jesperancinha.imagecontour.filters.{ImageChartizate, ImageKuwahara}
+import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
+import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import org.scalatest.{BeforeAndAfterEach, FunSuite}
 
 class ImageChartizateTest extends FunSuite with BeforeAndAfterEach {

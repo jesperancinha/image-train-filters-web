@@ -1,51 +1,55 @@
-package com.jesperancinha.imagecontour.filters
+package com.jesperancinha.imagecontour.filters.kuwahara
 
 import java.awt.Color
 import java.awt.image.{BufferedImage, Raster}
 
+import com.jesperancinha.imagecontour.filters.ImageFilter
+
 import scala.Array.fill
 import scala.util.{Failure, Success, Try}
 
-class ImageKuwahara(squareSize: Int, iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
+class ImageKuwahara(val squareSize: Int, val iterations: Int) extends ImageFilter[BufferedImage, BufferedImage] {
   def apply(source: BufferedImage): BufferedImage = {
     val srcOut: Raster = source.getData()
     val w: Int = srcOut.getWidth
     val h: Int = srcOut.getHeight
+    val imageKuwaharaProperties: ImageKuwaharaProperties  = new ImageKuwaharaProperties(srcOut, w, h);
     (0 to iterations).map(_ => {
       val out = new BufferedImage(w - squareSize, h - squareSize, BufferedImage.TYPE_INT_RGB)
-      performIteration(srcOut, w, h, out)
+      performIteration(imageKuwaharaProperties, out)
       out.getRaster
       out
     }).lastOption.orNull
   }
 
-  def performIteration(sourceData: Raster, w: Int, h: Int, out: BufferedImage): Unit = {
+  def performIteration(imageKuwaharaProperties: ImageKuwaharaProperties, out: BufferedImage): Unit = {
+    val sourceData = imageKuwaharaProperties.srcOut
+    val w = imageKuwaharaProperties.w
+    val h = imageKuwaharaProperties.h
     for (i <- squareSize until w - squareSize by 1) {
       for (j <- squareSize until h - squareSize by 1) {
-        val leftXRange = i - squareSize until i
-        val downYRange = j - squareSize until j
-        val upYRange = j + 1 to j + squareSize
-        val rightXRange = i + 1 to i + squareSize
-        val avg1: Double = getAverageGrey(sourceData, leftXRange, downYRange)
-        val avg2: Double = getAverageGrey(sourceData, leftXRange, upYRange)
-        val avg3: Double = getAverageGrey(sourceData, rightXRange, downYRange)
-        val avg4: Double = getAverageGrey(sourceData, rightXRange, upYRange)
-
-        val avg1Color: Array[Double] = getAverage(sourceData, leftXRange, downYRange)
-        val avg2Color: Array[Double] = getAverage(sourceData, leftXRange, upYRange)
-        val avg3Color: Array[Double] = getAverage(sourceData, rightXRange, downYRange)
-        val avg4Color: Array[Double] = getAverage(sourceData, rightXRange, upYRange)
-
-        val std1: Double = getStandardDeviation(sourceData, leftXRange, downYRange, avg1)
-        val std2: Double = getStandardDeviation(sourceData, leftXRange, upYRange, avg2)
-        val std3: Double = getStandardDeviation(sourceData, rightXRange, downYRange, avg3)
-        val std4: Double = getStandardDeviation(sourceData, rightXRange, upYRange, avg4)
-
-        val resultAvg: Array[Double] = getMinDeviationAverageColor(
-          Map(std1 -> avg1Color, std2 -> avg2Color, std3 -> avg3Color, std4 -> avg4Color))
-        createResult(out, i, j, resultAvg)
+        processOutPixel(sourceData, out, i, j)
       }
     }
+  }
+
+  private def processOutPixel(sourceData: Raster, out: BufferedImage, x: Int, y: Int): Unit = {
+    val leftXRange = x - squareSize until x
+    val downYRange = y - squareSize until y
+    val upYRange = y + 1 to y + squareSize
+    val rightXRange = x + 1 to x + squareSize
+    val std1: Double = getStandardDeviation(sourceData, leftXRange, downYRange, getAverageGrey(sourceData, leftXRange, downYRange))
+    val std2: Double = getStandardDeviation(sourceData, leftXRange, upYRange, getAverageGrey(sourceData, leftXRange, upYRange))
+    val std3: Double = getStandardDeviation(sourceData, rightXRange, downYRange, getAverageGrey(sourceData, rightXRange, downYRange))
+    val std4: Double = getStandardDeviation(sourceData, rightXRange, upYRange, getAverageGrey(sourceData, rightXRange, upYRange))
+    val resultAvg: Array[Double] = getMinDeviationAverageColor(
+      Map(
+        std1 -> getAverage(sourceData, leftXRange, downYRange),
+        std2 -> getAverage(sourceData, leftXRange, upYRange),
+        std3 -> getAverage(sourceData, rightXRange, downYRange),
+        std4 -> getAverage(sourceData, rightXRange, upYRange))
+    )
+    createResult(out, x, y, resultAvg)
   }
 
   private def createResult(out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]): Unit = {
