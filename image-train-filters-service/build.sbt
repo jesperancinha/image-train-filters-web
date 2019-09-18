@@ -31,5 +31,6 @@ libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.5"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.5"
 libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "5.0.0" exclude("org.fusesource.jansi", "jansi")
+libraryDependencies += "org.mockito" % "mockito-scala_2.12" % "1.5.16"
 
 scalacOptions in Test ++= Seq("-Yrangepos")

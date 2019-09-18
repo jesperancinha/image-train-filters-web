@@ -24,8 +24,8 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
   }
 
   def performIteration(imageKuwaharaProperties: ImageKuwaharaProperties, out: BufferedImage): Unit = {
-    val w = imageKuwaharaProperties.w
-    val h = imageKuwaharaProperties.h
+    val w = imageKuwaharaProperties.width
+    val h = imageKuwaharaProperties.height
     for (i <- squareSize until w - squareSize by 1) {
       for (j <- squareSize until h - squareSize by 1) {
         processOutPixel(out, (i, j))
