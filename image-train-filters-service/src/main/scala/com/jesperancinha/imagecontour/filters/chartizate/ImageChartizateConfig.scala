@@ -40,6 +40,4 @@ case class ImageChartizateConfig(imageChartizateChars: ImageChartizateChars = ne
   def addDensityPercentage(densityPercentage: Int): ImageChartizateConfig = {
     ImageChartizateConfig(imageChartizateChars, new ImageChartizateGraphics(imageChartizateGraphics.bgColor, densityPercentage))
   }
-
-  def build(implicit ev: ImageChartizateConfig =:= ImageChartizateConfig): ImageChartizateConfig = ImageChartizateConfig()
 }
