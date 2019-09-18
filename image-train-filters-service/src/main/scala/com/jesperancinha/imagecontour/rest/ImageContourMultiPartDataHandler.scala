@@ -14,7 +14,7 @@ import akka.stream.scaladsl.FileIO
 import com.jesperancinha.imagecontour.boot.Boot
 import com.jesperancinha.imagecontour.filters._
 import com.jesperancinha.imagecontour.filters.chartizate._
-import com.jesperancinha.imagecontour.filters.contour.ImageContour
+import com.jesperancinha.imagecontour.filters.contour.{ImageContour, ImageContourConfig}
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64
@@ -179,10 +179,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
   private def createFilterFromCommandContainter(elem: CommandContainer, srcBuff: BufferedImage): ImageFilter[BufferedImage] = {
     val filter = elem.filter match {
       case "imageContour" => new ImageContour(
-        elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
-        elem.settings.find(p => p.name.equals("lnColor")).orNull.value.toIntFromHex,
-        elem.settings.find(p => p.name.equals("diffThreshold")).orNull.value.toInt,
-        elem.settings.find(p => p.name.equals("radius")).orNull.value.toInt,
+        createImageContourConfigFromCommands(elem),
         srcBuff
       )
       case "imageKuwahara" => new ImageKuwahara(
@@ -197,6 +194,13 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         )
     }
     filter
+  }
+
+  private def createImageContourConfigFromCommands(elem: CommandContainer) = {
+    ImageContourConfig().addBgColor(elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex)
+      .addLineColor(elem.settings.find(p => p.name.equals("lnColor")).orNull.value.toIntFromHex)
+      .addDiffThreshold(elem.settings.find(p => p.name.equals("diffThreshold")).orNull.value.toInt)
+      .addRadius(elem.settings.find(p => p.name.equals("radius")).orNull.value.toInt)
   }
 
   private def createImageConfigFromCommands(elem: CommandContainer): ImageChartizateConfig = {

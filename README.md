@@ -130,9 +130,14 @@ Only important to note here that:
 
 *   image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
+## Planning
+
+*   Noise reducer
+
 ## Status
 
-**Under development**
+[![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
+[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-scala.svg)](#)
 
 ## Change log
 

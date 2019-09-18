@@ -4,7 +4,12 @@ import java.awt.image.BufferedImage
 
 import com.jesperancinha.imagecontour.filters.ImageFilter
 
-class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: Int, bufferedImage: BufferedImage) extends ImageFilter[BufferedImage] {
+class ImageContour(imageContourConfig: ImageContourConfig, bufferedImage: BufferedImage) extends ImageFilter[BufferedImage] {
+  val diffThreshold: Double = imageContourConfig.imageContourThreshold.diffThreshold
+  val radius: Int = imageContourConfig.imageContourThreshold.radius
+  val lnColor: Int = imageContourConfig.imageContourColors.lnColor
+  val bgColor: Int = imageContourConfig.imageContourColors.bgColor
+
   def apply(): BufferedImage = {
     val w: Int = bufferedImage.getWidth
     val h: Int = bufferedImage.getHeight
