@@ -28,36 +28,34 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     val h = imageKuwaharaProperties.h
     for (i <- squareSize until w - squareSize by 1) {
       for (j <- squareSize until h - squareSize by 1) {
-        processOutPixel(out, i, j)
+        processOutPixel(out, (i, j))
       }
     }
   }
 
-  private def processOutPixel(out: BufferedImage, x: Int, y: Int): Unit = {
+  private def processOutPixel(out: BufferedImage, coordinates: (Int, Int)): Unit = {
+    val (x, y) = coordinates
     val leftXRange = x - squareSize until x
     val downYRange = y - squareSize until y
     val upYRange = y + 1 to y + squareSize
     val rightXRange = x + 1 to x + squareSize
-    val std1: Double = getStandardDeviation(leftXRange, downYRange, getAverageGrey(leftXRange, downYRange))
-    val std2: Double = getStandardDeviation(leftXRange, upYRange, getAverageGrey(leftXRange, upYRange))
-    val std3: Double = getStandardDeviation(rightXRange, downYRange, getAverageGrey(rightXRange, downYRange))
-    val std4: Double = getStandardDeviation(rightXRange, upYRange, getAverageGrey(rightXRange, upYRange))
     val resultAvg: Array[Double] = getMinDeviationAverageColor(
       Map(
-        std1 -> getAverage(leftXRange, downYRange),
-        std2 -> getAverage(leftXRange, upYRange),
-        std3 -> getAverage(rightXRange, downYRange),
-        std4 -> getAverage(rightXRange, upYRange))
+        getStandardDeviation(leftXRange, downYRange, getAverageGrey(leftXRange, downYRange)) -> getAverage(leftXRange, downYRange),
+        getStandardDeviation(leftXRange, upYRange, getAverageGrey(leftXRange, upYRange)) -> getAverage(leftXRange, upYRange),
+        getStandardDeviation(rightXRange, downYRange, getAverageGrey(rightXRange, downYRange)) -> getAverage(rightXRange, downYRange),
+        getStandardDeviation(rightXRange, upYRange, getAverageGrey(rightXRange, upYRange)) -> getAverage(rightXRange, upYRange))
     )
-    createResult(out, x, y, resultAvg)
+    createResult(out, (x, y, resultAvg))
   }
 
-  private def createResult(out: BufferedImage, i: Int, j: Int, resultAvg: Array[Double]): Unit = {
-    val result = Try(out.setRGB(i - squareSize, j - squareSize, new Color(resultAvg(0).toInt, resultAvg(1).toInt, resultAvg(2).toInt).getRGB))
+  private def createResult(out: BufferedImage, coordinateValue: (Int, Int, Array[Double])): Unit = {
+    val (x, y, resultAvg) = coordinateValue
+    val result = Try(out.setRGB(x - squareSize, y - squareSize, new Color(resultAvg(0).toInt, resultAvg(1).toInt, resultAvg(2).toInt).getRGB))
     result match {
       case Failure(exception) =>
         println("Failure in finding RGB deviation".concat(exception.getMessage))
-        println(i, j)
+        println(x, y)
       case Success(value) => value
     }
   }
@@ -169,7 +167,7 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     }).sum
   }
 
-  private def calculateStdParticle(avg: Double, arr: Array[Int], i: Int, j: Int) = {
+  private def calculateStdParticle(avg: Double, arr: Array[Int], i: Int, j: Int): Double = {
     sourceData.getPixel(i, j, arr)
     val hsv = fill[Float](4)(0)
     Color.RGBtoHSB(arr(0), arr(1), arr(2), hsv)
