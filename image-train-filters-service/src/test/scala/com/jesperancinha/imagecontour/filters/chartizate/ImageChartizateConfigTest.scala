@@ -9,7 +9,7 @@ class ImageChartizateConfigTest extends FunSuite {
       .addFontName("WOW")
       .addFontSize(10)
       .addRangePercentage(15)
-      .addUnicode("UTC")
+      .addUnicode("UTF")
       .addBgColor(255)
       .addDensityPercentage(55)
 
@@ -23,7 +23,7 @@ class ImageChartizateConfigTest extends FunSuite {
       15
     }
     assertResult(config.imageChartizateChars.imageChartizateRange.unicode) {
-      "UTC"
+      "UTF"
     }
     assertResult(config.imageChartizateGraphics.bgColor) {
       255

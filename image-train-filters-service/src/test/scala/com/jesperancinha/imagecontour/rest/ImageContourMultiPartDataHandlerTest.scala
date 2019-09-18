@@ -4,6 +4,7 @@ import java.awt.image.{BufferedImage, Raster}
 
 import akka.actor.ActorSystem
 import akka.stream.Materializer
+import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
 import com.jesperancinha.imagecontour.filters.contour.ImageContour
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, SettingItem}
@@ -79,6 +80,45 @@ class ImageContourMultiPartDataHandlerTest extends FunSuite with MockitoSugar {
     }
     assertResult(result.h) {
       0
+    }
+  }
+
+  test("testCreateFilterFromCommandContainterImageChartizate") {
+    val items: List[SettingItem] = List(
+      SettingItem("font", "ARIAL"),
+      SettingItem("fontSize", "10"),
+      SettingItem("rangePer", "33"),
+      SettingItem("densityPer", "44"),
+      SettingItem("unicode", "UTF"),
+      SettingItem("bgColor", "3333"),
+    )
+    val container: CommandContainer = CommandContainer("imageChartizate", items)
+
+    val mockBufferedImage = mock[BufferedImage]
+    val mockRaster = mock[Raster]
+    when(mockBufferedImage.getData) thenReturn mockRaster
+    val result: ImageChartizate =
+      imageContourMultiPartDataHandler
+        .createFilterFromCommandContainter(container, mockBufferedImage)
+        .asInstanceOf[ImageChartizate]
+
+    assertResult(result.fontName) {
+      "ARIAL"
+    }
+    assertResult(result.fontSize) {
+      10
+    }
+    assertResult(result.rangePercentage) {
+      33
+    }
+    assertResult(result.densityPercentage) {
+      44
+    }
+    assertResult(result.unicode) {
+      "UTF"
+    }
+    assertResult(result.bgColor) {
+      3333
     }
   }
 
