@@ -83,4 +83,57 @@ class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {
     }
   }
 
+  test("testGetAverageGrey") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val resultingGrey = imageKuwahara.getAverageGrey(100 to 110, 100 to 110)
+    assertResult(0D) {
+      resultingGrey
+    }
+  }
+
+  test("testGetStandardDeviation") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val resultingStd = imageKuwahara.getStandardDeviation((100 to 110, 100 to 110), 123)
+    assertResult(15129D) {
+      resultingStd
+    }
+  }
+
+  test("testGetRealMinValue1NaN") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val realMinValue = imageKuwahara.getRealMinValue(Double.NaN, 123D)
+    assertResult(123D) {
+      realMinValue
+    }
+  }
+
+  test("testGetRealMinValue2NaN") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val realMinValue = imageKuwahara.getRealMinValue(222D, Double.NaN)
+    assertResult(222D) {
+      realMinValue
+    }
+  }
+
+  test("testGetRealMinValue121Min") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val realMinValue = imageKuwahara.getRealMinValue(222D, 555D)
+    assertResult(222D) {
+      realMinValue
+    }
+  }
+
+  test("testGetRealMinValue122Min") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val realMinValue = imageKuwahara.getRealMinValue(123D, 98D)
+    assertResult(98D) {
+      realMinValue
+    }
+  }
 }
