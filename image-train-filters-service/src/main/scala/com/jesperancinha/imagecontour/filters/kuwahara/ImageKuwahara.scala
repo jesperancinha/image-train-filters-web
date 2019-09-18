@@ -41,10 +41,10 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     val rightXRange = x + 1 to x + squareSize
     val resultAvg: Array[Double] = getMinDeviationAverageColor(
       Map(
-        getStandardDeviation(leftXRange, downYRange, getAverageGrey(leftXRange, downYRange)) -> getAverage(leftXRange, downYRange),
-        getStandardDeviation(leftXRange, upYRange, getAverageGrey(leftXRange, upYRange)) -> getAverage(leftXRange, upYRange),
-        getStandardDeviation(rightXRange, downYRange, getAverageGrey(rightXRange, downYRange)) -> getAverage(rightXRange, downYRange),
-        getStandardDeviation(rightXRange, upYRange, getAverageGrey(rightXRange, upYRange)) -> getAverage(rightXRange, upYRange))
+        getStandardDeviation((leftXRange, downYRange), getAverageGrey(leftXRange, downYRange)) -> getAverage((leftXRange, downYRange)),
+        getStandardDeviation((leftXRange, upYRange), getAverageGrey(leftXRange, upYRange)) -> getAverage((leftXRange, upYRange)),
+        getStandardDeviation((rightXRange, downYRange), getAverageGrey(rightXRange, downYRange)) -> getAverage((rightXRange, downYRange)),
+        getStandardDeviation((rightXRange, upYRange), getAverageGrey(rightXRange, upYRange)) -> getAverage((rightXRange, upYRange)))
     )
     createResult(out, (x, y, resultAvg))
   }
@@ -56,16 +56,17 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
       case Failure(exception) =>
         println("Failure in finding RGB deviation".concat(exception.getMessage))
         println(x, y)
-      case Success(value) => value
+      case Success(_) =>
     }
   }
 
-  def getAverage(xRange: Range, yRange: Range): Array[Double] = {
-    val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
+  def getAverage(ranges: (Range, Range)): Array[Double] = {
+    val (xRange, yRange) = ranges
+    val numberOfPoints: Int = calculateNumberOfPoints(ranges)
     val arr: Array[Double] = fill[Double](4)(0)
     val total: Array[Double] = fill[Double](4)(0)
 
-    if (validatePoint(xRange, yRange)) {
+    if (validatePoint(ranges)) {
       processSquare(xRange, yRange, arr, total)
       refreshTotals(total, numberOfPoints)
     } else {
@@ -102,7 +103,8 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     total(3) = total(3) + arr(3)
   }
 
-  def validatePoint(xRange: Range, yRange: Range): Boolean = {
+  def validatePoint(ranges: (Range, Range)): Boolean = {
+    val (xRange, yRange) = ranges
     val minX = xRange.min
     val maxX = xRange.max
     val minY = yRange.min
@@ -110,15 +112,17 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     minX >= 0 && maxX < sourceData.getWidth && minY >= 0 && maxY < sourceData.getHeight && maxX - minX + 1 == squareSize && maxY - minY + 1 == squareSize
   }
 
-  private def calculateNumberOfPoints(xRange: Range, yRange: Range): Int = {
+  private def calculateNumberOfPoints(ranges: (Range, Range)): Int = {
+    val (xRange, yRange) = ranges
     (yRange.max - yRange.min + 1) * (xRange.max - xRange.min + 1)
   }
 
-  def getAverageGrey(xRange: Range, yRange: Range): Double = {
-    val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
+  def getAverageGrey(ranges: (Range, Range)): Double = {
+    val (xRange, yRange) = ranges
+    val numberOfPoints: Int = calculateNumberOfPoints(ranges)
     val arr = fill[Int](4)(0)
 
-    if (validatePoint(xRange, yRange)) {
+    if (validatePoint(ranges)) {
       xRange.map(i => {
         yRange.map(j => {
           val hsvResult: Try[Double] = Try(calculateHsvValueFromSourceDataPositions(arr, i, j))
@@ -143,18 +147,19 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     hsv(3)
   }
 
-  def getStandardDeviation(xRange: Range, yRange: Range, avg: Double): Double = {
-    val numberOfPoints: Int = calculateNumberOfPoints(xRange, yRange)
+  def getStandardDeviation(ranges: (Range, Range), avg: Double): Double = {
+    val numberOfPoints: Int = calculateNumberOfPoints(ranges)
     val arr = fill[Int](4)(0)
-    if (validatePoint(xRange, yRange)) {
-      iterateRangeAndCalculateSum(xRange, yRange, avg, arr) / numberOfPoints
+    if (validatePoint(ranges)) {
+      iterateRangeAndCalculateSum(ranges, avg, arr) / numberOfPoints
     }
     else {
       Double.NaN
     }
   }
 
-  private def iterateRangeAndCalculateSum(xRange: Range, yRange: Range, avg: Double, arr: Array[Int]) = {
+  private def iterateRangeAndCalculateSum(ranges: (Range, Range), avg: Double, arr: Array[Int]) = {
+    val (xRange, yRange) = ranges
     xRange.map(i => {
       yRange.map(j => {
         val result = Try(calculateStdParticle(avg, arr, i, j))
