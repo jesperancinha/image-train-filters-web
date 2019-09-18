@@ -10,8 +10,8 @@ import javax.imageio.ImageIO
 import org.jesperancinha.chartizate.ChartizateManagerBuilderImpl
 import org.jesperancinha.chartizate.distributions.ChartizateDistributionType.Linear
 
-class ImageChartizate(bgColor: Int, densityPro: Int, rangePro: Int, font: String, fontSize: Int, unicode: String) extends ImageFilter[BufferedImage, BufferedImage] {
-  override def apply(bufferedImage: BufferedImage): BufferedImage = {
+class ImageChartizate(bgColor: Int, densityPro: Int, rangePro: Int, font: String, fontSize: Int, unicode: String, bufferedImage: BufferedImage) extends ImageFilter[BufferedImage] {
+  override def apply(): BufferedImage = {
     val os = new ByteArrayOutputStream
     ImageIO.write(bufferedImage, "png", os)
     val imageInputStream = new ByteArrayInputStream(os.toByteArray)

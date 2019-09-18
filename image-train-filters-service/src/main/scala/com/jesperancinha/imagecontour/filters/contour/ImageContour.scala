@@ -4,10 +4,10 @@ import java.awt.image.BufferedImage
 
 import com.jesperancinha.imagecontour.filters.ImageFilter
 
-class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: Int) extends ImageFilter[BufferedImage, BufferedImage] {
-  def apply(source: BufferedImage): BufferedImage = {
-    val w: Int = source.getWidth
-    val h: Int = source.getHeight
+class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: Int, bufferedImage: BufferedImage) extends ImageFilter[BufferedImage] {
+  def apply(): BufferedImage = {
+    val w: Int = bufferedImage.getWidth
+    val h: Int = bufferedImage.getHeight
     val out = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB)
 
     for (i <- 1 until w) {
@@ -15,13 +15,13 @@ class ImageContour(bgColor: Int, lnColor: Int, diffThreshold: Double, radius: In
         if (i + radius >= w || j + radius >= h || i <= radius || j <= radius) {
           out.setRGB(i, j, bgColor)
         } else {
-          val currentColor: Double = source.getRGB(i, j)
+          val currentColor: Double = bufferedImage.getRGB(i, j)
           val colorTop: Double = currentColor + diffThreshold
           val colorBottom: Double = currentColor - diffThreshold
-          val nextHColor: Double = source.getRGB(i + radius, j)
-          val nextVColor: Double = source.getRGB(i, j + radius)
-          val prevHColor: Double = source.getRGB(i - radius, j)
-          val prevVColor: Double = source.getRGB(i, j - radius)
+          val nextHColor: Double = bufferedImage.getRGB(i + radius, j)
+          val nextVColor: Double = bufferedImage.getRGB(i, j + radius)
+          val prevHColor: Double = bufferedImage.getRGB(i - radius, j)
+          val prevVColor: Double = bufferedImage.getRGB(i, j - radius)
           val drawColor: Int = calculateDrawColor(colorTop, colorBottom, nextHColor, nextVColor, prevHColor, prevVColor)
 
           out.setRGB(i, j, drawColor)

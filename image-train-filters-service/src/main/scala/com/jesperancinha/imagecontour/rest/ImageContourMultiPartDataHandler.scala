@@ -166,9 +166,9 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
 
   @scala.annotation.tailrec
   private def filterBufferedImage(log: LoggingAdapter, srcBuff: BufferedImage, elem: CommandContainer, commands: Array[CommandContainer]): BufferedImage = {
-    val filter: ImageFilter[BufferedImage, BufferedImage] = createFilterFromCommandContainter(elem)
+    val filter: ImageFilter[BufferedImage] = createFilterFromCommandContainter(elem, srcBuff)
     log.info("applied - " + elem.filter)
-    val out: BufferedImage = filter(srcBuff)
+    val out: BufferedImage = filter()
     if (commands.isEmpty) {
       out
     } else {
@@ -176,17 +176,19 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     }
   }
 
-  private def createFilterFromCommandContainter(elem: CommandContainer): ImageFilter[BufferedImage, BufferedImage] = {
+  private def createFilterFromCommandContainter(elem: CommandContainer, srcBuff: BufferedImage): ImageFilter[BufferedImage] = {
     val filter = elem.filter match {
       case "imageContour" => new ImageContour(
         elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
         elem.settings.find(p => p.name.equals("lnColor")).orNull.value.toIntFromHex,
         elem.settings.find(p => p.name.equals("diffThreshold")).orNull.value.toInt,
-        elem.settings.find(p => p.name.equals("radius")).orNull.value.toInt
+        elem.settings.find(p => p.name.equals("radius")).orNull.value.toInt,
+        srcBuff
       )
       case "imageKuwahara" => new ImageKuwahara(
         elem.settings.find(p => p.name.equals("square-size")).orNull.value.toInt,
-        elem.settings.find(p => p.name.equals("iterations")).orNull.value.toInt
+        elem.settings.find(p => p.name.equals("iterations")).orNull.value.toInt,
+        srcBuff
       )
       case "imageChartizate" => new ImageChartizate(
         elem.settings.find(p => p.name.equals("bgColor")).orNull.value.toIntFromHex,
@@ -195,6 +197,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
         elem.settings.find(p => p.name.equals("font")).orNull.value.toString,
         elem.settings.find(p => p.name.equals("fontSize")).orNull.value.toInt,
         elem.settings.find(p => p.name.equals("unicode")).orNull.value.toString,
+        srcBuff
       )
     }
     filter
