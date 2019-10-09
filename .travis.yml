@@ -3,11 +3,10 @@ language: scala
 scala:
   - 2.12.2
 script:
-  - brew tap caskroom/versions
-  - brew cask info java11
-  - brew cask info java
-  - brew cask install java11
-  - brew cask install java
+  - curl -s "https://get.sdkman.io" | bash
+  - source "$HOME/.sdkman/bin/sdkman-init.sh"
+  - sdk update
+  - sdk use java 11.0.4-zulus
   - cd image-train-filters-service
   - sbt "project image-train-filters-service" clean update test
   - cd ..
