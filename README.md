@@ -8,6 +8,7 @@
 [![Build Status](https://travis-ci.org/jesperancinha/image-train-filters-scala.svg?branch=master)](https://travis-ci.org/jesperancinha/image-train-filters-scala)
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-scala?branch=master)](https://bettercodehub.com/)
 [![Build status](https://ci.appveyor.com/api/projects/status/rmiwrpoo9hipj28b/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-scala/branch/master)
+[![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/image-train-filters-scala/badge.svg)](https://snyk.io/test/github/jesperancinha/image-train-filters-scala)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/image-train-filters-scala.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/image-train-filters-scala.svg)](#)

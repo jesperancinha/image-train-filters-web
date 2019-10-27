@@ -6,8 +6,8 @@ script:
   - curl -s "https://get.sdkman.io" | bash
   - source "$HOME/.sdkman/bin/sdkman-init.sh"
   - sdk update
-  - sdk install java 11.0.4-zulu
-  - sdk use java 11.0.4-zulu
+  - sdk install java 12.0.2-zulu
+  - sdk use java 12.0.2-zulu
   - cd image-train-filters-service
   - sbt "project image-train-filters-service" clean update test
   - cd ..
