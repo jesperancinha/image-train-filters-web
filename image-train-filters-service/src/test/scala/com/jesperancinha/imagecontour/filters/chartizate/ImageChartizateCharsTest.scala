@@ -1,8 +1,8 @@
 package com.jesperancinha.imagecontour.filters.chartizate
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageChartizateCharsTest extends FunSuite {
+class ImageChartizateCharsTest extends AnyFunSuite {
 
   test("testImageChartizateRange") {
     val imageChartizateChars: ImageChartizateChars = new ImageChartizateChars()

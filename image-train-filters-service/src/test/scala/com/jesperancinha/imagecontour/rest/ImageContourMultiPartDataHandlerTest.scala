@@ -8,13 +8,12 @@ import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
 import com.jesperancinha.imagecontour.filters.contour.ImageContour
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, SettingItem}
-import org.mockito.Mockito._
-import org.scalatest.FunSuite
-import org.scalatest.mockito.MockitoSugar
+import org.mockito.MockitoSugar
+import org.scalatest.funsuite.AnyFunSuite
 
 import scala.concurrent.ExecutionContextExecutor
 
-class ImageContourMultiPartDataHandlerTest extends FunSuite with MockitoSugar {
+class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar {
 
   val imageContourMultiPartDataHandler: ImageContourMultiPartDataHandler =
     new ImageContourMultiPartDataHandler {

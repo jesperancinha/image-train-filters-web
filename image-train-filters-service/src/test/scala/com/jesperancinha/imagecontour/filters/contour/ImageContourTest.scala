@@ -3,12 +3,13 @@ package com.jesperancinha.imagecontour.filters.contour
 import java.awt.image.BufferedImage
 
 import com.jesperancinha.imagecontour.filters.ImageTestUtils.getBufferedResource
-import org.scalatest.{BeforeAndAfterEach, FunSuite}
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageContourTest extends FunSuite with BeforeAndAfterEach {
+class ImageContourTest extends AnyFunSuite with BeforeAndAfterEach {
 
   test("testApplyImageContour") {
-    val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
+    val sourceImage: BufferedImage = getBufferedResource("/testMarket.jpg")
     val imageContour = new ImageContour(
       ImageContourConfig()
         .addBgColor(0xFFFFFF)
@@ -20,7 +21,7 @@ class ImageContourTest extends FunSuite with BeforeAndAfterEach {
   }
 
   test("testApplyImageContourPanther") {
-    val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
+    val sourceImage: BufferedImage = getBufferedResource("/testMarket.jpg")
     val imageContour = new ImageContour(
       ImageContourConfig()
         .addBgColor(0xFFFFFF)
@@ -32,7 +33,7 @@ class ImageContourTest extends FunSuite with BeforeAndAfterEach {
   }
 
   test("testApplyImageContourPanther1") {
-    val sourceImage: BufferedImage = getBufferedResource("/testPanther1.jpg")
+    val sourceImage: BufferedImage = getBufferedResource("/testMarketSmallBlur.png")
     val imageContour = new ImageContour(
       ImageContourConfig()
         .addBgColor(0xFFFFFF)

@@ -1,8 +1,8 @@
 package com.jesperancinha.imagecontour.filters.chartizate
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageChartizateRangeTest extends FunSuite {
+class ImageChartizateRangeTest extends AnyFunSuite {
 
   test("testUnicode") {
 

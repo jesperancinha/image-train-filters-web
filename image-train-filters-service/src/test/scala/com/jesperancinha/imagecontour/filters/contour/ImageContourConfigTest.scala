@@ -1,8 +1,8 @@
 package com.jesperancinha.imagecontour.filters.contour
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageContourConfigTest extends FunSuite {
+class ImageContourConfigTest extends AnyFunSuite {
 
   test("testContourConfig") {
     val imageContourConfig = ImageContourConfig()

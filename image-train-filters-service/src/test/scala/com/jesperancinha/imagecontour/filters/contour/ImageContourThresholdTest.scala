@@ -1,8 +1,8 @@
 package com.jesperancinha.imagecontour.filters.contour
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageContourThresholdTest extends FunSuite {
+class ImageContourThresholdTest extends AnyFunSuite {
 
   test("testDiffThreshold") {
     val imageContourThreshold: ImageContourThreshold = new ImageContourThreshold(123D, 123)
