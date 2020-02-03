@@ -39,5 +39,12 @@ jobs:
           key: v1-dependencies--{{ checksum "build.sbt" }}
 
       # run tests!
+      - run: cd image-train-filters-service
       - run: sbt clean update test assembly package
+      - run: cd ..
+      - run: cd image-train-filters-fe
+      - run: yarn install
+      - run: yarn build
+      - run: cd ..
+
 
