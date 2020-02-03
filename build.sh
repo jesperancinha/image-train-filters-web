@@ -15,12 +15,8 @@ eval $(docker-machine env  ${machine})
 
 docker-compose down
 
-#docker stop mancalaje_mancala_1
-#docker stop  mancalaje_postgres_1
-#
-#docker rm mancalaje_mancala_1
-#docker rm mancalaje_postgres_1
-
+docker stop image-train-filters-scala_itf_1
+docker rm image-train-filters-scala_itf_1
 
 cd image-train-filters-service
 sbt clean assembly

@@ -134,14 +134,17 @@ Only important to note here that:
 
 *   image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
+## Docker images
+
+This project makes use of the following docker images:
+
+[![dockeri.co](https://dockeri.co/image/jesperancinha/je-all-build)](https://hub.docker.com/r/jesperancinha/je-all-build)
+
+All source code for the [JE](https://bitbucket.org/jesperancinha/docker-images) images reside in repo [Docker images](https://bitbucket.org/jesperancinha/docker-images).
+
 ## Planning
 
 *   Noise reducer
-
-## Status
-
-[![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
-[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-scala.svg)](#)
 
 ## Change log
 
@@ -170,38 +173,16 @@ $ apt-get update
 $ apt-get install sbt 
 $ apt-get install default-jre 
 ```
----
-##### Deprecated
-```text
-$ add-apt-repository ppa:webupd8team/java  
-$ echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list
-$ echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
-$ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
-$ apt install oracle-java8-installer  
-```
-
-### Git
-
-```text
-$ apt install gitk  
-$ apt install git-gui
-```
 
 ### image-train-filters-fe Module
 
 #### Make a build
 
 ```text
-$ npm install
-$ ng build --aot=true
+$ yarn install
+$ yarn build
 $ service nginx reload
 ```
-
-### image-train-filters-service
-
-#### Start services
-
-$ sbt
 
 ## References
 
