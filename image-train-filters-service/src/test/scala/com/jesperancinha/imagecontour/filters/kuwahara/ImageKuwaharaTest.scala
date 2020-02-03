@@ -3,9 +3,10 @@ package com.jesperancinha.imagecontour.filters.kuwahara
 import java.awt.image.BufferedImage
 
 import com.jesperancinha.imagecontour.filters.ImageTestUtils
-import org.scalatest.{BeforeAndAfterEach, FunSuite}
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageKuwaharaTest extends FunSuite with BeforeAndAfterEach {
+class ImageKuwaharaTest extends AnyFunSuite with BeforeAndAfterEach {
 
   test("testConvertAndSaveImage") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara1.png")

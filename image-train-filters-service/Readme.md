@@ -5,7 +5,6 @@
 ### Make an assembly or package
 
 ```text
-$ sbt assembly 
 $ sbt package
 ```
 

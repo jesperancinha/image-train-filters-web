@@ -4,9 +4,10 @@ import java.awt.image.BufferedImage
 
 import com.jesperancinha.imagecontour.filters.ImageTestUtils
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
-import org.scalatest.{BeforeAndAfterEach, FunSuite}
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageChartizateTest extends FunSuite with BeforeAndAfterEach {
+class ImageChartizateTest extends AnyFunSuite with BeforeAndAfterEach {
 
   test("testConvertAndSaveImage") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara1.png")

@@ -1,8 +1,8 @@
 package com.jesperancinha.imagecontour.filters.chartizate
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageChartizateFontTest extends FunSuite {
+class ImageChartizateFontTest extends AnyFunSuite {
 
   test("testFontName") {
     val imageChartizateFont: ImageChartizateFont = new ImageChartizateFont("FONTI", 2)

@@ -2,10 +2,10 @@ package com.jesperancinha.imagecontour.filters.kuwahara
 
 import java.awt.image.Raster
 
-import org.scalatest.FunSuite
-import org.scalatest.mockito.MockitoSugar
+import org.mockito.MockitoSugar
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageKuwaharaPropertiesTest extends FunSuite with MockitoSugar {
+class ImageKuwaharaPropertiesTest extends AnyFunSuite with MockitoSugar {
 
   test("testSourceData") {
     val sourceData: Raster = mock[Raster]

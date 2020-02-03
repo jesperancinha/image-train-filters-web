@@ -3,9 +3,10 @@ package com.jesperancinha.imagecontour.filters.contour
 import java.awt.image.BufferedImage
 
 import com.jesperancinha.imagecontour.filters.ImageTestUtils.getBufferedResource
-import org.scalatest.{BeforeAndAfterEach, FunSuite}
+import org.scalatest.BeforeAndAfterEach
+import org.scalatest.funsuite.AnyFunSuite
 
-class ImageContourTest extends FunSuite with BeforeAndAfterEach {
+class ImageContourTest extends AnyFunSuite with BeforeAndAfterEach {
 
   test("testApplyImageContour") {
     val sourceImage: BufferedImage = getBufferedResource("/testPanther.jpg")
