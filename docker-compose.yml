@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  itf:
+    hostname: itf
+    build:
+      context: .
+    ports:
+      - "8080:80"
+
