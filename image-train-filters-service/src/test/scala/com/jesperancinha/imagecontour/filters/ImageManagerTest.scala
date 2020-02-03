@@ -7,7 +7,7 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class ImageManagerTest extends AnyFunSuite {
   test("testGetBufferedImage") {
-    val url: URL = getClass.getResource("/testPanther.jpg")
+    val url: URL = getClass.getResource("/testMarket.jpg")
     ImageManager.getBufferedImage(new File(url.getFile))
   }
 

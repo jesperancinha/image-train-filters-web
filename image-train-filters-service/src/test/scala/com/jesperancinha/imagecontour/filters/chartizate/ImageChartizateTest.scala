@@ -9,8 +9,8 @@ import org.scalatest.funsuite.AnyFunSuite
 
 class ImageChartizateTest extends AnyFunSuite with BeforeAndAfterEach {
 
-  test("testConvertAndSaveImage") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara1.png")
+  test("testConvertAndSaveMarketImage") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarket.jpg")
     val imageChartizate = new ImageChartizate(ImageChartizateConfig()
       .addDensityPercentage(50)
       .addRangePercentage(10)
@@ -18,11 +18,12 @@ class ImageChartizateTest extends AnyFunSuite with BeforeAndAfterEach {
       .addFontSize(5)
       .addUnicode("LATIN_EXTENDED_A"),
       sourceImage)
-    imageChartizate.apply()
+    val image = imageChartizate.apply()
+    image
   }
 
-  test("testConvertAndSaveImageKuwahara2") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testKuwahara2.png")
+  test("testConvertAndSaveMarketSmallImage") {
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmall.jpg")
     val imageChartizate = new ImageChartizate(ImageChartizateConfig()
       .addDensityPercentage(50)
       .addRangePercentage(10)
@@ -30,43 +31,22 @@ class ImageChartizateTest extends AnyFunSuite with BeforeAndAfterEach {
       .addFontSize(5)
       .addUnicode("LATIN_EXTENDED_A"),
       sourceImage)
-    imageChartizate.apply()
-  }
-
-  test("testConvertAndSaveImageEyePantherBW") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testEyeBW.png")
-    val imageChartizate = new ImageChartizate(ImageChartizateConfig()
-      .addDensityPercentage(50)
-      .addRangePercentage(10)
-      .addFontName("Arial")
-      .addFontSize(5)
-      .addUnicode("LATIN_EXTENDED_A"),
-      sourceImage)
-    imageChartizate.apply()
-  }
-
-  test("testConvertAndSaveImageEyePanther") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testEye.png")
-    val imageChartizate = new ImageChartizate(ImageChartizateConfig()
-      .addDensityPercentage(50)
-      .addRangePercentage(10)
-      .addFontName("Arial")
-      .addFontSize(5)
-      .addUnicode("LATIN_EXTENDED_A"),
-      sourceImage)
-    imageChartizate.apply()
+    val image = imageChartizate.apply()
+    image
   }
 
   test("testConvertAndSaveImagePanther") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther.jpg")
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarket.jpg")
     val imageChartizate = new ImageKuwahara(4, 1, sourceImage)
-    imageChartizate.apply()
+    val image = imageChartizate.apply()
+    image
   }
 
   test("testConvertAndSaveImagePanther5Its") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testPanther1.jpg")
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmallBlur.png")
     val imageChartizate = new ImageKuwahara(2, 5, sourceImage)
-    imageChartizate.apply()
+    val image = imageChartizate.apply()
+    image
   }
 
 }
