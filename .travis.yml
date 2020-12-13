@@ -9,7 +9,7 @@ script:
   - sdk install java 12.0.2-zulu
   - sdk use java 12.0.2-zulu
   - cd image-train-filters-service
-  - sbt "project image-train-filters-service" clean update test
+#  - sbt "project image-train-filters-service" clean update test
   - cd ..
   - cd image-train-filters-fe
   - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
