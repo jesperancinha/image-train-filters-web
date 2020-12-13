@@ -13,6 +13,7 @@ script:
   - cd ..
   - cd image-train-filters-fe
   - brew update
+  - git -C "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core" fetch --unshallow
   - brew upgrade npm
   - npm cache clean -f
   - npm install -g n
