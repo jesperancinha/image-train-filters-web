@@ -15,6 +15,5 @@ script:
   - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
   - sudo apt install nodejs
   - npm install -g n
-  - sudo n stable
   - npm install
   - cd ..
