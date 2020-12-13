@@ -1,4 +1,4 @@
-os: osx
+os: linux
 language: scala
 scala:
   - 2.12.2
@@ -12,10 +12,8 @@ script:
   - sbt "project image-train-filters-service" clean update test
   - cd ..
   - cd image-train-filters-fe
-  - brew update
-  - git -C "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-core" fetch --unshallow
-  - brew upgrade npm
-  - npm cache clean -f
+  - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+  - sudo apt install nodejs
   - npm install -g n
   - sudo n stable
   - npm install
