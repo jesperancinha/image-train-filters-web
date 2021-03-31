@@ -22,6 +22,8 @@ lib_managed/
 src_managed/
 project/boot/
 project/plugins/project/
+.bsp
+
 
 ## Logs
 nohup.out

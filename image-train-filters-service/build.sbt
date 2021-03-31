@@ -10,8 +10,8 @@ resolvers += Resolver.sbtPluginRepo("releases")
 resolvers += Resolver.DefaultMavenRepository
 resolvers += Resolver.url("bintray-sbt-plugins", url("https://dl.bintray.com/eed3si9n/sbt-plugins/"))(Resolver.ivyStylePatterns)
 resolvers += Resolver.bintrayIvyRepo("com.eed3si9n", "sbt-plugins")
-resolvers += "Spray repository" at "http://repo.spray.io"
-resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+resolvers += "Spray repository" at "https://repo.spray.io"
+resolvers += "Typesafe repository" at "https://repo.typesafe.com/typesafe/releases/"
 resolvers += Resolver.mavenCentral
 resolvers += Resolver.mavenLocal
 
