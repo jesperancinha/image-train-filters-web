@@ -41,6 +41,6 @@ jobs:
       # run tests!
       - run: cd image-train-filters-service && sbt clean update test assembly package
       - run: cd image-train-filters-fe && yarn install
-      - run: cd image-train-filters-fe && yarn build
+#      - run: cd image-train-filters-fe && yarn build
 
 
