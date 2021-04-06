@@ -10,7 +10,7 @@ This is the front end application for the image train filters application. It's 
 -   [Zefoy NGX Color picker Demo](https://zefoy.github.io/ngx-color-picker/)
 -   [ng5-slider](https://angular-slider.github.io/ng5-slider/)
 
-## About me 👨🏽‍💻🚀
+## About me 👨🏽‍💻🚀🏳️‍🌈
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
 [![Twitter Follow](https://img.shields.io/twitter/follow/joaofse?label=João%20Esperancinha&style=social "Twitter")](https://twitter.com/joaofse)
