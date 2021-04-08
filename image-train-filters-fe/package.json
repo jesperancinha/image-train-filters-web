@@ -22,7 +22,7 @@
     "ng5-slider": "1.2.4",
     "ngx-color-picker": "8.0.1",
     "rxjs": "6.5.2",
-    "rxjs-compat": "6.5.2",
+    "rxjs-compat": "6.6.6",
     "zone.js": "0.9.1"
   },
   "scripts": {
