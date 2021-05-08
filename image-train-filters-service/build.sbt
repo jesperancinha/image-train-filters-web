@@ -18,7 +18,6 @@ resolvers += Resolver.mavenLocal
 libraryDependencies += "io.spray" %% "spray-json" % "1.3.5"
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.0"
 libraryDependencies += "net.liftweb" %% "lift-json" % "3.4.1"
-libraryDependencies += "junit" % "junit" % "4.11" % "test"
 libraryDependencies += "com.typesafe.slick" %% "slick" % "3.3.2"
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.25"
 libraryDependencies += "ch.qos.logback" % "logback-classic" % "1.0.13"
@@ -29,10 +28,8 @@ libraryDependencies += "com.typesafe.akka" %% "akka-http" % "10.1.11"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-spray-json" % "10.1.11"
 libraryDependencies += "com.typesafe.akka" %% "akka-http-testkit" % "10.1.11"
 libraryDependencies += "org.jesperancinha.itf" % "itf-chartizate-java" % "5.0.0" exclude("org.fusesource.jansi", "jansi")
-libraryDependencies += "org.mockito" % "mockito-core" % "3.2.4" % Test
 libraryDependencies += "org.mockito" %% "mockito-scala" % "1.11.1" % Test
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
-libraryDependencies += "org.specs2" %% "specs2-core" % "4.8.3" % Test
 
 scalacOptions in Test ++= Seq("-Yrangepos")
 
