@@ -8,6 +8,18 @@
 $ sbt package
 ```
 
+### Run Jacoco Coverage Reports
+
+```bash
+sbt jacoco
+```
+
+### Send report to coveralls
+
+```bash
+sbt coverageReport
+```
+
 ### Run your package (notice the relationship)
 
 ```text

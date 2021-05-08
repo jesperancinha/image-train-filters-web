@@ -3,6 +3,23 @@ language: scala
 
 jobs:
   include:
+    - language: scala
+      stage: Backend Test (All Scala 2.12.2 Services)
+      jdk: openjdk11
+      scala:
+        - 2.13
+      script:
+        - curl -s "https://get.sdkman.io" | bash
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - sdk update
+        - sdk install java 12.0.2-zulu
+        - sdk use java 12.0.2-zulu
+        - cd image-train-filters-service
+        - sbt "project image-train-filters-service" clean update test
+        - export COVERALLS_REPO_TOKEN=${COVERALLS_TOKEN}
+        - sbt clean coverage test
+        - sbt coverageReport coveralls
+
     - language: node_js
       stage: Frontend Test (Angular Nebular Release)
       node_js: 12
@@ -14,20 +31,3 @@ jobs:
         - npm install
         - jest --coverage && coveralls < coverage/lcov.info
         - codecov
-
-    - language: scala
-      stage: Backend Test (All Scala 2.12.2 Services)
-      scala:
-        - 2.12.2
-      script:
-        - curl -s "https://get.sdkman.io" | bash
-        - source "$HOME/.sdkman/bin/sdkman-init.sh"
-        - sdk update
-        - sdk install java 12.0.2-zulu
-        - sdk use java 12.0.2-zulu
-        - cd image-train-filters-service
-        - sbt "project image-train-filters-service" clean update test
-        - sbt clean coverage test
-
-
-
