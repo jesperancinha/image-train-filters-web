@@ -1,19 +1,33 @@
 os: linux
 language: scala
-scala:
-  - 2.12.2
-script:
-  - curl -s "https://get.sdkman.io" | bash
-  - source "$HOME/.sdkman/bin/sdkman-init.sh"
-  - sdk update
-  - sdk install java 12.0.2-zulu
-  - sdk use java 12.0.2-zulu
-  - cd image-train-filters-service
-#  - sbt "project image-train-filters-service" clean update test
-  - cd ..
-  - cd image-train-filters-fe
-  - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-  - sudo apt install nodejs
-  - npm install -g n
-  - npm install
-  - cd ..
+
+jobs:
+  include:
+    - language: node_js
+      stage: Frontend Test (Angular Nebular Release)
+      node_js: 12
+      script:
+        - cd image-train-filters-fe
+        - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+        - sudo apt install nodejs
+        - npm install -g n
+        - npm install
+        - jest --coverage && coveralls < coverage/lcov.info
+        - codecov
+
+    - language: scala
+      stage: Backend Test (All Scala 2.12.2 Services)
+      scala:
+        - 2.12.2
+      install: mvn dependency:resolve
+      script:
+        - curl -s "https://get.sdkman.io" | bash
+        - source "$HOME/.sdkman/bin/sdkman-init.sh"
+        - sdk update
+        - sdk install java 12.0.2-zulu
+        - sdk use java 12.0.2-zulu
+        - cd image-train-filters-service
+        - sbt "project image-train-filters-service" clean update test
+        - mvn clean install coveralls:report -Dconsolerizer.show=false -DrepoToken=${COVERALLS_TOKEN}
+        - bash <(curl -s https://codecov.io/bash)
+
