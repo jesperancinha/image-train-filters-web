@@ -6,6 +6,7 @@ jobs:
     - language: scala
       stage: Backend Test (All Scala 2.12.2 Services)
       jdk: openjdk11
+      install: export TRAVIS_WORKER_DOCKER_MEMORY=8G
       scala:
         - 2.13
       script:
