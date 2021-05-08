@@ -9,3 +9,9 @@ addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.7.3")
 addSbtPlugin("com.github.sbt" % "sbt-jacoco" % "3.0.3")
 addSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.2.7")
 
+// plugins.sbt
+val jacocoVersion = "0.8.5"
+dependencyOverrides ++= Seq(
+  "org.jacoco" % "org.jacoco.core" % jacocoVersion,
+  "org.jacoco" % "org.jacoco.report" % jacocoVersion,
+  "org.jacoco" % "org.jacoco.agent" % jacocoVersion)

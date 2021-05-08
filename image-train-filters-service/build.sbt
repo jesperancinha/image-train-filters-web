@@ -34,6 +34,13 @@ libraryDependencies += "org.mockito" %% "mockito-scala" % "1.11.1" % Test
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
 libraryDependencies += "org.specs2" %% "specs2-core" % "4.8.3" % Test
 
+val jacocoVersion = "0.8.5"
+
+dependencyOverrides ++= Seq(
+  "org.jacoco" % "org.jacoco.core" % jacocoVersion % Test,
+  "org.jacoco" % "org.jacoco.report" % jacocoVersion % Test,
+  "org.jacoco" % "org.jacoco.agent" % jacocoVersion % Test)
+
 scalacOptions in Test ++= Seq("-Yrangepos")
 
 mainClass := Some("com.jesperancinha.imagecontour.boot.Boot")
