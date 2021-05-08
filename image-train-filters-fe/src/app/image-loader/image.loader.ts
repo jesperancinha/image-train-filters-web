@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload/ng2-file-upload';
+import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload';
 import {DomSanitizer, SafeValue} from "@angular/platform-browser";
 import {NbTabComponent} from "@nebular/theme";
 import {ImageLoaderContourComponent} from "./image-loader-contour/image.loader.contour";

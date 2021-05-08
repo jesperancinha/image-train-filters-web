@@ -19,7 +19,6 @@ jobs:
       stage: Backend Test (All Scala 2.12.2 Services)
       scala:
         - 2.12.2
-      install: mvn dependency:resolve
       script:
         - curl -s "https://get.sdkman.io" | bash
         - source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -28,6 +27,7 @@ jobs:
         - sdk use java 12.0.2-zulu
         - cd image-train-filters-service
         - sbt "project image-train-filters-service" clean update test
-        - mvn clean install coveralls:report -Dconsolerizer.show=false -DrepoToken=${COVERALLS_TOKEN}
-        - bash <(curl -s https://codecov.io/bash)
+        - sbt clean coverage test
+
+
 

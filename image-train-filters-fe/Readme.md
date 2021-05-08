@@ -26,6 +26,7 @@ npm install --save-dev is-utf8
 npm install --save-dev lodash.assign
 npm install --save-dev load-json-file
 npm i -D ngx-spec
+yarn add -D jest jest-preset-angular
 ```
 
 ## Global utilities
@@ -37,6 +38,7 @@ npm i -g ngx-spec
 yarn global add @briebug/jest-schematic
 ng add @briebug/jest-schematic
 npm install -g angular-spec-generator
+angular-spec-generator src/
 ```
 
 ## Coverage

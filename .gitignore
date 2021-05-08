@@ -37,3 +37,12 @@ nohup.out
 
 # NPM
 node_modules
+
+# Coveralls
+.coveralls.yml
+
+# Codecov
+codecov.yml
+
+# Coverage
+coverage
