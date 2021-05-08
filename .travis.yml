@@ -15,9 +15,8 @@ jobs:
         - sdk install java 12.0.2-zulu
         - sdk use java 12.0.2-zulu
         - cd image-train-filters-service
-        - sbt "project image-train-filters-service" clean update test
         - export COVERALLS_REPO_TOKEN=${COVERALLS_TOKEN}
-        - sbt clean coverage test
+        - sbt "project image-train-filters-service" clean update coverage test
         - sbt coverageReport coveralls
 
     - language: node_js
