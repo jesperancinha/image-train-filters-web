@@ -11,11 +11,13 @@ jobs:
         - 2.13
       script:
         - cd image-train-filters-service
+        - cp -r ../.git .
         - export COVERALLS_REPO_TOKEN=${COVERALLS_TOKEN}
         - sbt "project image-train-filters-service" clean update coverage test
+        - sbt jacoco
+        - sbt coverageAggregate
         - sbt coverageReport
-        - cd ..
-        - cd image-train-filters-service && sbt coveralls
+        - sbt coveralls
 
     - language: node_js
       stage: Frontend Test (Angular Nebular Release)
