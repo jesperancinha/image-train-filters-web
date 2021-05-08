@@ -4,8 +4,8 @@
 
 ### Make an assembly or package
 
-```text
-$ sbt package
+```bash
+sbt "project service" package
 ```
 
 ### Run Jacoco Coverage Reports

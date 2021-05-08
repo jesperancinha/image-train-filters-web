@@ -15,6 +15,7 @@ lazy val global = project
 lazy val service = project
   .settings(
     name := "image-train-filters-service",
+    version := "1.0.0-SNAPSHOT",
     commonSettings,
     libraryDependencies ++= commonDependencies,
     assemblySettings,
