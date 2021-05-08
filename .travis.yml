@@ -18,6 +18,7 @@ jobs:
         - sbt coverageAggregate
         - sbt coverageReport
         - sbt coveralls
+        - bash <(curl -s https://codecov.io/bash)
 
     - language: node_js
       stage: Frontend Test (Angular Nebular Release)
