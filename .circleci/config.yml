@@ -25,7 +25,7 @@ jobs:
             - ~/.m2
           key: v1-dependencies--{{ checksum "build.sbt" }}
 
-      - run: cd image-train-filters-service && sbt clean update test assembly package
+      - run: sbt "project service" clean update test assembly package
 
   build-front-end:
     docker:
