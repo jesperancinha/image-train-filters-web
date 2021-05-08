@@ -6,14 +6,16 @@ jobs:
     - language: scala
       stage: Backend Test (All Scala 2.12.2 Services)
       jdk: openjdk11
-      install: export TRAVIS_WORKER_DOCKER_MEMORY=8G
+      install: export TRAVIS_WORKER_DOCKER_MEMORY=16G
       scala:
         - 2.13
       script:
         - cd image-train-filters-service
         - export COVERALLS_REPO_TOKEN=${COVERALLS_TOKEN}
         - sbt "project image-train-filters-service" clean update coverage test
-        - sbt coverageReport coveralls
+        - sbt coverageReport
+        - cd ..
+        - cd image-train-filters-service && sbt coveralls
 
     - language: node_js
       stage: Frontend Test (Angular Nebular Release)
