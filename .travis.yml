@@ -10,11 +10,6 @@ jobs:
       scala:
         - 2.13
       script:
-        - curl -s "https://get.sdkman.io" | bash
-        - source "$HOME/.sdkman/bin/sdkman-init.sh"
-        - sdk update
-        - sdk install java 12.0.2-zulu
-        - sdk use java 12.0.2-zulu
         - cd image-train-filters-service
         - export COVERALLS_REPO_TOKEN=${COVERALLS_TOKEN}
         - sbt "project image-train-filters-service" clean update coverage test
