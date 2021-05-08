@@ -32,16 +32,16 @@ class ImageContourTest extends AnyFunSuite with BeforeAndAfterEach {
     imageContour.apply()
   }
 
-  test("testApplyImageContourPanther1") {
-    val sourceImage: BufferedImage = getBufferedResource("/testMarketSmallBlur.png")
-    val imageContour = new ImageContour(
-      ImageContourConfig()
-        .addBgColor(0xFFFFFF)
-        .addLineColor(0x000000)
-        .addDiffThreshold(150000)
-        .addRadius(1),
-      sourceImage)
-    imageContour.apply()
-  }
+//  test("testApplyImageContourPanther1") {
+//    val sourceImage: BufferedImage = getBufferedResource("/testMarketSmallBlur.png")
+//    val imageContour = new ImageContour(
+//      ImageContourConfig()
+//        .addBgColor(0xFFFFFF)
+//        .addLineColor(0x000000)
+//        .addDiffThreshold(150000)
+//        .addRadius(1),
+//      sourceImage)
+//    imageContour.apply()
+//  }
 
 }
