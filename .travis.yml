@@ -10,14 +10,9 @@ jobs:
       scala:
         - 2.13
       script:
-        - cd image-train-filters-service
-        - cp -r ../.git .
         - export COVERALLS_REPO_TOKEN=${COVERALLS_TOKEN}
-        - sbt "project image-train-filters-service" clean update coverage test
-        - sbt jacoco
-        - sbt coverageAggregate
-        - sbt coverageReport
-        - sbt coveralls
+        - sbt "project service" clean update coverage test
+        - sbt jacoco coverageAggregate coverageReport coveralls
         - bash <(curl -s https://codecov.io/bash)
 
     - language: node_js
