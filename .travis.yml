@@ -13,7 +13,7 @@ jobs:
         - codecov
 
     - language: scala
-      stage: Backend Test (All Scala 2.12.2 Services)
+      stage: Backend Test (All Scala 2.13.1 Services)
       jdk: openjdk11
       install: export TRAVIS_WORKER_DOCKER_MEMORY=16G
       scala:
