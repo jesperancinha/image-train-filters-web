@@ -39,6 +39,12 @@ Using Chartizate filter:
 
 Current running online implementation: [Image train filters](http://itf.joaofilipesabinoesperancinha.nl)
 
+## NodeJs Multiproject
+
+```bash
+yarn config set workspaces-experimental true
+```
+
 ## How to use
 We need to provide two form-data parameters in a Multipart Formdata request.
 Use curl for that please. An example follows bellow.

@@ -3,6 +3,15 @@ language: scala
 
 jobs:
   include:
+    - language: node_js
+      stage: Frontend Test (Angular Nebular Release)
+      node_js: 12
+      script:
+        - yarn config set workspaces-experimental true
+        - yarn install
+        - jest --coverage && coveralls < coverage/lcov.info
+        - codecov
+
     - language: scala
       stage: Backend Test (All Scala 2.12.2 Services)
       jdk: openjdk11
@@ -14,15 +23,3 @@ jobs:
         - sbt "project service" clean update coverage test
         - sbt "project service" jacoco coverageAggregate coverageReport coveralls
         - bash <(curl -s https://codecov.io/bash)
-
-    - language: node_js
-      stage: Frontend Test (Angular Nebular Release)
-      node_js: 12
-      script:
-        - cd image-train-filters-fe
-        - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-        - sudo apt install nodejs
-        - npm install -g n
-        - npm install
-        - jest --coverage && coveralls < coverage/lcov.info
-        - codecov
