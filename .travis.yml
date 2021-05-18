@@ -3,6 +3,24 @@ language: scala
 
 jobs:
   include:
+    - language: scala
+      stage: Full Coverage
+      jdk: openjdk11
+      install: export TRAVIS_WORKER_DOCKER_MEMORY=16G
+      scala:
+        - 2.13
+      script:
+        - nvm install 12
+        - nvm use 12
+        - yarn config set workspaces-experimental true
+        - yarn install
+        - jest --coverage
+        - travis_wait 30 sbt "project service" clean update coverage test
+        - travis_wait 30 sbt "project service" jacoco coverageAggregate coverageReport coveralls
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) report --partial $(find **/jacoco*.xml -printf '-r %p ')
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) report --partial $(find **/lcov.info -printf '-r %p ')
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) final
+
     - language: node_js
       stage: Frontend Test (Angular Nebular Release)
       node_js: 12
