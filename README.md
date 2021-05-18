@@ -1,16 +1,22 @@
 # Image Train Filters
+
+---
+
 [![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=%20Checkout%20this%20%40github%20repo%20by%20%40joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB%3A%20https%3A//github.com/jesperancinha/image-train-filters-scala)
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Image%20Train%20Filters%20Services&color=informational)](https://github.com/jesperancinha/image-train-filters-scala)
 [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
 [![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-scala.svg)](#)
   
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-scala&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-scala-master)
 [![CircleCI](https://circleci.com/gh/jesperancinha/image-train-filters-scala.svg?style=svg)](https://circleci.com/gh/jesperancinha/image-train-filters-scala)
 [![Build Status](https://travis-ci.com/jesperancinha/image-train-filters-scala.svg?branch=master)](https://travis-ci.com/jesperancinha/image-train-filters-scala)
-[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-scala?branch=master)](https://bettercodehub.com/)
 [![Build status](https://ci.appveyor.com/api/projects/status/rmiwrpoo9hipj28b/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-scala/branch/master)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-scala&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-scala-master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-scala?branch=master)](https://bettercodehub.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/image-train-filters-scala/badge.svg)](https://snyk.io/test/github/jesperancinha/image-train-filters-scala)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b45a0bd9c3694401b78580b95c0b505b)](https://www.codacy.com/gh/jesperancinha/image-train-filters-scala/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-scala&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/jesperancinha/image-train-filters-scala/branch/master/graph/badge.svg?token=uFSrf1eF3l)](https://codecov.io/gh/jesperancinha/image-train-filters-scala)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/image-train-filters-scala/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/image-train-filters-scala?branch=master)
 
@@ -21,6 +27,7 @@
 ---
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/angular-50.png "Angular")](https://angular.io/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/typescript-50.png "Typescript")](https://www.typescriptlang.org/)
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/scala-50.png "Scala")](https://www.scala-lang.org/)
 
 ## Description
