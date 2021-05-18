@@ -12,6 +12,7 @@ jobs:
       script:
         - nvm install 12
         - nvm use 12
+        - npm i -g jest
         - yarn config set workspaces-experimental true
         - yarn install
         - jest --coverage
