@@ -9,6 +9,7 @@
   
 [![CircleCI](https://circleci.com/gh/jesperancinha/image-train-filters-scala.svg?style=svg)](https://circleci.com/gh/jesperancinha/image-train-filters-scala)
 [![Build status](https://ci.appveyor.com/api/projects/status/rmiwrpoo9hipj28b/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-scala/branch/master)
+[![image-train-filters-scala](https://github.com/jesperancinha/image-train-filters-scala/actions/workflows/image-train-filters-scala.yml/badge.svg)](https://github.com/jesperancinha/image-train-filters-scala/actions/workflows/image-train-filters-scala.yml)
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-scala&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-scala-master)
