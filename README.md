@@ -34,22 +34,22 @@
 
 Let's start with this image:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" />
 <br/>
 
 Using Image Contour filter:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketR.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketR.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketG.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketG.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketB.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketB.png" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketR.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketR.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketG.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketG.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketB.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketB.png" width="200" />
 <br/>
 
 Using Kuwahara filter:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketSmallBlur.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketSmallBlur.png" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketSmallBlur.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketSmallBlur.png" width="200" />
 <br/>
 
 Using Chartizate filter:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketDarkBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketDarkBackground.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketLightBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/image-train-filters-service/src/test/resources/testMarketLightBackground.png" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketDarkBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketDarkBackground.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketLightBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketLightBackground.png" width="200" />
 
 Current running online implementation: [Image train filters](http://itf.joaofilipesabinoesperancinha.nl)
 
@@ -214,6 +214,12 @@ $ service nginx reload
 -   [Postman](https://www.getpostman.com/)
 -   [Update all the Node dependencies to their latest version](https://flaviocopes.com/update-npm-dependencies/)
 -   [How to fix 'Unsupported platform for fsevents@1.2.9: wanted {“os”:“darwin”,“arch”:“any”} (current: {“os”:“win32”,“arch”:“x64”})](https://stackoverflow.com/questions/56103865/how-to-fix-unsupported-platform-for-fsevents1-2-9-wanted-osdarwin-arch)
+
+## Buy me a coffee
+
+I hope you enjoyed this repository. If you did, you can optionally please buy me a coffee, which supports me to constantly improve and make new free content regularly for everyone. Thank you so much!
+
+[![Buy me a coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=jesperancinha&button_colour=046c46&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00 "title")](https://www.buymeacoffee.com/jesperancinha)
 
 ## About me 👨🏽‍💻🚀🏳️‍🌈
 
