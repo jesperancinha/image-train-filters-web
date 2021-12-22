@@ -92,27 +92,21 @@ class ImageKuwaharaTest extends AnyFunSuite with BeforeAndAfterEach {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmallBlur.png")
     val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
     val realMinValue = imageKuwahara.getRealMinValue(222D, Double.NaN)
-    assertResult(222D) {
-      realMinValue
-    }
+    assertResult(222D)(realMinValue)
   }
 
   test("testGetRealMinValue121Min") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmallBlur.png")
     val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
     val realMinValue = imageKuwahara.getRealMinValue(222D, 555D)
-    assertResult(222D) {
-      realMinValue
-    }
+    assertResult(222D)(realMinValue)
   }
 
   test("testGetRealMinValue122Min") {
     val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmallBlur.png")
     val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
     val realMinValue = imageKuwahara.getRealMinValue(123D, 98D)
-    assertResult(98D) {
-      realMinValue
-    }
+    assertResult(98D)(realMinValue)
   }
 
   test("testGetMinDeviationAverageColor") {
