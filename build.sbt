@@ -2,7 +2,7 @@ name := "image-train-filters-scala"
 
 version := "1.0.0-SNAPSHOT"
 
-scalaVersion := "2.13.1"
+scalaVersion := "2.13.6"
 
 lazy val global = project
   .in(file("."))
