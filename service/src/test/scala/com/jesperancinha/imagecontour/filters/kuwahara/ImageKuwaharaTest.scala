@@ -1,10 +1,10 @@
 package com.jesperancinha.imagecontour.filters.kuwahara
 
-import java.awt.image.BufferedImage
-
 import com.jesperancinha.imagecontour.filters.ImageTestUtils
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.funsuite.AnyFunSuite
+
+import java.awt.image.BufferedImage
 
 class ImageKuwaharaTest extends AnyFunSuite with BeforeAndAfterEach {
 
@@ -116,12 +116,10 @@ class ImageKuwaharaTest extends AnyFunSuite with BeforeAndAfterEach {
   }
 
   test("testGetMinDeviationAverageColor") {
-    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmallBlur.png")
-    val imageKuwahara = new ImageKuwahara(11, 5, sourceImage)
+    val sourceImage: BufferedImage = ImageTestUtils.getBufferedResource("/testMarketSmallBlurXS.png")
+    val imageKuwahara = new ImageKuwahara(5, 5, sourceImage)
     val realMinValue = imageKuwahara.getMinDeviationAverageColor(Map(45D ->
       Array[Double](34D), 1D -> Array[Double](3D), 5D -> Array[Double](10D)))
-    assertResult(Array(3D)) {
-      realMinValue
-    }
+    assertResult(Array(3D))(realMinValue)
   }
 }

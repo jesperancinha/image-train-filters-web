@@ -1,7 +1,5 @@
 package com.jesperancinha.imagecontour.rest
 
-import java.awt.image.{BufferedImage, Raster}
-
 import akka.actor.ActorSystem
 import akka.stream.Materializer
 import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
@@ -11,6 +9,7 @@ import com.jesperancinha.imagecontour.objects.{CommandContainer, SettingItem}
 import org.mockito.MockitoSugar
 import org.scalatest.funsuite.AnyFunSuite
 
+import java.awt.image.{BufferedImage, Raster}
 import scala.concurrent.ExecutionContextExecutor
 
 class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar {
@@ -62,7 +61,7 @@ class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar
 
     val mockBufferedImage = mock[BufferedImage]
     val mockRaster = mock[Raster]
-    when(mockBufferedImage.getData) thenReturn mockRaster
+    when(mockBufferedImage.getData()) thenReturn mockRaster
     val result: ImageKuwahara =
       imageContourMultiPartDataHandler
         .createFilterFromCommandContainter(container, mockBufferedImage)
@@ -85,40 +84,25 @@ class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar
   test("testCreateFilterFromCommandContainterImageChartizate") {
     val items: List[SettingItem] = List(
       SettingItem("font", "ARIAL"),
-      SettingItem("fontSize", "10"),
+      SettingItem("fontSize", "5"),
       SettingItem("rangePer", "33"),
-      SettingItem("densityPer", "44"),
+      SettingItem("densityPer", "10"),
       SettingItem("unicode", "UTF"),
       SettingItem("bgColor", "3333"),
     )
     val container: CommandContainer = CommandContainer("imageChartizate", items)
-
     val mockBufferedImage = mock[BufferedImage]
     val mockRaster = mock[Raster]
-    when(mockBufferedImage.getData) thenReturn mockRaster
+    when(mockBufferedImage.getData()) thenReturn mockRaster
     val result: ImageChartizate =
       imageContourMultiPartDataHandler
         .createFilterFromCommandContainter(container, mockBufferedImage)
         .asInstanceOf[ImageChartizate]
-
-    assertResult(result.fontName) {
-      "ARIAL"
-    }
-    assertResult(result.fontSize) {
-      10
-    }
-    assertResult(result.rangePercentage) {
-      33
-    }
-    assertResult(result.densityPercentage) {
-      44
-    }
-    assertResult(result.unicode) {
-      "UTF"
-    }
-    assertResult(result.bgColor) {
-      3333
-    }
+    assertResult("ARIAL")(result.fontName)
+    assertResult(5)(result.fontSize)
+    assertResult(33)(result.rangePercentage)
+    assertResult(10)(result.densityPercentage)
+    assertResult("UTF")(result.unicode)
+    assertResult(3333)(result.bgColor)
   }
-
 }
