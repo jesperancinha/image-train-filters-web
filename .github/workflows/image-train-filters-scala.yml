@@ -32,8 +32,9 @@ jobs:
          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     - name: Coverage with Codacy
-      run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report --partial $(find **/jacoco*.xml -printf '-r %p ')
-      run: bash <(curl -Ls https://coverage.codacy.com/get.sh) report --partial $(find **/lcov.info -printf '-r %p ')
-      run: bash <(curl -Ls https://coverage.codacy.com/get.sh) final
+      run:
+           bash <(curl -Ls https://coverage.codacy.com/get.sh) report --partial $(find **/jacoco*.xml -printf '-r %p ')
+           bash <(curl -Ls https://coverage.codacy.com/get.sh) report --partial $(find **/lcov.info -printf '-r %p ')
+           bash <(curl -Ls https://coverage.codacy.com/get.sh) final
       env:
          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
