@@ -17,6 +17,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Helper Check JEsperancinha.Org
+      run:  curl https://gitlab.com/jesperancinha/joao-filipe-sabino-esperancinha-home/-/raw/master/jesperancinha.org.check.sh -o jesperancinha.org.check.sh &&
+            chmod +x jesperancinha.org.check.sh &&
+            ./jesperancinha.org.check.sh
+
+    - name: Install Jest Kala Game Web
+      run: cd image-train-filters-fe && yarn && yarn add jest --dev
+
+    - name: Node Coverage
+      run: cd image-train-filters-fe && npm run coverage
+
     - name: Run tests
       run: sbt test
 
@@ -26,3 +37,8 @@ jobs:
          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: NPM Snyk Security Check
+      run: cd image-train-filters-fe && yarn install && npm run snyk
+      env:
+         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
