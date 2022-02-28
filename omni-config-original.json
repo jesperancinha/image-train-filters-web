@@ -11,7 +11,5 @@
   "ignoreTestBuildDirectory": false,
   "useCoverallsCount": true,
   "branchCoverage": false,
-  "fetchBranchNameFromEnv": false,
-  "extraSourceFolder": "{this},{this}/image-train-filters-fe",
-  "extraReportFolders": "{this},{this}/image-train-filters-fe/coverage"
+  "fetchBranchNameFromEnv": false
 }
