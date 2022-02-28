@@ -46,20 +46,16 @@ lazy val commonDependencies = Seq(
 )
 
 lazy val compilerOptions = Seq(
-  "-unchecked",
-  "-feature",
   "-language:existentials",
   "-language:higherKinds",
   "-language:implicitConversions",
   "-language:postfixOps",
-  "-deprecation",
   "-encoding",
   "utf8"
 )
 
 lazy val commonSettings = Seq(
   javacOptions ++= Seq("-source", "11", "-target", "11"),
-  scalacOptions in Test ++= Seq("-Yrangepos"),
   scalacOptions ++= compilerOptions,
   resolvers ++= Seq(
     Resolver.sbtPluginRepo("releases"),
