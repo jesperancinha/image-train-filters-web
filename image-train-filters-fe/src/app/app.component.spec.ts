@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 import {ImageComponent} from "./image-loader/image.loader";
 import {ImageLoaderChartizateComponent} from "./image-loader/image-loader-chartizate/image.loader.chartizate";
 import {ImageLoaderContourComponent} from "./image-loader/image-loader-contour/image.loader.contour";
@@ -12,15 +12,17 @@ import {
     NbButtonModule,
     NbCardModule,
     NbInputModule,
-    NbLayoutModule, NbSelectModule,
-    NbSidebarModule, NbSpinnerModule, NbTabsetModule,
+    NbLayoutModule,
+    NbSelectModule,
+    NbSidebarModule,
+    NbSpinnerModule,
+    NbTabsetModule,
     NbThemeModule
 } from "@nebular/theme";
 import {RouterModule} from "@angular/router";
-import {FileUploadModule} from "ng2-file-upload";
 import {ColorPickerModule} from "ngx-color-picker";
 import {HttpClientModule} from "@angular/common/http";
-import {Ng5SliderModule} from "ng5-slider";
+
 
 describe('AppComponent', () => {
     let component: AppComponent;
@@ -49,23 +51,19 @@ describe('AppComponent', () => {
                 NbInputModule,
                 NbCardModule,
                 NbSpinnerModule,
-                FileUploadModule,
                 NbAlertModule,
                 NbTabsetModule,
                 ColorPickerModule,
                 NbSelectModule,
                 HttpClientModule,
-                Ng5SliderModule,
             ],
         })
             .compileComponents();
-    }));
-
-    beforeEach(() => {
-        fixture = TestBed.createComponent(AppComponent);
+        fixture = TestBed.createComponent(AppComponent)
         component = fixture.componentInstance;
         fixture.detectChanges();
-    });
+    }));
+
 
     it('should create', () => {
         expect(component).toBeTruthy();
