@@ -12,6 +12,6 @@
   "useCoverallsCount": true,
   "branchCoverage": false,
   "fetchBranchNameFromEnv": false,
-  "extraSourceFolder": ".,image-train-filters-fe",
-  "extraReportFolders": ".,image-train-filters-fe/coverage"
+  "extraSourceFolder": "{this},{this}/image-train-filters-fe",
+  "extraReportFolders": "{this},{this}/image-train-filters-fe/coverage"
 }
