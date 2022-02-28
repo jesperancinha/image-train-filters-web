@@ -1,0 +1,15 @@
+{
+  "sourceEncoding": "UTF-8",
+  "failOnNoEncoding": false,
+  "failOnUnknown": false,
+  "failOnReportNotFound": false,
+  "failOnReportSendingError": false,
+  "failOnXmlParsingError": false,
+  "disableCoveralls": false,
+  "disableCodacy": false,
+  "disableCodecov": false,
+  "ignoreTestBuildDirectory": false,
+  "useCoverallsCount": true,
+  "branchCoverage": false,
+  "fetchBranchNameFromEnv": false
+}
