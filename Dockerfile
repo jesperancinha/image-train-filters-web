@@ -8,7 +8,7 @@ COPY docker-files/default.conf /etc/nginx/conf.d/default.conf
 
 COPY docker-files/nginx.conf /etc/nginx/nginx.conf
 
-COPY image-train-filters-service/target/scala-2.13/image-train-filters-service-assembly-1.0.0-SNAPSHOT.jar ${runningFolder}
+COPY image-train-filters-service/target/scala-2.13/image-train-filters-service-assembly-1.0.0.jar ${runningFolder}
 
 COPY image-train-filters-fe/dist /usr/share/nginx/html
 
