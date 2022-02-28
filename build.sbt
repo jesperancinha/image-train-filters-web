@@ -1,8 +1,10 @@
 name := "image-train-filters-scala"
-
-version := "1.0.0-SNAPSHOT"
-
 scalaVersion := "2.13.6"
+version := "1.0.0-SNAPSHOT"
+resolvers += Resolver.mavenLocal
+resolvers += Resolver.mavenCentral
+resolvers +=
+  "Maven Central" at "https://repo1.maven.org/maven2/"
 
 lazy val global = project
   .in(file("."))
