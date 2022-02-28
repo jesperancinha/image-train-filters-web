@@ -1,6 +1,6 @@
 name := "image-train-filters-scala"
 scalaVersion := "2.13.6"
-version := "1.0.0-SNAPSHOT"
+version := "1.0.0"
 resolvers += Resolver.mavenLocal
 resolvers += Resolver.mavenCentral
 resolvers +=
