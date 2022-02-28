@@ -1,7 +1,8 @@
 {
-  "name": "angular",
+  "name": "image-train-filters-fe",
   "version": "1.0.0-SNAPSHOT",
-  "private": true,
+  "private": false,
+  "license": "Apache-2.0",
   "dependencies": {
     "@angular/animations": "13.2.4",
     "@angular/cdk": "13.2.4",
