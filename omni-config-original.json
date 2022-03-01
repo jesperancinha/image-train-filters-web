@@ -2,6 +2,7 @@
   "sourceEncoding": "UTF-8",
   "failOnNoEncoding": false,
   "failOnUnknown": false,
+  "projectBaseDir": "{this}",
   "failOnReportNotFound": false,
   "failOnReportSendingError": false,
   "failOnXmlParsingError": false,
