@@ -8,7 +8,7 @@ coverage:
 	export OMNI_LOG=true
 	./setup.sh
 	cd image-train-filters-fe && npm run coverage
-	sbt assembly package jacoco omniReport -v
+	sbt package jacoco omniReport -v
 install-update:
 	npm i -g snyk
 	npm install -g npm-check-updates

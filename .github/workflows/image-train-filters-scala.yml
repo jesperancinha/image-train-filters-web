@@ -38,6 +38,9 @@ jobs:
          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
+    - name: Make assembly
+      run: sbt assembly
+
     - name: NPM Snyk Security Check
       run: cd image-train-filters-fe && yarn install && npm run snyk
       env:
