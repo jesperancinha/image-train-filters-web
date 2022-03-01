@@ -2,6 +2,7 @@
   "sourceEncoding": "UTF-8",
   "failOnNoEncoding": false,
   "failOnUnknown": false,
+  "projectBaseDir": "{this}",
   "failOnReportNotFound": false,
   "failOnReportSendingError": false,
   "failOnXmlParsingError": false,
@@ -12,6 +13,6 @@
   "useCoverallsCount": true,
   "branchCoverage": false,
   "fetchBranchNameFromEnv": false,
-  "extraSourceFolder": "{this}/service/src/main/scala,{this}/image-train-filters-fe",
+  "extraSourceFolders": "{this}/service/src/main/scala,{this}/image-train-filters-fe",
   "extraReportFolders": "{this}/service/target,{this}/image-train-filters-fe/coverage"
 }
