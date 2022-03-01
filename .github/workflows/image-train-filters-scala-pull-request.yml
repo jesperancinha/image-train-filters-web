@@ -17,6 +17,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
+    - name: Install Jest Kala Game Web
+      run: cd image-train-filters-fe && yarn && yarn add jest --dev
+
     - name: Run tests
       run: sbt test
 
