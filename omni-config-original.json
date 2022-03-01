@@ -13,6 +13,6 @@
   "useCoverallsCount": true,
   "branchCoverage": false,
   "fetchBranchNameFromEnv": false,
-  "extraSourceFolder": "{this}/service/src/main/scala,{this}/image-train-filters-fe",
+  "extraSourceFolders": "{this}/service/src/main/scala,{this}/image-train-filters-fe",
   "extraReportFolders": "{this}/service/target,{this}/image-train-filters-fe/coverage"
 }
