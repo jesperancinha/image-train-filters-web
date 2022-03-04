@@ -7609,7 +7609,7 @@ tsame@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/tsame/-/tsame-2.0.1.tgz"
 
-tslib@2.3.1, tslib@^2.0.0, tslib@^2.1.0, tslib@^2.3.0:
+tslib@2.3.1, tslib@^2.1.0, tslib@^2.3.0:
   version "2.3.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
 
@@ -8265,11 +8265,11 @@ yn@3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/yn/-/yn-3.1.1.tgz"
 
-zone.js@0.11.4:
-  version "0.11.4"
-  resolved "https://registry.npmjs.org/zone.js/-/zone.js-0.11.4.tgz"
+zone.js@0.11.5:
+  version "0.11.5"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.11.5.tgz#ab0b449e91fadb5ebb2db189ffe1b7b6048dc8b1"
   dependencies:
-    tslib "^2.0.0"
+    tslib "^2.3.0"
 
 zone.js@~0.10.3:
   version "0.10.3"
