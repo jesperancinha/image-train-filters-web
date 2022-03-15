@@ -6949,9 +6949,9 @@ smart-buffer@^4.2.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/smart-buffer/-/smart-buffer-4.2.0.tgz"
 
-snyk@^1.869.0:
-  version "1.869.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.869.0.tgz#59d6fda024b6f8b0e0e3d7e90ed9f0dc17dd9ed5"
+snyk@^1.870.0:
+  version "1.870.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.870.0.tgz#c8c42cc77b2b8beb0c10c268e612270858325025"
 
 socket.io-adapter@~2.3.3:
   version "2.3.3"
