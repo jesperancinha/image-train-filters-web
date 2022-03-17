@@ -139,9 +139,9 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@13.2.6":
-  version "13.2.6"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.2.6.tgz#4a5cf4b93ccad4123e09a6cbe2c880bb6f3242fe"
+"@angular/cdk@13.3.0":
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.3.0.tgz#9915998994df8e0dd3f276f0b02c6006d7df02fa"
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
