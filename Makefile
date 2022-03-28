@@ -9,9 +9,12 @@ coverage:
 	./setup.sh
 	cd image-train-filters-fe && npm run coverage
 	sbt package jacoco omniReport -v
-install-update:
-	npm i -g snyk
-	npm install -g npm-check-updates
-	cd image-train-filters-fe && ncu -u && yarn
 audit:
 	cd image-train-filters-fe && npm audit fix && yarn
+update-snyk:
+	npm i -g snyk
+update:
+	git pull
+	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+	npm install -g npm-check-updates
+	cd image-train-filters-fe && npx browserslist --update-db && ncu -u && yarn
