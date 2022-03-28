@@ -115,9 +115,9 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
-"@angular/animations@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/animations/-/animations-13.2.4.tgz"
+"@angular/animations@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/animations/-/animations-13.2.5.tgz#4473cd54a51ba22cfe4d96d7c3b4a44f02f8ee04"
   dependencies:
     tslib "^2.3.0"
 
@@ -153,9 +153,9 @@
     symbol-observable "4.0.0"
     uuid "8.3.2"
 
-"@angular/common@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/common/-/common-13.2.4.tgz"
+"@angular/common@13.3.0":
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/@angular/common/-/common-13.3.0.tgz#473ea97ee7bf284a63ca2a94da945f4dd68bc468"
   dependencies:
     tslib "^2.3.0"
 
@@ -174,9 +174,9 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-13.2.4.tgz"
+"@angular/compiler@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-13.2.5.tgz#d5a1ef8e4e750ccf61680d7f252e681c4b133d0d"
   dependencies:
     tslib "^2.3.0"
 
@@ -184,9 +184,9 @@
   version "9.0.0"
   resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-9.0.0.tgz"
 
-"@angular/core@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/core/-/core-13.2.4.tgz"
+"@angular/core@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-13.2.5.tgz#15f112b2ac4e21f72a3a77ee0db8fb2a1e72bffc"
   dependencies:
     tslib "^2.3.0"
 
@@ -194,9 +194,9 @@
   version "9.0.0"
   resolved "https://registry.npmjs.org/@angular/core/-/core-9.0.0.tgz"
 
-"@angular/forms@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/forms/-/forms-13.2.4.tgz"
+"@angular/forms@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-13.2.5.tgz#64dfaf17cae034d8c256e1b3005b02271c0eb49d"
   dependencies:
     tslib "^2.3.0"
 
@@ -210,21 +210,21 @@
   version "13.3.0"
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-13.3.0.tgz#366bde21a952ae6ccf2f05659924a583fba01577"
 
-"@angular/platform-browser-dynamic@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-13.2.4.tgz"
+"@angular/platform-browser-dynamic@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-13.2.5.tgz#15f52c613deb4d56339a540f8ffb322698f976cf"
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-13.2.4.tgz"
+"@angular/platform-browser@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-13.2.5.tgz#c9baf98d59a8b2b0a85dfeee763aec3c1b41ea66"
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@13.2.4":
-  version "13.2.4"
-  resolved "https://registry.npmjs.org/@angular/router/-/router-13.2.4.tgz"
+"@angular/router@13.2.5":
+  version "13.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-13.2.5.tgz#b600798ec3ff8be399784e7d0e71cd6bf411a634"
   dependencies:
     tslib "^2.3.0"
 
