@@ -135,10 +135,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@13.3.1":
-  version "13.3.1"
-  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-13.3.1.tgz"
-  integrity sha512-JUCvhN6XomY5JOMH7Qyj/JodAuAtKgLlJYKs0tPmjCkGcBdR/T3/hOJ9gSRhz8PCOoiEORj+3xCh547oJRyesA==
+"@angular/cdk@13.3.2":
+  version "13.3.2"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-13.3.2.tgz#a6c33edd8b0ad6ce077d01f70a251103fea34d0d"
+  integrity sha512-Rb+SvQpjXqa0kedk/6nG57f8dC4uG1q35SR6mt6jCz84ikyS2zhikVbzaxLdG15uDvq1+N5Vx3NTSgH19XUSug==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -8142,10 +8142,10 @@ smart-buffer@^4.2.0:
   resolved "https://registry.npmjs.org/smart-buffer/-/smart-buffer-4.2.0.tgz"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-snyk@^1.889.0:
-  version "1.889.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.889.0.tgz#4e58ca4b36c3ca7f3ed4cd0614d22cff08a12151"
-  integrity sha512-BwG+QSNlt/mheNLqr+Ydsj4rSQie7V7pVXAOhdIYE8GCUKga9XQwvHyymSRGWmZBeBc3cexc5UrzwktVUvUMsg==
+snyk@^1.890.0:
+  version "1.890.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.890.0.tgz#ea69d243d1b71fe53b0e1c9c4799586b637bd4f1"
+  integrity sha512-rFywMVIow7PKDKmDOGhfFf4/a5cJQ4d6Bw16rSK+YHKV0HXU9t8ushWU1boZIWrk2bRRwAv36qu/FhN13cO+WQ==
 
 socket.io-adapter@~2.3.3:
   version "2.3.3"
