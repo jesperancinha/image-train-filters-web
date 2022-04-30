@@ -18,3 +18,5 @@ update:
 	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 	npm install -g npm-check-updates
 	cd image-train-filters-fe && npx browserslist --update-db && ncu -u && yarn
+npm-test:
+	cd image-train-filters-fe && npm run coverage
