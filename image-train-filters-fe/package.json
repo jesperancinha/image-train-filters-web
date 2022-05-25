@@ -16,7 +16,7 @@
     "@angular/router": "13.3.5",
     "@nebular/eva-icons": "9.0.2",
     "@nebular/theme": "9.0.2",
-    "core-js": "3.22.6",
+    "core-js": "3.22.7",
     "http-status-codes": "2.2.0",
     "nebular-icons": "1.1.0",
     "ng2-file-upload": "1.4.0",
