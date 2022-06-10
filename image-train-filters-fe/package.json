@@ -9,7 +9,7 @@
     "@angular/common": "13.3.9",
     "@angular/compiler": "12.2.16",
     "@angular/core": "11.2.14",
-    "@angular/forms": "13.3.9",
+    "@angular/forms": "14.0.1",
     "@angular/http": "7.2.16",
     "@angular/platform-browser": "13.3.9",
     "@angular/platform-browser-dynamic": "14.0.1",
