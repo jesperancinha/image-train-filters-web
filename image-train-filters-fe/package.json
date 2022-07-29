@@ -7,7 +7,7 @@
     "@angular/animations": "14.1.0",
     "@angular/cdk": "14.1.0",
     "@angular/common": "14.0.4",
-    "@angular/compiler": "14.0.4",
+    "@angular/compiler": "12.2.16",
     "@angular/core": "14.0.4",
     "@angular/forms": "14.0.4",
     "@angular/http": "7.2.16",
