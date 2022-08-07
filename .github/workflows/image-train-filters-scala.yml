@@ -17,11 +17,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Helper Check JEsperancinha.Org
-      run:  curl https://gitlab.com/jesperancinha/joao-filipe-sabino-esperancinha-home/-/raw/master/jesperancinha.org.check.sh -o jesperancinha.org.check.sh &&
-            chmod +x jesperancinha.org.check.sh &&
-            ./jesperancinha.org.check.sh
-
     - name: Install Jest Image Train Filters Web
       run: cd image-train-filters-fe && yarn && yarn add jest --dev
 
