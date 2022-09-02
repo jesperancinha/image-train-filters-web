@@ -12,7 +12,7 @@
     "@angular/forms": "14.1.2",
     "@angular/http": "7.2.16",
     "@angular/platform-browser": "14.2.0",
-    "@angular/platform-browser-dynamic": "14.1.2",
+    "@angular/platform-browser-dynamic": "14.2.0",
     "@angular/router": "14.1.2",
     "@nebular/eva-icons": "9.0.3",
     "@nebular/theme": "9.0.3",
