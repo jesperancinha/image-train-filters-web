@@ -8529,10 +8529,10 @@ smart-buffer@^4.2.0:
   resolved "https://registry.npmjs.org/smart-buffer/-/smart-buffer-4.2.0.tgz"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-snyk@^1.1013.0:
-  version "1.1013.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1013.0.tgz#b2c9007c551037fe6687e84ea3878a775df75b75"
-  integrity sha512-Vcf5dQpHJurQ9hLDqnZNbblQcF1MZ3R94c4ZluC1mebPy8TtGr+047wfC3E7mF+QJOmLUmpiVaZPJ1sh2zj/Hw==
+snyk@^1.1014.0:
+  version "1.1014.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1014.0.tgz#2a8c5a1520cc576a58651e7fe4e19df1c730ceb0"
+  integrity sha512-yyeGbIbZTHuBhKjyBs7Kb8CehT/aOorpXB5BNr8y9utZwQ+1Mu3+MNyweRPY67/3qMTOUCHnUxLBrcE5rXCkpA==
 
 socket.io-adapter@~2.4.0:
   version "2.4.0"
