@@ -13,7 +13,7 @@
     "@angular/http": "7.2.16",
     "@angular/platform-browser": "14.2.2",
     "@angular/platform-browser-dynamic": "14.2.2",
-    "@angular/router": "14.2.2",
+    "@angular/router": "14.2.5",
     "@nebular/eva-icons": "9.0.3",
     "@nebular/theme": "9.0.3",
     "core-js": "3.25.5",
