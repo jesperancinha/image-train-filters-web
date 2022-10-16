@@ -1,9 +1,22 @@
 version: "3.7"
 services:
-  itf:
-    hostname: itf
+  itf-fe:
+    hostname: frontend
     build:
-      context: .
+      context: ./docker-files/.
+    volumes:
+      - ${PWD}/image-train-filters-fe/dist:/usr/share/nginx/html/dist
     ports:
       - "8080:80"
+    networks:
+      - itf
 
+  itf-backend:
+    hostname: backend
+    build:
+      context: ./service/.
+    networks:
+      - itf
+
+networks:
+  itf:

@@ -1,0 +1,8 @@
+services:
+  itf-fe:
+    ports:
+      - "8080:80"
+
+  itf-backend:
+    ports:
+      - "5000:5000"

@@ -6,6 +6,7 @@ resolvers += Resolver.mavenCentral
 resolvers +=
   "Maven Central" at "https://repo1.maven.org/maven2/"
 
+
 lazy val global = project
   .in(file("."))
   .settings(commonSettings)
@@ -20,7 +21,9 @@ lazy val service = project
     commonSettings,
     libraryDependencies ++= commonDependencies,
     assemblySettings,
-    mainClass := Some("com.jesperancinha.imagecontour.boot.Boot")
+    mainClass := Some("com.jesperancinha.imagecontour.boot.Boot"),
+    assembly / mainClass := Some("com.jesperancinha.imagecontour.boot.Boot"),
+    Compile / mainClass  := Some("com.jesperancinha.imagecontour.boot.Boot"),
   )
 
 

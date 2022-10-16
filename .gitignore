@@ -47,3 +47,13 @@ codecov.yml
 # Coverage
 coverage
 omni-config.json
+
+## Cypress
+/videos
+/screenshots
+
+## sbt
+release
+
+## Angular
+.angular

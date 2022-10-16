@@ -4,7 +4,9 @@
     "outDir": "./out-tsc/spec",
     "types": [
       "node",
-      "jest"
+      "jest",
+      "mocna",
+      "jasmine"
     ],
     "module": "commonjs",
     "emitDecoratorMetadata": true,

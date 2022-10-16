@@ -1,0 +1,47 @@
+services:
+  e2e-electron:
+    image: "cypress/included:10.10.0"
+    working_dir: /e2e
+    command: "--browser electron --config-file cypress.pipeline.config.ts --config baseUrl=http://frontend:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - healthy-cameras
+
+  e2e-electron-full:
+    image: "cypress/included:10.10.0"
+    working_dir: /e2e
+    command: "--browser electron --config-file full.cypress.config.ts --config baseUrl=http://frontend:8080"
+    volumes:
+      - ./e2e:/e2e
+      - ./e2e/cypress/videos:/e2e/cypress/videos
+      - ./e2e/cypress/screenshots:/e2e/cypress/screenshots
+    networks:
+      - healthy-cameras
+
+  e2e-chrome:
+    image: "cypress/included:10.10.0"
+    working_dir: /e2e
+    command: "--browser chrome --config-file cypress.pipeline.config.ts  --config baseUrl=http://kong:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - healthy-cameras
+
+  e2e-firefox:
+    image: "cypress/included:10.10.0"
+    working_dir: /e2e
+    command: "--browser firefox --config-file cypress.pipeline.config.ts  --config baseUrl=http://frontend:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - healthy-cameras
+
+  e2e-edge:
+    image: "cypress/included:10.10.0"
+    working_dir: /e2e
+    command: "--browser edge --config-file cypress.pipeline.config.ts  --config baseUrl=http://frontend:8080"
+    volumes:
+      - ./e2e:/e2e
+    networks:
+      - healthy-cameras
