@@ -2,29 +2,30 @@
 
 ---
 
-[![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=%20Checkout%20this%20%40github%20repo%20by%20%40joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB%3A%20https%3A//github.com/jesperancinha/image-train-filters-scala)
-[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Image%20Train%20Filters%20Services%20🚂&color=informational)](https://github.com/jesperancinha/image-train-filters-scala)
+[![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=%20Checkout%20this%20%40github%20repo%20by%20%40joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB%3A%20https%3A//github.com/jesperancinha/image-train-filters-web)
+[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Image%20Train%20Filters%20Web%20🚂&color=informational)](https://github.com/jesperancinha/image-train-filters-web)
 
 [![Generic badge](https://img.shields.io/static/v1.svg?label=Homepage&message=Image%20Train%20Filters&color=informational)](http://itf.joaofilipesabinoesperancinha.nl/)
 
-[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-scala.svg)](#)
+[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-web.svg)](#)
   
-[![CircleCI](https://circleci.com/gh/jesperancinha/image-train-filters-scala.svg?style=svg)](https://circleci.com/gh/jesperancinha/image-train-filters-scala)
-[![Build status](https://ci.appveyor.com/api/projects/status/rmiwrpoo9hipj28b/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-scala/branch/master)
-[![image-train-filters-scala](https://github.com/jesperancinha/image-train-filters-scala/actions/workflows/image-train-filters-scala.yml/badge.svg)](https://github.com/jesperancinha/image-train-filters-scala/actions/workflows/image-train-filters-scala.yml)
+[![CircleCI](https://circleci.com/gh/jesperancinha/image-train-filters-web.svg?style=svg)](https://circleci.com/gh/jesperancinha/image-train-filters-web)
+[![Build status](https://ci.appveyor.com/api/projects/status/rmiwrpoo9hipj28b/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-web/branch/master)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-scala?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-scala&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-scala-master)
-[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-scala?branch=master)](https://bettercodehub.com/)
-[![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/image-train-filters-scala/badge.svg)](https://snyk.io/test/github/jesperancinha/image-train-filters-scala)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b45a0bd9c3694401b78580b95c0b505b)](https://www.codacy.com/gh/jesperancinha/image-train-filters-scala/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-scala&utm_campaign=Badge_Coverage)
-[![codecov](https://codecov.io/gh/jesperancinha/image-train-filters-scala/branch/master/graph/badge.svg?token=uFSrf1eF3l)](https://codecov.io/gh/jesperancinha/image-train-filters-scala)
-[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/image-train-filters-scala/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/image-train-filters-scala?branch=master)
 
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/image-train-filters-scala.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/image-train-filters-scala.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/image-train-filters-scala.svg)](#)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-web&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-web-master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-web?branch=master)](https://bettercodehub.com/)
+[![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/image-train-filters-web/badge.svg)](https://snyk.io/test/github/jesperancinha/image-train-filters-web)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b45a0bd9c3694401b78580b95c0b505b)](https://www.codacy.com/gh/jesperancinha/image-train-filters-web/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-web&utm_campaign=Badge_Coverage)
+[![codecov](https://codecov.io/gh/jesperancinha/image-train-filters-web/branch/master/graph/badge.svg?token=uFSrf1eF3l)](https://codecov.io/gh/jesperancinha/image-train-filters-web)
+[![Coverage Status](https://coveralls.io/repos/github/jesperancinha/image-train-filters-web/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/image-train-filters-web?branch=master)
+
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/image-train-filters-web.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/image-train-filters-web.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/image-train-filters-web.svg)](#)
 
 ---
 
@@ -36,22 +37,22 @@
 
 Let's start with this image:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" width="200" />
 <br/>
 
 Using Image Contour filter:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketR.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketR.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketG.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketG.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketB.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketB.png" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketR.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketR.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketG.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketG.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketB.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketB.png" width="200" />
 <br/>
 
 Using Kuwahara filter:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketSmallBlur.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketSmallBlur.png" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketSmallBlur.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketSmallBlur.png" width="200" />
 <br/>
 
 Using Chartizate filter:
 
-<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketDarkBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketDarkBackground.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketLightBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-scala/master/service/src/test/resources/testMarketLightBackground.png" width="200" />
+<img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarket.jpg" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketDarkBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketDarkBackground.png" width="200" /><img src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketLightBackground.png" alt="" data-canonical-src="https://raw.githubusercontent.com/jesperancinha/image-train-filters-web/master/service/src/test/resources/testMarketLightBackground.png" width="200" />
 
 Current running online implementation: [Image train filters](http://itf.joaofilipesabinoesperancinha.nl)
 

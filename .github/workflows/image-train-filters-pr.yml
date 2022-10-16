@@ -1,4 +1,4 @@
-name: image-train-filters-scala-pull_request
+name: PR image-train-filters-web
 
 on:
   pull_request:

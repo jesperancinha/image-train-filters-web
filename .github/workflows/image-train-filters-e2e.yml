@@ -1,4 +1,4 @@
-name: e2e-image-train-filters
+name: E2E e2e-image-train-filters
 
 on: push
 

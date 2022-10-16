@@ -1,4 +1,4 @@
-name: image-train-filters-scala
+name: Build image-train-filters-web
 
 on:
   push:
