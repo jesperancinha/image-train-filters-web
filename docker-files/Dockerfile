@@ -12,8 +12,6 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY entrypoint.sh ${runningFolder}
 
-RUN nginx -t
-
 EXPOSE 8080
 
 ENTRYPOINT ["entrypoint.sh"]

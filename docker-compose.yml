@@ -6,6 +6,8 @@ services:
       context: ./docker-files/.
     volumes:
       - ${PWD}/image-train-filters-fe/dist:/usr/share/nginx/html
+    expose:
+      - 8080
     networks:
       - itf
 
@@ -13,6 +15,8 @@ services:
     hostname: backend
     build:
       context: ./service/.
+    expose:
+      - 5000
     networks:
       - itf
 
