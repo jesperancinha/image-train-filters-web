@@ -24,6 +24,5 @@ function checkServiceByNameAndMessage() {
     echo -e "\e[92m Succeeded starting $name Service after $counter tries!\e[39m"
 }
 
-checkServiceByNameAndMessage fla_postgres 'database system is ready to accept connections'
-checkServiceByNameAndMessage fla_backend 'Started LyricsDemoApplicationLauncher'
-checkServiceByNameAndMessage fla_nginx 'test is successful'
+checkServiceByNameAndMessage itf-fe 'configuration file /etc/nginx/nginx.conf test is successful'
+checkServiceByNameAndMessage itf-backend 'Successfully bound to /127.0.0.1:5000'

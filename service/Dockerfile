@@ -6,7 +6,7 @@ WORKDIR ${runningFolder}
 
 RUN apk --no-cache add curl
 
-COPY release/scala-*/image-train-filters-*.jar ${runningFolder}/image-train-filters-service.jar
+COPY target/scala-*/image-train-filters-*.jar ${runningFolder}/image-train-filters-service.jar
 
 COPY entrypoint.sh ${runningFolder}
 

@@ -49,6 +49,7 @@ dcd: stop docker-clean
 	docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 dcup: dcd
 	docker-compose up -d
+	make itf-wait
 itf-wait:
 	bash itf_wait.sh
 dcup-action: before dcup itf-wait
