@@ -61,3 +61,17 @@ build-backend:
 	make build-sbt
 	docker-compose build --no-cache itf-backend
 	docker-compose up -d itf-backend
+cypress-open-docker:
+	cd e2e && yarn && npm run cypress:open:docker
+cypress-open:
+	cd e2e && yarn && npm run cypress
+cypress-electron: status-containers
+	cd e2e && make cypress-electron
+cypress-chrome: status-containers
+	cd e2e && make cypress-chrome
+cypress-firefox: status-containers
+	cd e2e && make cypress-firefox
+cypress-edge: status-containers
+	cd e2e && make cypress-edge
+status-containers:
+	docker ps
