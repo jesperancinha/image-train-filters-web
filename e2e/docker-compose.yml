@@ -22,7 +22,7 @@ services:
   e2e-chrome:
     image: "cypress/included:10.10.0"
     working_dir: /e2e
-    command: "--browser chrome --config-file cypress.pipeline.config.ts  --config baseUrl=http://kong:8080"
+    command: "--browser chrome --config-file cypress.pipeline.config.ts  --config baseUrl=http://frontend:8080"
     volumes:
       - ./e2e:/e2e
     networks:
