@@ -6,7 +6,7 @@ services:
     volumes:
       - ./e2e:/e2e
     networks:
-      - healthy-cameras
+      - itf
 
   e2e-electron-full:
     image: "cypress/included:10.10.0"
@@ -17,7 +17,7 @@ services:
       - ./e2e/cypress/videos:/e2e/cypress/videos
       - ./e2e/cypress/screenshots:/e2e/cypress/screenshots
     networks:
-      - healthy-cameras
+      - itf
 
   e2e-chrome:
     image: "cypress/included:10.10.0"
@@ -26,7 +26,7 @@ services:
     volumes:
       - ./e2e:/e2e
     networks:
-      - healthy-cameras
+      - itf
 
   e2e-firefox:
     image: "cypress/included:10.10.0"
@@ -35,7 +35,7 @@ services:
     volumes:
       - ./e2e:/e2e
     networks:
-      - healthy-cameras
+      - itf
 
   e2e-edge:
     image: "cypress/included:10.10.0"
@@ -44,4 +44,4 @@ services:
     volumes:
       - ./e2e:/e2e
     networks:
-      - healthy-cameras
+      - itf
