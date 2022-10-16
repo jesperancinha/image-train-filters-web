@@ -19,7 +19,7 @@
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-web?branch=master)](https://bettercodehub.com/results/jesperancinha/image-train-filters-web)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/image-train-filters-web/badge.svg)](https://snyk.io/test/github/jesperancinha/image-train-filters-web)
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b45a0bd9c3694401b78580b95c0b505b)](https://www.codacy.com/gh/jesperancinha/image-train-filters-web/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-web&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b7df04087bed40f1ad0ddd47b2def16d)](https://www.codacy.com/gh/jesperancinha/image-train-filters-web/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-web&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/jesperancinha/image-train-filters-web/branch/master/graph/badge.svg?token=uFSrf1eF3l)](https://codecov.io/gh/jesperancinha/image-train-filters-web)
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/image-train-filters-web/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/image-train-filters-web?branch=master)
 
