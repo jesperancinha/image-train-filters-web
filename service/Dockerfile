@@ -1,10 +1,8 @@
-FROM openjdk:11-alpine
+FROM openjdk:11
 
 ENV runningFolder /usr/local/bin/
 
 WORKDIR ${runningFolder}
-
-RUN apk --no-cache add curl
 
 COPY target/scala-*/image-train-filters-*.jar ${runningFolder}/image-train-filters-service.jar
 

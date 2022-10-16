@@ -52,6 +52,12 @@ dcup: dcd
 	make itf-wait
 itf-wait:
 	bash itf_wait.sh
-dcup-action: before dcup itf-wait
-dcup-full-action: before dcd docker-clean build dcup itf-wait
-local-pipeline: before dcd docker-clean build-sbt build-npm build-cypress test-sbt test-npm
+dcup-action: before dcup
+dcup-full-action: before dcd docker-clean build dcup
+local-pipeline: before dcd docker-clean build test-sbt test-npm
+build-backend:
+	docker-compose stop itf-backend
+	docker-compose rm itf-backend
+	make build-sbt
+	docker-compose build --no-cache itf-backend
+	docker-compose up -d itf-backend
