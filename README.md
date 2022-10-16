@@ -10,13 +10,13 @@
 [![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/image-train-filters-web.svg)](#)
   
 [![CircleCI](https://circleci.com/gh/jesperancinha/image-train-filters-web.svg?style=svg)](https://circleci.com/gh/jesperancinha/image-train-filters-web)
-[![Build status](https://ci.appveyor.com/api/projects/status/rmiwrpoo9hipj28b/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-web/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/7ahn4oacknhu7ax3?svg=true)](https://ci.appveyor.com/project/jesperancinha/image-train-filters-web)
 [![Build image-train-filters-web](https://github.com/jesperancinha/image-train-filters-web/actions/workflows/image-train-filters.yml/badge.svg)](https://github.com/jesperancinha/image-train-filters-web/actions/workflows/image-train-filters.yml)
 [![E2E e2e-image-train-filters](https://github.com/jesperancinha/image-train-filters-web/actions/workflows/image-train-filters-e2e.yml/badge.svg)](https://github.com/jesperancinha/image-train-filters-web/actions/workflows/image-train-filters-e2e.yml)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b45a0bd9c3694401b78580b95c0b505b?)](https://www.codacy.com/app/jofisaes/image-train-filters-web?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-web&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b7df04087bed40f1ad0ddd47b2def16d)](https://www.codacy.com/gh/jesperancinha/image-train-filters-web/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/image-train-filters-web&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/93dcee14-b81d-4827-bd4f-9c7a3f56c752)](https://codebeat.co/projects/github-com-jesperancinha-image-train-filters-web-master)
-[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-web?branch=master)](https://bettercodehub.com/)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/image-train-filters-web?branch=master)](https://bettercodehub.com/results/jesperancinha/image-train-filters-web)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/image-train-filters-web/badge.svg)](https://snyk.io/test/github/jesperancinha/image-train-filters-web)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b45a0bd9c3694401b78580b95c0b505b)](https://www.codacy.com/gh/jesperancinha/image-train-filters-web/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/image-train-filters-web&utm_campaign=Badge_Coverage)
