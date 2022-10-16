@@ -158,31 +158,6 @@ Only important to note here that:
 
 *   image-destination-path -> This is where the resulting file is saved after applying the train of filters.
 
-## Docker images
-
-This project makes use of the following docker images:
-
-[![dockeri.co](https://dockeri.co/image/jesperancinha/je-all-build)](https://hub.docker.com/r/jesperancinha/je-all-build)
-
-All source code for the [JE](https://bitbucket.org/jesperancinha/docker-images) images reside in repo [Docker images](https://bitbucket.org/jesperancinha/docker-images).
-
-## Planning
-
-*   Noise reducer
-
-## Change log
-
-2019/06/23:
--   Image Countour filter is selectable
-
-2019/06/20:
--   DevOps innovatiomns started
--   Foundations of site [itf.joaofilipesabinoesperancinha.nl](http://itf.joaofilipesabinoesperancinha.nl)
--   Immediate return of generated image
-
-2019/06/19:
--   Simple front end creation
-
 ## DevOps
 ```text
 $ npm i -g npm  
