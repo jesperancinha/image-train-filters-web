@@ -25,4 +25,4 @@ function checkServiceByNameAndMessage() {
 }
 
 checkServiceByNameAndMessage itf-fe 'configuration file /etc/nginx/nginx.conf test is successful'
-checkServiceByNameAndMessage itf-backend 'Successfully bound to /127.0.0.1:5000'
+checkServiceByNameAndMessage itf-backend 'Successfully bound to /0.0.0.0:5000'
