@@ -4,3 +4,8 @@ updates:
     directory: "/image-train-filters-fe"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "npm"
+    directory: "/e2e"
+    schedule:
+      interval: "daily"
