@@ -11,7 +11,7 @@
     "@angular/core": "14.2.12",
     "@angular/forms": "14.2.10",
     "@angular/http": "7.2.16",
-    "@angular/platform-browser": "14.2.10",
+    "@angular/platform-browser": "15.0.2",
     "@angular/platform-browser-dynamic": "15.0.2",
     "@angular/router": "14.2.10",
     "@nebular/eva-icons": "9.0.3",
