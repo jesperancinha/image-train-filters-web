@@ -18,10 +18,18 @@
     "@angular-devkit/core" "15.0.2"
     rxjs "6.6.7"
 
-"@angular-devkit/build-angular@^15.0.2":
-  version "15.0.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-15.0.2.tgz#5a5f3361257378848ee94d728ed1cef7657fe741"
-  integrity sha512-jB3iU8qbQkqDGXr/DLPuU3jB7eAyiTDyk7f7c5hS+E9j2FSrWIZPOucTJXWfukA+yFs1nIBRVxSNYp3yqwAXiA==
+"@angular-devkit/architect@0.1500.2":
+  version "0.1500.2"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1500.2.tgz#a71ee275bda196a8a50c1029d551c718a4fb6438"
+  integrity sha512-gprTEy6vD57yJCd6JqRaFZ/pfmXuEDHlH7mOVBcBdTGuuE1VJkiNJ69E9gw552L7wwVEsF0D6lVYTFHVDkMDmA==
+  dependencies:
+    "@angular-devkit/core" "15.0.2"
+    rxjs "6.6.7"
+
+"@angular-devkit/build-angular@^14.2.9":
+  version "14.2.9"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-14.2.9.tgz#ccba7ff191bae5d9deec22672f67f737aa7a178a"
+  integrity sha512-/6ul4JLpiKLB4+PJzDF7twgZf28GNHxxJKsheymrxC+ZRMGoMsJCzoU/dmOXE2YY8yGxAFnrTAVIJYomn+QnZQ==
   dependencies:
     "@ampproject/remapping" "2.2.0"
     "@angular-devkit/architect" "0.1500.2"
@@ -8759,10 +8767,10 @@ rxjs@6.6.7, rxjs@^6.5.3:
   dependencies:
     tslib "^1.9.0"
 
-rxjs@7.5.7, rxjs@^7.5.5:
-  version "7.5.7"
-  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.5.7.tgz#2ec0d57fdc89ece220d2e702730ae8f1e49def39"
-  integrity sha512-z9MzKh/UcOqB3i20H6rtrlaE/CgjLOvheWK/9ILrbhROGTweAi1BaFsTT9FbwZi5Trr1qNRs+MXkhmR06awzQA==
+rxjs@7.6.0, rxjs@^7.5.5:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-7.6.0.tgz#361da5362b6ddaa691a2de0b4f2d32028f1eb5a2"
+  integrity sha512-DDa7d8TFNUalGC9VqXvQ1euWNN7sc63TrUCuM9J998+ViviahMIjKSOU7rfcgFOF+FCD71BhDRv4hrFz+ImDLQ==
   dependencies:
     tslib "^2.1.0"
 
@@ -9033,10 +9041,10 @@ smart-buffer@^4.2.0:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-snyk@^1.1065.0:
-  version "1.1065.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1065.0.tgz#9719e54419eeb2f7af9c811a58a10b858f6aa377"
-  integrity sha512-fLtwucSdl3A6DzCbFn20HS8pDlOqkfRQyJ01blGOQVze2BIKiHcacMiSfQeAx9zH4fl4p/Dm8ZnR0olNdfkA9w==
+snyk@^1.1066.0:
+  version "1.1066.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1066.0.tgz#1a80eb8f1b694d0a9be65eedae41db0bc62ed9e2"
+  integrity sha512-ZlOSRcLQxbEtV+bEu3F/Ds3gXrzDBck6DYWCIn+9a27cvWPvxklY4LzxWXfDbzSbx93etC69qI1tbsuDinQ8uA==
 
 socket.io-adapter@~2.4.0:
   version "2.4.0"

@@ -22,7 +22,7 @@
     "ng2-file-upload": "1.4.0",
     "ng5-slider": "1.2.6",
     "ngx-color-picker": "13.0.0",
-    "rxjs": "7.5.7",
+    "rxjs": "7.6.0",
     "rxjs-compat": "6.6.7",
     "web-animations-js": "2.3.2",
     "zone.js": "0.12.0"
@@ -70,7 +70,7 @@
     "ngx-spec": "^2.1.5",
     "nodeunit": "^0.11.3",
     "protractor": "7.0.0",
-    "snyk": "^1.1065.0",
+    "snyk": "^1.1066.0",
     "ts-jest": "^29.0.3",
     "ts-node": "10.9.1",
     "tslint": "6.1.3",
