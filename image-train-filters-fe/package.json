@@ -54,7 +54,7 @@
     "istanbul-reports": "^3.1.5",
     "jasmine-core": "4.5.0",
     "jasmine-spec-reporter": "7.0.0",
-    "jest": "^29.4.0",
+    "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-preset-angular": "^12.2.6",
     "jscoverage": "^0.6.0",
