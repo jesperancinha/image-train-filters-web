@@ -55,7 +55,7 @@ jest --coverage && coveralls < coverage/lcov.info
 -   [Zefoy NGX Color picker Demo](https://zefoy.github.io/ngx-color-picker/)
 -   [ng5-slider](https://angular-slider.github.io/ng5-slider/)
 
-## About me 👨🏽‍💻🚀🏳️‍🌈
+## About me
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
 [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=Jesperancinha&style=social "GitHub")](https://github.com/jesperancinha)

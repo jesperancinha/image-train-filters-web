@@ -64,7 +64,7 @@ $ swapon /swapfile
 -   [Run Your Java App as a Service on Ubuntu](https://dzone.com/articles/run-your-java-application-as-a-service-on-ubuntu)
 -   [How To Configure a Linux Service to Start Automatically After a Crash or Reboot – Part 1: Practical Examples](https://www.digitalocean.com/community/tutorials/how-to-configure-a-linux-service-to-start-automatically-after-a-crash-or-reboot-part-1-practical-examples)
 
-## About me 👨🏽‍💻🚀🏳️‍🌈
+## About me
 
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/JEOrgLogo-20.png "João Esperancinha Homepage")](http://joaofilipesabinoesperancinha.nl)
 [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=Jesperancinha&style=social "GitHub")](https://github.com/jesperancinha)
