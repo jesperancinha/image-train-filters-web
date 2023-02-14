@@ -1733,10 +1733,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@nebular/theme@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-9.0.3.tgz#504d5b73428ac8515f0cc27a84d491e035ee35ee"
-  integrity sha512-ILUfVkpTeVBg5H3Pr/HKnItdFEIXfHfYO2HJA07mhavuKw0gupYw2v6Ox+nxoww8VTXz8svLKTIta7YYBcpjzg==
+"@nebular/theme@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-10.0.0.tgz#ec88a789c09a198cc906554943b0dbc4b108bcb1"
+  integrity sha512-XpATY3IOPiIAcikQMQ7PSaZ2GvuPWyR/vhSc+fYJYY91IoggtgGrwDdf27pw+rNS4WV/cqeGR0voV4//EHMlHg==
   dependencies:
     tslib "^2.3.0"
 
