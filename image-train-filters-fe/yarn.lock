@@ -189,19 +189,19 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/compiler-cli@14.2.12":
-  version "14.2.12"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-14.2.12.tgz#d1653ddf72014cbb306382a22784af5432465db8"
-  integrity sha512-9Gkb9KFkaQPz8XaS8ZwwTioRZ4ywykdAWyceICEi78/Y9ConYrTX2SbFogzI2dPUZU8a04tMlbqTSmHjVbJftQ==
+"@angular/compiler-cli@15.1.4":
+  version "15.1.4"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-15.1.4.tgz#76ba88c91d939f728a5700fa387c1266b1c1e1f0"
+  integrity sha512-FupMkr69YLZcjvPa7Y79ua6VvbzNroPUTDexEpqYkmnyKK8fNSHwTEOCz4IQbUeOxaZkRP5pHAI87foZigNPCA==
   dependencies:
-    "@babel/core" "^7.17.2"
+    "@babel/core" "7.19.3"
+    "@jridgewell/sourcemap-codec" "^1.4.14"
     chokidar "^3.0.0"
     convert-source-map "^1.5.1"
     dependency-graph "^0.11.0"
-    magic-string "^0.26.0"
+    magic-string "^0.27.0"
     reflect-metadata "^0.1.2"
     semver "^7.0.0"
-    sourcemap-codec "^1.4.8"
     tslib "^2.3.0"
     yargs "^17.2.1"
 
@@ -307,7 +307,7 @@
     json5 "^2.2.1"
     semver "^6.3.0"
 
-"@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.17.2", "@babel/core@^7.7.5":
+"@babel/core@7.19.3", "@babel/core@^7.11.6", "@babel/core@^7.12.3", "@babel/core@^7.7.5":
   version "7.19.3"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.19.3.tgz#2519f62a51458f43b682d61583c3810e7dcee64c"
   integrity sha512-WneDJxdsjEvyKtXKsaBGbDeiyOjR5vYq4HcShxnIbG0qixpoHjI3MqeZM9NDvsojNCEBItQE4juOo/bU6e72gQ==
@@ -1700,7 +1700,7 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@jridgewell/sourcemap-codec@1.4.14", "@jridgewell/sourcemap-codec@^1.4.10", "@jridgewell/sourcemap-codec@^1.4.13":
+"@jridgewell/sourcemap-codec@1.4.14", "@jridgewell/sourcemap-codec@^1.4.10", "@jridgewell/sourcemap-codec@^1.4.13", "@jridgewell/sourcemap-codec@^1.4.14":
   version "1.4.14"
   resolved "https://registry.yarnpkg.com/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.4.14.tgz#add4c98d341472a289190b424efbdb096991bb24"
   integrity sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==
@@ -7197,19 +7197,12 @@ lru-cache@^7.4.4, lru-cache@^7.5.1, lru-cache@^7.7.1:
   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-7.14.0.tgz#21be64954a4680e303a09e9468f880b98a0b3c7f"
   integrity sha512-EIRtP1GrSJny0dqb50QXRUNBxHJhcpxHC++M5tD7RYbvLLn5KVWKsbyswSSqDuU15UFi3bgTQIY8nhDMeF6aDQ==
 
-magic-string@0.27.0:
+magic-string@0.27.0, magic-string@^0.27.0:
   version "0.27.0"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.27.0.tgz#e4a3413b4bab6d98d2becffd48b4a257effdbbf3"
   integrity sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.4.13"
-
-magic-string@^0.26.0:
-  version "0.26.7"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.26.7.tgz#caf7daf61b34e9982f8228c4527474dac8981d6f"
-  integrity sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==
-  dependencies:
-    sourcemap-codec "^1.4.8"
 
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
@@ -9611,11 +9604,6 @@ source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.3:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==
-
-sourcemap-codec@^1.4.8:
-  version "1.4.8"
-  resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
-  integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
 spawn-wrap@^1.4.2:
   version "1.4.3"
