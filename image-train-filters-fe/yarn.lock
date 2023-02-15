@@ -1726,10 +1726,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@nebular/eva-icons@9.0.3":
-  version "9.0.3"
-  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-9.0.3.tgz#bd79b11df2b95c8768f5f7258099ef168b78ab5f"
-  integrity sha512-aFvMcpyobHCviZKiQx4U3eH/zcj/WkgPuDX1XBDs5RVotlgZ4fcAWql/KbS26W74i6n8rUec6I9EkzxXBU9psw==
+"@nebular/eva-icons@10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-10.0.0.tgz#ce1f832f8548d1701e2de197e420b8d6e0580944"
+  integrity sha512-z/8j+5f81IzyxP1Hl2xS1+k9QEYpJpKcbK5SWfR66z9OMTIR+/V5OGGvpR7XLLIBEwzFPab72KwYE8Pf/2JDLQ==
   dependencies:
     tslib "^2.3.0"
 
