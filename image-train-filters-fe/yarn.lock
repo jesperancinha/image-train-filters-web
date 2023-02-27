@@ -7489,10 +7489,10 @@ ng5-slider@1.2.6:
     rxjs-compat "^6.5.2"
     tslib "^1.7.1"
 
-ngx-color-picker@13.0.0:
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-color-picker/-/ngx-color-picker-13.0.0.tgz#fe6d3b2def721ebc4f2a1a4ed83e552e0cfe3601"
-  integrity sha512-3mgMbs21KeqnmmY5p1cn71ckTH3q7gBt6Qn0fMfeF/Ql7ddTZsW4Z7Z8ga6LymMP/ugooGuLOFX+V6yx0dDxAw==
+ngx-color-picker@14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-color-picker/-/ngx-color-picker-14.0.0.tgz#4587f517ac5683a705d4e55cd0939afa91faa853"
+  integrity sha512-w28zx2DyVpIJeNsTB3T2LUI4Ed/Ujf5Uhxuh0dllputfpxXwZG9ocSJM/0L67+fxA3UnfvvXVZNUX1Ny5nZIIw==
   dependencies:
     tslib "^2.3.0"
 
