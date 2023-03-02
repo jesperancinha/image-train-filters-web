@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NbComponentSize} from "@nebular/theme";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Options} from "ng5-slider";
 import {ItfChartizateCommand} from "../../command-types/itf-chartizate-command";
 import {Command} from "../../command-types/command";
+import {Options} from "@angular-slider/ngx-slider";
 
 const DEFAULT_BACKGROUND_COLOR = "#000000";
 const DEFAULT_DENSITY = 50;
