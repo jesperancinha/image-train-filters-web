@@ -1,11 +1,12 @@
+b: build
 before:
 	bash setup.sh
 test:
 	sbt test
-build: build-sbt build-npm build-cypress
+build: build-sbt build-npm
 build-cypress:
 	cd e2e && yarn
-build-npm: before
+build-npm: before build-cypress
 	cd image-train-filters-fe && yarn && npm run build
 build-sbt:
 	sbt compile
