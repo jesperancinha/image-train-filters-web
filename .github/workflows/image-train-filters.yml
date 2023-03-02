@@ -3,6 +3,9 @@ name: Build image-train-filters-web
 on:
   push:
     branches: [ master ]
+  pull_request_target:
+    types:
+      - closed
 
 jobs:
   build:
