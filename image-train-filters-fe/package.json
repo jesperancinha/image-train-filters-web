@@ -6,7 +6,7 @@
   "dependencies": {
     "@angular/animations": "15.2.4",
     "@angular/cdk": "15.2.6",
-    "@angular/common": "15.2.6",
+    "@angular/common": "15.2.7",
     "@angular/compiler": "15.2.4",
     "@angular/core": "15.2.4",
     "@angular/forms": "15.2.4",
@@ -38,9 +38,9 @@
     "snyk": "snyk test"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^15.2.5",
-    "@angular/cli": "15.2.5",
-    "@angular/compiler-cli": "15.2.6",
+    "@angular-devkit/build-angular": "^15.2.6",
+    "@angular/cli": "15.2.6",
+    "@angular/compiler-cli": "15.2.7",
     "@angular/language-service": "15.2.6",
     "@types/jasmine": "4.3.1",
     "@types/jasminewd2": "2.0.10",
@@ -70,7 +70,7 @@
     "ngx-spec": "^2.1.5",
     "nodeunit": "^0.11.3",
     "protractor": "7.0.0",
-    "snyk": "^1.1140.0",
+    "snyk": "^1.1142.0",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "tslint": "6.1.3",
