@@ -7278,10 +7278,10 @@ ngx-color-picker@14.0.0:
   dependencies:
     tslib "^2.3.0"
 
-ngx-spec@^2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/ngx-spec/-/ngx-spec-2.1.5.tgz#46c4a2eac68fe7bee4d5277987a7fcd44446873a"
-  integrity sha512-xgrjzAVnbl2a+pQAgsDlcJPKNIhEZnKTmytp/1hAHHl6I/fbXQ5LmAcJy+D/hwLWUjoSSoLLSHLFAvEsrIngTw==
+ngx-spec@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/ngx-spec/-/ngx-spec-2.1.6.tgz#9cd2bc5015cd82759a11b5d1f7d4da64e85ac37a"
+  integrity sha512-psNi4SzQbWqhqQLceV1TOdg8FcvvMATiLnOudEPEKxI2LRXH5KRDqN1DpS+4qR1MD2in56Mco6HpfWBSxT6Hqg==
   dependencies:
     minimatch "^3.0.4"
 
