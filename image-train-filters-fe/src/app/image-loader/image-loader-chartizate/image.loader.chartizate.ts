@@ -3,7 +3,7 @@ import {NbComponentSize} from "@nebular/theme";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ItfChartizateCommand} from "../../command-types/itf-chartizate-command";
 import {Command} from "../../command-types/command";
-import {Options} from "@angular-slider/ngx-slider";
+import {Options} from "ngx-slider-v2";
 
 const DEFAULT_BACKGROUND_COLOR = "#000000";
 const DEFAULT_DENSITY = 50;
