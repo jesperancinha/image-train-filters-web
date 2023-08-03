@@ -18,6 +18,14 @@
     "@angular-devkit/core" "16.2.0-next.4"
     rxjs "7.8.1"
 
+"@angular-devkit/architect@0.1602.0-rc.0":
+  version "0.1602.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/architect/-/architect-0.1602.0-rc.0.tgz#636b4af0652aa7d4a12137b205e0ae3416c07e17"
+  integrity sha512-NbzgqMsm+Oh2VvNyG3+Z7k3F88slC6B6NL0/NuMK9r4ofKdyXbd2s2aKsTusW1akk+NbU9eOlcRyn8KdcLQ1tg==
+  dependencies:
+    "@angular-devkit/core" "16.2.0-rc.0"
+    rxjs "7.8.1"
+
 "@angular-devkit/build-angular@^16.2.0-next.4":
   version "16.2.0-next.4"
   resolved "https://registry.yarnpkg.com/@angular-devkit/build-angular/-/build-angular-16.2.0-next.4.tgz#d3459a8f2893d7b149a1fab35a08ac6a01b668bf"
@@ -109,12 +117,23 @@
     rxjs "7.8.1"
     source-map "0.7.4"
 
-"@angular-devkit/schematics@16.2.0-next.4":
-  version "16.2.0-next.4"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-16.2.0-next.4.tgz#d5589b1c6f7aa8aae1467e53db52fee710a44912"
-  integrity sha512-VtaduJS1n0YBZekUR7/vA3A/8ynrGajafqpFfL/ElYfsFKEBnyO9JIi0UNgyOU4Q42+O5dJA+jybVzNehCcWVw==
+"@angular-devkit/core@16.2.0-rc.0":
+  version "16.2.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-16.2.0-rc.0.tgz#89318f23cd51d5073fdbe845a9d547f932f9fa8a"
+  integrity sha512-Xf9K1S2cBYFLLDs/gMlAv+021nANm2e4RxFLtiPW4LGJYnt16E+c7/0iVTk93pqvLGVbdrCl6Uz4rqfaWSE/UQ==
   dependencies:
-    "@angular-devkit/core" "16.2.0-next.4"
+    ajv "8.12.0"
+    ajv-formats "2.1.1"
+    jsonc-parser "3.2.0"
+    rxjs "7.8.1"
+    source-map "0.7.4"
+
+"@angular-devkit/schematics@16.2.0-rc.0":
+  version "16.2.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-16.2.0-rc.0.tgz#2ff4d863e7385bc2ba32c1aac154304d355e9840"
+  integrity sha512-nVHWTfOSxHljEtNGEr8TWD8s2HpCRfet2DX0TqAnXIUnCkG1qoHeaj7a+jkbbISrFIT9nxZLGai7onYW8Tnphg==
+  dependencies:
+    "@angular-devkit/core" "16.2.0-rc.0"
     jsonc-parser "3.2.0"
     magic-string "0.30.1"
     ora "5.4.1"
@@ -136,15 +155,15 @@
   optionalDependencies:
     parse5 "^7.1.2"
 
-"@angular/cli@^16.2.0-next.4":
-  version "16.2.0-next.4"
-  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-16.2.0-next.4.tgz#b171412187936613c3d474e51ec54f400e59fbdd"
-  integrity sha512-twmXxCoO1w8fxLUI3anKo+RRhnjaJZ1ufMDE8vT3347Gjyd/rSwdZL0hVwRbpRVomLg412EUjKKj2Fa2MS4X6g==
+"@angular/cli@^16.2.0-rc.0":
+  version "16.2.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-16.2.0-rc.0.tgz#3e8151630c77cdb4cb096787e8fbd3f7ca4315f4"
+  integrity sha512-Spl06RM98JWqlGnjZ3WW+HzjPs7QUpRprUzj24x0j7SL7W+eJOQfMWCNJcmxZQipLdHCuhWa4hJH0Qp5e6Wz9Q==
   dependencies:
-    "@angular-devkit/architect" "0.1602.0-next.4"
-    "@angular-devkit/core" "16.2.0-next.4"
-    "@angular-devkit/schematics" "16.2.0-next.4"
-    "@schematics/angular" "16.2.0-next.4"
+    "@angular-devkit/architect" "0.1602.0-rc.0"
+    "@angular-devkit/core" "16.2.0-rc.0"
+    "@angular-devkit/schematics" "16.2.0-rc.0"
+    "@schematics/angular" "16.2.0-rc.0"
     "@yarnpkg/lockfile" "1.1.0"
     ansi-colors "4.1.3"
     ini "4.1.1"
@@ -1759,13 +1778,13 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@schematics/angular@16.2.0-next.4":
-  version "16.2.0-next.4"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-16.2.0-next.4.tgz#74806c00cfa4b708f8d7121904a3c9585c9c9da0"
-  integrity sha512-7rmj0rLitd+hpao5gmoUP04HYtWJdzBlN6JuvSyD7t9WfTVeR5efLeic/y/0foIKnt1WzL+rGQu8Qc24QlEpOA==
+"@schematics/angular@16.2.0-rc.0":
+  version "16.2.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-16.2.0-rc.0.tgz#1270ebbbb8a73bc0d8e28e48192bac74ef29bd7b"
+  integrity sha512-8phEaO2Rl8hRXZOzynLkOVoSk2XL5IXmnxVS74HWFIjttQkPBGwnuLrSpJ4wajgewvVk7YiNcz+Df5/sQKDgvQ==
   dependencies:
-    "@angular-devkit/core" "16.2.0-next.4"
-    "@angular-devkit/schematics" "16.2.0-next.4"
+    "@angular-devkit/core" "16.2.0-rc.0"
+    "@angular-devkit/schematics" "16.2.0-rc.0"
     jsonc-parser "3.2.0"
 
 "@sentry-internal/tracing@7.60.1":
