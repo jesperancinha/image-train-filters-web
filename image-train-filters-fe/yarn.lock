@@ -128,10 +128,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@^16.2.2":
-  version "16.2.2"
-  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.2.2.tgz#ab24c050883a99a8e48809201ed6b4623852ad7a"
-  integrity sha512-luUmeIFuEX4N3EOLhg1DM2hgsR+Is1Qd0a5xflbo30hZFnufppyzjaOvljNYUFtNTD9BaQRXaZDFA2cyTgfzZw==
+"@angular/cdk@^16.2.3":
+  version "16.2.3"
+  resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-16.2.3.tgz#f171d83e144a11d53650643471021eb3455151fe"
+  integrity sha512-kCBYiKfzDnGLSku/C3oFQqXTXwmlHk/Iy27+d51nFl7OjDEExvBoR6senBEuVNkXEnwbkkRHlJW1cCZuQ3fY0g==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
@@ -220,10 +220,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/language-service@16.2.3":
-  version "16.2.3"
-  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-16.2.3.tgz#ce8e24d002e210313f7b188f57b23c454d738e6e"
-  integrity sha512-AFBq643tXGSoBUFNd0c1vJzReehtrqUZCzCRV3Gv5FNgb5xTfNdh3txIK4Cz/XhdSou+f2Yq6keFDlj2RYnlmA==
+"@angular/language-service@16.2.4":
+  version "16.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-16.2.4.tgz#9bac1b9a28425894b6ad24ff8bf9d660c3ff09d6"
+  integrity sha512-YvI6osqGInRkak1uitDBVJjUyttr+eApGUqvAwBAH8pBgKVQuwjaN4enj+/+vFYE5k+L7c4VOulvqsD5A8FbBA==
 
 "@angular/platform-browser-dynamic@16.1.7":
   version "16.1.7"
@@ -2107,10 +2107,10 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-1.3.2.tgz#93e25bf9ee75fe0fd80b594bc4feb0e862111b5a"
   integrity sha512-YATxVxgRqNH6nHEIsvg6k2Boc1JHI9ZbH5iWFFv/MTkchz3b1ieGDa5T0a9RznNdI0KhVbdbWSN+KWWrQZRxTw==
 
-"@types/node@*", "@types/node@20.5.7", "@types/node@>=10.0.0":
-  version "20.5.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.7.tgz#4b8ecac87fbefbc92f431d09c30e176fc0a7c377"
-  integrity sha512-dP7f3LdZIysZnmvP3ANJYTSwg+wLLl8p7RqniVlV7j+oXSXAbt9h0WIBFmJy5inWZoX9wZN6eXx+YXd9Rh3RBA==
+"@types/node@*", "@types/node@20.5.9", "@types/node@>=10.0.0":
+  version "20.5.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.5.9.tgz#a70ec9d8fa0180a314c3ede0e20ea56ff71aed9a"
+  integrity sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==
 
 "@types/q@^0.0.32":
   version "0.0.32"
@@ -8855,10 +8855,10 @@ smart-buffer@^4.2.0:
   resolved "https://registry.yarnpkg.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
   integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
 
-snyk@^1.1209.0:
-  version "1.1209.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1209.0.tgz#60e72dea8aefb88a6fd4a63f4e5d711ac2c2c9cb"
-  integrity sha512-ctsxbNguLilp/CUDMOmFQsevDrOSddRGpbdXdbrGCUyADeOvT692oCxveRufmpoFVxjCHY4zle1iIpF7ThfQ8Q==
+snyk@^1.1214.0:
+  version "1.1214.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.1214.0.tgz#8be54dd23db3d8211ca0b0aaa0cbbd37879a2b6a"
+  integrity sha512-Ix513M4MairdJCdE4IxYMFi2OMavW5xL/sIpYwDirePZln9liYpe2LT4FaBJsz+2mvHO4d9ntREZrXUAGzV58A==
   dependencies:
     "@sentry/node" "^7.36.0"
     global-agent "^3.0.0"
