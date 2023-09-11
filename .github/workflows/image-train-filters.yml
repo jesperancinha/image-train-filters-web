@@ -40,6 +40,6 @@ jobs:
       run: sbt assembly
 
     - name: NPM Snyk Security Check
-      run: cd image-train-filters-fe && yarn install && npm run snyk
+      run: make sec-check-npm
       env:
          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
