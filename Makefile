@@ -65,7 +65,7 @@ build-backend:
 cypress-open-docker:
 	cd e2e && yarn && npm run cypress:open:docker
 cypress-open:
-	cd e2e && yarn && npm run cypress
+	cd e2e && yarn && npm run cypress:open:electron
 cypress-electron: status-containers
 	cd e2e && make cypress-electron
 cypress-chrome: status-containers
@@ -76,3 +76,8 @@ cypress-edge: status-containers
 	cd e2e && make cypress-edge
 status-containers:
 	docker ps
+sec-check-npm:
+	cd image-train-filters-fe; \
+	yarn install; \
+	sudo npm i -g snyk; \
+	npm run snyk
