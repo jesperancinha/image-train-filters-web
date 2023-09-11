@@ -76,3 +76,8 @@ cypress-edge: status-containers
 	cd e2e && make cypress-edge
 status-containers:
 	docker ps
+sec-check-npm:
+	cd image-train-filters-fe; \
+	yarn install; \
+	sudo npm i -g snyk; \
+	npm run snyk
