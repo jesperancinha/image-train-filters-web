@@ -231,7 +231,6 @@
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-16.2.5.tgz#c69891012566f75bbca0e1662c22d2b021007135"
   integrity sha512-iYJImRji1OiYIcC2mDBcXhtvPfAoEGT+HqZpivu+/ZPLuf+QegC9+ktJw90SQXR+xccmpkUb9MsJ52SN2MgkPA==
   dependencies:
-    tslib "^2.3.0"
 
 "@angular/http@7.2.16":
   version "7.2.16"
@@ -259,10 +258,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/router@16.2.0":
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/router/-/router-16.2.0.tgz#94f137562c8d101ca86013091fc35e574d079d67"
-  integrity sha512-bFOaE7PNF0UHgVhl8BvyHiZHizTRZO7w3V29VqsdXUMMugBR4kr1/FXGzXTaz+9/eK7LokUwN9pjKKENNmhdyg==
+"@angular/router@16.2.4":
+  version "16.2.4"
+  resolved "https://registry.yarnpkg.com/@angular/router/-/router-16.2.4.tgz#0ae091462cf551573196e2b67d45e60a36a939e1"
+  integrity sha512-xx/pVq/NFGxiJzqWdQxYJI/2l3vsk7tCgGca8HyvJSy2IQyAqQ1RkVyDjb4aWiJyCDFxObSDdA+uYAdJXuVrqw==
   dependencies:
     tslib "^2.3.0"
 
