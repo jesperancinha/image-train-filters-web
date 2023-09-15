@@ -230,7 +230,6 @@
   version "16.2.5"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-16.2.5.tgz#c69891012566f75bbca0e1662c22d2b021007135"
   integrity sha512-iYJImRji1OiYIcC2mDBcXhtvPfAoEGT+HqZpivu+/ZPLuf+QegC9+ktJw90SQXR+xccmpkUb9MsJ52SN2MgkPA==
-  dependencies:
 
 "@angular/http@7.2.16":
   version "7.2.16"
@@ -244,17 +243,17 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-16.2.5.tgz#2c7854c37e9b8483d8ca4d192a238145c9d71770"
   integrity sha512-lYNRN4+iavDuAs86lRHuiTUxtVtsarCZPeoG6K1TEvrXrvmIbTtAbvONNMMnteO9ltCTduyREF9/sefE2Qw/Rg==
 
-"@angular/platform-browser-dynamic@16.2.0":
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-16.2.0.tgz#48c1dd9d5b67479c6c387bc58b46e1792deaf2d9"
-  integrity sha512-kLxgR+ichWb6dNA1JUAh0JB+iSrObkomd10porGQWVxAGmHqg1eiB3bBaSAgcaLftsrmEguIH8O9AEfq+HLfrA==
+"@angular/platform-browser-dynamic@16.2.5":
+  version "16.2.5"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-16.2.5.tgz#79c19e871e414bccdf69db68fcf88482e2d04734"
+  integrity sha512-kzC4z/KmLss8Du9uM1Q16r+3EqDExKKHnrb3G3tuEQ1jTvYCysdWoooVSBmtIlQUw13znpBm1B7XLoyviFvnwA==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@16.2.0":
-  version "16.2.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-16.2.0.tgz#097743a49e3b654b1b90313c5120bebb223bcb32"
-  integrity sha512-6xjZFnSD0C8ylDbzKpsxCJ4pLJDRvippr9Wj9RCeDQvAzMibsqIjpbesyOccw3hO+jheJQRhM/rZeO1ubZU94w==
+"@angular/platform-browser@16.2.1":
+  version "16.2.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser/-/platform-browser-16.2.1.tgz#c15de68d4d0675a2247c1e8eb2da11ff20eb8cee"
+  integrity sha512-SH8zRiRAcw0B5/tVlEc5U/lN5F8g+JizSuu7BQvpCAQEDkM6IjF9LP36Bjav7JuadItbWLfT6peWYa1sJvax2w==
   dependencies:
     tslib "^2.3.0"
 
