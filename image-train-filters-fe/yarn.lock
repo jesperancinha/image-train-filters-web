@@ -7132,10 +7132,10 @@ ng2-file-upload@^5.0.0:
   dependencies:
     tslib "^2.3.0"
 
-ngx-color-picker@14.0.0:
-  version "14.0.0"
-  resolved "https://registry.yarnpkg.com/ngx-color-picker/-/ngx-color-picker-14.0.0.tgz#4587f517ac5683a705d4e55cd0939afa91faa853"
-  integrity sha512-w28zx2DyVpIJeNsTB3T2LUI4Ed/Ujf5Uhxuh0dllputfpxXwZG9ocSJM/0L67+fxA3UnfvvXVZNUX1Ny5nZIIw==
+ngx-color-picker@15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/ngx-color-picker/-/ngx-color-picker-15.0.0.tgz#c6ffadd175de3329fc7e18919f638bee27d3d083"
+  integrity sha512-+7wK8Pz9pm7ywJQOWELRcLYO9J0q4giF4b5QFxq8J3kEcHsUBn0hKOpBbGud+UmNnOwbJVgU2rhyRpGIDUCDJw==
   dependencies:
     tslib "^2.3.0"
 

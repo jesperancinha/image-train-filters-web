@@ -20,7 +20,7 @@
     "karma-typescript": "^5.5.4",
     "nebular-icons": "1.1.0",
     "ng2-file-upload": "^5.0.0",
-    "ngx-color-picker": "14.0.0",
+    "ngx-color-picker": "15.0.0",
     "ngx-slider-v2": "^16.0.2",
     "rxjs": "7.8.1",
     "rxjs-compat": "6.6.7",
