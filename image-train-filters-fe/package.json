@@ -45,7 +45,7 @@
     "@types/jasmine": "5.1.1",
     "@types/jasminewd2": "2.0.12",
     "@types/jest": "^29.5.7",
-    "@types/node": "20.8.10",
+    "@types/node": "20.9.0",
     "chai": "^4.3.10",
     "codecov": "^3.8.3",
     "codelyzer": "6.0.2",
