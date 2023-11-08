@@ -43,7 +43,7 @@
     "@angular/compiler-cli": "16.2.8",
     "@angular/language-service": "16.2.12",
     "@types/jasmine": "5.1.2",
-    "@types/jasminewd2": "2.0.12",
+    "@types/jasminewd2": "2.0.13",
     "@types/jest": "^29.5.8",
     "@types/node": "20.9.0",
     "chai": "^4.3.10",
