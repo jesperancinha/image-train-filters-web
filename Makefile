@@ -9,6 +9,7 @@ build-cypress:
 build-npm: before build-cypress
 	cd image-train-filters-fe && yarn && npm run build
 build-sbt:
+	mvn dependency:go-offline
 	sbt compile
 	sbt clean assembly
 	cp -r target service/release
@@ -28,10 +29,17 @@ audit:
 update-snyk:
 	npm i -g snyk
 update:
-	git pull
-	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
-	npm install -g npm-check-updates
-	cd image-train-filters-fe && npx browserslist --update-db && ncu -u && yarn
+	find . -name "package-lock.json" | xargs rm; \
+	find . -name "yarn.lock" | xargs rm; \
+	git pull; \
+	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash; \
+	npm install caniuse-lite; \
+	npm install -g npm-check-updates; \
+	cd image-train-filters-fe; \
+		yarn; \
+		npx browserslist --update-db; \
+		ncu -u; \
+		yarn
 npm-test:
 	cd image-train-filters-fe && npm run coverage
 stop:
