@@ -6,6 +6,10 @@ resolvers += Resolver.mavenCentral
 resolvers +=
   "Maven Central" at "https://repo1.maven.org/maven2/"
 
+ThisBuild / evictionErrorLevel := Level.Info
+ThisBuild / assumedVersionScheme := VersionScheme.PVP
+ThisBuild / assumedVersionSchemeJava := VersionScheme.EarlySemVer
+ThisBuild / assumedEvictionErrorLevel := Level.Warn
 
 lazy val global = project
   .in(file("."))
