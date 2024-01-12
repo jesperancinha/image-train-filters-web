@@ -1,4 +1,10 @@
 scalaVersion := "2.12.13"
+
+ThisBuild / assumedVersionScheme := VersionScheme.PVP
+ThisBuild / assumedVersionSchemeJava := VersionScheme.EarlySemVer
+ThisBuild / assumedEvictionErrorLevel := Level.Warn
+ThisBuild / evictionErrorLevel := Level.Info
+
 resolvers += Resolver.mavenLocal
 resolvers += Resolver.mavenCentral
 resolvers +=
