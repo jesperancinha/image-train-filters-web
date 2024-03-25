@@ -1992,10 +1992,10 @@
   dependencies:
     call-bind "^1.0.5"
 
-"@nebular/eva-icons@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-12.0.0.tgz#acf0b3102f4c5aa300f3b9793d800daedf706c1c"
-  integrity sha512-YB2xGhRyhgvppvZ+I9hGS5q8LS3u0gOKml3KYeDMA/Rf8h3erFVn5ZEK/KBqoVh9khIY6OHj305RqiLXA25j7Q==
+"@nebular/eva-icons@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/eva-icons/-/eva-icons-13.0.0.tgz#22292d507e223af9e236d52fd4270b781b29e31e"
+  integrity sha512-4M9vwo3OJeDjlVufeGTg1u/01uxZ0LH8f8GvD1wuyzGitY/3hlySmXP31Nz/koKcM9QJZsm0wECJVxd+8BDf3Q==
   dependencies:
     tslib "^2.3.0"
 
