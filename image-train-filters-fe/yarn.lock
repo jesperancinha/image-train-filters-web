@@ -1999,10 +1999,10 @@
   dependencies:
     tslib "^2.3.0"
 
-"@nebular/theme@12.0.0":
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-12.0.0.tgz#38e621a44e578a41a1ed4e0d150b8b05802947d1"
-  integrity sha512-CHmOUODjKxBNHc0LD2Rct5nGkseErMHQuLY5lwXFTbQ7oD/TZTWbFGurFYJShppFF+9Q6qJGodJ+nI6mTUQYBQ==
+"@nebular/theme@13.0.0":
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/@nebular/theme/-/theme-13.0.0.tgz#5c40de36e8cfd362ec473d3689574c4eb846dc24"
+  integrity sha512-Tru51zohkCe2Xw4mDhVmmRsiHeAwkbzNDKSEP4/IVCHcCUpwT/d7S6w3Wc6NlzrVD8DsDSbN6BWef9VIbvs5Pw==
   dependencies:
     tslib "^2.3.0"
 
