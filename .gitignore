@@ -60,3 +60,7 @@ release
 
 ## Logs
 logs
+
+## YARN and NPM
+yarn.lock
+package-lock.json
