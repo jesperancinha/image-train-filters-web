@@ -181,10 +181,10 @@
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-17.3.0.tgz#204d930c372ef556a18ea62cc93de2fc13d6aac8"
-  integrity sha512-lZBD5mFq7SzFJydZwW2jvnQGmtcU1s3e548hl4MSZpRgt13m5UmBQKbyMOvVN2WxKvWKlmDlywsAJlMSXepYig==
+"@angular/compiler@17.3.1":
+  version "17.3.1"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-17.3.1.tgz#82c6507afc798593ab4d0415c062862684fad981"
+  integrity sha512-8qqlWPGZEyD2FY5losOW3Aocro+lFysPDzsf0LHgQUM6Ub1b+pq4jUOjH6w0vzaxG3TfxkgzOQ9aNdWtSV67Rg==
   dependencies:
     tslib "^2.3.0"
 
@@ -193,10 +193,10 @@
   resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-9.0.0.tgz#87e0bef4c369b6cadae07e3a4295778fc93799d5"
   integrity sha512-ctjwuntPfZZT2mNj2NDIVu51t9cvbhl/16epc5xEwyzyDt76pX9UgwvY+MbXrf/C/FWwdtmNtfP698BKI+9leQ==
 
-"@angular/core@17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@angular/core/-/core-17.3.0.tgz#24eca359f4d530ac96d5e93679d39d910ae1a5b9"
-  integrity sha512-umwsNFl/wEMTCUVvNl5iieEgHA+ESxSMcjedZGFWNGnpUxKTgYFYNG41/1wNZfPrS0+uRPHuYU9IHD+NR2s/Rw==
+"@angular/core@17.3.1":
+  version "17.3.1"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-17.3.1.tgz#3f143c27ab50b7bdf829b0c2086af60c16e194ae"
+  integrity sha512-Qf3/sgkXS1LHwOTtqAVYprySrn0YpPIZqerPc0tK+hyQfwAz5BQlpcBhbH8RWKlfCY8eO0cqo/j0+e8DQOgYfg==
   dependencies:
     tslib "^2.3.0"
 
@@ -224,10 +224,10 @@
   resolved "https://registry.yarnpkg.com/@angular/language-service/-/language-service-17.3.4.tgz#2adeb8fcf66f7f975a9d1dd259c4b334fdcbc0a9"
   integrity sha512-CgLg/7P0+NEeGU+vqvoG0rh2ns5iyfi/UO4JTxN1iMjuFBAUhGHxjiItPy8cN2XK/dWgOhXAFe4oqxA4dMBp/Q==
 
-"@angular/platform-browser-dynamic@17.3.0":
-  version "17.3.0"
-  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-17.3.0.tgz#c19a89433cd20daf2a97c84838aebcb8769440db"
-  integrity sha512-oX5AG0aSjmB89SyJZGyabr6uwfWd7yJM+krcrzHxFbVhvDCwdi9G+B0ADmaUn1shaXDseOFiLpo3R/oagd2fTA==
+"@angular/platform-browser-dynamic@17.3.1":
+  version "17.3.1"
+  resolved "https://registry.yarnpkg.com/@angular/platform-browser-dynamic/-/platform-browser-dynamic-17.3.1.tgz#8a265f3d8e1cda92d3b6e3fc046db2a4bb6e67a7"
+  integrity sha512-ACW/npNaDxUNQtEomjjv/KIBY8jHEinePff5qosnAxLE0IpA4qE9eDp36zG35xoJqrPJPYjXbZCBRqqrzM7U7Q==
   dependencies:
     tslib "^2.3.0"
 
