@@ -28,9 +28,10 @@ audit:
 	cd image-train-filters-fe && npm audit fix && yarn
 update-snyk:
 	npm i -g snyk
-update:
-	find . -name "package-lock.json" | xargs rm; \
-	find . -name "yarn.lock" | xargs rm; \
+remove-lock-files:
+	find . -name "package-lock.json" | xargs -I {} rm {}; \
+	find . -name "yarn.lock" | xargs -I {} rm {};
+update: remove-lock-files
 	git pull; \
 	curl --compressed -o- -L https://yarnpkg.com/install.sh | bash; \
 	npm install caniuse-lite; \
