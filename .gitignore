@@ -35,8 +35,11 @@ nohup.out
 # External Files
 **/.DS_Store
 
-# NPM
+# Node
 node_modules
+.angular
+package-lock.json
+yarn.lock
 
 # Coveralls
 .coveralls.yml
