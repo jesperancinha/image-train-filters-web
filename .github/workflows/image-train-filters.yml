@@ -41,8 +41,3 @@ jobs:
 
     - name: Make assembly
       run: sbt assembly
-
-    - name: NPM Snyk Security Check
-      run: make sec-check-npm
-      env:
-         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

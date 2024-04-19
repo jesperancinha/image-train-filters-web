@@ -5,17 +5,22 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "module": "ESNext",
+    "module": "ES2022",
+    "explainFiles": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ESNext",
+    "target": "ES2022",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+//    Temporary until the build breaks again
+// Example: https://github.com/jesperancinha/image-train-filters-web/pull/1632
+// Issue opened on nebular: https://github.com/akveo/nebular/issues/3246
+    "skipLibCheck": true
   }
 }

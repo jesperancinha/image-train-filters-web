@@ -1,0 +1,24 @@
+name: Security Check image-train-filters-web
+
+on:
+  push:
+    branches: [ master ]
+  pull_request_target:
+    types:
+      - closed
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: NPM Snyk Security Check
+      run: make sec-check-npm
+      env:
+         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
