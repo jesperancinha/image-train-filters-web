@@ -11,7 +11,7 @@
     "@angular/core": "17.3.1",
     "@angular/forms": "17.3.2",
     "@angular/http": "7.2.16",
-    "@angular/platform-browser": "17.3.2",
+    "@angular/platform-browser": "17.3.5",
     "@angular/platform-browser-dynamic": "17.3.1",
     "@angular/router": "17.3.3",
     "@nebular/eva-icons": "13.0.0",
