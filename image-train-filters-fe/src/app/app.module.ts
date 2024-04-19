@@ -24,7 +24,7 @@ import {ImageLoaderChartizateComponent} from "./image-loader/image-loader-charti
 import {ImageLoaderContourComponent} from "./image-loader/image-loader-contour/image.loader.contour";
 import {ImageLoaderKuwaharaComponent} from "./image-loader/image-loader-kuwahara/image.loader.kuwahara";
 import {HttpClientModule} from "@angular/common/http";
-import {NgxSliderModule} from "ngx-slider-v2";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
 
 @NgModule({
     bootstrap: [
@@ -35,7 +35,7 @@ import {NgxSliderModule} from "ngx-slider-v2";
         ImageComponent,
         ImageLoaderChartizateComponent,
         ImageLoaderContourComponent,
-        ImageLoaderKuwaharaComponent,
+        ImageLoaderKuwaharaComponent
     ],
     imports: [
         BrowserModule,
