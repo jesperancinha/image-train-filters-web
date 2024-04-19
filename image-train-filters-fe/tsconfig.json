@@ -17,6 +17,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+//    Temporary until the build breaks again
+// Example: https://github.com/jesperancinha/image-train-filters-web/pull/1632
+// Issue opened on nebular: https://github.com/akveo/nebular/issues/3246
+    "skipLibCheck": true
   }
 }
