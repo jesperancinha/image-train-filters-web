@@ -6,8 +6,13 @@ test:
 build: build-sbt build-npm
 build-cypress:
 	cd e2e && yarn
-build-npm: before build-cypress
-	cd image-train-filters-fe && yarn && npm run build
+build-npm: before build-cypress build-image-train-filters-fe
+build-image-train-filters-fe:
+	cd image-train-filters-fe; \
+	if [ -d yarn.lock ]; then rm yarn.lock; fic; \
+	if [ -d package-lock.json ]; then rm package-lock.json; fi; \
+	yarn; \
+	npm run build
 build-sbt:
 	mvn dependency:go-offline
 	sbt compile
