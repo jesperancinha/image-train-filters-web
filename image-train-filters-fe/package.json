@@ -24,7 +24,7 @@
     "rxjs": "7.8.1",
     "rxjs-compat": "6.6.7",
     "web-animations-js": "2.3.2",
-    "zone.js": "0.14.4",
+    "zone.js": "0.14.5",
     "typescript": "5.4.5"
   },
   "scripts": {
