@@ -68,7 +68,9 @@ dcup: dcd
 itf-wait:
 	bash itf_wait.sh
 dcup-action: before dcup
-dcup-full-action: before dcd docker-clean build dcup
+install-angular-cli:
+	npm install -g @angular/cli
+dcup-full-action: install-angular-cli before dcd docker-clean build dcup
 local-pipeline: before dcd docker-clean build test-sbt test-npm
 build-backend:
 	docker-compose stop itf-backend
