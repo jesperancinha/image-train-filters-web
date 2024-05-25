@@ -4,6 +4,11 @@ updates:
     directory: "/image-train-filters-fe"
     schedule:
       interval: "daily"
+    groups:
+      angular:
+        patterns:
+          - "@angular*"
+          - "angular*"
 
   - package-ecosystem: "npm"
     directory: "/e2e"
