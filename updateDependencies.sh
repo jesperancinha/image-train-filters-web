@@ -15,6 +15,6 @@ while IFS= read -r line; do
   echo $dependency
   current_dependency_escaped=$(echo "\"$group\" \%\% \"$dependency\"")
   current_dependency_escaped_single=$(echo "\"$group\" \% \"$dependency\"")
-  sed -i "s/$current_dependency_escaped \% \".*\"/$current_dependency_escaped \% \"$new_version\"/" build.sbt
-  sed -i "s/$current_dependency_escaped_single \% \".*\"/$current_dependency_escaped_single \% \"$new_version\"/" build.sbt
+  sed -i "s/$current_dependency_escaped \% \".*\"/$current_dependency_escaped \% \"$new_version\"/g" build.sbt
+  sed -i "s/$current_dependency_escaped_single \% \".*\"/$current_dependency_escaped_single \% \"$new_version\"/g" build.sbt
 done <<< "$updates"
