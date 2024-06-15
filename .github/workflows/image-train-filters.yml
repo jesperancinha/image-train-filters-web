@@ -3,10 +3,15 @@ name: Build image-train-filters-web
 on:
   push:
     branches: [ master ]
+    paths-ignore:
+      - 'README.md'
+      - 'Readme.md'
   pull_request_target:
     types:
       - closed
-
+    paths-ignore:
+      - 'README.md'
+      - 'Readme.md'
 jobs:
   build:
 

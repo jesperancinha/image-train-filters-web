@@ -19,12 +19,16 @@ jobs:
           source "$HOME/.sdkman/bin/sdkman-init.sh"
           sdkman_auto_answer=false
           sdkman_selfupdate_enable=false
+
       - name: Setup sbt
         run: |
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
           sdk install sbt
 
       - name: Run sbt updates
-        run: sbt dependencyUpdates
+        run: |
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sbt dependencyUpdates
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
