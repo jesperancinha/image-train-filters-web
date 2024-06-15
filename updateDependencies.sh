@@ -7,7 +7,7 @@ dependency_updates=$(sbt dependencyUpdates)
 updates=$(echo "$dependency_updates" | grep ' -> ')
 
 while IFS= read -r line; do
-  current_dependency=$(echo "$line" | awk -F' -> ' '{print $1}'| cut -d' ' -f2-)
+  current_dependency=$(echo "$line" | awk -F' -> ' '{print $1}'| cut -d' ' -f2- | xargs)
   new_version=$(echo "$line" | awk -F' -> ' '{print $2}' | xargs)
   group=$(echo "$current_dependency" | sed 's/\(.*\) : .*/\1/' | sed 's/:/ \% /g' | sed 's/\(.*\) \% test/\1/' | sed 's/\([a-z.-]*\) % \([a-z.-]*\)/\1/g' | xargs | sed 's/\-/\\-/g' | sed 's/\./\\./g')
   dependency=$(echo "$current_dependency" | sed 's/\(.*\) : .*/\1/' | sed 's/:/ \% /g' | sed 's/\(.*\) \% test/\1/' | sed 's/\([a-z.-]*\) % \([a-z.-]*\)/\2/g' | xargs | sed 's/\-/\\-/g' | sed 's/\./\\./g')
