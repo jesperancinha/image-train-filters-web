@@ -13,11 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - uses: sdkman/sdkman-action@v1
-        id: sdkman
-        with:
-          candidate: sbt
-      - run: sbt -version
+      - name: Setup sdkman
+        run: |
+          curl -s "https://get.sdkman.io" | bash
+          source "$HOME/.sdkman/bin/sdkman-init.sh"
+          sdkman_auto_answer=false
+          sdkman_selfupdate_enable=false
+      - name: Setup sbt
+        run: |
+          sdk install sbt
 
       - name: Run sbt updates
         run: sbt dependencyUpdates
