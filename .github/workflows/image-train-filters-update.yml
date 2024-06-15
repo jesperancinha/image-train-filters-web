@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up Scala
-        run: sudo apt-get update; \
+        run: apt update -y; \
+             apt install sudo; \
              sudo apt-get install apt-transport-https curl gnupg -yqq; \
              echo "deb https://repo.scala-sbt.org/scalasbt/debian all main" | tee /etc/apt/sources.list.d/sbt.list; \
              echo "deb https://repo.scala-sbt.org/scalasbt/debian /" | tee /etc/apt/sources.list.d/sbt_old.list; \
