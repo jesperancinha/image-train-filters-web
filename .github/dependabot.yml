@@ -14,3 +14,25 @@ updates:
     directory: "/e2e"
     schedule:
       interval: "daily"
+
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-reactor"
+        versions: ["1.6.0-RC2", "1.6.0-RC3", "1.6.0"]
+      - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-core"
+        versions: ["1.6.0-RC2", "1.6.0-RC3", "1.6.0"]
+      - dependency-name: "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm"
+        versions: ["1.6.0-RC2", "1.6.0-RC3", "1.6.0"]
+    groups:
+      postgresql:
+        patterns:
+          - "*postgresql*"
+      maven:
+        patterns:
+          - "*maven*"
+      kotlin:
+        patterns:
+          - "*kotlin*"
