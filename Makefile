@@ -97,3 +97,5 @@ sec-check-npm:
 	yarn install; \
 	sudo npm i -g snyk; \
 	npm run snyk
+docker-logs:
+	docker-compose logs
