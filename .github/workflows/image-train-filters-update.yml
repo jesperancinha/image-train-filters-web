@@ -28,7 +28,7 @@ jobs:
       - name: Run sbt updates
         run: |
           source "$HOME/.sdkman/bin/sdkman-init.sh"
-          sbt dependencyUpdates
+          ./updateDependencies.sh
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v3
