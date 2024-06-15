@@ -10,6 +10,11 @@ updates:
           - "@angular*"
           - "angular*"
 
+  - package-ecosystem: "sbt"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
   - package-ecosystem: "npm"
     directory: "/e2e"
     schedule:
