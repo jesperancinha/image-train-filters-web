@@ -1,5 +1,5 @@
 name := "image-train-filters-scala"
-scalaVersion := "2.12.13"
+scalaVersion := "2.13.6"
 version := "1.0.0"
 resolvers += Resolver.mavenLocal
 resolvers += Resolver.mavenCentral
@@ -80,6 +80,7 @@ lazy val assemblySettings = Seq(
   assembly / assemblyMergeStrategy  := {
     case PathList("META-INF", xs @ _*) => MergeStrategy.discard
     case "application.conf"            => MergeStrategy.concat
+    case _                        => MergeStrategy.first
     case x =>
       val oldStrategy = (assemblyMergeStrategy in assembly).value
       oldStrategy(x)
