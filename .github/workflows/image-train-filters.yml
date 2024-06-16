@@ -35,7 +35,7 @@ jobs:
       run: cd image-train-filters-fe && npm run coverage
 
     - name: Run tests
-      run: sbt test
+      run: make build
 
     - name: Run Build and Coverage
       run: make coverage
