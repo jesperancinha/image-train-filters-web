@@ -47,9 +47,9 @@ lazy val commonDependencies = Seq(
   "org.jesperancinha.itf" % "itf-chartizate-java" % "5.0.0" exclude("org.fusesource.jansi", "jansi"),
   "org.mockito" %% "mockito-scala" % "1.17.31" % Test,
   "org.scalatest" %% "scalatest" % "3.2.18" % Test,
-  "org.scalatest" %% "scalatest-flatspec" % "3.3.0-alpha.1" % Test,
-  "org.scalatest" %% "scalatest-wordspec" % "3.3.0-alpha.1" % Test,
-  "org.scalatest" %% "scalatest-core" % "3.3.0-alpha.1" % Test
+  "org.scalatest" %% "scalatest-flatspec" % "3.2.18" % Test,
+  "org.scalatest" %% "scalatest-wordspec" % "3.2.18" % Test,
+  "org.scalatest" %% "scalatest-core" % "3.2.18" % Test
 )
 
 lazy val compilerOptions = Seq(
