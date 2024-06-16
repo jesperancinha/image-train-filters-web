@@ -1,9 +1,11 @@
 b: build
 before:
 	bash setup.sh
+clean:
+	if [ -d ~/.cache/coursier ]; then rm -rf ~/.cache/coursier; fi
 test:
 	sbt test
-build: build-sbt build-npm
+build: clean build-sbt build-npm
 build-cypress:
 	cd e2e && yarn
 build-npm: before build-cypress build-image-train-filters-fe

@@ -29,8 +29,5 @@ jobs:
     - name: Install Jest Image Train Filters Web
       run: cd image-train-filters-fe && yarn && yarn add jest --dev
 
-    - name: Run tests
-      run: sbt test
-
-    - name: Run Build
+    - name: Run Tests and Build
       run: make build
