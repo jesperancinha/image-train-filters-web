@@ -6,6 +6,9 @@ on:
     paths-ignore:
       - 'README.md'
       - 'Readme.md'
+  push:
+    branches:
+      - '!master'
 
 jobs:
   build:
