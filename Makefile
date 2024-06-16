@@ -3,6 +3,7 @@ before:
 	bash setup.sh
 clean:
 	if [ -d ~/.cache/coursier ]; then rm -rf ~/.cache/coursier; fi
+	if [ -d /home/runner/.cache/coursier ]; then rm -rf /home/runner/.cache/coursier; fi
 test:
 	sbt test
 build: clean build-sbt build-npm

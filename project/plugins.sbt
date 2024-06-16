@@ -1,4 +1,4 @@
-scalaVersion := "2.12.13"
+scalaVersion := "2.13.6"
 
 ThisBuild / assumedVersionScheme := VersionScheme.PVP
 ThisBuild / assumedVersionSchemeJava := VersionScheme.EarlySemVer
