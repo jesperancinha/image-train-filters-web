@@ -35,14 +35,9 @@ lazy val commonDependencies = Seq(
   "io.spray" %% "spray-json" % "1.3.6",
   "org.scalactic" %% "scalactic" % "3.2.18",
   "net.liftweb" %% "lift-json" % "3.5.0",
-  "com.typesafe.slick" %% "slick" % "3.5.1",
-  "mysql" % "mysql-connector-java" % "8.0.33",
-  "ch.qos.logback" % "logback-classic" % "1.5.6",
   "com.typesafe.akka" %% "akka-http-core" % "10.5.3",
   "com.typesafe.akka" %% "akka-actor" % "2.8.5",
   "com.typesafe.akka" %% "akka-stream" % "2.8.5",
-  "com.typesafe.akka" %% "akka-slf4j" % "2.8.5",
-  "com.typesafe.akka" %% "akka-cluster" % "2.8.5",
   "com.typesafe.akka" %% "akka-http" % "10.5.3",
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.5.3",
   "com.typesafe.akka" %% "akka-http-testkit" % "10.5.3",
@@ -82,7 +77,6 @@ lazy val assemblySettings = Seq(
   assembly / assemblyMergeStrategy  := {
     case PathList("META-INF", xs @ _*) => MergeStrategy.discard
     case "application.conf"            => MergeStrategy.concat
-    case _                        => MergeStrategy.first
     case x =>
       val oldStrategy = (assemblyMergeStrategy in assembly).value
       oldStrategy(x)
