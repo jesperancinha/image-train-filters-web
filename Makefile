@@ -12,6 +12,7 @@ no-test-sbt:
 	cp -r target service/release
 run:
 	java -jar service/target/scala-2.12/image-train-filters-service.jar
+no-test-sbt-run: no-test-sbt run
 build: clean build-sbt build-npm
 build-cypress:
 	cd e2e && yarn
