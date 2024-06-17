@@ -6,6 +6,13 @@ clean:
 	if [ -d /home/runner/.cache/coursier ]; then rm -rf /home/runner/.cache/coursier; fi
 test:
 	sbt test
+no-test-sbt:
+	mvn dependency:go-offline
+	sbt compile
+	sbt 'test in assembly := {}' clean assembly
+	cp -r target service/release
+run:
+	java -jar service/target/scala-2.12/image-train-filters-service.jar
 build: clean build-sbt build-npm
 build-cypress:
 	cd e2e && yarn
