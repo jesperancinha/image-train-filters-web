@@ -3,8 +3,17 @@ before:
 	bash setup.sh
 clean:
 	if [ -d ~/.cache/coursier ]; then rm -rf ~/.cache/coursier; fi
+	if [ -d /home/runner/.cache/coursier ]; then rm -rf /home/runner/.cache/coursier; fi
 test:
 	sbt test
+mvn-offline:
+	mvn dependency:go-offline
+no-test-sbt:
+	sbt 'set assembly / test := {}' compile clean assembly
+	cp -r target service/release
+run:
+	java -jar service/target/scala-2.12/image-train-filters-service.jar
+no-test-sbt-run: no-test-sbt run
 build: clean build-sbt build-npm
 build-cypress:
 	cd e2e && yarn
@@ -16,7 +25,6 @@ build-image-train-filters-fe:
 	yarn; \
 	npm run build
 build-sbt:
-	mvn dependency:go-offline
 	sbt compile
 	sbt clean assembly
 	cp -r target service/release

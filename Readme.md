@@ -184,8 +184,9 @@ $ yarn build
 $ service nginx reload
 ```
 
-## References
+## Resources
 
+-   [Akka Configuration Reference](https://doc.akka.io/docs/akka/current/general/configuration-reference.html)
 -   [SBT release 1.5.0](https://eed3si9n.com/sbt-1.5.0)
 -   [nginx: multiple websites on one server](https://serverfault.com/questions/845739/nginx-multiple-websites-on-one-server)
 -   [Set up multiple websites on a Digital Ocean droplet running nginx and node.js](https://coderwall.com/p/rldrxa/set-up-multiple-websites-on-a-digital-ocean-droplet-running-nginx-and-node-js)
