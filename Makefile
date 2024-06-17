@@ -8,8 +8,7 @@ test:
 	sbt test
 no-test-sbt:
 	mvn dependency:go-offline
-	sbt compile
-	sbt 'test in assembly := {}' clean assembly
+	sbt 'set test in assembly := {}' compile clean assembly
 	cp -r target service/release
 run:
 	java -jar service/target/scala-2.12/image-train-filters-service.jar
