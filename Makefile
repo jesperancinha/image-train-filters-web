@@ -6,9 +6,10 @@ clean:
 	if [ -d /home/runner/.cache/coursier ]; then rm -rf /home/runner/.cache/coursier; fi
 test:
 	sbt test
-no-test-sbt:
+mvn-offline:
 	mvn dependency:go-offline
-	sbt 'set test in assembly := {}' compile clean assembly
+no-test-sbt:
+	sbt 'set assembly / test := {}' compile clean assembly
 	cp -r target service/release
 run:
 	java -jar service/target/scala-2.12/image-train-filters-service.jar
@@ -24,7 +25,6 @@ build-image-train-filters-fe:
 	yarn; \
 	npm run build
 build-sbt:
-	mvn dependency:go-offline
 	sbt compile
 	sbt clean assembly
 	cp -r target service/release

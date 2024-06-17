@@ -41,6 +41,8 @@ lazy val commonDependencies = Seq(
   "com.typesafe.akka" %% "akka-http-core" % "10.5.3",
   "com.typesafe.akka" %% "akka-actor" % "2.8.5",
   "com.typesafe.akka" %% "akka-stream" % "2.8.5",
+  "com.typesafe.akka" %% "akka-slf4j" % "2.8.5",
+  "com.typesafe.akka" %% "akka-cluster" % "2.8.5",
   "com.typesafe.akka" %% "akka-http" % "10.5.3",
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.5.3",
   "com.typesafe.akka" %% "akka-http-testkit" % "10.5.3",
