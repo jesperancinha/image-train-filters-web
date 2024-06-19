@@ -63,3 +63,9 @@ release
 
 ## Logs
 logs
+
+## Automation
+cypressUpdateOne.sh
+docker-composetmp.yml
+packagetmp.json
+pluginUpdatesOne.sh
