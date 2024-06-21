@@ -10,6 +10,7 @@ on:
       - 'Readme.md'
   push:
     branches:
+      - '**'
       - '!master'
 
 jobs:
