@@ -2,12 +2,15 @@ name: PR image-train-filters-web
 
 on:
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
+      - '!master'
     paths-ignore:
       - 'README.md'
       - 'Readme.md'
   push:
     branches:
+      - '**'
       - '!master'
 
 jobs:
