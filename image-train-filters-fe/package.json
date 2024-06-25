@@ -4,7 +4,7 @@
   "private": false,
   "license": "Apache-2.0",
   "dependencies": {
-    "@angular-slider/ngx-slider": "^17.0.2",
+    "@angular-slider/ngx-slider": "^18.0.0",
     "@angular/animations": "18.0.4",
     "@angular/cdk": "18.0.4",
     "@angular/common": "18.0.4",
