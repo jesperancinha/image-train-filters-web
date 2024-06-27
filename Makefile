@@ -109,7 +109,7 @@ sec-check-npm:
 	npm run snyk
 docker-logs:
 	docker-compose logs
-deps-update:
+deps-sbt-update:
 	cd deps-updater;\
 	make; \
 	make run
