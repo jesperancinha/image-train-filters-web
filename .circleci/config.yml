@@ -2,7 +2,7 @@ version: 2
 jobs:
   build-service:
     docker:
-      - image: jesperancinha/je-all-build-jdk-12:0.0.2
+      - image: eclipse-temurin:21-alpine
 
     working_directory: ~/repo
 
