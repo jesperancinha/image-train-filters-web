@@ -38,8 +38,8 @@
     "snyk": "snyk test"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^18.0.7",
-    "@angular/cli": "^18.0.7",
+    "@angular-devkit/build-angular": "^18.1.0",
+    "@angular/cli": "^18.1.0",
     "@angular/compiler-cli": "18.1.0",
     "@angular/language-service": "18.1.0",
     "@types/jasmine": "5.1.4",
@@ -70,7 +70,7 @@
     "ngx-spec": "^2.1.6",
     "nodeunit": "^0.11.3",
     "protractor": "7.0.0",
-    "ts-jest": "^29.1.5",
+    "ts-jest": "^29.2.2",
     "ts-node": "10.9.2",
     "tslint": "6.1.3"
   }
