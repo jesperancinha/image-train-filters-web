@@ -70,7 +70,7 @@ docker-stop-all:
 	docker network prune
 docker-build:
 	docker-compose build
-dcd: stop docker-clean
+dcd: dc-migration stop docker-clean
 	docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 dcup: dcd
 	docker-compose up -d
@@ -130,3 +130,5 @@ deps-node-update:
 deps-quick-update: deps-cypress-update deps-plugins-update deps-java-update deps-node-update
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
+dc-migration:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
