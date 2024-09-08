@@ -1,9 +1,6 @@
 name: PR image-train-filters-web
 
 on:
-  pull_request_target:
-    branches:
-      - '**'
   create:
     branches:
       - '**'
