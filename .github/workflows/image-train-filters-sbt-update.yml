@@ -25,16 +25,16 @@ jobs:
           source "$HOME/.sdkman/bin/sdkman-init.sh"
           sdk install sbt
 
-      - name: Set up Node.js
+      - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Run dependency update script
-        run: make deps-update
+        run: make deps-sbt-update
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: Update sbt dependencies
           branch: update-sbt-dependencies

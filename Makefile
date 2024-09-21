@@ -70,7 +70,7 @@ docker-stop-all:
 	docker network prune
 docker-build:
 	docker-compose build
-dcd: stop docker-clean
+dcd: dc-migration stop docker-clean
 	docker-compose -f docker-compose.yml -f docker-compose.override.yml down
 dcup: dcd
 	docker-compose up -d
@@ -109,7 +109,7 @@ sec-check-npm:
 	npm run snyk
 docker-logs:
 	docker-compose logs
-deps-update:
+deps-sbt-update:
 	cd deps-updater;\
 	make; \
 	make run
@@ -123,3 +123,12 @@ deps-cypress-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/cypressUpdateOne.sh | bash
 deps-plugins-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/pluginUpdatesOne.sh | bash
+deps-java-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/javaUpdatesOne.sh | bash
+deps-node-update:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/nodeUpdatesOne.sh | bash
+deps-quick-update: deps-cypress-update deps-plugins-update deps-java-update deps-node-update
+accept-prs:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
+dc-migration:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
