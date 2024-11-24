@@ -17,6 +17,7 @@ const EMPTY_LENGTH = 0;
     selector: 'image-loader',
     styleUrls: ['./image.loader.css'],
     templateUrl: './image.loader.html',
+    standalone: false
 })
 export class ImageComponent implements OnInit {
     public uploader: FileUploader;
