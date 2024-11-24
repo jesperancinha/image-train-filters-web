@@ -60,6 +60,7 @@ release
 
 ## Angular
 .angular
+./package.json
 
 ## Logs
 logs

@@ -6,6 +6,7 @@ import {Command} from "../../command-types/command";
     selector: 'image-loader-kuwaharara',
     styleUrls: ['./image.loader.kuwahara.css'],
     templateUrl: './image.loader.kuwahara.html',
+    standalone: false
 })
 export class ImageLoaderKuwaharaComponent implements OnInit {
 
