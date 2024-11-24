@@ -16,6 +16,7 @@ const DEFAULT_UNICODE = "LATIN_EXTENDED_A";
     selector: 'image-loader-chartizate',
     styleUrls: ['./image.loader.chartizate.scss'],
     templateUrl: './image.loader.chartizate.html',
+    standalone: false
 })
 export class ImageLoaderChartizateComponent implements OnInit {
 
