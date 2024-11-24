@@ -11,6 +11,7 @@ const DEFAULT_RADIUS = 2;
     selector: 'image-loader-contour',
     styleUrls: ['./image.loader.contour.css'],
     templateUrl: './image.loader.contour.html',
+    standalone: false
 })
 export class ImageLoaderContourComponent implements OnInit {
     public loading: boolean;
