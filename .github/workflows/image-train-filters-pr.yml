@@ -31,6 +31,9 @@ jobs:
       with:
         node-version: 20
 
+    - name: Install SBT
+      run: ./installSBT.sh
+
     - name: Install Jest Image Train Filters Web
       run: cd image-train-filters-fe && yarn && yarn add jest --dev
 
