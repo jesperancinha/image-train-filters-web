@@ -25,7 +25,7 @@
     "rxjs-compat": "6.6.7",
     "web-animations-js": "2.3.2",
     "zone.js": "0.15.0",
-    "typescript": "<5.7.0"
+    "typescript": "<5.8.0"
   },
   "scripts": {
     "ng": "ng",
