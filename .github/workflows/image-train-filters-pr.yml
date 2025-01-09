@@ -31,6 +31,9 @@ jobs:
       with:
         node-version: 20
 
+    - name: Install SBT
+      run: curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup
+
     - name: Install Jest Image Train Filters Web
       run: cd image-train-filters-fe && yarn && yarn add jest --dev
 
