@@ -11,7 +11,7 @@
     "@angular/compiler": "19.2.14",
     "@angular/core": "19.2.14",
     "@angular/forms": "19.2.14",
-    "@angular/platform-browser": "19.2.13",
+    "@angular/platform-browser": "19.2.14",
     "@angular/platform-browser-dynamic": "19.2.13",
     "@angular/router": "19.2.14",
     "@nebular/eva-icons": "15.0.0",
