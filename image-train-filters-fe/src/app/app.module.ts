@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
@@ -19,7 +19,6 @@ import {
     NbThemeModule,
 } from '@nebular/theme';
 import {RouterModule} from "@angular/router";
-import {ColorPickerModule} from "ngx-color-picker";
 import {ImageLoaderChartizateComponent} from "./image-loader/image-loader-chartizate/image.loader.chartizate";
 import {ImageLoaderContourComponent} from "./image-loader/image-loader-contour/image.loader.contour";
 import {ImageLoaderKuwaharaComponent} from "./image-loader/image-loader-kuwahara/image.loader.kuwahara";
@@ -54,11 +53,11 @@ import {NgxSliderModule} from "@angular-slider/ngx-slider";
         FileUploadModule,
         NbAlertModule,
         NbTabsetModule,
-        ColorPickerModule,
         NbSelectModule,
         HttpClientModule,
         NgxSliderModule,
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AppModule {
 }
