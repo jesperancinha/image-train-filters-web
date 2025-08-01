@@ -65,16 +65,17 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "demo:build:production"
+              "buildTarget": "demo:build:production"
             },
             "development": {
-              "browserTarget": "itf:build:development"
+              "buildTarget": "demo:build:development"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "buildTarget": "demo:build"
           }
         },
         "test": {
