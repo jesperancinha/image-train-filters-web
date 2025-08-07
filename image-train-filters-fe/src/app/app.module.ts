@@ -24,6 +24,7 @@ import {ImageLoaderContourComponent} from "./image-loader/image-loader-contour/i
 import {ImageLoaderKuwaharaComponent} from "./image-loader/image-loader-kuwahara/image.loader.kuwahara";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
+import {ColorPickerDirective} from "ngx-color-picker";
 
 @NgModule({
     bootstrap: [
@@ -56,6 +57,7 @@ import {NgxSliderModule} from "@angular-slider/ngx-slider";
         NbSelectModule,
         HttpClientModule,
         NgxSliderModule,
+        ColorPickerDirective,
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
