@@ -1,5 +1,13 @@
 // Import the required setup from jest-preset-angular
 import 'jest-preset-angular/setup-env/zone';
+import { getTestBed } from '@angular/core/testing';
+import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
+
+// Initialize the Angular testing environment
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
 
 // Optional: Configure global mocks for Angular elements
 Object.defineProperty(window, 'CSS', { value: null });

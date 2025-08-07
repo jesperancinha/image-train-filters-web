@@ -20,8 +20,9 @@ import {
     NbThemeModule
 } from "@nebular/theme";
 import {RouterModule} from "@angular/router";
-import {ColorPickerModule} from "ngx-color-picker";
 import {HttpClientModule} from "@angular/common/http";
+import {ColorPickerDirective} from "ngx-color-picker";
+import {NgxSliderModule} from "@angular-slider/ngx-slider";
 
 
 describe('AppComponent', () => {
@@ -29,6 +30,7 @@ describe('AppComponent', () => {
     let fixture: ComponentFixture<AppComponent>;
 
     beforeEach((() => {
+
         TestBed.configureTestingModule({
             declarations: [
                 AppComponent,
@@ -53,9 +55,10 @@ describe('AppComponent', () => {
                 NbSpinnerModule,
                 NbAlertModule,
                 NbTabsetModule,
-                ColorPickerModule,
                 NbSelectModule,
                 HttpClientModule,
+                NgxSliderModule,
+                ColorPickerDirective,
             ],
         })
             .compileComponents();
