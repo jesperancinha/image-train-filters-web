@@ -6,7 +6,7 @@
   "dependencies": {
     "@angular-slider/ngx-slider": "^20.0.0",
     "@angular/animations": "20.1.4",
-    "@angular/cdk": "20.1.4",
+    "@angular/cdk": "20.1.5",
     "@angular/common": "20.1.4",
     "@angular/compiler": "20.1.4",
     "@angular/core": "20.1.4",
@@ -38,14 +38,14 @@
     "snyk": "snyk test"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.1.4",
-    "@angular/cli": "20.1.4",
-    "@angular/compiler-cli": "20.1.4",
-    "@angular/language-service": "20.1.4",
+    "@angular-devkit/build-angular": "20.1.5",
+    "@angular/cli": "20.1.5",
+    "@angular/compiler-cli": "20.1.6",
+    "@angular/language-service": "20.1.6",
     "@types/jasmine": "5.1.8",
     "@types/jasminewd2": "2.0.13",
     "@types/jest": "^30.0.0",
-    "@types/node": "24.2.0",
+    "@types/node": "24.2.1",
     "chai": "^5.2.1",
     "codecov": "^3.8.3",
     "codelyzer": "6.0.2",
@@ -70,7 +70,7 @@
     "ngx-spec": "^2.1.6",
     "nodeunit": "^0.11.3",
     "protractor": "7.0.0",
-    "ts-jest": "^29.4.0",
+    "ts-jest": "^29.4.1",
     "ts-node": "10.9.2",
     "tslint": "6.1.3"
   }
