@@ -29,7 +29,7 @@ jobs:
 
   build-front-end:
     docker:
-        - image: cimg/node:20.0.0
+        - image: cimg/node:22.0.0
     environment:
       JVM_OPTS: -Xmx3200m
       TERM: dumb
