@@ -23,6 +23,6 @@ jobs:
           branch: update-node
           title: 'Update node'
           body: |
-            This pull request updates the JDK:
+            This pull request updates the Node:
             - Current plugin updates
-          labels: JDK
+          labels: Node
