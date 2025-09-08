@@ -14,10 +14,12 @@ jobs:
           distribution: 'adopt'
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
-      - name: Install SBT
-        run: ./installSBT.sh
+      - uses: sbt/setup-sbt@v1
+      - name: Build and test
+        shell: bash
+        run: sbt -v +test
 
       - name: Start Docker
         run: make dcup-full-action
@@ -41,10 +43,12 @@ jobs:
           distribution: 'adopt'
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
-      - name: Install SBT
-        run: ./installSBT.sh
+      - uses: sbt/setup-sbt@v1
+      - name: Build and test
+        shell: bash
+        run: sbt -v +test
 
       - name: Start Docker
         run: make dcup-full-action
@@ -68,10 +72,12 @@ jobs:
           distribution: 'adopt'
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
-      - name: Install SBT
-        run: ./installSBT.sh
+      - uses: sbt/setup-sbt@v1
+      - name: Build and test
+        shell: bash
+        run: sbt -v +test
 
       - name: Start Docker
         run: make dcup-full-action
@@ -95,10 +101,12 @@ jobs:
           distribution: 'adopt'
       - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 22
 
-      - name: Install SBT
-        run: ./installSBT.sh
+      - uses: sbt/setup-sbt@v1
+      - name: Build and test
+        shell: bash
+        run: sbt -v +test
 
       - name: Start Docker
         run: make dcup-full-action

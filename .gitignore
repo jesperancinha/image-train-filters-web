@@ -74,3 +74,4 @@ pluginUpdatesOne.sh
 javaUpdatesOne.sh
 nodeUpdatesOne.sh
 .output.txt
+sbt
