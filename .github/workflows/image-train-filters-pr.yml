@@ -29,10 +29,12 @@ jobs:
         distribution: 'adopt'
     - uses: actions/setup-node@v5
       with:
-        node-version: 20
+        node-version: 22
 
-    - name: Install SBT
-      run: ./installSBT.sh
+    - uses: sbt/setup-sbt@v1
+    - name: Build and test
+      shell: bash
+      run: sbt -v +test
 
     - name: Install Jest Image Train Filters Web
       run: cd image-train-filters-fe && yarn && yarn add jest --dev
