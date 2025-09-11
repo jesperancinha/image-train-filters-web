@@ -60,7 +60,6 @@ omni-config.json
 release
 
 ## Angular
-.angular
 ./package.json
 
 ## Logs
