@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup sdkman
         run: |
@@ -25,10 +25,10 @@ jobs:
           source "$HOME/.sdkman/bin/sdkman-init.sh"
           sdk install sbt
 
-      - name: Set up Node.js 20
-        uses: actions/setup-node@v4
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Run dependency update script
         run: make deps-sbt-update
