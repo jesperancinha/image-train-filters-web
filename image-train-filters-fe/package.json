@@ -38,15 +38,15 @@
     "snyk": "snyk test"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "20.3.10",
-    "@angular/cli": "20.3.10",
-    "@angular/compiler-cli": "20.3.12",
-    "@angular/language-service": "20.3.12",
+    "@angular-devkit/build-angular": "21.0.4",
+    "@angular/cli": "21.0.4",
+    "@angular/compiler-cli": "21.0.6",
+    "@angular/language-service": "21.0.6",
     "@types/jasmine": "5.1.13",
     "@types/jasminewd2": "2.0.13",
     "@types/jest": "^30.0.0",
     "@types/node": "25.0.3",
-    "chai": "^6.2.1",
+    "chai": "^6.2.2",
     "codecov": "^3.8.3",
     "codelyzer": "6.0.2",
     "coveralls": "^3.1.1",
@@ -70,7 +70,7 @@
     "ngx-spec": "^2.1.6",
     "nodeunit": "^0.11.3",
     "protractor": "7.0.0",
-    "ts-jest": "^29.4.5",
+    "ts-jest": "^29.4.6",
     "ts-node": "10.9.2",
     "tslint": "6.1.3"
   }
