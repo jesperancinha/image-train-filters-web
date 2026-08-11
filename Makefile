@@ -71,7 +71,7 @@ docker-stop-all:
 docker-build:
 	docker compose build
 dcd: stop docker-clean
-	docker compose -f docker-compose.yml -f docker compose.override.yml down
+	docker compose -f docker-compose.yml -f docker-compose.override.yml down
 dcup: dcd
 	docker compose up -d
 	make itf-wait
