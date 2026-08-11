@@ -71,7 +71,7 @@ docker-stop-all:
 docker-build:
 	docker compose build
 dcd: stop docker-clean
-	docker compose -f docker compose.yml -f docker compose.override.yml down
+	docker compose -f docker-compose.yml -f docker compose.override.yml down
 dcup: dcd
 	docker compose up -d
 	make itf-wait
@@ -117,7 +117,7 @@ deps-npm-update: update
 revert-deps-cypress-update:
 	if [ -f  e2e/docker composetmp.yml ]; then rm e2e/docker composetmp.yml; fi
 	if [ -f  e2e/packagetmp.json ]; then rm e2e/packagetmp.json; fi
-	git checkout e2e/docker compose.yml
+	git checkout e2e/docker-compose.yml
 	git checkout e2e/package.json
 deps-cypress-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/cypressUpdateOne.sh | bash
