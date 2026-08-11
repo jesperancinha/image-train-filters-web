@@ -62,18 +62,18 @@ stop:
 	docker ps -a -q --filter="name=itf" | xargs -I {} docker stop {}
 	docker ps -a -q --filter="name=itf" | xargs -I {} docker rm {}
 docker-clean: stop
-	docker-compose down -v
-	docker-compose rm -svf
+	docker compose down -v
+	docker compose rm -svf
 docker-stop-all:
 	docker ps -a --format '{{.ID}}' | xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
 	docker network prune
 docker-build:
-	docker-compose build
-dcd: dc-migration stop docker-clean
-	docker-compose -f docker-compose.yml -f docker-compose.override.yml down
+	docker compose build
+dcd: stop docker-clean
+	docker compose -f docker compose.yml -f docker compose.override.yml down
 dcup: dcd
-	docker-compose up -d
+	docker compose up -d
 	make itf-wait
 itf-wait:
 	bash itf_wait.sh
@@ -83,11 +83,11 @@ install-angular-cli:
 dcup-full-action: before dcd docker-clean build dcup
 local-pipeline: before dcd docker-clean build test-sbt test-npm
 build-backend:
-	docker-compose stop itf-backend
-	docker-compose rm itf-backend
+	docker compose stop itf-backend
+	docker compose rm itf-backend
 	make build-sbt
-	docker-compose build --no-cache itf-backend
-	docker-compose up -d itf-backend
+	docker compose build --no-cache itf-backend
+	docker compose up -d itf-backend
 cypress-open-docker:
 	cd e2e && yarn && npm run cypress:open:docker
 cypress-open:
@@ -108,16 +108,16 @@ sec-check-npm:
 	sudo npm i -g snyk; \
 	npm run snyk
 docker-logs:
-	docker-compose logs
+	docker compose logs
 deps-sbt-update:
 	cd deps-updater;\
 	make; \
 	make run
 deps-npm-update: update
 revert-deps-cypress-update:
-	if [ -f  e2e/docker-composetmp.yml ]; then rm e2e/docker-composetmp.yml; fi
+	if [ -f  e2e/docker composetmp.yml ]; then rm e2e/docker composetmp.yml; fi
 	if [ -f  e2e/packagetmp.json ]; then rm e2e/packagetmp.json; fi
-	git checkout e2e/docker-compose.yml
+	git checkout e2e/docker compose.yml
 	git checkout e2e/package.json
 deps-cypress-update:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/cypressUpdateOne.sh | bash
@@ -132,5 +132,3 @@ accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
 update-repo-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/update-all-repo-prs.sh | bash
-dc-migration:
-	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
