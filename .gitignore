@@ -75,3 +75,4 @@ javaUpdatesOne.sh
 nodeUpdatesOne.sh
 .output.txt
 sbt
+dependabot.yml.bak
