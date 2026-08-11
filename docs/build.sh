@@ -13,7 +13,7 @@ docker-machine env ${machine}
 
 eval $(docker-machine env  ${machine})
 
-docker-compose down
+docker compose down
 
 docker stop image-train-filters-scala_itf_1
 docker rm image-train-filters-scala_itf_1
@@ -27,4 +27,4 @@ yarn autoclean --init --force
 yarn build
 cd ..
 
-docker-compose up -d --build --remove-orphans
+docker compose up -d --build --remove-orphans
