@@ -2,7 +2,7 @@ version: 2
 jobs:
   build-service:
     docker:
-      - image: eclipse-temurin:21-alpine
+      - image: eclipse-temurin:25-alpine
 
     working_directory: ~/repo
 
