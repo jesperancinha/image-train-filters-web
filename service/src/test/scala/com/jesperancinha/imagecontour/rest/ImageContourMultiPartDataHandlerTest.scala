@@ -6,21 +6,20 @@ import com.jesperancinha.imagecontour.filters.chartizate.ImageChartizate
 import com.jesperancinha.imagecontour.filters.contour.ImageContour
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, SettingItem}
-import org.mockito.MockitoSugar
 import org.scalatest.funsuite.AnyFunSuite
 
 import java.awt.image.{BufferedImage, Raster}
 import scala.concurrent.ExecutionContextExecutor
 
-class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar {
+class ImageContourMultiPartDataHandlerTest extends AnyFunSuite {
 
   val imageContourMultiPartDataHandler: ImageContourMultiPartDataHandler =
     new ImageContourMultiPartDataHandler {
-      override implicit val system: ActorSystem = mock[ActorSystem]
+      override implicit val system: ActorSystem = ActorSystem("test")
 
-      override implicit def executor: ExecutionContextExecutor = mock[ExecutionContextExecutor]
+      override implicit def executor: ExecutionContextExecutor = system.dispatcher
 
-      override implicit val materializer: Materializer = mock[Materializer]
+      override implicit val materializer: Materializer = Materializer(system)
     }
 
   test("testCreateFilterFromCommandContainterImageContour") {
@@ -32,7 +31,7 @@ class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar
     )
     val container: CommandContainer = CommandContainer("imageContour", items)
 
-    val mockImageBuffer = mock[BufferedImage]
+    val mockImageBuffer = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB)
     val result: ImageContour =
       imageContourMultiPartDataHandler
         .createFilterFromCommandContainter(container, mockImageBuffer)
@@ -59,9 +58,7 @@ class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar
     )
     val container: CommandContainer = CommandContainer("imageKuwahara", items)
 
-    val mockBufferedImage = mock[BufferedImage]
-    val mockRaster = mock[Raster]
-    when(mockBufferedImage.getData()) thenReturn mockRaster
+    val mockBufferedImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB)
     val result: ImageKuwahara =
       imageContourMultiPartDataHandler
         .createFilterFromCommandContainter(container, mockBufferedImage)
@@ -74,10 +71,10 @@ class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar
       10
     }
     assertResult(result.w) {
-      0
+      10
     }
     assertResult(result.h) {
-      0
+      10
     }
   }
 
@@ -91,9 +88,7 @@ class ImageContourMultiPartDataHandlerTest extends AnyFunSuite with MockitoSugar
       SettingItem("bgColor", "3333"),
     )
     val container: CommandContainer = CommandContainer("imageChartizate", items)
-    val mockBufferedImage = mock[BufferedImage]
-    val mockRaster = mock[Raster]
-    when(mockBufferedImage.getData()) thenReturn mockRaster
+    val mockBufferedImage = new BufferedImage(10, 10, BufferedImage.TYPE_INT_RGB)
     val result: ImageChartizate =
       imageContourMultiPartDataHandler
         .createFilterFromCommandContainter(container, mockBufferedImage)

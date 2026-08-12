@@ -55,7 +55,7 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
     result match {
       case Failure(exception) =>
         println("Failure in finding RGB deviation".concat(exception.getMessage))
-        println(x, y)
+        println(s"$x, $y")
       case Success(_) =>
     }
   }
@@ -87,7 +87,7 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
       yRange.foreach(j => {
         val result = Try(adds4ChannelValuesToTotalArray(arr, total, i, j))
         result match {
-          case Failure(exception) => println("Get Average Out of bounds! ", i, j)
+          case Failure(exception) => println(s"Get Average Out of bounds! $i, $j")
             throw exception
           case Success(value) => value
         }
@@ -129,7 +129,7 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
           hsvResult match {
 
 
-            case Failure(exception) => println("Get Average Grey Out of bounds! ", i, j)
+            case Failure(exception) => println(s"Get Average Grey Out of bounds! $i, $j")
               throw exception
             case Success(hsv) => hsv
           }
@@ -165,7 +165,7 @@ class ImageKuwahara(val squareSize: Int, val iterations: Int, bufferedImage: Buf
         val result = Try(calculateStdParticle(avg, arr, i, j))
         result match {
           case Success(value) => value
-          case Failure(exception) => println("Get Standard Deviation Out of bounds! ", i, j)
+          case Failure(exception) => println(s"Get Standard Deviation Out of bounds! $i, $j")
             throw exception
         }
       }).sum
