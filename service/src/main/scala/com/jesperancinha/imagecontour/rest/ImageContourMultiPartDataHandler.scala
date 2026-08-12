@@ -17,7 +17,6 @@ import com.jesperancinha.imagecontour.filters.chartizate._
 import com.jesperancinha.imagecontour.filters.contour.{ImageContour, ImageContourConfig}
 import com.jesperancinha.imagecontour.filters.kuwahara.ImageKuwahara
 import com.jesperancinha.imagecontour.objects.{CommandContainer, Commands, Item, JsonSupport}
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64
 import javax.imageio.ImageIO
 import net.liftweb.json.{DefaultFormats, parse}
 import org.jesperancinha.chartizate.ChartizateFonts.getAllAvailableFonts
@@ -51,7 +50,7 @@ trait ImageContourMultiPartDataHandler extends JsonSupport {
     import java.io.ByteArrayOutputStream
     val outputStream = new ByteArrayOutputStream
     ImageIO.write(result, "png", outputStream)
-    HttpResponse(OK, entity = Base64.encode(outputStream.toByteArray))
+    HttpResponse(OK, entity = java.util.Base64.getEncoder.encodeToString(outputStream.toByteArray))
   }
 
   def pathUnicodes: Route = {
