@@ -16,10 +16,10 @@ final case class Item(name: String, content: Array[String])
 // collect your json format instances into a support trait:
 trait JsonSupport extends SprayJsonSupport with DefaultJsonProtocol with Directives {
 
-  implicit val settingItemFormat: RootJsonFormat[SettingItem] = jsonFormat2(SettingItem)
-  implicit val commandContainerFormat: RootJsonFormat[CommandContainer] = jsonFormat2(CommandContainer)
-  implicit val commandsFormat: RootJsonFormat[Commands] = jsonFormat1(Commands)
-  implicit val itemFormat: RootJsonFormat[Item] = jsonFormat2(Item)
+  implicit val settingItemFormat: RootJsonFormat[SettingItem] = jsonFormat2(SettingItem.apply)
+  implicit val commandContainerFormat: RootJsonFormat[CommandContainer] = jsonFormat2(CommandContainer.apply)
+  implicit val commandsFormat: RootJsonFormat[Commands] = jsonFormat1(Commands.apply)
+  implicit val itemFormat: RootJsonFormat[Item] = jsonFormat2(Item.apply)
 
   implicit class StringConversions(s: String) {
     def toIntFromHex: Int = Integer.decode(s)
