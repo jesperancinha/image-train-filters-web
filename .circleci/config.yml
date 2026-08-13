@@ -23,9 +23,22 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Install dependencies
+          name: Install SDKMAN
           command: |
-            apk add --no-cache sbt
+            apt-get update
+            apt-get install -y curl zip unzip
+            export SDKMAN_DIR="$HOME/.sdkman"
+            curl -s "https://get.sdkman.io?rcupdate=false" | bash
+            echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
+            echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
+            source "$HOME/.bashrc"
+            sdk version
+
+      - run:
+          name: Install sbt
+          command: |
+            sdk install sbt
+            sbt --version
 
       - run:
           name: Compile tests
