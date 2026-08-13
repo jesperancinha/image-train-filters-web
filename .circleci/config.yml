@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Install SDKMAN
           command: |
-            apk add curl zip unzip
+            apk add bash curl zip unzip
             export SDKMAN_DIR="$HOME/.sdkman"
             curl -s "https://get.sdkman.io?rcupdate=false" | bash
             echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
