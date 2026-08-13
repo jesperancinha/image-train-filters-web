@@ -49,7 +49,7 @@ jobs:
             '
       - run:
           name: Compile tests
-          command:
+          command: |
             bash -c '
               source "$HOME/.bashrc"
               cat /dev/null | sbt test:compile
