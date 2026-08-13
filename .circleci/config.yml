@@ -31,9 +31,9 @@ jobs:
           name: Install sbt
           command: |
             curl -L https://github.com/sbt/sbt-extras/raw/master/sbt \
-              -o /usr/local/bin/sbt
-            chmod +x /usr/local/bin/sbt
-            sbt test
+              -o /usr/local/bin/sbt; \
+            chmod +x /usr/local/bin/sbt; \
+            sbt test;
 
       - run:
           name: Compile tests
