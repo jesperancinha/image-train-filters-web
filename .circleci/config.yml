@@ -50,7 +50,6 @@ jobs:
           name: Compile tests
           shell: /bin/bash -eo pipefail
           command: |
-            source "$HOME/.bashrc"
             cat /dev/null | sbt test:compile
 
       - save_cache:
