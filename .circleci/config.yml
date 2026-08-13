@@ -23,8 +23,34 @@ jobs:
             - v1-dependencies-
 
       - run:
+          name: Install dependencies
+          shell: /bin/sh -eo pipefail
+          command: |
+            apk add bash curl zip unzip libc6-compat
+
+      - run:
+          name: Install SDKMAN
+          shell: /bin/bash -eo pipefail
+          command: |
+            export SDKMAN_DIR="$HOME/.sdkman"
+            curl -s "https://get.sdkman.io?rcupdate=false" | bash
+            echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$BASH_ENV"
+            echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$BASH_ENV"
+            source "$BASH_ENV"
+            sdk version
+
+      - run:
+          name: Install sbt
+          shell: /bin/bash -eo pipefail
+          command: |
+            sdk install sbt
+            sbt --version
+
+      - run:
           name: Compile tests
-          command: cat /dev/null | sbt test:compile
+          shell: /bin/bash -eo pipefail
+          command: |
+            cat /dev/null | sbt test:compile
 
       - save_cache:
           paths:
