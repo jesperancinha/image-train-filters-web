@@ -34,18 +34,17 @@ jobs:
               apk add bash curl zip unzip
               export SDKMAN_DIR="$HOME/.sdkman"
               curl -s "https://get.sdkman.io?rcupdate=false" | bash
-              cat >> "$BASH_ENV" <<''EOF''
               export SDKMAN_DIR="$HOME/.sdkman"
               source "$SDKMAN_DIR/bin/sdkman-init.sh"
-              EOF
-              source "$BASH_ENV"
               sdk version
             '
+
       - run:
           name: Install sbt
           command: |
             bash -c '
-              source "$HOME/.bashrc"
+              export SDKMAN_DIR="$HOME/.sdkman"
+              source "$SDKMAN_DIR/bin/sdkman-init.sh"
               sdk install sbt
               sbt --version
             '
@@ -53,7 +52,8 @@ jobs:
           name: Compile tests
           command: |
             bash -c '
-              source "$HOME/.bashrc"
+              export SDKMAN_DIR="$HOME/.sdkman"
+              source "$SDKMAN_DIR/bin/sdkman-init.sh"
               cat /dev/null | sbt test:compile
             '
 
