@@ -30,8 +30,14 @@ td {
   padding: 10px;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
 // We need to use ::ng-deep to overcome view encapsulation
-::ng-deep {
+:host ::ng-deep {
   .custom-slider .ngx-slider .ngx-slider-bar {
     background: #0095ff;
     height: 2px;

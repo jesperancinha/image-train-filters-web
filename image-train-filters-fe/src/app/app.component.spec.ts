@@ -1,4 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {provideRouter} from '@angular/router';
+import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClientTesting} from '@angular/common/http/testing';
 
 import {AppComponent} from './app.component';
 import {ImageComponent} from "./image-loader/image.loader";
@@ -19,10 +22,9 @@ import {
     NbTabsetModule,
     NbThemeModule
 } from "@nebular/theme";
-import {RouterModule} from "@angular/router";
-import {HttpClientModule} from "@angular/common/http";
 import {ColorPickerDirective} from "ngx-color-picker";
 import {NgxSliderModule} from "@angular-slider/ngx-slider";
+import {FileUploadModule} from "ng2-file-upload";
 
 
 describe('AppComponent', () => {
@@ -45,10 +47,6 @@ describe('AppComponent', () => {
                 NbButtonModule,
                 NbThemeModule.forRoot(),
                 NbLayoutModule,
-                RouterModule.forRoot([{
-                    component: AppComponent,
-                    path: '',
-                },], {useHash: true}),
                 NbSidebarModule.forRoot(),
                 NbInputModule,
                 NbCardModule,
@@ -56,10 +54,18 @@ describe('AppComponent', () => {
                 NbAlertModule,
                 NbTabsetModule,
                 NbSelectModule,
-                HttpClientModule,
                 NgxSliderModule,
                 ColorPickerDirective,
+                FileUploadModule,
             ],
+            providers: [
+                provideRouter([{
+                    component: AppComponent,
+                    path: '',
+                },]),
+                provideHttpClient(),
+                provideHttpClientTesting(),
+            ]
         })
             .compileComponents();
         fixture = TestBed.createComponent(AppComponent)
