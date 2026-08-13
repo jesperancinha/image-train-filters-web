@@ -37,7 +37,6 @@ jobs:
               cat >> "$BASH_ENV" <<'EOF'
               export SDKMAN_DIR="$HOME/.sdkman"
               source "$SDKMAN_DIR/bin/sdkman-init.sh"
-              EOF
               source "$BASH_ENV"
               sdk version
             '
