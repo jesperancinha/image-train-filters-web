@@ -34,9 +34,9 @@ jobs:
           command: |
             export SDKMAN_DIR="$HOME/.sdkman"
             curl -s "https://get.sdkman.io?rcupdate=false" | bash
-            echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
-            echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
-            source "$HOME/.bashrc"
+            echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$BASH_ENV"
+            echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$BASH_ENV"
+            source "$BASH_ENV"
             sdk version
 
       - run:
