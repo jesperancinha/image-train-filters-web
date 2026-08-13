@@ -27,7 +27,7 @@ jobs:
           command: |
             apk add bash curl zip unzip
             export SDKMAN_DIR="$HOME/.sdkman"
-            curl -s "https://get.sdkman.io?rcupdate=false" | bash
+            bash -c 'curl -s "https://get.sdkman.io?rcupdate=false" | bash'
             echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
             echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
             source "$HOME/.bashrc"
@@ -36,12 +36,15 @@ jobs:
       - run:
           name: Install sbt
           command: |
+            source "$HOME/.bashrc"
             sdk install sbt
             sbt --version
 
       - run:
           name: Compile tests
-          command: cat /dev/null | sbt test:compile
+          command: |
+            source "$HOME/.bashrc"
+            cat /dev/null | sbt test:compile
 
       - save_cache:
           paths:
