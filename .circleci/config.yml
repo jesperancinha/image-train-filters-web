@@ -24,38 +24,33 @@ jobs:
 
       - run:
           name: Install dependencies
+          shell: /bin/sh -eo pipefail
           command: |
             apk add bash curl zip unzip
 
       - run:
           name: Install SDKMAN
+          shell: /bin/bash -eo pipefail
           command: |
-            bash -c '
-              apk add bash curl zip unzip
-              export SDKMAN_DIR="$HOME/.sdkman"
-              curl -s "https://get.sdkman.io?rcupdate=false" | bash
-              export SDKMAN_DIR="$HOME/.sdkman"
-              source "$SDKMAN_DIR/bin/sdkman-init.sh"
-              sdk version
-            '
+            export SDKMAN_DIR="$HOME/.sdkman"
+            curl -s "https://get.sdkman.io?rcupdate=false" | bash
+            echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
+            echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
+            sdk version
 
       - run:
           name: Install sbt
+          shell: /bin/bash -eo pipefail
           command: |
-            bash -c '
-              export SDKMAN_DIR="$HOME/.sdkman"
-              source "$SDKMAN_DIR/bin/sdkman-init.sh"
-              sdk install sbt
-              sbt --version
-            '
+            sdk install sbt
+            sbt --version
+
       - run:
           name: Compile tests
+          shell: /bin/bash -eo pipefail
           command: |
-            bash -c '
-              export SDKMAN_DIR="$HOME/.sdkman"
-              source "$SDKMAN_DIR/bin/sdkman-init.sh"
-              cat /dev/null | sbt test:compile
-            '
+            source "$HOME/.bashrc"
+            cat /dev/null | sbt test:compile
 
       - save_cache:
           paths:
