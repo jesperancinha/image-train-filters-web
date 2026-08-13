@@ -36,7 +36,6 @@ jobs:
               curl -s "https://get.sdkman.io?rcupdate=false" | bash
               echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
               echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
-              source "$HOME/.bashrc"
               sdk version
             '
 
@@ -44,6 +43,7 @@ jobs:
           name: Install sbt
           command: |
             bash -c '
+              source "$HOME/.bashrc"
               sdk install sbt
               sbt --version
             '
@@ -51,6 +51,7 @@ jobs:
           name: Compile tests
           command:
             bash -c '
+              source "$HOME/.bashrc"
               cat /dev/null | sbt test:compile
             '
 
