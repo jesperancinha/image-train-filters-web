@@ -34,9 +34,10 @@ jobs:
               apk add bash curl zip unzip
               export SDKMAN_DIR="$HOME/.sdkman"
               curl -s "https://get.sdkman.io?rcupdate=false" | bash
-              cat >> "$BASH_ENV" <<'EOF'
+              cat >> "$BASH_ENV" <<''EOF''
               export SDKMAN_DIR="$HOME/.sdkman"
               source "$SDKMAN_DIR/bin/sdkman-init.sh"
+              EOF
               source "$BASH_ENV"
               sdk version
             '
