@@ -14,6 +14,8 @@ jobs:
       JVM_OPTS: -Xmx3200m
       TERM: dumb
 
+    shell: /bin/bash --login -eo pipefail
+
     steps:
       - checkout
 
@@ -25,10 +27,9 @@ jobs:
       - run:
           name: Install SDKMAN
           command: |
-            apk add --no-cache bash curl zip unzip
+            apk add bash curl zip unzip
             export SDKMAN_DIR="$HOME/.sdkman"
-            curl -s "https://get.sdkman.io?rcupdate=false" -o /tmp/install-sdkman.sh
-            bash /tmp/install-sdkman.sh
+            curl -s "https://get.sdkman.io?rcupdate=false" | bash
             echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
             echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
             source "$HOME/.bashrc"
@@ -37,15 +38,12 @@ jobs:
       - run:
           name: Install sbt
           command: |
-            source "$HOME/.bashrc"
             sdk install sbt
             sbt --version
 
       - run:
           name: Compile tests
-          command: |
-            source "$HOME/.bashrc"
-            cat /dev/null | sbt test:compile
+          command: cat /dev/null | sbt test:compile
 
       - save_cache:
           paths:
