@@ -25,25 +25,36 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Install SDKMAN
+          name: Install dependencies
           command: |
             apk add bash curl zip unzip
-            export SDKMAN_DIR="$HOME/.sdkman"
-            curl -s "https://get.sdkman.io?rcupdate=false" | bash
-            echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
-            echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
-            source "$HOME/.bashrc"
-            sdk version
+
+      - run:
+          name: Install SDKMAN
+          command: |
+            bash -c '
+              apk add bash curl zip unzip
+              export SDKMAN_DIR="$HOME/.sdkman"
+              curl -s "https://get.sdkman.io?rcupdate=false" | bash
+              echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
+              echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
+              source "$HOME/.bashrc"
+              sdk version
+            '
 
       - run:
           name: Install sbt
           command: |
-            sdk install sbt
-            sbt --version
-
+            bash -c '
+              sdk install sbt
+              sbt --version
+            '
       - run:
           name: Compile tests
-          command: cat /dev/null | sbt test:compile
+          command:
+            bash -c '
+              cat /dev/null | sbt test:compile
+            '
 
       - save_cache:
           paths:
