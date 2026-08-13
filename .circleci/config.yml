@@ -25,9 +25,10 @@ jobs:
       - run:
           name: Install SDKMAN
           command: |
-            apk add bash curl zip unzip
+            apk add --no-cache bash curl zip unzip
             export SDKMAN_DIR="$HOME/.sdkman"
-            bash -c 'curl -s "https://get.sdkman.io?rcupdate=false" | bash'
+            curl -s "https://get.sdkman.io?rcupdate=false" -o /tmp/install-sdkman.sh
+            bash /tmp/install-sdkman.sh
             echo 'export SDKMAN_DIR="$HOME/.sdkman"' >> "$HOME/.bashrc"
             echo 'source "$SDKMAN_DIR/bin/sdkman-init.sh"' >> "$HOME/.bashrc"
             source "$HOME/.bashrc"
